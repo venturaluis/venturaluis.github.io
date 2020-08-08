@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/08/07/my-new-post/</loc>
+    <loc>http://linhost.info/2020/08/07/my-new-post/</loc>
     
     <lastmod>2020-08-08</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/08/07/hello-world/</loc>
+    <loc>http://linhost.info/2020/08/07/hello-world/</loc>
     
     <lastmod>2020-08-08</lastmod>
     
@@ -17,7 +17,7 @@
   
 
   <url>
-    <loc>http://yoursite.com/</loc>
+    <loc>http://linhost.info/</loc>
     <lastmod>2020-08-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>

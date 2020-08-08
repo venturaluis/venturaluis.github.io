@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://linhost.info/"/>
   <updated>2020-08-08T01:49:15.343Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://linhost.info/</id>
   
   <author>
     <name>John Doe</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>my new post</title>
-    <link href="http://yoursite.com/2020/08/07/my-new-post/"/>
-    <id>http://yoursite.com/2020/08/07/my-new-post/</id>
+    <link href="http://linhost.info/2020/08/07/my-new-post/"/>
+    <id>http://linhost.info/2020/08/07/my-new-post/</id>
     <published>2020-08-08T01:48:30.000Z</published>
     <updated>2020-08-08T01:49:15.343Z</updated>
     
@@ -41,8 +41,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/08/07/hello-world/"/>
-    <id>http://yoursite.com/2020/08/07/hello-world/</id>
+    <link href="http://linhost.info/2020/08/07/hello-world/"/>
+    <id>http://linhost.info/2020/08/07/hello-world/</id>
     <published>2020-08-08T01:45:44.383Z</published>
     <updated>2020-08-08T01:45:44.384Z</updated>
     
