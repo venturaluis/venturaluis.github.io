@@ -24,6 +24,13 @@
   </url>
 
   
+  <url>
+    <loc>http://linhost.info/tags/hexo/</loc>
+    <lastmod>2020-08-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
 </urlset>

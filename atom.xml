@@ -6,22 +6,22 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linhost.info/"/>
-  <updated>2020-08-08T01:49:15.343Z</updated>
+  <updated>2020-08-08T07:15:25.721Z</updated>
   <id>http://linhost.info/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Moody Gent</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>my new post</title>
+    <title>Testing</title>
     <link href="http://linhost.info/2020/08/07/my-new-post/"/>
     <id>http://linhost.info/2020/08/07/my-new-post/</id>
     <published>2020-08-08T01:48:30.000Z</published>
-    <updated>2020-08-08T01:49:15.343Z</updated>
+    <updated>2020-08-08T07:15:25.721Z</updated>
     
     <content type="html"><![CDATA[<p> Hexo static text output.</p>]]></content>
     
@@ -36,6 +36,8 @@
     </summary>
     
     
+    
+      <category term="hexo" scheme="http://linhost.info/tags/hexo/"/>
     
   </entry>
   
