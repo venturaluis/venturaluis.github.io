@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linhost.info/"/>
-  <updated>2020-08-08T07:15:25.721Z</updated>
+  <updated>2020-08-08T01:45:44.384Z</updated>
   <id>http://linhost.info/</id>
   
   <author>
@@ -15,31 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Testing</title>
-    <link href="http://linhost.info/2020/08/07/my-new-post/"/>
-    <id>http://linhost.info/2020/08/07/my-new-post/</id>
-    <published>2020-08-08T01:48:30.000Z</published>
-    <updated>2020-08-08T07:15:25.721Z</updated>
-    
-    <content type="html"><![CDATA[<p> Hexo static text output.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt; Hexo static text output.&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-    
-      <category term="hexo" scheme="http://linhost.info/tags/hexo/"/>
-    
-  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -59,116 +34,6 @@
     
     </summary>
     
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Untitled Post - 10</title>
-    <link href="http://linhost.info/2017/11/25/16799/"/>
-    <id>http://linhost.info/2017/11/25/16799/</id>
-    <published>2017-11-26T02:31:00.000Z</published>
-    <updated>2020-08-09T09:07:54.025Z</updated>
-    
-    <content type="html"><![CDATA[<p>Excuse the occasional hiccup I’m currently rebuilding the site.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Excuse the occasional hiccup I’m currently rebuilding the site.&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Untitled Post - 4</title>
-    <link href="http://linhost.info/2017/11/25/16793/"/>
-    <id>http://linhost.info/2017/11/25/16793/</id>
-    <published>2017-11-26T02:14:45.000Z</published>
-    <updated>2020-08-09T09:07:53.107Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Untitled Post - 1</title>
-    <link href="http://linhost.info/2017/11/25/16789/"/>
-    <id>http://linhost.info/2017/11/25/16789/</id>
-    <published>2017-11-26T02:14:45.000Z</published>
-    <updated>2020-08-09T09:07:53.099Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Untitled Post - 9</title>
-    <link href="http://linhost.info/2017/11/25/16798/"/>
-    <id>http://linhost.info/2017/11/25/16798/</id>
-    <published>2017-11-26T02:14:45.000Z</published>
-    <updated>2020-08-09T09:07:53.116Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Untitled Post - 5</title>
-    <link href="http://linhost.info/2017/11/25/16794/"/>
-    <id>http://linhost.info/2017/11/25/16794/</id>
-    <published>2017-11-26T02:14:45.000Z</published>
-    <updated>2020-08-09T09:07:53.109Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Home</title>
-    <link href="http://linhost.info/2017/11/25/home/"/>
-    <id>http://linhost.info/2017/11/25/home/</id>
-    <published>2017-11-26T02:14:45.000Z</published>
-    <updated>2020-08-09T09:07:53.097Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
     
     
   </entry>
@@ -424,7 +289,7 @@
     <published>2016-04-03T05:54:24.000Z</published>
     <updated>2020-08-09T09:07:54.010Z</updated>
     
-    <content type="html"><![CDATA[<p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p><h3 id="Key-Generation"><a href="#Key-Generation" class="headerlink" title="Key Generation"></a>Key Generation</h3><p>Use the <strong>ssh-keygen</strong> command to generate an RSA key pair. This step is almost automated for you just wait.</p><p>lventura@SF-DEV:~$ ssh-keygen -t rsa</p><p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p><p>lventura@HM-R:~/scripts $ ls ~/.ssh<br>authorized_keys  id_rsa  id_rsa.pub  known_hosts</p><p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p><p>lventura@SF-DEV:~$ scp ~/.ssh/id_rsa.pub <a href="mailto:&#x61;&#100;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#46;&#x31;&#48;&#48;&#x2e;&#x31;">&#x61;&#100;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#46;&#x31;&#48;&#48;&#x2e;&#x31;</a>:id_rsa.pub</p><p>Now log-in to RouterOS and import <strong>id_rsa.pub</strong> key we just uploaded. I’m importing a key for the user <strong>admin</strong> you can change this to the of any other user.</p><h3 id="RouterOS-Key-Import"><a href="#RouterOS-Key-Import" class="headerlink" title="RouterOS Key Import"></a>RouterOS Key Import</h3><p>[admin@HM-GW] &gt; /user ssh-keys import public-key-file=id_rsa.pub user=admin</p><p>Let’s view the user new SSH key.</p><p>[admin@HM-GW] &gt; /user ssh-keys print<br>Flags: R - RSA, D - DSA</p><h1 id="USER-BITS-KEY-OWNER"><a href="#USER-BITS-KEY-OWNER" class="headerlink" title="USER                       BITS KEY-OWNER"></a>USER                       BITS KEY-OWNER</h1><p> 0 R admin                      2048</p><h3 id="New-Key-Test"><a href="#New-Key-Test" class="headerlink" title="New Key Test"></a>New Key Test</h3><p>Using an SSH client with the new private SSH key attempt to log-in to RouterOS, if successful you shouldn’t be prompted for a password. <a href="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png"><img src="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png" alt="ssh-login"></a></p>]]></content>
+    <content type="html"><![CDATA[<p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p><h3 id="Key-Generation"><a href="#Key-Generation" class="headerlink" title="Key Generation"></a>Key Generation</h3><p>Use the <strong>ssh-keygen</strong> command to generate an RSA key pair. This step is almost automated for you just wait.</p><p>lventura@SF-DEV:~$ ssh-keygen -t rsa</p><p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p><p>lventura@HM-R:~/scripts $ ls ~/.ssh<br>authorized_keys  id_rsa  id_rsa.pub  known_hosts</p><p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p><p>lventura@SF-DEV:~$ scp ~/.ssh/id_rsa.pub <a href="mailto:&#97;&#100;&#x6d;&#x69;&#110;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#46;&#49;&#x30;&#48;&#x2e;&#49;">&#97;&#100;&#x6d;&#x69;&#110;&#x40;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#46;&#49;&#x30;&#48;&#x2e;&#49;</a>:id_rsa.pub</p><p>Now log-in to RouterOS and import <strong>id_rsa.pub</strong> key we just uploaded. I’m importing a key for the user <strong>admin</strong> you can change this to the of any other user.</p><h3 id="RouterOS-Key-Import"><a href="#RouterOS-Key-Import" class="headerlink" title="RouterOS Key Import"></a>RouterOS Key Import</h3><p>[admin@HM-GW] &gt; /user ssh-keys import public-key-file=id_rsa.pub user=admin</p><p>Let’s view the user new SSH key.</p><p>[admin@HM-GW] &gt; /user ssh-keys print<br>Flags: R - RSA, D - DSA</p><h1 id="USER-BITS-KEY-OWNER"><a href="#USER-BITS-KEY-OWNER" class="headerlink" title="USER                       BITS KEY-OWNER"></a>USER                       BITS KEY-OWNER</h1><p> 0 R admin                      2048</p><h3 id="New-Key-Test"><a href="#New-Key-Test" class="headerlink" title="New Key Test"></a>New Key Test</h3><p>Using an SSH client with the new private SSH key attempt to log-in to RouterOS, if successful you shouldn’t be prompted for a password. <a href="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png"><img src="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png" alt="ssh-login"></a></p>]]></content>
     
     <summary type="html">
     
@@ -461,6 +326,180 @@
     
     
       <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Xiaomi USB Type C Adapter - Convert Micro USB to Type-C</title>
+    <link href="http://linhost.info/2016/02/29/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/"/>
+    <id>http://linhost.info/2016/02/29/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/</id>
+    <published>2016-03-01T03:13:14.000Z</published>
+    <updated>2020-08-09T09:07:54.007Z</updated>
+    
+    <content type="html"><![CDATA[<p>Just a heads up if you are looking for a certified Micro USB to Type C adapter then I would recommend looking at the Xiaomi USB Type C Adapter they are a great way of converting the Micro USB cables you already have to Type C. The adapter works just fine with the Nexus 6P I have yet to see any problem after almost two months of use. <a href="http://www.geekbuying.com/item/Original-Xiaomi-Mi-USB-Type-C-To-Micro-USB-Adapter-Xiaomi-USB-Turn-Type-C-OTG-Adapter-Mobile-Phone-Cables-355450.html">I bought mine from Geekbuying</a> for under $2.oo USD. <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg" alt="wp-1456790651766.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg" alt="wp-1456790705443.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg" alt="wp-1456790715172.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg" alt="wp-1456790724740.jpg"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Just a heads up if you are looking for a certified Micro USB to Type C adapter then I would recommend looking at the Xiaomi USB Type C Ad
+      
+    
+    </summary>
+    
+    
+      <category term="Article" scheme="http://linhost.info/categories/Article/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Adding a Serial Port to the Raspberry Pi Zero</title>
+    <link href="http://linhost.info/2016/02/22/test/"/>
+    <id>http://linhost.info/2016/02/22/test/</id>
+    <published>2016-02-22T21:12:22.000Z</published>
+    <updated>2020-08-09T09:07:54.005Z</updated>
+    
+    <content type="html"><![CDATA[<p>The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of accessing the Pi Zero without having to plug a keyboard and HDMI connector and it frees the Micro USB port. There are many flavors of USB to RS232 adapters and one of them is <a href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2047675.m570.l1312.R1.TR0.TRC2.A0.H0.TRS5&_nkw=ch340&_sacat=0">CH340 eBay</a> which is affordable. Another adapter I like is the CP2102 you can find them on eBay. This are just recommendations in the end it’s your choice as to the one you choose.</p><h3 id="How-I-wire-my-Pi-Zero"><a href="#How-I-wire-my-Pi-Zero" class="headerlink" title="How I wire my Pi Zero"></a>How I wire my Pi Zero</h3><ul><li>The Raspberry Pi can be powered from the same 5V pin coming from the USB to RS232 adapter, I rather have the Zero use a dedicated PSU for stable power.</li></ul><h3 id="Wiring-the-Pi-Zero"><a href="#Wiring-the-Pi-Zero" class="headerlink" title="Wiring the Pi Zero"></a>Wiring the Pi Zero</h3><p><a href="https://pinout.xyz/">https://pinout.xyz/</a> Use the MicroSD slot as a reference point. On the Pi Zero you will make use of the following pins:</p><ul><li><strong>pin 6</strong> is ground(GND)</li><li><strong>pin 8</strong> is transmit(TXD)</li><li><strong>pin 10</strong> is receive(RXD)</li></ul><p><a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg" alt="image" title="wp-1456175762341"></a></p><h3 id="Wiring-the-USB-to-RS232"><a href="#Wiring-the-USB-to-RS232" class="headerlink" title="Wiring the USB to RS232"></a>Wiring the USB to RS232</h3><p>There might be a slight difference with your USB to RS232 adapter but I am certain it will be the same as below. Make sure to match wiring with those of the Pi Zero. <a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg" alt="image" title="wp-1456175769127"></a> On the terminal client of your choice use the COM port assigned to the USB adapter and baud rate of <strong>115200</strong>. <img src="https://linhost.info/wp-content/uploads/2016/02/PUTTY-115200.jpg"></p><h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><p>If you don’t see any output in the console make sure the TXD and RXD pins are in the correct position, otherwise swap them. <img src="https://linhost.info/wp-content/uploads/2016/02/COMMANDLINE-1.jpg"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited ava
+      
+    
+    </summary>
+    
+    
+      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
+    
+    
+      <category term="raspberry pi" scheme="http://linhost.info/tags/raspberry-pi/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>I&#39;m still around</title>
+    <link href="http://linhost.info/2016/02/15/im-still-around/"/>
+    <id>http://linhost.info/2016/02/15/im-still-around/</id>
+    <published>2016-02-15T22:28:13.000Z</published>
+    <updated>2020-08-09T09:07:54.003Z</updated>
+    
+    <content type="html"><![CDATA[<p>It’s been a while since I’ve posted to the blog not because I forgot about it but because it has been a busy few months. Expect content soon I promise. <a href="https://linhost.info/wp-content/uploads/2016/02/wp-1455575152952.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1455575152952.jpg" alt="image" title="wp-1455575152952"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;It’s been a while since I’ve posted to the blog not because I forgot about it but because it has been a busy few months. Expect content s
+      
+    
+    </summary>
+    
+    
+      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Update the Firmware on a Raspberry Pi</title>
+    <link href="http://linhost.info/2015/05/05/update-the-firmware-on-a-raspberry-pi/"/>
+    <id>http://linhost.info/2015/05/05/update-the-firmware-on-a-raspberry-pi/</id>
+    <published>2015-05-05T07:30:01.000Z</published>
+    <updated>2020-08-09T09:07:53.998Z</updated>
+    
+    <content type="html"><![CDATA[<p>Updating the Raspberry Pi firmware is easy thanks to a nice utility called rpi-update included by default in Raspbian but I’ve also included an extra step for those of us who use other distributions for the Raspberry Pi like Minibian(my favorite), Kali Linux, etc… Understand that rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. The three steps below are included because <strong>rpi-update</strong> is not included by default in other distributions. Update and upgrade the system. First update and upgrade the OS.</p><p>sudo apt-get update</p><p>sudo apt-get upgrade</p><p>Install <strong>rpi-config</strong> from the repository.</p><p>sudo apt-get install rpi-update</p><h3 id="Update-the-Firmware"><a href="#Update-the-Firmware" class="headerlink" title="Update the Firmware"></a>Update the Firmware</h3><p>Rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. Sit back and watch the process.</p><p>root@raspberrypi:~# sudo rpi-update</p><p>*** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom<br>*** Performing self-update<br>% Total % Received % Xferd Average Speed Time Time Time Current<br>Dload Upload Total Spent Left Speed<br>100 9823 100 9823 0 0 1837 0 0:00:05 0:00:05 –:–:– 34346<br>*** Relaunching after update<br>*** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom<br>*** We’re running for the first time<br>*** Backing up files (this will take a few minutes)<br>*** Backing up firmware<br>*** Backing up modules 3.18.7-v7+<br>*** Downloading specific firmware revision (this will take a few minutes)<br>% Total % Received % Xferd Average Speed Time Time Time Current<br>Dload Upload Total Spent Left Speed<br>100 168 0 168 0 0 419 0 –:–:– –:–:– –:–:– 585<br>100 46.1M 100 46.1M 0 0 448k 0 0:01:45 0:01:45 –:–:– 565k<br>*** Updating firmware<br>*** Updating kernel modules<br>*** depmod 3.18.11+<br>*** depmod 3.18.11-v7+<br>*** Updating VideoCore libraries<br>*** Using HardFP libraries<br>*** Updating SDK<br>*** Running ldconfig<br>*** Storing current firmware revision<br>*** Deleting downloaded files<br>*** Syncing changes to disk<br>*** If no errors appeared, your firmware was successfully updated to 5b0cbedacf45e111f02d925fa5b1cec9041fb279<br>*** A reboot is needed to activate the new firmware</p><p>Reboot the Raspberry Pi for the new firmware to take effect.</p><p>root@raspberrypi:~# sudo reboot</p><p>Let’s check again to see what the Raspberry Pi has to say about the new firmware.</p><p>root@raspberrypi:~# sudo rpi-update</p><p>*** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom<br>*** Performing self-update<br>% Total % Received % Xferd Average Speed Time Time Time Current<br>Dload Upload Total Spent Left Speed<br>100 9823 100 9823 0 0 54727 0 –:–:– –:–:– –:–:– 79861<br>*** Relaunching after update<br>*** Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom<br>*** Your firmware is already up to date</p><p>Your Raspberry Pi is now running the latest available firmware.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Updating the Raspberry Pi firmware is easy thanks to a nice utility called rpi-update included by default in Raspbian but I’ve also inclu
+      
+    
+    </summary>
+    
+    
+      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Expand the Root Partition in Kali Linux for the Raspberry Pi</title>
+    <link href="http://linhost.info/2015/05/04/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/"/>
+    <id>http://linhost.info/2015/05/04/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/</id>
+    <published>2015-05-04T07:14:06.000Z</published>
+    <updated>2020-08-09T09:07:53.999Z</updated>
+    
+    <content type="html"><![CDATA[<p>By default when Kali Linux for the Rapsberry Pi is installed the file system will only expand to occupy 3GB of storage, in my case I have a 16GB Micro SD card in my Raspberry Pi 2 with most of its capacity unused. One can easily expand the file system by making use of a script that automatically does the job for you. File system after install.</p><p>root@kali:~# df -h</p><p>Filesystem      Size  Used Avail Use% Mounted on<br>rootfs          2.9G  1.5G  1.2G  56% /<br>/dev/root       2.9G  1.5G  1.2G  56% /<br>devtmpfs        460M     0  460M   0% /dev<br>tmpfs            93M  468K   93M   1% /run<br>tmpfs           5.0M     0  5.0M   0% /run/lock<br>tmpfs           186M     0  186M   0% /run/shm</p><p>I should note I did not create the script and found it at the following address <a href="http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs">http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs</a> but it has proven useful. Download the script into the boot directory. Locally hosted.</p><p>root@kali:~# wget -O /boot/raspi-expand-rootfs.sh <a href="http://dl.linhost.info/file1/raspi-expand-rootfs.sh">http://dl.linhost.info/file1/raspi-expand-rootfs.sh</a></p><p>Now we make the script executable.</p><p>root@kali:~# chmod +x /boot/raspi-expand-rootfs.sh</p><p>And execute the script. Don’t be scared by the output.</p><p>root@kali:~# sh /boot/raspi-expand-rootfs.sh</p><p>Command (m for help):<br>Disk /dev/mmcblk0: 15.9 GB, 15931539456 bytes<br>4 heads, 16 sectors/track, 486192 cylinders, total 31116288 sectors<br>Units = sectors of 1 * 512 = 512 bytes<br>Sector size (logical/physical): 512 bytes / 512 bytes<br>I/O size (minimum/optimal): 512 bytes / 512 bytes<br>Disk identifier: 0x000697c0</p><pre><code>    Device Boot      Start         End      Blocks   Id  System</code></pre><p>/dev/mmcblk0p1               1      125000       62500    c  W95 FAT32 (LBA)<br>/dev/mmcblk0p2          125001     6143999     3009499+  83  Linux</p><p>Command (m for help): Partition number (1-4):<br>Command (m for help): Partition type:<br>   p   primary (1 primary, 0 extended, 3 free)<br>   e   extended<br>Select (default p): Partition number (1-4, default 2): First sector (125001-31116287, default 125001): Last sector, +sectors or +size{K,M,G} (125001-31116287, default 31116287): Using default value 31116287</p><p>Command (m for help):<br>Disk /dev/mmcblk0: 15.9 GB, 15931539456 bytes<br>4 heads, 16 sectors/track, 486192 cylinders, total 31116288 sectors<br>Units = sectors of 1 * 512 = 512 bytes<br>Sector size (logical/physical): 512 bytes / 512 bytes<br>I/O size (minimum/optimal): 512 bytes / 512 bytes<br>Disk identifier: 0x000697c0</p><pre><code>    Device Boot      Start         End      Blocks   Id  System</code></pre><p>/dev/mmcblk0p1               1      125000       62500    c  W95 FAT32 (LBA)<br>/dev/mmcblk0p2          125001    31116287    15495643+  83  Linux</p><p>Command (m for help): The partition table has been altered!</p><p>Calling ioctl() to re-read partition table.</p><p>WARNING: Re-reading the partition table failed with error 16: Device or resource busy.<br>The kernel still uses the old table. The new table will be used at<br>the next reboot or after you run partprobe(8) or kpartx(8)<br>Syncing disks.<br>update-rc.d: using dependency based boot sequencing<br>update-rc.d: warning: default start runlevel arguments (2 3 4 5) do not match resize2fs_once Default-Start values (2 3 4 5 S)<br>update-rc.d: warning: default stop runlevel arguments (0 1 6) do not match resize2fs_once Default-Stop values (none)<br>Root partition has been resized. The filesystem will be enlarged upon the next reboot</p><p>It is necessary to reboot the OS for the changes to take effect.</p><p>root@kali:~# reboot</p><p>Once again us the <strong>df</strong> command to verify the file system successfully expanded.</p><p>root@kali:~# df -h</p><p>Filesystem      Size  Used Avail Use% Mounted on<br>rootfs           15G  1.5G   13G  11% /<br>/dev/root        15G  1.5G   13G  11% /<br>devtmpfs        460M     0  460M   0% /dev<br>tmpfs            93M  468K   93M   1% /run<br>tmpfs           5.0M  4.0K  5.0M   1% /run/lock<br>tmpfs           186M     0  186M   0% /run/shm</p><p>If you like you can remove the script from the <strong>/boot</strong> directory.</p><p>root@kali:~# rm /boot/raspi-expand-rootfs.sh</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;By default when Kali Linux for the Rapsberry Pi is installed the file system will only expand to occupy 3GB of storage, in my case I have
+      
+    
+    </summary>
+    
+    
+      <category term="Article" scheme="http://linhost.info/categories/Article/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Auto Mount USB Drives in Raspbian</title>
+    <link href="http://linhost.info/2015/04/28/auto-mount-usb-drives-in-raspbian/"/>
+    <id>http://linhost.info/2015/04/28/auto-mount-usb-drives-in-raspbian/</id>
+    <published>2015-04-28T07:10:06.000Z</published>
+    <updated>2020-08-09T09:07:53.995Z</updated>
+    
+    <content type="html"><![CDATA[<p>Update and upgrade the Raspbian installation.</p><p>sudo apt-get update &amp;&amp; sudo apt-get upgrade</p><p>Install the package necessary to automatically mount USB drives.</p><p>sudo apt-get install usbmount</p><p>Now plug a USB drive and issue the <strong>df</strong> command to view all volumes. My USB drive was recognized <strong>/dev/sdb</strong> and mounted as <strong>/media/usb0</strong> by the system.</p><p>df -hT</p><p>pi@raspberrypi ~ $ df -hT<br>Filesystem     Type      Size  Used Avail Use% Mounted on<br>rootfs         rootfs    2.9G  2.6G  215M  93% /<br>/dev/root      ext4      2.9G  2.6G  215M  93% /<br>devtmpfs       devtmpfs  460M     0  460M   0% /dev<br>tmpfs          tmpfs      93M  256K   93M   1% /run<br>tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock<br>tmpfs          tmpfs     186M     0  186M   0% /run/shm<br>/dev/mmcblk0p1 vfat       56M   15M   42M  26% /boot<br>/dev/sdb1      vfat      2.0G  200M  1.8G  11% /media/usb0</p><p>To un-mount a volume make use of the <strong>df</strong> command above to discover the USB drive mount point and issue the <strong>unmount</strong> command as follows.</p><p>sudo umount /media/usb0</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Update and upgrade the Raspbian installation.&lt;/p&gt;
+&lt;p&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade&lt;/p&gt;
+&lt;p&gt;Install the package neces
+      
+    
+    </summary>
+    
+    
+      <category term="Article" scheme="http://linhost.info/categories/Article/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Upgrade Ubuntu 14.10 to 15.04</title>
+    <link href="http://linhost.info/2015/04/27/upgrade-ubuntu-14-10-to-15-04-2/"/>
+    <id>http://linhost.info/2015/04/27/upgrade-ubuntu-14-10-to-15-04-2/</id>
+    <published>2015-04-27T19:06:02.000Z</published>
+    <updated>2020-08-09T09:07:53.996Z</updated>
+    
+    <content type="html"><![CDATA[<p>You can view your version of Ubuntu with the following command.</p><p>lsb_release -a</p><p>user@ubuntu:~$ lsb_release -a<br>No LSB modules are available.<br>Distributor ID: Ubuntu<br>Description:    Ubuntu 14.10<br>Release:        14.10<br>Codename:       utopic</p><p>Update and upgrade the system.</p><p>sudo apt-get update</p><p>sudo apt-get upgrade</p><p>If not already installed, then install the <strong>update-manager-core</strong> package from the repository.</p><p>sudo apt-get install update-manager-core</p><p>Start the upgrade tool.</p><p>sudo do-release-upgrade</p><p>Now follow the prompts to complete the upgrade to Ubuntu 15.04. Read the instructions carefully. Verify the upgrade was successful with the help of the <strong>lsb_release</strong> command.</p><p>lsb_release -a</p><p>user@ubuntu:~$ lsb_release -a<br>No LSB modules are available.<br>Distributor ID: Ubuntu<br>Description:    Ubuntu 15.04<br>Release:        15.04<br>Codename:       vivid</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;You can view your version of Ubuntu with the following command.&lt;/p&gt;
+&lt;p&gt;lsb_release -a&lt;/p&gt;
+&lt;p&gt;user@ubuntu:~$ lsb_release -a&lt;br&gt;No LSB modu
+      
+    
+    </summary>
+    
+    
+      <category term="Article" scheme="http://linhost.info/categories/Article/"/>
     
     
   </entry>
