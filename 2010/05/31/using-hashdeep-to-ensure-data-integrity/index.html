@@ -1,22 +1,74 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Using Hashdeep To Ensure Data Integrity | Linhost.info</title><meta name="description" content="Using Hashdeep To Ensure Data Integrity - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Using Hashdeep To Ensure Data Integrity</h1><div class="post-info"><a></a>2010-05-31</div><div class="post-content"><p>On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of <a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/">hashdeep</a>. As expected with hashdeep you can: recurse entire directories, perform matching, audit known hashes. Hashdeep grants auditing capabilities to the administrator. <strong>Official Hashdeep description</strong></p>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of hashdeep. As expected with hashdeep you can: recurse entire directories, perform matching, a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Hashdeep To Ensure Data Integrity">
+<meta property="og:url" content="http://linhost.info/2010/05/31/using-hashdeep-to-ensure-data-integrity/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of hashdeep. As expected with hashdeep you can: recurse entire directories, perform matching, a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-05-31T11:24:16.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.617Z">
+<meta property="article:author" content="Moody Gent">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="md5">
+<meta property="article:tag" content="data integrity">
+<meta property="article:tag" content="hashdeep">
+<meta property="article:tag" content="sha256">
+<meta name="twitter:card" content="summary"><title>Using Hashdeep To Ensure Data Integrity | Linhost.info</title><link ref="canonical" href="http://linhost.info/2010/05/31/using-hashdeep-to-ensure-data-integrity/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-12345678-9" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-12345678-9');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about"><span class="header-nav-menu-item__text">menu.About</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" target="_blank" rel="noopener" href="https://github.com/"><span class="header-nav-menu-item__text">menu.GitHub</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Using Hashdeep To Ensure Data Integrity</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-05-31</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/" >hashdeep</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. As expected with hashdeep you can: recurse entire directories, perform matching, audit known hashes. Hashdeep grants auditing capabilities to the administrator. <strong>Official Hashdeep description</strong></p>
 <blockquote>
 <p>Computes multiple hashes, or message digests, for any number of files while optionally recursively digging through the directory structure. By default the program computes MD5 and SHA-256 hashes, equivalent to -c md5,sha256. Can also take a list of known hashes and display the filenames of input files whose hashes either do or do not match any of the known hashes. Can also use a list of known hashes to audit a set of FILES. Errors are reported to standard error. If no FILES are specified, reads from standard input.</p>
 </blockquote>
 <p>Hashdeep is the indicated tool if you need to recurse entire directories, I have personally hashed directories as large as 300GB without any problems.</p>
-<h2 id="Recursive-directory-hashing"><a href="#Recursive-directory-hashing" class="headerlink" title="Recursive directory hashing"></a>Recursive directory hashing</h2><p>The most common use, hashdeep can recurse a directory and output the results to a text file(<em>you can change the extension</em>). The <strong>-e</strong> parameter is optional.</p>
+
+        <h2 id="Recursive-directory-hashing"   >
+          <a href="#Recursive-directory-hashing" class="heading-link"><i class="fas fa-link"></i></a>Recursive directory hashing</h2>
+      <p>The most common use, hashdeep can recurse a directory and output the results to a text file(<em>you can change the extension</em>). The <strong>-e</strong> parameter is optional.</p>
 <p>hashdeep -e -r directory_name/ &gt; output.txt</p>
 <ul>
 <li><strong>-r</strong> Recursive mode</li>
 <li><strong>-e</strong> Estimate time</li>
 </ul>
-<h2 id="Recursive-drive-hashing"><a href="#Recursive-drive-hashing" class="headerlink" title="Recursive drive hashing"></a>Recursive drive hashing</h2><p>Or if you wish you can hash an entire drive.</p>
+
+        <h2 id="Recursive-drive-hashing"   >
+          <a href="#Recursive-drive-hashing" class="heading-link"><i class="fas fa-link"></i></a>Recursive drive hashing</h2>
+      <p>Or if you wish you can hash an entire drive.</p>
 <p>hashdeep -r G:</p>
 <ul>
 <li><strong>-r</strong> Recursive mode</li>
 <li><strong>G:</strong> Name of the drive</li>
 </ul>
-<h2 id="Perform-an-audit-using-a-list-of-known-hashes-simple-form"><a href="#Perform-an-audit-using-a-list-of-known-hashes-simple-form" class="headerlink" title="Perform an audit using a list of known hashes (simple form)"></a>Perform an audit using a list of known hashes (simple form)</h2><p>Once you have a list of known hashes you can perform an audit of a directory to see if any changes where made.</p>
+
+        <h2 id="Perform-an-audit-using-a-list-of-known-hashes-simple-form"   >
+          <a href="#Perform-an-audit-using-a-list-of-known-hashes-simple-form" class="heading-link"><i class="fas fa-link"></i></a>Perform an audit using a list of known hashes (simple form)</h2>
+      <p>Once you have a list of known hashes you can perform an audit of a directory to see if any changes where made.</p>
 <p>hashdeep -r -a -k output.txt dir</p>
 <ul>
 <li><strong>-r</strong> Recursive mode</li>
@@ -27,7 +79,10 @@
 </ul>
 <p>For this example some files where changed, which resulted in a failed audit.</p>
 <p>hashdeep: Audit failed</p>
-<h2 id="Perform-an-audit-using-a-list-of-known-hashes-advanced-form"><a href="#Perform-an-audit-using-a-list-of-known-hashes-advanced-form" class="headerlink" title="Perform an audit using a list of known hashes (advanced form)"></a>Perform an audit using a list of known hashes (advanced form)</h2><p>This option will give detailed information about the audit.</p>
+
+        <h2 id="Perform-an-audit-using-a-list-of-known-hashes-advanced-form"   >
+          <a href="#Perform-an-audit-using-a-list-of-known-hashes-advanced-form" class="heading-link"><i class="fas fa-link"></i></a>Perform an audit using a list of known hashes (advanced form)</h2>
+      <p>This option will give detailed information about the audit.</p>
 <p>hashdeep -v -r -a -k output.txt dir</p>
 <ul>
 <li><strong>-v</strong> Verobose mode</li>
@@ -38,7 +93,10 @@
 <li><strong>dir</strong> Name of the directory in question</li>
 </ul>
 <p>hashdeep: Audit failed<br>          Files matched: 41<br>Files paritally matched: 0<br>            Files moved: 0<br>        New files found: 1<br>  Known files not found: 1</p>
-<h2 id="Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list"><a href="#Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list" class="headerlink" title="Audit a list of known hashes and display the hash and location of those that failed to math against the list"></a>Audit a list of known hashes and display the hash and location of those that failed to math against the list</h2><p>This option will give you the name name, location, and hash of those files that failed to pass the audit.</p>
+
+        <h2 id="Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list"   >
+          <a href="#Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list" class="heading-link"><i class="fas fa-link"></i></a>Audit a list of known hashes and display the hash and location of those that failed to math against the list</h2>
+      <p>This option will give you the name name, location, and hash of those files that failed to pass the audit.</p>
 <p>hashdeep -r -X -v -k output.txt dir</p>
 <ul>
 <li><strong>-r</strong> Recursive mode</li>
@@ -49,13 +107,18 @@
 <li><strong>dir</strong> Name of the directory in question</li>
 </ul>
 <p>%%%% HASHDEEP-1.0<br>%%%% size,md5,sha256,filename</p>
-<h2 id="Invoked-from-C-UsersLuisDesktop"><a href="#Invoked-from-C-UsersLuisDesktop" class="headerlink" title="Invoked from: C:UsersLuisDesktop"></a>Invoked from: C:UsersLuisDesktop</h2><h2 id="C-gt-hashdeep-r-X-v-k-output-txt-dir"><a href="#C-gt-hashdeep-r-X-v-k-output-txt-dir" class="headerlink" title="C:&gt; hashdeep -r -X -v -k output.txt dir"></a>C:&gt; hashdeep -r -X -v -k output.txt dir</h2><p>##<br>6,dcd989387b401ac29bf44755f31c0952,5a3edf2142ffde0b2d9803d845c795c24bfdd610d2b9d68408f5207d47e11b4a,C:UsersLuisDesktopdirNew Text Document - Copy (10).txt</p>
-</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/06/03/where-is-my-vmware-workstation-license-key-stored/">prev</a><a class="next" href="/2010/05/27/recuva-file-recovery-made-easy/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-12345678-9']);
-_gaq.push(['_trackPageview']);
 
-(function () {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script></body></html>
+        <h2 id="Invoked-from-C-UsersLuisDesktop"   >
+          <a href="#Invoked-from-C-UsersLuisDesktop" class="heading-link"><i class="fas fa-link"></i></a>Invoked from: C:UsersLuisDesktop</h2>
+      
+        <h2 id="C-gt-hashdeep-r-X-v-k-output-txt-dir"   >
+          <a href="#C-gt-hashdeep-r-X-v-k-output-txt-dir" class="heading-link"><i class="fas fa-link"></i></a>C:&gt; hashdeep -r -X -v -k output.txt dir</h2>
+      <p>##<br>6,dcd989387b401ac29bf44755f31c0952,5a3edf2142ffde0b2d9803d845c795c24bfdd610d2b9d68408f5207d47e11b4a,C:UsersLuisDesktopdirNew Text Document - Copy (10).txt</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Moody Gent</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2010/05/31/using-hashdeep-to-ensure-data-integrity/">http://linhost.info/2010/05/31/using-hashdeep-to-ensure-data-integrity/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/security/">security</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/md5/">md5</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/data-integrity/">data integrity</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/hashdeep/">hashdeep</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/sha256/">sha256</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2010/06/03/where-is-my-vmware-workstation-license-key-stored/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Where Is My VMware Workstation License Key Stored ?</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2010/05/27/recuva-file-recovery-made-easy/"><span class="paginator-prev__text">Recuva: File Recovery Made Easy</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Recursive-directory-hashing"><span class="toc-number">1.</span> <span class="toc-text">
+          Recursive directory hashing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Recursive-drive-hashing"><span class="toc-number">2.</span> <span class="toc-text">
+          Recursive drive hashing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perform-an-audit-using-a-list-of-known-hashes-simple-form"><span class="toc-number">3.</span> <span class="toc-text">
+          Perform an audit using a list of known hashes (simple form)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Perform-an-audit-using-a-list-of-known-hashes-advanced-form"><span class="toc-number">4.</span> <span class="toc-text">
+          Perform an audit using a list of known hashes (advanced form)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list"><span class="toc-number">5.</span> <span class="toc-text">
+          Audit a list of known hashes and display the hash and location of those that failed to math against the list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Invoked-from-C-UsersLuisDesktop"><span class="toc-number">6.</span> <span class="toc-text">
+          Invoked from: C:UsersLuisDesktop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-gt-hashdeep-r-X-v-k-output-txt-dir"><span class="toc-number">7.</span> <span class="toc-text">
+          C:&gt; hashdeep -r -X -v -k output.txt dir</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">357</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Moody Gent</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

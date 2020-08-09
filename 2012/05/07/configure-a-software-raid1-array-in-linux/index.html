@@ -1,25 +1,79 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Configure Software RAID1 Array In Linux | Linhost.info</title><meta name="description" content="Configure Software RAID1 Array In Linux - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Configure Software RAID1 Array In Linux</h1><div class="post-info"><a></a>2012-05-07</div><div class="post-content"><p>Before we start you should know this tutorial assumes two things:</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below will be performed with Root privileges or similar.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure Software RAID1 Array In Linux">
+<meta property="og:url" content="http://linhost.info/2012/05/07/configure-a-software-raid1-array-in-linux/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below will be performed with Root privileges or similar.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-05-07T09:00:29.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.813Z">
+<meta property="article:author" content="Moody Gent">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="mdadm">
+<meta property="article:tag" content="raid 1">
+<meta name="twitter:card" content="summary"><title>Configure Software RAID1 Array In Linux | Linhost.info</title><link ref="canonical" href="http://linhost.info/2012/05/07/configure-a-software-raid1-array-in-linux/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-12345678-9" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-12345678-9');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/about"><span class="header-nav-menu-item__text">menu.About</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" target="_blank" rel="noopener" href="https://github.com/"><span class="header-nav-menu-item__text">menu.GitHub</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Configure Software RAID1 Array In Linux</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-05-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>Before we start you should know this tutorial assumes two things:</p>
 <ul>
 <li>First - System were MDADM will be running is up to date</li>
 <li>Second - Every step below will be performed with Root privileges or similar.</li>
 </ul>
-<h3 id="How-Many-Drives-Are-Available"><a href="#How-Many-Drives-Are-Available" class="headerlink" title="How Many Drives Are Available ?"></a>How Many Drives Are Available ?</h3><p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
+
+        <h3 id="How-Many-Drives-Are-Available"   >
+          <a href="#How-Many-Drives-Are-Available" class="heading-link"><i class="fas fa-link"></i></a>How Many Drives Are Available ?</h3>
+      <p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
 <p>ls /dev/sd*</p>
 <p>user@ubuntu:~$ ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdc  /dev/sdd</p>
 <p>Listed are five drives, <strong>/sda /1 /2</strong> contain the Operating System, <strong>/sdb</strong> and <strong>/sdc</strong> are empty and will be used to create the RAID1 array, <strong>/sdd</strong> can be left alone or used as a hot-spare.</p>
-<h3 id="Drive-Prepartions"><a href="#Drive-Prepartions" class="headerlink" title="Drive Prepartions"></a>Drive Prepartions</h3><p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
+
+        <h3 id="Drive-Prepartions"   >
+          <a href="#Drive-Prepartions" class="heading-link"><i class="fas fa-link"></i></a>Drive Prepartions</h3>
+      <p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
 <p>root@ubuntu:~# fdisk /dev/sdb</p>
 <p>Command (m for help): n<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): p<br>Partition number (1-4, default 1): 1<br>First sector (2048-251658239, default 2048):<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-251658239, default 251658239):<br>Using default value 251658239</p>
 <p>Command (m for help): t<br>Selected partition 1<br>Hex code (type L to list codes): fd<br>Changed system type of partition 1 to fd (Linux raid autodetect)</p>
 <p>Command (m for help): w<br>The partition table has been altered!</p>
 <p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
 <p><em>If you prefer a graphical interface, GParted is a good alternative to fdisk.</em></p>
-<h3 id="Is-MDADM-Installed-In-The-System"><a href="#Is-MDADM-Installed-In-The-System" class="headerlink" title="Is MDADM Installed In The System?"></a>Is MDADM Installed In The System?</h3><p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
+
+        <h3 id="Is-MDADM-Installed-In-The-System"   >
+          <a href="#Is-MDADM-Installed-In-The-System" class="heading-link"><i class="fas fa-link"></i></a>Is MDADM Installed In The System?</h3>
+      <p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
 <p>yum install mdadm</p>
 <p>Debian and derivatives you can use.</p>
 <p>apt-get install mdadm</p>
-<h3 id="Array-Creation"><a href="#Array-Creation" class="headerlink" title="Array Creation"></a>Array Creation</h3><p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
+
+        <h3 id="Array-Creation"   >
+          <a href="#Array-Creation" class="heading-link"><i class="fas fa-link"></i></a>Array Creation</h3>
+      <p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
 <p>mdadm –create /dev/md0 –level=1 –raid-devices=2 /dev/sdb1 /dev/sdc1</p>
 <ul>
 <li><p>/dev/md0</p>
@@ -51,9 +105,15 @@ Number   Major   Minor   RaidDevice State
 <p>root@ubuntu:~# cat /proc/mdstat<br>Personalities : [raid1]<br>md0 : active raid1 sdc1[1] sdb1[0]<br>      125827000 blocks super 1.2 [2/2] [UU]<br>      [&gt;………………..]  resync =  3.8% (4838272/125827000) finish=30.7min speed=65591K/sec</p>
 <p>unused devices: </p>
 <p>Grab a cup of coffee or a beer it might take a while before the operation completes.</p>
-<h3 id="Format-The-Array"><a href="#Format-The-Array" class="headerlink" title="Format The Array"></a>Format The Array</h3><p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
+
+        <h3 id="Format-The-Array"   >
+          <a href="#Format-The-Array" class="heading-link"><i class="fas fa-link"></i></a>Format The Array</h3>
+      <p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
 <p>mkfs -t ext3 /dev/md0</p>
-<h3 id="Mount-The-New-Array"><a href="#Mount-The-New-Array" class="headerlink" title="Mount The New Array"></a>Mount The New Array</h3><p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
+
+        <h3 id="Mount-The-New-Array"   >
+          <a href="#Mount-The-New-Array" class="heading-link"><i class="fas fa-link"></i></a>Mount The New Array</h3>
+      <p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
 <p>mkdir /media/volume0</p>
 <p>Now provide the path to the array and path to the directory we create in the previous step.</p>
 <p>mount /dev/md0 /media/volume0</p>
@@ -65,16 +125,30 @@ Number   Major   Minor   RaidDevice State
 <p>echo ‘/dev/md0 /media/volume0 ext3 noatime,rw 0 0’ &gt;&gt; /etc/fstab</p>
 <p>Let’s see if our new entry is in the <strong>/etc/fstab</strong> file.</p>
 <p>[root@iou ~]# cat /etc/fstab<br>#</p>
-<h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="headerlink" title="Created by anaconda on Thu Mar 22 20:41:14 2012"></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1><p>#</p>
-<h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"><a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="headerlink" title="Accessible filesystems, by reference, are maintained under ‘/dev/disk’"></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1><h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="headerlink" title="See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info"></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1><p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
+
+        <h1 id="etc-fstab"   >
+          <a href="#etc-fstab" class="heading-link"><i class="fas fa-link"></i></a>/etc/fstab</h1>
+      
+        <h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"   >
+          <a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="heading-link"><i class="fas fa-link"></i></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1>
+      <p>#</p>
+
+        <h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"   >
+          <a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="heading-link"><i class="fas fa-link"></i></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1>
+      
+        <h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"   >
+          <a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="heading-link"><i class="fas fa-link"></i></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1>
+      <p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
 <p>/dev/md0 /media/volume0 ext3 noatime,rw 0 0</p>
 <p>There it is, now our array should be mount it every time we start the system. If you have questions or suggestion on how this tutorial could be improved leave a comment below, thank you.</p>
-</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/05/09/configure-ubuntu-to-serve-as-an-iscsi-target/">prev</a><a class="next" href="/2012/05/06/site-update-domain-migration/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-12345678-9']);
-_gaq.push(['_trackPageview']);
-
-(function () {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();</script></body></html>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Moody Gent</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2012/05/07/configure-a-software-raid1-array-in-linux/">http://linhost.info/2012/05/07/configure-a-software-raid1-array-in-linux/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/centos/">centos</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/linux/">linux</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/mdadm/">mdadm</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/raid-1/">raid 1</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2012/05/09/configure-ubuntu-to-serve-as-an-iscsi-target/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Configure Ubuntu To Serve As An iSCSI Target</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2012/05/06/site-update-domain-migration/"><span class="paginator-prev__text">Site Update: Domain Migration</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-Many-Drives-Are-Available"><span class="toc-number">1.</span> <span class="toc-text">
+          How Many Drives Are Available ?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Drive-Prepartions"><span class="toc-number">2.</span> <span class="toc-text">
+          Drive Prepartions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Is-MDADM-Installed-In-The-System"><span class="toc-number">3.</span> <span class="toc-text">
+          Is MDADM Installed In The System?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array-Creation"><span class="toc-number">4.</span> <span class="toc-text">
+          Array Creation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Format-The-Array"><span class="toc-number">5.</span> <span class="toc-text">
+          Format The Array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mount-The-New-Array"><span class="toc-number">6.</span> <span class="toc-text">
+          Mount The New Array</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#etc-fstab"><span class="toc-number"></span> <span class="toc-text">
+          &#x2F;etc&#x2F;fstab</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><span class="toc-number"></span> <span class="toc-text">
+          Created by anaconda on Thu Mar 22 20:41:14 2012</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Accessible-filesystems-by-reference-are-maintained-under-%E2%80%98-dev-disk%E2%80%99"><span class="toc-number"></span> <span class="toc-text">
+          Accessible filesystems, by reference, are maintained under ‘&#x2F;dev&#x2F;disk’</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><span class="toc-number"></span> <span class="toc-text">
+          See man pages fstab(5), findfs(8), mount(8) and&#x2F;or blkid(8) for more info</span></a></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">357</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Moody Gent</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
