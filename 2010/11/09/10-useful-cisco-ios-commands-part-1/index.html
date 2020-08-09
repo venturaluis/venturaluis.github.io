@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>10 Useful Cisco IOS Commands - Part 1 | Linhost.info</title><meta name="description" content="10 Useful Cisco IOS Commands - Part 1 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">10 Useful Cisco IOS Commands - Part 1</h1><div class="post-info"><a></a>2010-11-09</div><div class="post-content"><p>This is not a complete list of all the commands found in the Cisco IOS, instead I intend this page to be a simple reference of the commands I frequently come across when working with Cisco products. Although, I tried to write a description for most of the commands found below some of them are self explanatory. <strong>Schedule Router to Reload in X amount of minutes:</strong> You can schedule a Cisco device to reload at a predetermined amount of time. The example below will reload a router in 25 minutes.</p>
+<p>Router# reload in 25</p>
+<p>System configuration has been modified. Save? [yes/no]: yes<br>Building configuration…<br>[OK]<br>Reload scheduled in 25 minutes by console<br>Reload reason: Reload Command<br>Proceed with reload? [confirm]</p>
+<p><strong>To cancel the reload just issue:</strong></p>
+<p>Router# reload cancel</p>
+<p>Router#</p>
+<p>***<br>*** — SHUTDOWN ABORTED —<br>***</p>
+<p><strong>Display CPU load:</strong></p>
+<p>Router# show proc cpu</p>
+<p>CPU utilization for five seconds: 0%/0%; one minute: 0%; five minutes: 0%<br> PID Runtime(ms)   Invoked      uSecs   5Sec   1Min   5Min TTY Process<br>   1           0         2          0  0.00%  0.00%  0.00%   0 Chunk Manager<br>   2           4       192         20  0.00%  0.00%  0.00%   0 Load Meter<br>   3           0         1          0  0.00%  0.00%  0.00%   0 chkpt message ha<br>   4           0         1          0  0.00%  0.00%  0.00%   0 EDDRI_MAIN</p>
+<p><strong>Display available memory:</strong></p>
+<p>Router# show proc mem</p>
+<p>Processor Pool Total:  162187652 Used:   20502480 Free:  141685172<br>      I/O Pool Total:   16777216 Used:    2831648 Free:   13945568<br>Transient Pool Total:   16777216 Used:      16584 Free:   16760632</p>
+<p> PID TTY  Allocated      Freed    Holding    Getbufs    Retbufs Process<br>   0   0   28163076    6754612   19372876        351         84 *Init*<br>   0   0      12052      79384      12052          0          0 *Sched*</p>
+<p><strong>Clear interface configuration:</strong> Clear a specific interface of all configuration and return to a default state.</p>
+<p>Router(config)# default interface fastEthernet 0/0</p>
+<p>Building configuration…</p>
+<p>Interface FastEthernet0/0 set to default configuration</p>
+<p><strong>Change hostname:</strong></p>
+<p>Router(config)# hostname R12BNY</p>
+<p><strong>Disable host to IP translation:</strong> While harmless frequent “<em>Translating…. domain server (255.255.255.255)</em>“ messages can result in waste of valuable time. The logical solution is to disable Host to IP Address Translation. After disabling the message will no longer appear.</p>
+<p>Router(config)# no ip domain-lookup</p>
+<p><strong>Test network throughput with TTCP:</strong> TTCP is hidden IOS command designed to measure network throughput. In order to use TTCP you need to configure a sender and a receiver. Keep in mind this will result in increased Router load.</p>
+<p>R2# ttcp transmit 192.168.1.1</p>
+<p>ttcp-t: buflen=8192, nbuf=2048, align=16384/0, port=5001  tcp  -&gt; 192.168.1.1<br>ttcp-t: connect (mss 1460, sndwnd 4128, rcvwnd 4128)<br>ttcp-t: 16777216 bytes in 75696 ms (75.696 real seconds) (~215 kB/s) +++<br>ttcp-t: 2048 I/O calls<br>ttcp-t: 0 sleeps (0 ms total) (0 ms average)</p>
+<p>R1# ttcp receive</p>
+<p>ttcp-r: buflen=8192, align=16384/0, port=5001<br>rcvwndsize=0, delayedack=yes  tcp<br>ttcp-r: accept from 192.168.1.2 (mss 1460, sndwnd 4128, rcvwnd 2668)<br>ttcp-r: 16777216 bytes in 75696 ms (75.696 real seconds) (~215 kB/s) +++<br>ttcp-r: 8330 I/O calls<br>ttcp-r: 0 sleeps (0 ms total) (0 ms average)</p>
+<p><strong>Banner MOTD:</strong> Change the message with which users will be greeted when logging in.</p>
+<p>Router(config)# banner motd #</p>
+<p>Enter TEXT message.  End with the character ‘#’.<br>You are entering the vicinity of an area adjacent to a location. The kind of place where there might be a monster,<br>or some kind of weird mirror. These are just examples; it could also be something much better.<br>Prepare to enter: The Scary Door.<br>#</p>
+<p><strong>Display IOS version:</strong></p>
+<p>Router# show version</p>
+<p>Cisco IOS Software, 7200 Software (C7200-JK9S-M), Version 12.4(13b), RELEASE SOFTWARE (fc3)<br>Technical Support: <a target="_blank" rel="noopener" href="http://www.cisco.com/techsupport">http://www.cisco.com/techsupport</a><br>Copyright (c) 1986-2007 by Cisco Systems, Inc.<br>Compiled Wed 25-Apr-07 03:18 by prod_rel_team</p>
+<p>ROM: ROMMON Emulation Microcode<br>BOOTLDR: 7200 Software (C7200-JK9S-M), Version 12.4(13b), RELEASE SOFTWARE (fc3)</p>
+<p><strong>Disable Cisco Discovery Protocol (CDP):</strong> CDP allows a Cisco device to see an adjacent Cisco device along with the protocols and IP addresses it uses. While useful CDP is considered by some to be a risk because it provides information to potential attackers.</p>
+<p>Router(config)# no cdp run</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/11/22/disable-nvidia-nvprofile-annoying-shortcut/">prev</a><a class="next" href="/2010/11/04/review-bytecc-bt-db925-usb-to-serial/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

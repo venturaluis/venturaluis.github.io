@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Mikrotik - Upgrade RouterOS from the Command Line | Linhost.info</title><meta name="description" content="Mikrotik - Upgrade RouterOS from the Command Line - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mikrotik - Upgrade RouterOS from the Command Line</h1><div class="post-info"><a></a>2016-03-27</div><div class="post-content"><p>My Mikrotik router was running version 6.30 which I needed to update to version 6.31 in order to support RSA keys. I found updating the router from the command line to be quite easy an straight forward. it only requires a few commands and requires little user input. I know of two ways to view the current running firmware. My hAP at the time it arrived was running RouterOS version 6.30.4.</p>
+<p>[admin@HM-GW] /system resource&gt; print</p>
+<pre><code>               uptime: 14h43m39s
+              version: 6.30.4
+           build-time: Aug/25/2015 12:59:46
+          free-memory: 41.0MiB
+         total-memory: 64.0MiB
+                  cpu: MIPS 24Kc V7.4
+            cpu-count: 1
+        cpu-frequency: 650MHz
+             cpu-load: 3%
+       free-hdd-space: 4.8MiB
+      total-hdd-space: 16.0MiB</code></pre>
+<p>  write-sect-since-reboot: 691<br>         write-sect-total: 5566<br>               bad-blocks: 0%<br>        architecture-name: mipsbe<br>               board-name: hAP ac lite<br>                 platform: MikroTik</p>
+<p>Making use of the <strong>/system package update check-for-updates</strong> we can also view the running version and latest available version of RouterOS for download.</p>
+<p>[admin@HM-GW] /system package update&gt; check-for-updates</p>
+<p>   current-version: 6.30.4<br>   latest-version: 6.34.3</p>
+<p>Now that we know there is an available update we tell the router to download and install. The router will reboot.</p>
+<p>[admin@HM-GW] /system package update&gt; download</p>
+<pre><code>      channel: current</code></pre>
+<p>  current-version: 6.34.3<br>   latest-version: 6.34.4<br>           status: Downloaded, please reboot router to upgrade it</p>
+<p>Reboot for the changes to take effect.</p>
+<p>[admin@HM-GW] /system package update&gt; /system reboot</p>
+<p>You will be asked for confirmation prior to rebooting.</p>
+<p>Reboot, yes? [y/N]:<br>y<br>system will reboot shortly</p>
+<p>Installing the new firmware took less than a minute. Let’s check again and see what version of RouterOS is currently running.</p>
+<p>[admin@HM-GW] /system package update&gt; check-for-updates</p>
+<pre><code>      channel: current</code></pre>
+<p>  current-version: 6.34.3<br>   latest-version: 6.34.3<br>           status: System is already up to date</p>
+<p>We are done and the system is now updated to the latest available firmware. Fairly easy and painless to update RouterOS. <em>4/8/2016 - Corrected grammatical error. Thank you for pointing it out.</em></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/04/02/mikrotik-routeros-ssh-public-key-authentication/">prev</a><a class="next" href="/2016/02/29/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

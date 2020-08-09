@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Install VMware Server 1.0.6 On Ubuntu 8.04 | Linhost.info</title><meta name="description" content="Install VMware Server 1.0.6 On Ubuntu 8.04 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Install VMware Server 1.0.6 On Ubuntu 8.04</h1><div class="post-info"><a></a>2008-06-05</div><div class="post-content"><p><strong>Update - If your version of VMWare server fails to start after a regular kernel upgrade you have to re-run the <a href="http://linhost.info/?p=124">vmware-config.pl.</a></strong> VMware Server 1.0.6 will not work out of the box with Ubuntu 8.04, in this how-to I will use the normal installation procedure but with a few tweaks at the end to make it work with Ubuntu 8.04. Download <a target="_blank" rel="noopener" href="http://www.vmware.com/products/server/">VMware server</a>, I prefer to download the tar.gz for Linux or you can use wget.</p>
+<blockquote>
+<p>wget -c <a target="_blank" rel="noopener" href="http://download3.vmware.com/software/vmserver/VMware-server-1.0.6-91891.tar.gz">http://download3.vmware.com/software/vmserver/VMware-server-1.0.6-91891.tar.gz</a></p>
+</blockquote>
+<p>Then request your serial number by completing the form, the serial number is required during the installation.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://register.vmware.com/content/registration.html">http://register.vmware.com/content/registration.html</a></p>
+</blockquote>
+<p>Install the development tools needed to complete the installation.</p>
+<blockquote>
+<p>sudo aptitude install build-essential linux-kernel-devel linux-headers-generic xinetd</p>
+</blockquote>
+<p>Untar the archive, the version may vary.</p>
+<blockquote>
+<p>tar xf VMware-server-1.0.6-91891.tar.gz</p>
+</blockquote>
+<p>Move in to the recently created directory named “vmware-server-distrib”.</p>
+<blockquote>
+<p>cd vmware-server-distrib</p>
+</blockquote>
+<p>Use sudo to invoke the installer and complete the installation like always.</p>
+<blockquote>
+<p>sudo ./vmware-install.pl</p>
+</blockquote>
+<p>Now if you try to run VMware Server it will either give you error messages or not start all, the solution is to bring in the cairo libraries and gcc redirect by means of a simlink.</p>
+<blockquote>
+<p>sudo ln -sf /usr/lib/gcc/i486-linux-gnu/4.2.3/libgcc_s.so /usr/lib/vmware/lib/libgcc_s.so.1/libgcc_s.so.1</p>
+</blockquote>
+<blockquote>
+<p>sudo ln -sf /usr/lib/libpng12.so.0 /usr/lib/vmware/lib/libpng12.so.0/libpng12.so.0</p>
+</blockquote>
+<p>Now VMware Server should be able to start without a problem, if it helps you let me know. <strong>Note*</strong> After moving from VMware Player to VMware Server I noticed the following error when trying to run some of my virtual machines. <em>Unable to add virtual machine “/home/ls354/VM/xp/Clone of Windows XP Home Edition.VMX” to the inventory: Configuration file was created by a VMware product with more features than this version</em> I will have a fix in my next post, which is <a href="http://linhost.info/?p=92">http://linhost.info/?p=92</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/06/05/major-retail-chains-fail-to-implement-proper-physical-and-basic-network-security/">prev</a><a class="next" href="/2008/05/31/ubuntu-locales-warning-fix/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

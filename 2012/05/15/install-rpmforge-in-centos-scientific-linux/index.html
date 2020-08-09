@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Install RPMforge In CentOS / Scientific Linux | Linhost.info</title><meta name="description" content="Install RPMforge In CentOS / Scientific Linux - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Install RPMforge In CentOS / Scientific Linux</h1><div class="post-info"><a></a>2012-05-15</div><div class="post-content"><p>What is RPMforge and why should I bother adding it ?</p>
+<blockquote>
+<p>RPMforge is a collaboration of Dag and other packagers. They provide over 5000 packages for CentOS, including wine, vlc, mplayer, xmms-mp3, and other popular media tools. It is not part of Red Hat or CentOS but is designed to work with those distributions.</p>
+</blockquote>
+<p>Third party repositories like RPMforge increase the amount of available software you can install with your distributions package manager. The instructions you are about to read are both applicable to CentOS and Scientific Linux.</p>
+<h3 id="Install-Wget"><a href="#Install-Wget" class="headerlink" title="Install Wget"></a>Install Wget</h3><p>First install Wget since it doesn’t come installed by default in most systems, Wget will be responsible for downloading the required .RPM file for the repository.</p>
+<p>yum install wget</p>
+<h3 id="Verify-System-Architecture"><a href="#Verify-System-Architecture" class="headerlink" title="Verify System Architecture"></a>Verify System Architecture</h3><p>RPMforge is available for 32-bit(i686) and 64-bit(x86_64) architectures, if you don’t know the architecture type of the system in which you are planning to install RPMforge you can use the uname command.</p>
+<p>uname -a</p>
+<p>Linux localhost.localdomain 2.6.32-220.el6.x86_64 #1 SMP Sat Dec 10 17:04:11 CST 2011 x86_64 x86_64 x86_64 GNU/Linux</p>
+<h3 id="RPMForge-Installation"><a href="#RPMForge-Installation" class="headerlink" title="RPMForge Installation"></a>RPMForge Installation</h3><p>RPMforge for CentOS 6 and Scientific Linux 6 32-bit</p>
+<p>cd /tmp/</p>
+<p>wget <a target="_blank" rel="noopener" href="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.i686.rpm">http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.i686.rpm</a></p>
+<p>rpm -ivh rpmforge-release-0.5.2-2.el6.rf.i686.rpm</p>
+<p>RPMforge for CentOS 6 and Scientific Linux 6 64-bit</p>
+<p>cd /tmp/</p>
+<p>wget <a target="_blank" rel="noopener" href="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86/_64.rpm">http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.x86\_64.rpm</a></p>
+<p>rpm -ivh rpmforge-release-0.5.2-2.el6.rf.x86_64.rpm</p>
+<p>RPMforge for CentOS 5 and Scientific Linux 5 32-bit</p>
+<p>cd /tmp/</p>
+<p>wget <a target="_blank" rel="noopener" href="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm">http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.i386.rpm</a></p>
+<p>rpm -ivh rpmforge-release-0.5.2-2.el5.rf.i386.rpm</p>
+<p>RPMforge for CentOS 5 and Scientific Linux 5 64-bit</p>
+<p>cd /tmp/</p>
+<p>wget <a target="_blank" rel="noopener" href="http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86/_64.rpm">http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86\_64.rpm</a></p>
+<p>rpm -ivh rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm</p>
+<h3 id="Try-It"><a href="#Try-It" class="headerlink" title="Try It"></a>Try It</h3><p>RPMForge should help expand the amount of available software your installation can access when looking for a package to install.</p>
+<p>[root@localhost tmp]# yum install lighttpd</p>
+<p>Loaded plugins: security<br>Setting up Install Process<br>Resolving Dependencies<br>–&gt; Running transaction check<br>—&gt; Package lighttpd.x86_64 0:1.4.28-2.el6.rf will be installed<br>–&gt; Finished Dependency Resolution</p>
+<p>Dependencies Resolved</p>
+<p>==========================================================================================<br> Package            Arch             Version                     Repository          Size<br>==========================================================================================<br>Installing:<br> lighttpd           x86_64           1.4.28-2.el6.rf             rpmforge           706 k</p>
+<h1 id="Transaction-Summary"><a href="#Transaction-Summary" class="headerlink" title="Transaction Summary"></a>Transaction Summary</h1><p>Install       1 Package(s)</p>
+<p>Total download size: 706 k<br>Installed size: 2.8 M<br>Is this ok [y/N]:</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>If you don’t like to install from source, then RPMForge is a must. Installation takes just a few minutes, but the convenience is worth it.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/05/17/mount-a-network-share-in-linux-ubuntu/">prev</a><a class="next" href="/2012/05/13/cloning-a-drive-with-easeus-disc-copy-simple-cloning-utility/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Keep Up To Date Your Linux Server With Cron | Linhost.info</title><meta name="description" content="Keep Up To Date Your Linux Server With Cron - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Keep Up To Date Your Linux Server With Cron</h1><div class="post-info"><a></a>2008-05-16</div><div class="post-content"><p>Everyday tasks for any administrator includes keeping the various networking equipment up to date which is a repetitive process consuming unnecessary amounts of time. This simple crontab will check for updates everyday in my case I have an Ubuntu server. First let’s become root in order to edit the crontab.</p>
+<blockquote>
+<p>sudo crontab -e</p>
+</blockquote>
+<p>Cron can very easy to set up, here is my automatic update / upgrade example.</p>
+<blockquote>
+<p>MAILTO=”<a href="mailto:&#97;&#x64;&#109;&#x69;&#x6e;&#64;&#x6c;&#x69;&#110;&#x68;&#111;&#115;&#116;&#46;&#105;&#110;&#x66;&#x6f;">&#97;&#x64;&#109;&#x69;&#x6e;&#64;&#x6c;&#x69;&#110;&#x68;&#111;&#115;&#116;&#46;&#105;&#110;&#x66;&#x6f;</a>“ # Check for updates at 6:30 everyday 30 18 * * * apt-get -qq update &amp;&amp; apt-get -qq –simulate upgrade</p>
+</blockquote>
+<p>Let me explain that the “MAILTO” line will send an email only if an upgrade becomes available, the server will check for updates and upgrades at 6:30. If you don’t have a mail server I recommend installing Postfix for outgoing email only. <em>If you run Ubuntu 6.06 LTS you won’t get many emails.</em></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/05/30/use-vmware-converter-the-fix-to-version-differences/">prev</a><a class="next" href="/2008/05/15/installing-truecrypt-in-ubuntu-804/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

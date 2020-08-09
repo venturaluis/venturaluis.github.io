@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Fix GRUB Errors | Linhost.info</title><meta name="description" content="Fix GRUB Errors - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Fix GRUB Errors</h1><div class="post-info"><a></a>2008-08-19</div><div class="post-content"><p>GRUB errors are painful because once they occur the system wont boot successfully or drag along other operating system in the error, but fixing them should take long. Usually you may see grub errors because of a Windows install or deleted partition. Keep in mind that I use Ubuntu and my How-To uses an Ubuntu install CD.  </p>
+<p>Depending on you personal preference I let the Ubuntu install CD boot all the way into the graphical session. Once the live session is running open a terminal window.  </p>
+<p>We want to work from the grub prompt, enter in the terminal.  </p>
+<blockquote>
+<p>sudo grub  </p>
+</blockquote>
+<p>now the prompt changes to grub&gt; , enter the following command to find the stage1 file.  </p>
+<blockquote>
+<p>find /boot/grub/stage1  </p>
+</blockquote>
+<p><strong>*Note: sometimes your system may have more than one location, choose one.</strong>  </p>
+<p>In my case the result was (hd0,0), the files are on this partition.  </p>
+<blockquote>
+<p>setup (hd0,0)  </p>
+</blockquote>
+<p>What this command does is install grub in the mbr of the drive you specified.  </p>
+<p>Enter “quit” to exit from the grub shell.  </p>
+<blockquote>
+<p>quit  </p>
+</blockquote>
+<p>All that’s left to do is restart the system and wait for grub to appear.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/08/25/revert-back-to-the-default-x-configuration/">prev</a><a class="next" href="/2008/08/17/when-life-gives-you-lemons-build-your-own-nas/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

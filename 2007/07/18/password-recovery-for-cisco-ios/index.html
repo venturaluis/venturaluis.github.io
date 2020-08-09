@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Password Recovery For The Cisco IOS | Linhost.info</title><meta name="description" content="Password Recovery For The Cisco IOS - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Password Recovery For The Cisco IOS</h1><div class="post-info"><a></a>2007-07-18</div><div class="post-content"><p>Connect a PC with a terminal emulation software to the console port on the Cisco router. <em>Cisco 2620 router, IOS 12.2.</em> <strong>Settings for the terminal</strong></p>
+<p>9600 baud rate<br>No parity<br>8 data bits<br>1 stop bit<br>No flow control</p>
+<p>Turn off the router, then back on. After the router is on press the <strong>BREAK</strong> key(<strong>Alt + b</strong> on Tera Term) within 60 seconds of start to have the router in <strong>ROMMON</strong>. The prompt will show.</p>
+<p>rommon 1&gt;</p>
+<p>Then type <strong>confreg 0x2142</strong> to boot from flash (this will bypass startup configuration).</p>
+<p>rommon 1&gt;confreg 0×2142</p>
+<p>Type <strong>reset</strong> at the prompt (ignores saved configuration, then reboots).</p>
+<p>rommon 2&gt;reset</p>
+<p>Press Ctrl-c to skip the initial procedure. Type <strong>enable</strong> at the prompt.</p>
+<p>Router&gt;enable</p>
+<p>Then the prompt changes to <strong>Router#.</strong> Now type.</p>
+<p>Router#configure memory</p>
+<p>or</p>
+<p>Router#copy startup-config running-config</p>
+<p>commands will copy NVRAM in to memory. To show the current configuration on the router use.</p>
+<p>Router#show running-config</p>
+<p>The output will be : enable passwords enable secret vty console password which will be in encrypted or unencrypted format, encrypted passwords should be change to a new one. To change encrypted or enable secret password do the following.</p>
+<p>Router#<br>Router#configure terminal<br>Router(config)#enable secret Router(config)#exit </p>
+<p>Issue the <strong>no shutdown</strong> command on every interface.</p>
+<p>Router#<br>Router(config)#interface serial 0/1<br>Router(config-t)#no shutdown<br>Router(config-t)#exit</p>
+<p>Type <strong>config-register</strong> use the value <strong>0×2102</strong>.</p>
+<blockquote>
+<p>Router(config)#config-register 0×2102</p>
+</blockquote>
+<p>Press <strong>Ctrl-z</strong> to leave configuration mode.</p>
+<p>Router#</p>
+<p>Type write memory or <strong>copy running-config startup-config</strong> to commit all of the new changes and configurations.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2007/07/19/back-up-and-install-the-cisco-ios-image/">prev</a><a class="next" href="/2007/07/16/installing-the-windows-recovery-console/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

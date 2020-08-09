@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Hash a directory with md5deep - Part 1 | Linhost.info</title><meta name="description" content="Hash a directory with md5deep - Part 1 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Hash a directory with md5deep - Part 1</h1><div class="post-info"><a></a>2010-02-28</div><div class="post-content"><p>File integrity is no joke and system administrators know the severity of dealing corrupt files. The problem administrators face is that unlike users, administrator have to manage servers with hundreds of thousands of files in each directory that have to be hashed. This lends it self to a few problems: hashing file by file is out of the question and a waste of time, which means we are left to find a solution that can work on a recursive manner. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S4oVCn6yRtI/AAAAAAAAB_Y/g15LJ16pQzk/s800/checksums.PNG" alt="md5deep checksums"></p>
+<blockquote>
+<p>Recursive operation - md5deep is able to recursively examine an entire directory tree. That is, compute the MD5 for every file in a directory and for every file in every subdirectory.</p>
+</blockquote>
+<p>For the Windows platform you can use <strong>md5deep</strong> which is a cross platform solution, works perfectly and best of all can handle a large number of files without breaking a sweat. It will literally create a checksum for all the files on the directory where md5deep is being used, the results can then exported to a single file where they can be used for verification at a later time.</p>
+<blockquote>
+<p><strong>md5deep</strong> is a software package used in the computer security, system administration and computer forensics communities for purposes of running large numbers of files through any of several different cryptographic digests. Source: Wikipedia <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Md5deep">http://en.wikipedia.org/wiki/Md5deep</a></p>
+</blockquote>
+<p>md5deep is managed from the command line, however it’s very easy to use considering it will be in charge of creating checksums for a large number of individual files.</p>
+<h4 id="How-do-we-use-it"><a href="#How-do-we-use-it" class="headerlink" title="How do we use it ?"></a>How do we use it ?</h4><p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S4oVCcZ10_I/AAAAAAAAB_U/xBb2XxAWOzE/s800/md5deep.PNG" alt="md5deep example"> First of all you can download md5deep from <a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/">SourceForge.net</a>. After you download md5deep I recommend you move the executable over to the <strong>C:Windows</strong> directory for easy access from the command prompt. For this tutorial I will be hashing a single directory. Start by opening a command prompt : <strong>Start</strong> &gt; <strong>Accessories</strong> &gt; <strong>Command Prompt</strong> On the Command Prompt type :</p>
+<p>md5deep -rel “test_directory” &gt; results_file.md5</p>
+<p><strong>Explanation of the command</strong></p>
+<ul>
+<li><p>r = recursive operation</p>
+</li>
+<li><p>e = compute estimated time remaining for file name</p>
+</li>
+<li><p>l = print relative paths for file name</p>
+</li>
+<li><p><strong>“test_directory”</strong> = this points md5deep to the directory you wish to checksum</p>
+</li>
+<li><p><strong>&gt; results_file.md5</strong> = is the file where all the results will be written to, you can name it whatever you want.</p>
+</li>
+</ul>
+<p>After md5deep is done you can open <strong>results_file.md5</strong> to view and analyze the results.</p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><p>md5deep is a simple tool that should be part of your arsenal after all who can complain about file integrity.</p>
+<h4 id="Part-2-of-this-tutorial-Compare-Hashes-With-md5deep"><a href="#Part-2-of-this-tutorial-Compare-Hashes-With-md5deep" class="headerlink" title="Part 2 of this tutorial: Compare Hashes With md5deep"></a>Part 2 of this tutorial: <a href="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/">Compare Hashes With md5deep</a></h4><p><a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/">md5deep Home page</a> <a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/md5deep.html">Md5deep manual</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/03/04/test-for-errors-in-memory-with-memtest86/">prev</a><a class="next" href="/2010/02/15/iperf-on-windows/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

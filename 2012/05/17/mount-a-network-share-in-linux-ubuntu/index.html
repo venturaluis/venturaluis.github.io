@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Mount A Network Share On Linux / Ubuntu | Linhost.info</title><meta name="description" content="Mount A Network Share On Linux / Ubuntu - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mount A Network Share On Linux / Ubuntu</h1><div class="post-info"><a></a>2012-05-17</div><div class="post-content"><p>In this tutorial I will go over the steps need to mount a network share in Linux. The <a target="_blank" rel="noopener" href="http://wiki.samba.org/index.php/LinuxCIFS_utils">cifs-util</a> suite is required in order to mount a network share, if the system you are working with lacks the suite this tutorial also covers the installation of the same. Like always the tutorial assumes you have root access or similar.</p>
+<h3 id="Create-Mount-Point"><a href="#Create-Mount-Point" class="headerlink" title="Create Mount Point"></a>Create Mount Point</h3><p>For every network share you wish to mount you need to specify a mount point just like we do with hard drives and USB drives. I would recommend creating the mount point in the <strong>/mnt</strong> directory.</p>
+<p>mkdir /mnt/shares/share1</p>
+<h3 id="Install-Cifs-util-Suite"><a href="#Install-Cifs-util-Suite" class="headerlink" title="Install Cifs-util Suite"></a>Install Cifs-util Suite</h3><p>If the system you are working with lacks the <strong>cifs-util</strong> it can be installed using the package manager for your distribution. Ubuntu and Debian users can use apt-get.</p>
+<p>apt-get install cifs-utils</p>
+<p>Scientific Linux and CentOS users can use yum.</p>
+<p>yum install cifs-utils</p>
+<h3 id="Mount-Network-Share-With-Credentials"><a href="#Mount-Network-Share-With-Credentials" class="headerlink" title="Mount Network Share With Credentials"></a>Mount Network Share With Credentials</h3><p>The basic command below will attempt to mount a network share with credentials, in this case the file server is a Windows Server 2003 and the client is a Ubuntu 12.04 server.</p>
+<p>mount.cifs //192.168.1.107/share1/  /mnt/shares/share1/ -o user=user1,pass=user1password</p>
+<p>Description:</p>
+<ul>
+<li><strong>mount.cifs</strong> - Mount using the CIFS</li>
+<li><strong>//192.168.1.107/share1/</strong> - IP address or name of file server followed by the share name</li>
+<li><strong>/mnt/shares/share1/</strong> - This is the mount point where our network share will reside</li>
+<li><strong>-o users=user1,password=user1</strong> - This means options and in my case I am specifying the username and password to the share</li>
+</ul>
+<h3 id="Mount-Public-Share"><a href="#Mount-Public-Share" class="headerlink" title="Mount Public Share"></a>Mount Public Share</h3><p>To mount a public share or one that doesn’t require a password is even easier. All you are required to specify is the server IP address, share and mount point.</p>
+<p>mount.cifs //192.168.1.107/share1/  /mnt/shares/share1/</p>
+<ul>
+<li><strong>mount.cifs</strong> - Mount using the CIFS</li>
+<li><strong>//192.168.1.107/share1/</strong> - IP address or name of file server followed by share name</li>
+<li><strong>/mnt/shares/share1/</strong> - This is the mount point where our network share will reside</li>
+</ul>
+<h3 id="Mount-Share-At-Boot"><a href="#Mount-Share-At-Boot" class="headerlink" title="Mount Share At Boot"></a>Mount Share At Boot</h3><p>Now that was easy, keep in mind that using the commands above will only result in the network shares being temporarily mounted, if the system were to be rebooted all mounted shares will be unmounted. If you would like to keep the network shares mounted even after a reboot you can acomplish this with the help of the <strong>fstab</strong> configuration file. Add the following line to the bottom of your fstab configuration file. Modify to fit your needs.</p>
+<p>//192.168.1.129/share1  /mnt/shares/share1  cifs  username=user1,password=user1password  0  0</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>Mount a network share in Linux doesn’t have to be a nightmare, as you saw above we are able to follow an organized process. I like it when there is minimal configuration files changes involved and the commands are easy to understand, as it was in the case for this tutorial. Thank you for reading, if you have any input or comments use the comment section below.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/05/21/new-virtual-machines-bsd-router-projectbsdrp/">prev</a><a class="next" href="/2012/05/15/install-rpmforge-in-centos-scientific-linux/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

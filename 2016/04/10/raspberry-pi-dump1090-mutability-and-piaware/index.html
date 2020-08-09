@@ -1,0 +1,52 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Raspberry Pi - Dump1090-Mutability and PiAware | Linhost.info</title><meta name="description" content="Raspberry Pi - Dump1090-Mutability and PiAware - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Raspberry Pi - Dump1090-Mutability and PiAware</h1><div class="post-info"><a></a>2016-04-10</div><div class="post-content"><p>I’ve been running a <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware</a> installation for the last couple of months but after a reinstall I notice some problems specifically with dump1090 provided by the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware installation instructions</a>. After searching on various forums I decided to give <a target="_blank" rel="noopener" href="https://github.com/mutability/dump1090">dump1090-mutability</a> a fork of dump1090 a try and can report great success which is why I decided to list the steps needed to configure dump1090-mutability in a Raspbian install. <strong>Current set-up:</strong> Raspbian Jessie Lite on a Raspberry Pi 2 + RTL2832U.</p>
+<h3 id="Prepare-Raspbian"><a href="#Prepare-Raspbian" class="headerlink" title="Prepare Raspbian"></a>Prepare Raspbian</h3><p>sudo apt-get update</p>
+<p>sudo apt-get upgrade</p>
+<h3 id="Dump1090-Mutability-Install"><a href="#Dump1090-Mutability-Install" class="headerlink" title="Dump1090 Mutability Install"></a>Dump1090 Mutability Install</h3><p>Download the necessary .deb from GitHub.</p>
+<p>wget <a target="_blank" rel="noopener" href="https://github.com/mutability/mutability-repo/releases/download/v0.1.0/mutability-repo/_0.1.0/_armhf.deb">https://github.com/mutability/mutability-repo/releases/download/v0.1.0/mutability-repo\_0.1.0\_armhf.deb</a></p>
+<p>Install the downloaded .deb. Notice the version number.</p>
+<p>sudo dpkg -i mutability-repo_0.1.0_armhf.deb</p>
+<p>Once again update the installation.</p>
+<p>sudo apt-get update</p>
+<p>The GPG key provided with mutability-repo_0.1.0_armhf.deb expired which will result in an error every time you run apt-get we can fix the source for the error.</p>
+<p>W: GPG error: <a target="_blank" rel="noopener" href="http://repo.mutability.co.uk/">http://repo.mutability.co.uk</a> wheezy InRelease: The following signatures were invalid: KEYEXPIRED 1451307476 KEYEXPIRED 1451307476 KEYEXPIRED 1451307476</p>
+<p>Now re-install <strong>mutability-repo</strong> this will pull the latest version with a valid signature.</p>
+<p>sudo apt-get install mutability-repo</p>
+<p>Install <strong>dump1090-mutability</strong> the version from the repository at the time of this writing was <strong>dump1090-mutability v1.14</strong>.</p>
+<p>sudo apt-get install dump1090-mutability</p>
+<p>Install the web server.</p>
+<p>sudo apt-get install lighttpd</p>
+<p>Enable module.</p>
+<p>sudo lighty-enable-mod dump1090</p>
+<p>Reload web server for changes to take effect.</p>
+<p>sudo service lighttpd force-reload</p>
+<p>Or you can reboot the entire installation which is why I recommend.</p>
+<p>sudo reboot</p>
+<p>On a web browser and enter the IP address for your Raspberry Pi followed by <strong>/dump1090</strong>.</p>
+<p><a target="_blank" rel="noopener" href="http://your/_ip/_address/dump1090/">http://your\_ip\_address/dump1090/</a></p>
+<p><a href="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg"><img src="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg" alt="dump1090"></a></p>
+<h3 id="PiAware-Install"><a href="#PiAware-Install" class="headerlink" title="PiAware Install"></a>PiAware Install</h3><p>For the latest version of PiAware check the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">FlightAware page</a>. At the time of this writing the current version was <strong>piaware_2.1-5</strong>.</p>
+<p>wget <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/files/piaware/_2.1-5/_armhf.deb">http://flightaware.com/adsb/piaware/files/piaware\_2.1-5\_armhf.deb</a></p>
+<p>Install the downloaded package.</p>
+<p>sudo dpkg -i piaware_2.1-5_armhf.deb</p>
+<p>You will receive multiple errors regarding missing dependencies let apt-get install the missing dependencies.</p>
+<p>sudo apt-get install -fy</p>
+<p>Auto-update the PiAware Software.</p>
+<p>sudo piaware-config -autoUpdate 1 -manualUpdate 1</p>
+<h3 id="Connect-To-FlightAware"><a href="#Connect-To-FlightAware" class="headerlink" title="Connect To FlightAware"></a>Connect To FlightAware</h3><p>Connect the PiAware install to flightAware by providing user credentials.</p>
+<p>sudo piaware-config -user your_username -password</p>
+<p>Restart PiAware.</p>
+<p>sudo /etc/init.d/piaware restart</p>
+<p>View the status of the install.</p>
+<p>lventura@raspberrypi:~ $ sudo piaware-status</p>
+<p>dump1090 is not running.<br>faup1090 is running.<br>piaware is running.<br>dump1090-mutabi is listening for connections on port 30005.<br>faup1090 is connected to port 30005.<br>piaware is connected to FlightAware.<br>dump1090-mutabi is producing data on port 30005.</p>
+<p>The new install should start feeding data back to FlightAware.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2016/04/24/mikrotik-routeros-change-ssh-default-port-number/">prev</a><a class="next" href="/2016/04/03/raspbian-dump1090-not-running/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

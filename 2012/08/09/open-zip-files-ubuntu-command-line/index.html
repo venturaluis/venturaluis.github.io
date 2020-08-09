@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Ubuntu: How to Create and Open Zip Files from the Command Line | Linhost.info</title><meta name="description" content="Ubuntu: How to Create and Open Zip Files from the Command Line - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Ubuntu: How to Create and Open Zip Files from the Command Line</h1><div class="post-info"><a></a>2012-08-09</div><div class="post-content"><p>If you have an Ubuntu/Debian server installation and need to open or create Zip file then you need to install the necessary packages to work with Zip files. Fortunately, we can easily add support for Zip to our installation by installing two packages(Zip, Unzip) both available from the repositories. <strong>Note:</strong> This post assumes you have the ability to install packages, root or sudo access.</p>
+<h3 id="Creating-a-Zip-Archive"><a href="#Creating-a-Zip-Archive" class="headerlink" title="Creating a Zip Archive"></a>Creating a Zip Archive</h3><p>Install <strong>Zip</strong> from the repositories.</p>
+<p># apt-get install zip</p>
+<p>The entire process is quite simple to understand.</p>
+<p># zip -r new-file-name.zip directory-to-compress/</p>
+<ul>
+<li><strong>zip</strong> - This is the name of the application we will be using to compress</li>
+<li><strong>-r</strong> - Short for Recursive, only use this option is you are creating a compressed archived from a directory</li>
+<li><strong>new-file-name.zip</strong> - Name of the resulting compressed archive, the naming is up to you</li>
+<li><strong>directory-to-compress/</strong> - Name of the directory we are about to compress</li>
+</ul>
+<p>It is possible to add more than one directory in to the same archive.</p>
+<p># zip -r new-file-name.zip directory-1/ directory-2/</p>
+<p>But, what if I only need to compress a single file. Similar process except we don’t need to use the -r(recurse) option.</p>
+<p># zip report.zip LitenDuplicateReport.csv</p>
+<h3 id="Opening-a-Zip-archive"><a href="#Opening-a-Zip-archive" class="headerlink" title="Opening a Zip archive"></a>Opening a Zip archive</h3><p>Opening or extracting the contents from a compressed archive is handled not by the Zip package but by a second package called <strong>Unzip</strong>.</p>
+<p># apt-get install unzip</p>
+<p>With Unzip you have two options as to how the contents will be extracted, either you can extract the contents of the compressed archive to a directory or simply extract the contents to the current directory.</p>
+<p># unzip nc111nt.zip -d netcat/</p>
+<ul>
+<li><strong>unzip</strong> - Tool that will extract contents from Zip compressed archive</li>
+<li><strong>nc111nt.zip</strong> - Name of the archive we are extracting from</li>
+<li><strong>-d</strong> - Short for destination</li>
+<li><strong>netcat</strong> - Unzip will create a new directory called netcat where the contents will be extracted to</li>
+</ul>
+<p>Or you can extract the contents of the archive to the current directory you are in.</p>
+<p># unzip nc111nt.zip</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>All you need is two packages and your installation will be able to work with Zip archives. I know Ubuntu/Debian have support for Gzip but if you work with Windows users and need to share files with them then Zip might be the only way to go.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/08/12/my-experience-with-namecheap-so-far/">prev</a><a class="next" href="/2012/08/06/new-virtual-machines-nas4free/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

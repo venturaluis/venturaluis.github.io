@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Copy and Restore a Drive with Dc3dd, Gzip and a Network Share | Linhost.info</title><meta name="description" content="Copy and Restore a Drive with Dc3dd, Gzip and a Network Share - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Copy and Restore a Drive with Dc3dd, Gzip and a Network Share</h1><div class="post-info"><a></a>2012-07-21</div><div class="post-content"><p>In the past I’ve written about combining dd, Gzip and OpenSSH to image a drive over a network, while the above works just fine there are better tools available that can improve the results or at least make it easier to clone a drive. By better I mean:</p>
+<ol>
+<li>Unlike dd, Dc3dd comes with a progress indicator</li>
+<li>With Gigabit links OpenSSH appears to become the bottleneck, even when resources are available network throughput is low</li>
+</ol>
+<h3 id="Keep-in-mind"><a href="#Keep-in-mind" class="headerlink" title="Keep in mind"></a>Keep in mind</h3><p>Before we start the tutorial I recommend using a one of the many available Live-CD distributions like <a target="_blank" rel="noopener" href="http://partedmagic.com/doku.php?id=start">Parted Magic</a> or <a target="_blank" rel="noopener" href="http://www.deftlinux.net/">Deft Linux</a> because they include all the tools I’ll be using in this post. This tutorial assumes a working network share is already available. The process for imaging a drive over a network revolves around five commands ls, Dc3dd, Gzip, Gunzip and mount.cifs.</p>
+<h3 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h3><p>Locate the drive you need to image, we can use the ls command to list all available drives and their respective partitions, decide whether you need to copy the partitions or the entire drive.</p>
+<p># ls /dev/sd*</p>
+<p>/dev/sda   /dev/sda1  /dev/sda2  /dev/sdb   /dev/sdb1</p>
+<p>* <em>/dev/sda and /dev/sda represent the actual drive, /dev/sda1/2 and /dev/sdb1 represent a partition within the drive</em>. Create a mount point for the network share.</p>
+<p># mkdir /media/netshare</p>
+<p>Mount the network share.</p>
+<p># mount.cifs //192.168.1.8/072012/ /media/netshare/ -o user=tempuser,password=tempuser</p>
+<p>Change the following:</p>
+<ol>
+<li><strong>mount.cifs //192.168.1.8/072012/</strong> - This is the network share IP address and share name</li>
+<li>/<strong>media/netshare/</strong> - This is the mount point we created with <em>mkdir</em>.</li>
+<li><strong>-o user=tempuser,password=tempuser</strong> - This is the username and password for the network share</li>
+</ol>
+<p>Verify that the network share mounted successfully.</p>
+<p># df -h</p>
+<p>Filesystem            Size  Used Avail Use% Mounted on<br>/dev/sdb1             2.0G  8.0K  2.0G   1% /media/usb<br>//192.168.1.8/072012/<br>                       80G   23G   58G  29% /media/netshare</p>
+<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3><p>Star imaging or cloning the drive, compress and direct the output to the network share mount point.</p>
+<p># dc3dd if=/dev/sda progress=on | gzip -1 &gt; /media/netshare/sda.img.gz</p>
+<p>warning: sector size not probed, assuming 512<br>dc3dd 6.12.3 started at 2012-07-21 07:11:13 +0000<br>command line: dc3dd if=/dev/sda progress=on<br>compiled options: DEFAULT_BLOCKSIZE=32768<br>sector size: 512 (assumed)<br>9830400+0 sectors in<br>9830400+0 sectors out<br>5033164800 bytes (4.7 G) copied (??%), 444.728 s, 11 M/s<br>dc3dd completed at 2012-07-21 07:18:39 +0000</p>
+<ol>
+<li><strong>dc3dd if=/dev/sda</strong> - Dc3dd will work with drive /dev/sda</li>
+<li><strong>progress=on</strong> - Dc3dd will display the progress</li>
+<li><strong>gzip -1 &gt;</strong> - Gzip will be used for compression, -1 means fast compression</li>
+<li><strong>/media/netshare/sda.img.gz</strong> - This is the network share path</li>
+</ol>
+<p>My network share is in a Windows Server 2003 and as you can see the image was successfully created and compressed. <img src="http://cdn.linhost.info/static/ws2003-img.png"></p>
+<h3 id="Restore"><a href="#Restore" class="headerlink" title="Restore"></a>Restore</h3><p>To restore the image we use Gunzip to decompress and Dc3dd to write the decompressed data over to the target disk. I recommend using the <em>progress=on</em> option when working with large images, its nice to have an idea of the progress being made.</p>
+<p># gunzip -c /media/netshare/sda.img.gz | dc3dd of=/dev/sda progress=on</p>
+<p>warning: sector size not probed, assuming 512<br>dc3dd 6.12.3 started at 2012-07-21 22:55:04 +0000<br>command line: dc3dd of=/dev/sda<br>compiled options: DEFAULT_BLOCKSIZE=32768<br>sector size: 512 (assumed)<br>9830400+0 sectors in<br>9830400+0 sectors out<br>5033164800 bytes (4.7 G) copied (??%), 192.915 s, 25 M/s<br>dc3dd completed at 2012-07-21 22:58:19 +0000</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>This is my preferred method for imaging drives over the network because the tools required to copy and restore are easily found in most distributions. If you have any questions feel free comment below.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/07/23/scan-a-drive-for-errors-with-hd-tune/">prev</a><a class="next" href="/2012/07/21/new-comment-system/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

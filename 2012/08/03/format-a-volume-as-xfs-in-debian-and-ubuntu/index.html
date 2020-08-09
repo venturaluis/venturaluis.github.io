@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Format a Volume as XFS in Debian and Ubuntu | Linhost.info</title><meta name="description" content="Format a Volume as XFS in Debian and Ubuntu - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Format a Volume as XFS in Debian and Ubuntu</h1><div class="post-info"><a></a>2012-08-03</div><div class="post-content"><p>To format a drive with the XFS file system make sure xfsprogs is installed, if not you can install xfsprogs from the repositories with the help of apt-get.</p>
+<p>root@ubuntu:~# apt-get install xfsprogs</p>
+<p>Before you start partitioning and formatting drives make sure you have the right drive. We can list all available drives in the system with the help of the <em>ls</em> command.</p>
+<p>root@ubuntu:~# ls /dev/sd*</p>
+<p>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdb1  /dev/sdc</p>
+<p>In this installation I will format the drive <em>/sdc</em>, I know this because this is a blank drive with no partitions. Now we partition the drive with the help of fdisk. Fdisk can be scary if you have never used it before, in order to partition the drive use the commands below. Note: this will create one big partition, use the values inside the brackets [] as a guide.</p>
+<p>root@ubuntu:~# fdisk /dev/sdb</p>
+<p>Command (m for help): [n]<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): [p]<br>Partition number (1-4, default 1): [1]<br>First sector (2048-335544319, default 2048): [press Enter]<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-335544319, default 335544319): [press Enter]<br>Using default value 335544319</p>
+<p>Command (m for help): [w]<br>The partition table has been altered!</p>
+<p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
+<p>Because we installed xfsprogs we can make use of <em>mkfs.xfs</em> to format the partition we created in the step above. <em>-L</em> will label the drive as <em>media</em>.</p>
+<p>root@ubuntu:~# mkfs.xfs -L media /dev/sdc1</p>
+<p>Create a mount point.</p>
+<p>root@ubuntu:/dev# mkdir /mnt/dat1</p>
+<p>Mount the drive.</p>
+<p>root@ubuntu:~# mount -t xfs /dev/sdc1 /mnt/dat1</p>
+<p>Let’s check the newly mounted volume, visible at the bottom.</p>
+<p>root@ubuntu:/dev# df -h</p>
+<p>Filesystem      Size  Used Avail Use% Mounted on<br>/dev/sda1        50G  1.9G   46G   4% /<br>udev             80M  4.0K   80M   1% /dev<br>tmpfs            36M  272K   35M   1% /run<br>none            5.0M     0  5.0M   0% /run/lock<br>none             88M     0   88M   0% /run/shm<br>/dev/sdc1       160G   33M  160G   1% /mnt/dat1</p>
+<p>To permanently mount the new volume every time the system boots you will need to edit and add a new entry to <em>/etc/fstab</em>. You can use the echo command to easily add the new entry.</p>
+<p>root@ubuntu:# echo ‘/dev/sdc1 /mnt/dat1 xfs defaults 0 0’ &gt;&gt; /etc/fstab</p>
+<p>Or manually add the entry below to fstab with the text editor of your choice.</p>
+<p>/dev/sdc1 /mnt/dat1 xfs defaults 0 0</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>XFS is a good file system for those of us working with large files. If you have any questions leave a comment below.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/08/06/new-virtual-machines-nas4free/">prev</a><a class="next" href="/2012/07/23/windows-how-to-recover-deleted-files/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

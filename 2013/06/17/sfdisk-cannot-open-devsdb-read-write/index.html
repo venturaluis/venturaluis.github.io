@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Sfdisk: cannot open /dev/sdb read-write | Linhost.info</title><meta name="description" content="Sfdisk: cannot open /dev/sdb read-write - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Sfdisk: cannot open /dev/sdb read-write</h1><div class="post-info"><a></a>2013-06-17</div><div class="post-content"><p>The following command which worked on a Scientific Linux server did not work on a Ubuntu server.</p>
+<p>sfdisk -d /dev/sda | sfdisk –force /dev/sdb</p>
+<p>Here is the error I received.</p>
+<p>sudo sfdisk -d /dev/sdb | sfdisk –force /dev/sdc<br>         /dev/sdc: Permission denied</p>
+<pre><code>sfdisk: cannot open /dev/sdc read-write</code></pre>
+<p>Even with Sudo the command refused to do what I expected. After a <a target="_blank" rel="noopener" href="http://askubuntu.com/questions/225472/i-would-like-to-have-a-copy-of-all-the-partitions-of-primary-drive-to-a-secondar">quick Google search</a> I found the following which simply suggested to double the Sudo command which if you think about it makes sense.</p>
+<p>sudo sfdisk -d /dev/sdb | sudo sfdisk –force /dev/sdc</p>
+<p>Now I feel stupid, BTW I was creating a RAID 10 array.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2013/06/24/6-24-2013-site-migration/">prev</a><a class="next" href="/2013/05/23/how-to-create-avg-bootable-usb-drive/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

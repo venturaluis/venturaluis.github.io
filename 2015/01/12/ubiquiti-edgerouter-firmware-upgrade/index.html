@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Ubiquiti EdgeRouter Firmware Upgrade | Linhost.info</title><meta name="description" content="Ubiquiti EdgeRouter Firmware Upgrade - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Ubiquiti EdgeRouter Firmware Upgrade</h1><div class="post-info"><a></a>2015-01-12</div><div class="post-content"><p>EdgeOS firmware can be downloaded from the <a target="_blank" rel="noopener" href="http://www.ubnt.com/download/">Ubiquity download page</a>. First we need to see the installed version.</p>
+<p>admin@ubnt:~$ show version<br>Version:      v1.2.0<br>Build ID:     4574253<br>Build on:     06/26/13 12:48<br>Copyright:    2012-2013 Ubiquiti Networks, Inc.<br>HW model:     EdgeRouter Lite 3-Port<br>HW S/N:       ————-<br>Uptime:       14:53:51 up  4:00,  2 users,  load average: 0.00, 0.02, 0.00</p>
+<p>I like EdgeOS because you can pull the image directly into the router via HTTP. Alternatively you can download the image into a local webserver(like I did) and install from there. After the download is complete installation will begin.</p>
+<p>admin@ubnt:~$ add system image <a target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar">http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><br>Trying to get upgrade file from <a target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar">http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><br>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current<br>                                 Dload  Upload   Total   Spent    Left  Speed<br>100 68.9M  100 68.9M    0     0  7837k      0  0:00:09  0:00:09 –:–:– 6334k<br>Download suceeded<br>Checking upgrade image… Done<br>Preparing to upgrade… Done<br>Copying upgrade image… Done<br>Removing old image… Done<br>Checking upgrade image… Done<br>Finishing upgrade… Done<br>Upgrade completed</p>
+<p>The image has been installed but its not running yet, we need to reboot the router for the new image to become the default.</p>
+<p>admin@ubnt:~$ show system image<br>The system currently has the following image(s) installed:</p>
+<p>v1.5.0.4677648.140620.1301     (default boot)<br>v1.2.0.4574253.130626.1248     (running image)</p>
+<p>A reboot is needed to boot default image</p>
+<p>Simply reboot and the new image will become the default boot.</p>
+<p>admin@ubnt:~$ reboot<br>Proceed with reboot? [confirm]</p>
+<p>Verify the router is running the recently installed image.</p>
+<p>admin@ubnt:~$ show version<br>Version:      v1.5.0<br>Build ID:     4677648<br>Build on:     06/20/14 13:01<br>Copyright:    2012-2014 Ubiquiti Networks, Inc.<br>HW model:     EdgeRouter Lite 3-Port<br>HW S/N:       ————-<br>Uptime:       15:01:36 up 1 min,  1 user,  load average: 0.78, 0.30, 0.11</p>
+<h3 id="Optional-commands"><a href="#Optional-commands" class="headerlink" title="Optional commands"></a>Optional commands</h3><p>EdgeOS can store two images in the event you need to revert to a previous version.</p>
+<p>admin@ubnt:~$ show system image<br>The system currently has the following image(s) installed:</p>
+<p>v1.5.0.4677648.140620.1301     (running image) (default boot)<br>v1.2.0.4574253.130626.1248</p>
+<p>You can also delete one of the image.</p>
+<p>delete system image</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2015/02/15/ubuntu-server-14-04-static-ip-configuration/">prev</a><a class="next" href="/2014/02/20/feb-13-2014-downtime/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

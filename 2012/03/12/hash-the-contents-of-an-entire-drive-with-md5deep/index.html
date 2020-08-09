@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Hash The Contents Of An Entire Drive With md5deep | Linhost.info</title><meta name="description" content="Hash The Contents Of An Entire Drive With md5deep - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Hash The Contents Of An Entire Drive With md5deep</h1><div class="post-info"><a></a>2012-03-12</div><div class="post-content"><p>Previously I wrote about <a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">Hashing a directory with md5deep</a> since that post was written I’ve received a few comments asking how to accomplish the same but with an entire drive which is why I’ve decided to write this post. The actual command to hash an entire drive with md5deep is quite easy to understand and execute just like before. Normally if all you want it to do is hash a single directory you would use the exact command below.</p>
+<p>md5deep -rel E:Encoder_Output &gt; Encoder_Output.md5</p>
+<p>The command to hash the contents of an entire drive is similar to the one above, but instead of using the directory path we only need to use the drive letter.</p>
+<p>md5deep -rel E: &gt; E_Results.md5</p>
+<p>Command Explanation</p>
+<ul>
+<li>r = recursive operation</li>
+<li>e = compute estimated time remaining for file name</li>
+<li>l = print relative paths for file name</li>
+<li>E: = Drive you need to hash</li>
+<li>&gt; E_Results.md5 = output file</li>
+</ul>
+<p>Once you have the resulting hashes from the operation in a text file you can refer to my second post on how to <a href="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/">Compare Hashes With md5deep</a>.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/03/12/securely-erase-a-entire-drive-with-shred/">prev</a><a class="next" href="/2012/02/05/openmediavault-virtual-machine-is-now-available/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

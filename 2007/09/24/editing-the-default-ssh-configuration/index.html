@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Secure The Default SSH Configuration | Linhost.info</title><meta name="description" content="Secure The Default SSH Configuration - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Secure The Default SSH Configuration</h1><div class="post-info"><a></a>2007-09-24</div><div class="post-content"><p>SSH is a secure protocol used for system administration, tunneling and many useful things that a secure encrypted channel can offer. Due to the importance it has on a system attackers tend to make it a priority when scanning for ports. Increasing the level of awareness and security requires common sense to avoid using short password and common user names like “user” on a system exposed to the Internet. The location of the OpenSSH configuration may vary depending on the Linux distribution you are using, the fundamentals still remain the same.</p>
+<ul>
+<li>When the sign <strong>#</strong> is present it means previous value</li>
+</ul>
+<h2 id="Improve-the-default-configuration"><a href="#Improve-the-default-configuration" class="headerlink" title="Improve the default configuration"></a>Improve the default configuration</h2><p>On Debian based distribution the configuration for OpenSSH can be found at.</p>
+<p>/etc/ssh/sshd_config</p>
+<p>Usually the attacker will scan for common or default ports, SSH uses port 22. In order to reduce the amount of failed attempts on a system change the port to a number above 1024.</p>
+<p>#Port 22<br>Port 1520</p>
+<p>OpenSSH offer two protocols SSH1 and SSH2, all just need to is SSH1 is insecure. The solution is to simply select protocol 2.</p>
+<p>#Protocol 2,1<br>Protocol 2</p>
+<p>The Root account has no need to be reachable from the Internet, instead create a user with privileges. You do not want to grant the attacker a nuke!. Deny login access to the root account from the Internet.</p>
+<p>#PermitRootLogin yes<br>PermitRootLogin no</p>
+<p>Automated attacks benefit from default configurations, like allowing a high number of invalid attempts, limit the number of fails attempts before denying and requiring another attempt.</p>
+<p>#MaxAuthTries 6<br>MaxAuthTries 2</p>
+<p>Now lets limit the amount of unauthenticated connection the SSH server will handle at the same time. When we make the numbers smaller than the default of 10 we are making it harder for the attacker to coordinate an attack with multiple connections. The new values tell the SSH server to allow 3 users at the same time then randomly and increasingly drop the connections between 2 / 8.</p>
+<p>#MaxStartups 10<br>MaxStartups 2:40:8</p>
+<p>By default the SSH server will hold open an unauthenticated connection for 2 minutes which is a long time in the Internet, 30 seconds is more than enough time to log in.</p>
+<p>#LoginGraceTime 2m<br>LoginGraceTime 30</p>
+<p>SSH keys are far more secure than passwords, do not run the risk of an attacker guessing you password. Disable password authentication and only allow access by using SSH keys.</p>
+<p>#PasswordAuthentication yes<br>PasswordAuthentication no</p>
+<p>This may seem basic but we are actually giving the attacker a run for his or her money. For the changes to take effect restart OpenSSH.</p>
+<p> /etc/init.d/sshd restart</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2007/11/09/what-can-google-apps-do-for-you/">prev</a><a class="next" href="/2007/08/20/report-on-the-motoq/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

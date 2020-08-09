@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Erase A Drive with Dc3dd | Linhost.info</title><meta name="description" content="Erase A Drive with Dc3dd - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Erase A Drive with Dc3dd</h1><div class="post-info"><a></a>2012-06-09</div><div class="post-content"><p><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/dc3dd/">Dc3dd</a> is truly an impressive tool, not only can it be used to image a drive but also to wipe it. Previously, I made extensive use of DBAN for erasing data from drives until I came across a problem where DBAN could not see them. Now I use dc3dd, below are the three available options that that users can choose for how the drive will be overwritten.</p>
+<ul>
+<li><p>Overwrite using <strong>zeroes</strong>, this is the basic and simplest form you can use for wiping a drive:</p>
+<p>dc3dd wipe=/dev/sde </p>
+</li>
+<li><p>Overwrite using <strong>HEX pattern</strong>:</p>
+<p>dc3dd wipe=/dev/sdb pat=009900</p>
+</li>
+<li><p>Overwrite using <strong>Text pattern</strong>:</p>
+<p>dc3dd wipe=/dev/sdb tpat=ireallylikecake</p>
+</li>
+</ul>
+<p>Which ever option you choose the output will look like the following.</p>
+<p>root@ubuntu:~# dc3dd wipe=/dev/sde log=dc3dd-wipe.txt</p>
+<p>dc3dd 7.1.614 started at 2012-06-06 23:05:41 -0700<br>compiled options:<br>command line: dc3dd wipe=/dev/sde log=dc3dd-wipe.txt<br>device size: 1007616 sectors (probed)<br>sector size: 512 bytes (probed)<br>515899392 bytes (492 M) copied (100%), 125.02 s, 3.9 M/s</p>
+<p>input results for pattern `00’:<br>  1007616 sectors in</p>
+<p>output results for device `/dev/sde’:<br>  1007616 sectors out</p>
+<p>dc3dd completed at 2012-06-06 23:07:46 -0700</p>
+<p>If you like you can start multiple instances of dc3dd and wipe more than one drive. Take caution, you don’t want to wipe a working drive by accident. Feel free to comment, I will answer in a timely manner. <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/dc3dd/"><em>dc3dd @ SourceForce</em></a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/06/19/create-a-bootable-deft-linux-usb-drive-in-windows/">prev</a><a class="next" href="/2012/05/21/new-virtual-machines-bsd-router-projectbsdrp/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

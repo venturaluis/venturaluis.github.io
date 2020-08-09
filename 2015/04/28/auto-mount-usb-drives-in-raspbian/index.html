@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Auto Mount USB Drives in Raspbian | Linhost.info</title><meta name="description" content="Auto Mount USB Drives in Raspbian - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Auto Mount USB Drives in Raspbian</h1><div class="post-info"><a></a>2015-04-28</div><div class="post-content"><p>Update and upgrade the Raspbian installation.</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get upgrade</p>
+<p>Install the package necessary to automatically mount USB drives.</p>
+<p>sudo apt-get install usbmount</p>
+<p>Now plug a USB drive and issue the <strong>df</strong> command to view all volumes. My USB drive was recognized <strong>/dev/sdb</strong> and mounted as <strong>/media/usb0</strong> by the system.</p>
+<p>df -hT</p>
+<p>pi@raspberrypi ~ $ df -hT<br>Filesystem     Type      Size  Used Avail Use% Mounted on<br>rootfs         rootfs    2.9G  2.6G  215M  93% /<br>/dev/root      ext4      2.9G  2.6G  215M  93% /<br>devtmpfs       devtmpfs  460M     0  460M   0% /dev<br>tmpfs          tmpfs      93M  256K   93M   1% /run<br>tmpfs          tmpfs     5.0M     0  5.0M   0% /run/lock<br>tmpfs          tmpfs     186M     0  186M   0% /run/shm<br>/dev/mmcblk0p1 vfat       56M   15M   42M  26% /boot<br>/dev/sdb1      vfat      2.0G  200M  1.8G  11% /media/usb0</p>
+<p>To un-mount a volume make use of the <strong>df</strong> command above to discover the USB drive mount point and issue the <strong>unmount</strong> command as follows.</p>
+<p>sudo umount /media/usb0</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2015/05/04/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/">prev</a><a class="next" href="/2015/04/27/upgrade-ubuntu-14-10-to-15-04-2/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

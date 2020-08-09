@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Mark Disk To Be Checked On Startup With Fsutil | Linhost.info</title><meta name="description" content="Mark Disk To Be Checked On Startup With Fsutil - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Mark Disk To Be Checked On Startup With Fsutil</h1><div class="post-info"><a></a>2010-06-14</div><div class="post-content"><p>If you need to have a drive checked (Check Disk) on Windows but instead you are having a though time doing so because of open file handles, then you might want to use <a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx">Fsutil</a>. Thanks to Fsutil you can query the drive in question and mark the drive as dirty and have autochk check for error on the next restart.</p>
+<h3 id="Official-Explanation"><a href="#Official-Explanation" class="headerlink" title="Official Explanation"></a>Official Explanation</h3><blockquote>
+<p>Performs tasks that are related to file allocation table (FAT) and NTFS file systems, such as managing reparse points, managing sparse files, or dismounting a volume. If it is used without parameters, fsutil displays a list of supported subcommands.</p>
+</blockquote>
+<h3 id="Query-The-Drive"><a href="#Query-The-Drive" class="headerlink" title="Query The Drive"></a>Query The Drive</h3><p>Will the drive be checked on start up?</p>
+<p>fsutil dirty query c:</p>
+<p><strong>Example:</strong></p>
+<p>C:Windowssystem32&gt;fsutil dirty query c:<br>Volume - c: is NOT Dirty</p>
+<h3 id="Force-A-Check"><a href="#Force-A-Check" class="headerlink" title="Force A Check"></a>Force A Check</h3><p>Fsutil will mark the disk as dirty, the next time you restart the system the disk in question will be checked and repaired.</p>
+<p>fsutil dirty set c:</p>
+<p><strong>Example:</strong></p>
+<p>C:Windowssystem32&gt;fsutil dirty set c:<br>Volume - c: is now marked dirty </p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx">Fsutil at TechNet</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/06/16/install-munin-in-five-minutes-on-ubuntu-10-04/">prev</a><a class="next" href="/2010/06/09/what-is-a-quick-format/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

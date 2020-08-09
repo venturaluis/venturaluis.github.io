@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Write a .img to a Compact Flash with Physdiskwrite | Linhost.info</title><meta name="description" content="Write a .img to a Compact Flash with Physdiskwrite - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Write a .img to a Compact Flash with Physdiskwrite</h1><div class="post-info"><a></a>2010-05-27</div><div class="post-content"><p>For this tutorial I am going to write a 2GB pfSense image to a 4GB Compact Flash card using <strong><a target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php">Physdiskwrite</a></strong> a command line utility for Windows. Sometimes the images may be compressed, extract the contents before attempting to write them to a card. It would be wise to place both physdiskwrite.exe and the .img file in the same directory. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/fy1JnbhK72RU_XtEyFwUsA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S_eILtNINdI/AAAAAAAACQs/Z8SEDWGNZ6A/s800/2.png"></a></p>
+<h2 id="Let’s-Start…"><a href="#Let’s-Start…" class="headerlink" title="Let’s Start…"></a>Let’s Start…</h2><p>Open a command prompt in Windows with Administrator rights(necessary) and move to the directory where Physdiskwrite and the image are located. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/9EMJpcyiuP4Err5Km3qBvg?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S_d419qRKiI/AAAAAAAACQM/55vK2FnGgM8/s800/1.png"></a></p>
+<p>C:UsersLuisDesktop&gt;cd tools</p>
+<p>C:UsersLuisDesktoptools</p>
+<p>To find all available disk use the following command.</p>
+<p>physdiskwrite.exe -a</p>
+<p>physdiskwrite v0.5.2 by Manuel Kasper Searching for physical drives…</p>
+<p>Information for .PhysicalDrive0:<br>   Windows:       cyl: 77825<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD6401AALS-00J7B1<br>   Serial number:      WD-WMATV3658664<br>   Firmware rev.: 05.00K05</p>
+<p>Information for .PhysicalDrive1:<br>   Windows:       cyl: 60801<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD5001AALS-00L3B2<br>   Serial number:      WD-WMASZ0056513<br>   Firmware rev.: 01.03B01</p>
+<p>Information for .PhysicalDrive2:<br>   Windows:       cyl: 924<br>                  tpc: 128<br>                  spt: 63<br>   C/H/S:         7395/16/63<br>   Model:         ELITE PRO CF CARD 4GB<br>   Serial number:     5B021A040<br>   Firmware rev.: Ver3.05K</p>
+<p>Information for .PhysicalDrive3:<br>   Windows:       cyl: 30401<br>                  tpc: 255<br>                  spt: 63</p>
+<p>Which disk do you want to write? (0..3) Which disk do you want to write? (0..3) </p>
+<p>The output above tells us that <strong>PhysicalDrive2</strong> is the name of our 4GB Compact Flash. With that in mind we are going to tell Physdiskwrite to write our image file <em>pfSense-1.2.3-2g-20091207-1914- nanobsd.img</em> to the second drive.</p>
+<blockquote>
+<p>Note: You need to use the -u parameter on cards bigger than 2GB, this is due to a safety precaution.</p>
+</blockquote>
+<p>physdiskwrite.exe -u pfSense-1.2.3-2g-20091207-1914-nanobsd.img</p>
+<p>physdiskwrite v0.5.2 by Manuel Kasper Searching for physical drives…</p>
+<p>Information for .PhysicalDrive0:<br>   Windows:       cyl: 77825<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD6401AALS-00J7B1<br>   Serial number:      WD-WMATV3658664<br>   Firmware rev.: 05.00K05</p>
+<p>Information for .PhysicalDrive1:<br>   Windows:       cyl: 60801<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD5001AALS-00L3B2<br>   Serial number:      WD-WMASZ0056513<br>   Firmware rev.: 01.03B01</p>
+<p>Information for .PhysicalDrive2:<br>   Windows:       cyl: 924<br>                  tpc: 128<br>                  spt: 63<br>   C/H/S:         7395/16/63<br>   Model:         ELITE PRO CF CARD 4GB<br>   Serial number:     5B021A040<br>   Firmware rev.: Ver3.05K</p>
+<p>Information for .PhysicalDrive3:<br>   Windows:       cyl: 30401<br>                  tpc: 255<br>                  spt: 63 </p>
+<p>Specify the number of the disk you wish to write to, in this case the disk is number 2.</p>
+<p>Which disk do you want to write? (0..3) 2</p>
+<p>WARNING: that disk is larger than 2 GB! Make sure you’re not accidentally<br>overwriting your primary hard disk! Proceeding on your own risk…</p>
+<p>Make this is the disk you want to overwrite, if so type <strong>y</strong> and press <strong>Enter</strong> to start.</p>
+<p>About to overwrite the contents of disk 2 with new data. Proceed? (y/n) y<br>2001194496/2001194496 bytes written in total</p>
+<p>Depending on the quality of the card and amount of data the process may take from 5 minutes to 10 minutes(may vary).</p>
+<h2 id="Conslusion"><a href="#Conslusion" class="headerlink" title="Conslusion"></a>Conslusion</h2><p>Compact Flash cards offer some benefits like no movable parts and quiet operation, if you intend to install FreeNAS, pfSense, or any other operating system in a compact flash then this tutorial will be useful.</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php">Home Page for physdiskwrite</a></strong></li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/05/27/recuva-file-recovery-made-easy/">prev</a><a class="next" href="/2010/05/23/rammap-memory-analysis-utility/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

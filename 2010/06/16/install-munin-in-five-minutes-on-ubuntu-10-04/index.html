@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Install Munin In Five Minutes On Ubuntu 10.04 | Linhost.info</title><meta name="description" content="Install Munin In Five Minutes On Ubuntu 10.04 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Install Munin In Five Minutes On Ubuntu 10.04</h1><div class="post-info"><a></a>2010-06-16</div><div class="post-content"><p>Not knowing what is going on a server can be a recipe for disaster. That’s why I use <a target="_blank" rel="noopener" href="http://munin-monitoring.org/">Munin</a> a networked resource monitoring tool that is both simple to install and understand. Munin graphs server performance over time, administrators can later use this information to make an informed decision about when to add more resources. <strong>From The Munin Site:</strong></p>
+<blockquote>
+<p>Munin is a networked resource monitoring tool that can help analyze resource trends and “what just happened to kill our performance?” problems. It is designed to be very plug and play. A default installation provides a lot of graphs with almost no work.</p>
+</blockquote>
+<p><strong>Note:</strong> You will need Root privileges Why guess when the right tools are available.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>To start this tutorial you will need a web server, both Lighttpd and Apache will do the job. For this tutorial I will use Lighttpd which is available from the Ubuntu Repositories.</p>
+<p>sudo aptitude install lighttpd</p>
+<p>You will also need PHP installed on the system.</p>
+<p>sudo aptitude install php5-cgi</p>
+<p>Since Munin will be running on only one system we will need the master and client installed on the same system.</p>
+<p>sudo aptitude install munin munin-node</p>
+<h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><p>When the installation in complete, open the Munin configuration file with your text editor of choice. Change the <strong>htmldir</strong> path from <strong>/var/cache/munin/www</strong> to <strong>/var/www/munin</strong>.</p>
+<p>sudo nano /etc/munin/munin.conf</p>
+<p>dbdir   /var/lib/munin<br>htmldir /var/cache/munin/www<br>logdir /var/log/munin<br>rundir  /var/run/munin</p>
+<p>New Path.</p>
+<p>htmldir /var/www/munin</p>
+<p>When Munin is installed in Ubuntu 10.04 the htmldir path changes for some reason. To have a functional installation we had to change the path on the configuration file, now we need to move the Munin directory out of <em>/var/cache/munin/www</em> into <em>/var/www/munin</em> with the help of the <strong>mv</strong> command.</p>
+<p>sudo mv /var/cache/munin/www/ /var/www/munin</p>
+<p>Assign the Munin directory to the Munin user and group by using <strong>chown</strong>.</p>
+<p>sudo chown munin.munin -R /var/www/munin</p>
+<p>And now you can start Munin.</p>
+<p>sudo /etc/init.d/munin-node start</p>
+<p>Munin can be accessed by pointing the web browser to:</p>
+<p><a target="_blank" rel="noopener" href="http://your-ip.com/munin">http://your-ip.com/munin</a></p>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/2b-Z6qfrA7qIpeozvgyKSw?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TBhSNzru_EI/AAAAAAAACXA/4AQKmQWZjK8/s800/munin.png"></a></p>
+<blockquote>
+<p>Remember that it will take a long time for Munin to display any meaningful information, be patient.</p>
+</blockquote>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a target="_blank" rel="noopener" href="http://munin-monitoring.org/">Munin Home Page</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/06/22/qa-dmz-in-consumer-routers/">prev</a><a class="next" href="/2010/06/14/mark-disk-to-be-checked-on-startup-with-fsutil/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

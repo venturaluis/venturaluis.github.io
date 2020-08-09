@@ -1,0 +1,42 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Simple Samba Server Configuration | Linhost.info</title><meta name="description" content="Simple Samba Server Configuration - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Simple Samba Server Configuration</h1><div class="post-info"><a></a>2010-05-17</div><div class="post-content"><p>Samba is a print and file sharing implementation of the SMB/CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the clients may be Windows the file/print server will be a Linux/Unix-like system. In this tutorial I will demonstrate the necessary steps to set-up a simple Samba server on Ubuntu Server 8.04. By simple I mean the resulting share will not require and kind of authentication to access the shares.</p>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p>Start by installing Samba from the Ubuntu repositories by using apt-get.</p>
+<p>sudo apt-get install samba</p>
+<p>Now we are going to make changes to the Samba configuration.</p>
+<p>/etc/samba/smb.conf</p>
+<p>I will be using nano a text editor. Edit with your text editor of choice:</p>
+<p>sudo nano /etc/samba/smb.conf</p>
+<p>Close to the top of the configuration file below <strong>Global Settings</strong> you will find the option to change the workgroup to match that of your network.</p>
+<p> workgroup = WORKGROUP</p>
+<p>The security option is commented (remove semicolon) the default is set to <strong>user</strong> change it to <strong>share</strong> to match the new configuration.</p>
+<p> security = share</p>
+<p>Now we add the options for our new file share, I recommend you add the following options to the bottom of the configuration file.</p>
+<p>   [share]<br>    comment = Ubuntu File Server Share<br>    path = /media/mydrive/myshare<br>    browsable = yes<br>    guest ok = yes<br>    read only = no<br>    create mask = 0755</p>
+<ul>
+<li><strong>[share]</strong> - The name of our share</li>
+<li><strong>comment</strong> - Description of the share purpose</li>
+<li><strong>path</strong> - The location of the directory you wish to share</li>
+<li><strong>browsable</strong> - Should the directory be browsable</li>
+<li><strong>guest ok</strong> - Connect without requiring a password</li>
+<li><strong>read only</strong> - Write access to direcotry</li>
+<li><strong>create mask</strong> - Permission for new files</li>
+</ul>
+<p>Create a new directory where the files you wish to share will reside. -p if necessary it will create the directory tree.</p>
+<p>sudo mkdir -p /media/mydrive/myshare</p>
+<p>Change ownership to.</p>
+<p>sudo chown nobody.nogroup /media/mydrive/myshare/</p>
+<p>Restart Samba and wait for the changes to take effect.</p>
+<p>sudo /etc/init.d/samba restart</p>
+<p>To make sure the configuration file is clear of typos or missing options you should run <strong>testparm</strong> to check for any errors.</p>
+<p>testparm smb.conf</p>
+<p>Load smb config files from smb.conf<br>Processing section “[printers]“<br>Processing section “[print$]“<br>Processing section “[share]“<br>Loaded services file OK.<br>Server role: ROLE_STANDALONE<br>Press enter to see a dump of your service definitions</p>
+<h4 id="Windows-Client-Set-Up"><a href="#Windows-Client-Set-Up" class="headerlink" title="Windows Client Set-Up"></a>Windows Client Set-Up</h4><p>After we are done setting up the server side configuration we move on to the Windows client. Go to <strong>Start</strong> &gt; <strong>My Computer</strong> &gt; and click on <strong>Map network drive</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tgoYScxRkvL2EVDlnsB0BQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S_IMIXxe-xI/AAAAAAAACN4/1T2B6I3pbZc/s800/1.png"></a> In the Map Network Drive window <strong>enter the IP address</strong> and <strong>share name</strong>, click on <strong>Finish</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/bYU31hfK8UMaSKzI4iHmsA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S_IKzwr-lvI/AAAAAAAACNs/ABjE9UjYLSg/s800/2.png"></a> Go back to My Computer and in the Network Location section you should be able to see the mounted share (name and IP address). <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/FVn6kiEBKSiHfv8J3ihePA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S_IKz7lpDUI/AAAAAAAACNw/ulXnW2n0ei4/s800/3.png"></a> Congratulations, you have just set up a simple file server on Linux and configured the Windows client. In future posts I will go into securing a share.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2010/05/21/3tb-hard-drives-are-on-the-way/">prev</a><a class="next" href="/2010/05/11/compare-hashes-with-md5deep-part-2/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

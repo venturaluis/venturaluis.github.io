@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>How to Split Files with the Split command in Linux | Linhost.info</title><meta name="description" content="How to Split Files with the Split command in Linux - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">How to Split Files with the Split command in Linux</h1><div class="post-info"><a></a>2013-07-15</div><div class="post-content"><p>Split is a useful Linux command used to split files into chunks of various sizes. The Split command is a straight forward utility all you do is specify the target size of each chunk in bytes (-b) followed by the name of the file to be split.</p>
+<p>split -b 200m -d ubuntu-12.04.2-server-amd64.iso</p>
+<p>The 657MB Ubuntu ISO was split into four chunks. Notice the incremental numbering.</p>
+<p>x00  x01  x02  x03</p>
+<p>To join all the files back together we use another utility, cat will look for all files starting with <strong>X*</strong>, regroup them, and output the results in to the file <strong>ubuntu-12.04.2-server-amd64.iso</strong>.</p>
+<p>cat x* &gt; ubuntu-12.04.2-server-amd64.iso</p>
+<p>Split is a simple utility that can split files of any size into more manageable chunks. I regularly use split when I am forced to download files over unreliable connections and with no possibility of transfering with Rsync.</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="http://linux.die.net/man/1/split">http://linux.die.net/man/1/split</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2013/07/21/careful-when-cancelling-an-account-with-hostgator/">prev</a><a class="next" href="/2013/07/15/ubuntu-13-04-server-x64-vm-available-for-download/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

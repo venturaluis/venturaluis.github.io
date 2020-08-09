@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>DD the Swiss army knife for Linux | Linhost.info</title><meta name="description" content="DD the Swiss army knife for Linux - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">DD the Swiss army knife for Linux</h1><div class="post-info"><a></a>2008-12-11</div><div class="post-content"><p>The Windows world has Norton Ghost, Linux has <strong>dd</strong> which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards using dd, you can always do more research. This is a list of the common ways I use <strong>dd</strong>.</p>
+<h3 id="Disk-cloning"><a href="#Disk-cloning" class="headerlink" title="Disk cloning"></a>Disk cloning</h3><p>Clone a hard disk, move all the data located in sda to sdb.</p>
+<p>dd if=/dev/sda of=/dev/sdb</p>
+<p>If duplication of the disk is not needed we can instead create an image file for storage.</p>
+<p>dd if=/dev/sda of=~/disk1.img</p>
+<p>Restore the image file.</p>
+<p>dd if=disk1.img of=/dev/sda</p>
+<h3 id="Copy-CD-DVD-in-to-ISO"><a href="#Copy-CD-DVD-in-to-ISO" class="headerlink" title="Copy CD/DVD in to ISO"></a>Copy CD/DVD in to ISO</h3><p>Create a ISO out of a CD or DVD</p>
+<p>dd if=/dev/cdrom of=/home/user/cd.iso bs=2048 conv=notrunc</p>
+<p>Erase the data from the drive by overwriting it with random data. Keep in mind this solution does not comply with any kind of standard.</p>
+<p>dd if=/dev/urandom of=/dev/hda</p>
+<p>If you wish to use a solution that securely erases the data in hard drives use <a target="_blank" rel="noopener" href="http://www.dban.org/">Darik’s Boot and Nuke (DBAN)</a>.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/12/11/how-to-install-webmin-on-ubuntu/">prev</a><a class="next" href="/2008/12/11/ddclient-set-up-for-ubuntu/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

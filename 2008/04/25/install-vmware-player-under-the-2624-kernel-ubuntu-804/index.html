@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Install VMware Player On Ubuntu 8.04 | Linhost.info</title><meta name="description" content="Install VMware Player On Ubuntu 8.04 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Install VMware Player On Ubuntu 8.04</h1><div class="post-info"><a></a>2008-04-25</div><div class="post-content"><p><strong>Update - If your version of VMware Player or Server fails to start after a regular kernel upgrade you have to re-run the <a href="http://linhost.info/?p=124">“vmware-config.pl”</a>.</strong> <strong>Revised on Jun 20, 2008</strong> Download VMWare Player latest version which is 2.0.4 from the <a target="_blank" rel="noopener" href="http://www.vmware.com/download/player/">VMWare site</a> and choose “VMware Player 2.0.4 for Linux (.tar)”. I would recommend installing the development tools first</p>
+<blockquote>
+<p>sudo aptitude install build-essential linux-kernel-devel linux-headers-generic xinetd</p>
+</blockquote>
+<p>After the download is completed untar the VMware Player download using</p>
+<blockquote>
+<p>tar xzvf VMware-player-2.0.4-93057.i386.tar.gz</p>
+</blockquote>
+<p>Move to the recently created directory</p>
+<blockquote>
+<p>cd vmware-player-distrib/</p>
+</blockquote>
+<p>and install</p>
+<blockquote>
+<p>sudo ./vmware-install.pl</p>
+</blockquote>
+<p>Follow and answer the configuration options like usual, when you are done start VMWare Player.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/05/07/pink-glow-around-the-windows-on-ubuntu-804/">prev</a><a class="next" href="/2008/04/23/your-idea-of-linux/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

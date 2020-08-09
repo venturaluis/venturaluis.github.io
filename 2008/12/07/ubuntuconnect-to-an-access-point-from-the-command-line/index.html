@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Ubuntu: Connect To An Access Point From The Command Line | Linhost.info</title><meta name="description" content="Ubuntu: Connect To An Access Point From The Command Line - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Ubuntu: Connect To An Access Point From The Command Line</h1><div class="post-info"><a></a>2008-12-07</div><div class="post-content"><p>Running a headless server presents several challenges, networking is not one of them. In this case I have a headless server with a USB wireless adapter and I wish to connect to the nearest access point. The wireless interface has to be activated, in this case I am using Ubuntu and the interface name is <strong>wlan0</strong>, keep in mind that the name may change on Backtrack the same wireless adapter appears under a different name <strong>rusb0</strong>.</p>
+<h2 id="Activate-the-wireless-interface"><a href="#Activate-the-wireless-interface" class="headerlink" title="Activate the wireless interface"></a>Activate the wireless interface</h2><p>Let’s bring the interface wlan0 up.</p>
+<p>ifconfig wlan0 up</p>
+<p>Scan for the wireless network you wish to connect.</p>
+<p>sudo iwlist wlan0 scan</p>
+<p>wlan0     Scan completed :<br>          Cell 01 - Address: 00:19:5B:0C:30:CA<br>                    ESSID:”wireless”<br>                    Mode:Master<br>                    Channel:6<br>                    Frequency:2.437 GHz (Channel 6)<br>                    Quality=47/100  Signal level:-76 dBm<br>                    Encryption key:on<br>                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s<br>                              12 Mb/s; 24 Mb/s; 36 Mb/s; 9 Mb/s; 18 Mb/s<br>                              48 Mb/s; 54 Mb/s<br>                    Extra:tsf=0000010b1bfe2181<br>                    Extra: Last beacon: 28ms ago</p>
+<p>After we take note of the target ESSID we associate our wireless adapter to the AP. In this case the AP has no encryption.</p>
+<p>iwconfig wlan0 essid “wireless”</p>
+<p>Last but no least we need to request an IP address from the server, if using static IP ignored this command.</p>
+<p>sudo dhclient wlan0</p>
+<p>There is already a pid file /var/run/dhclient.pid with pid 9738<br>killed old client process, removed PID file<br>Internet Systems Consortium DHCP Client V3.1.1<br>Copyright 2004-2008 Internet Systems Consortium.<br>All rights reserved.<br>For info, please visit <a target="_blank" rel="noopener" href="http://www.isc.org/sw/dhcp/">http://www.isc.org/sw/dhcp/</a></p>
+<p>wmaster0: unknown hardware address type 801<br>wmaster0: unknown hardware address type 801<br>Listening on LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   Socket/fallback<br>DHCPREQUEST of 192.168.1.104 on wlan0 to 255.255.255.255 port 67<br>DHCPACK of 192.168.1.104 from 192.168.1.1<br>bound to 192.168.1.104 – renewal in 40459 seconds.</p>
+<p>In case the AP requires a key, issue the following.</p>
+<p>iwconfig wlan0 key ABCD-ABCD-ABCD-ABCD</p>
+<p>Now just check the wireless adapter status.</p>
+<p>ifconfig</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/12/11/ddclient-set-up-for-ubuntu/">prev</a><a class="next" href="/2008/12/07/centos-52-is-now-available-for-download/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

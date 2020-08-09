@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>How To Backup And Restore The MBR | Linhost.info</title><meta name="description" content="How To Backup And Restore The MBR - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">How To Backup And Restore The MBR</h1><div class="post-info"><a></a>2011-09-19</div><div class="post-content"><p>You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in getting a blank screen. BTW: The MBR holds partition data and Operating System boot essential data. Therefore, it’s essential to know how to backup the MBR, fortunately we can backup with a few simple steps and only using free tools.</p>
+<blockquote>
+<p>MBR = Master Boot Record</p>
+</blockquote>
+<p>This tutorial uses a Live CD which includes the utility know as <strong>dd</strong> with can be used to copy entire drives or just sections of it. First of all you should boot in to your Linux environment and mount a second drive where we can store the MBR backup.</p>
+<blockquote>
+<p>Do not save the backup file in the same drive from which you are making the backup.</p>
+</blockquote>
+<p>Create a directory.</p>
+<p>mkdir mountusb</p>
+<p>Use the <strong>ls</strong> command to identify the second drive. In my case I have a SATA drive and a USB drive, the SATA drive is always assigned the first letter of the alphabet in this case it’s named <strong>sda</strong> and the USB drive was assigned the name <strong>sdb</strong>.</p>
+<p>root@PartedMagic:~# ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sdb  /dev/sdb1</p>
+<p>You can’t mount the drive itself, instead you have to mount partitions. In this case I will be mounting a USB drive which is where I will be storing the MBR backup, <em>remember to mount the partition not the drive</em>.</p>
+<p>mount /dev/sdb1 mountusb</p>
+<p>And now we back up the <strong>MBR</strong> aka the first 512 bytes.</p>
+<p>dd if=/dev/sda count=1 bs=512 &gt; mountusb/sda.mbr</p>
+<ul>
+<li><strong>mountusb -</strong> Is the previously created directory</li>
+<li><strong>sda.mbr -</strong> Represents the actual backup</li>
+</ul>
+<p>Restoring the <strong>MBR</strong> follows similar steps, you first need to mount the drive where the MBR was backup to and use the <strong>dd</strong> command to restore the backup to the desired drive.</p>
+<p>dd if=mountusb/sda.mbr of=/dev/sda</p>
+<p>Now that you know how to backup the MBR go ahead and start playing with multiple operating system, if at a latter time you decided to remove them you can always revert to the original MBR with a single command. Thanks for reading.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2011/09/25/time-for-a-new-nas/">prev</a><a class="next" href="/2011/09/14/download-the-windows-8-developer-preview/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

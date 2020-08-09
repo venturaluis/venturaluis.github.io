@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Install Webmin on Ubuntu 12.04 | Linhost.info</title><meta name="description" content="Install Webmin on Ubuntu 12.04 - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Install Webmin on Ubuntu 12.04</h1><div class="post-info"><a></a>2012-08-22</div><div class="post-content"><p><strong>Note:</strong> This post assumes a web server is already installed. <strong>Note:</strong> This post assumes you have administrative rights on the system. Like always you should update and upgrade the installation.</p>
+<p>sudo apt-get update</p>
+<p>sudo apt-get upgrade</p>
+<p><img src="http://cdn.linhost.info/static/webmin.png" alt="Webmin"></p>
+<h2 id="Download-Webmin"><a href="#Download-Webmin" class="headerlink" title="Download Webmin"></a>Download Webmin</h2><p>Visit <a target="_blank" rel="noopener" href="http://www.webmin.com/download.html">webmin.com/download.html</a> and download the .deb version of Webmin.</p>
+<p>cd /tmp</p>
+<p>wget <a target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin/_1.590/_all.deb">http://prdownloads.sourceforge.net/webadmin/webmin\_1.590\_all.deb</a></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Now that we have the package we can install it.</p>
+<p>sudo dpkg -i webmin_1.590_all.deb</p>
+<p>Actually dpkg will not be able to install Webmin because of some missing dependencies. This is why we need an extra step which will fetch the missing dependencies for us.</p>
+<p>sudo apt-get install -f</p>
+<p>Now you can log-in to the newly installed Webmin interface by going to the following address. Just add the IP address of the server.</p>
+<p><a target="_blank" rel="noopener" href="https://server/_ip/_address:10000">https://server\_ip\_address:10000</a></p>
+<p>Remember the log-in credentials for Webmin are the username and password you used to log in to the server. <img src="http://cdn.linhost.info/static/webmin-login.png" alt="Webmin login"></p>
+<h2 id="Conclusion-and-Links"><a href="#Conclusion-and-Links" class="headerlink" title="Conclusion and Links"></a>Conclusion and Links</h2><p>Comments and corrections are always appreciated. Webmin Home Page <a target="_blank" rel="noopener" href="http://www.webmin.com/">http://www.webmin.com</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/08/26/keeping-a-vhd-mounted-in-windows-even-after-a-reboot/">prev</a><a class="next" href="/2012/08/21/wget-for-windows/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

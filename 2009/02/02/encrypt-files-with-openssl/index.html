@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Encrypt files with OpenSSL | Linhost.info</title><meta name="description" content="Encrypt files with OpenSSL - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Encrypt files with OpenSSL</h1><div class="post-info"><a></a>2009-02-02</div><div class="post-content"><p>You may be familiar with OpenSSL and how it’s used to encrypt web pages across the internet, however it can also be used to encrypt files on systems. Lucky you OpenSSL is available on pretty much any operating system you can think of, meaning that if you need quick encryption there is no better option. An alternative to OpenSSL is GPG however it’s not included by default on all distributions. I find that encrypting files with GPG requires less manual input. If you are interested in encrypting files with GPG instead of OpenSSL then read this article <a href="http://linhost.info/2009/02/encrypt-files-with-gpg-on-linux/">Encrypt files with GPG</a>. To view the a list of the available ciphers issue the following command.</p>
+<p>openssl -h</p>
+<h4 id="OpenSSL-encryption-basics"><a href="#OpenSSL-encryption-basics" class="headerlink" title="OpenSSL encryption basics"></a>OpenSSL encryption basics</h4><p>The process to encrypt a file is not complex, all you need to remember is to specify the cipher to be used, indicate salt, the input file and output file. Here is the anatomy of the command.</p>
+<p>openssl  cipher  -a  -in  -out</p>
+<p>Explanation.</p>
+<ul>
+<li><strong>cipher</strong> specify the cipher to be used.</li>
+<li><strong>-a</strong> encrypted output will be base64 encoded, useful for sending the file via email.</li>
+<li><strong>-salt</strong> used to complicate dictionary attacks, make the attackers job harder by doubling the amount of resources needed.</li>
+<li><strong>-in</strong> input file, the file you want to encrypt.</li>
+<li><strong>-out</strong> output, the encrypted file.</li>
+</ul>
+<h4 id="File-encryption"><a href="#File-encryption" class="headerlink" title="File encryption"></a>File encryption</h4><p>In the following example <strong>filename.pdf</strong> will encrypted using <strong>triple DES cipher</strong>. Because I want to remember the cipher used to encrypt the file the result was <strong>filename.des3</strong> indicating that triple DES was used on the file.</p>
+<p>openssl des3 -a -salt -in filename.txt -out filename.des3</p>
+<h4 id="File-decryption"><a href="#File-decryption" class="headerlink" title="File decryption"></a>File decryption</h4><p>To decrypt the file the process is similar. Indicate the cipher, file was base64 encoded, decrypt the file, input the file name and output the file name.</p>
+<p>openssl des3 -a -d -salt -in file.des3 -out file.txt</p>
+<p>Explanation</p>
+<ul>
+<li><strong>cipher</strong> indicate the used cipher</li>
+<li><strong>-a</strong> encrypted file was encoded with base64.</li>
+<li><strong>-d</strong> the file will decrypted</li>
+<li><strong>-salt</strong> salt was used</li>
+<li><strong>-in</strong> specyfile the encrypted file to be decrypted</li>
+<li><strong>-out</strong> output file</li>
+</ul>
+<h4 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h4><p>You don’t have to use triple DES to encrypt your files. Switching ciphers is very easy, in this case I decided to use Advanced Encryption Standard (AES). Encryption of the file.</p>
+<p>openssl aes-256-cbc -a -salt -in vim.pdf -out output.aes</p>
+<p>Decryption of the file.</p>
+<p>openssl aes-256-cbc -d -a -in input.aes -out output.pdf</p>
+<p>Hopefully this article will help you secure your files from the unknown. <strong>Interesting sources</strong> <a target="_blank" rel="noopener" href="http://www.openssl.org/docs/apps/enc.html">OpenSSL docs</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2009/02/04/monitor-network-latency-with-smokeping/">prev</a><a class="next" href="/2009/02/02/encrypt-files-with-gpg-on-linux/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

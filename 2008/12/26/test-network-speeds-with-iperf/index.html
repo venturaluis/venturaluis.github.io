@@ -1,0 +1,26 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Measure network speeds with Iperf | Linhost.info</title><meta name="description" content="Measure network speeds with Iperf - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Measure network speeds with Iperf</h1><div class="post-info"><a></a>2008-12-26</div><div class="post-content"><p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SVV0d5wrBGI/AAAAAAAAAUQ/s2XSj77g1Zg/s800/iperf.jpg"> It happens to all of us, sometimes segments of the network may become unusable or slow. The documentation created by the previous administrator may say Gigabit ethernet is supported or enabled across the network, yet only a fraction of the bandwidth is available. <strong>Iperf</strong> can measure the throughput of a network, Iperf operates in a client server mode. Best of all it’s open source and cross platform. Iperf is the perfect tool to measure wired and wireless networks, bandwidth is measured through TCP tests.</p>
+<h3 id="Iperf-installation"><a href="#Iperf-installation" class="headerlink" title="Iperf installation"></a>Iperf installation</h3><p>For the network test I will install Iperf on two systems, one will act as the server and the other as the client. Iperf is available on the Ubuntu repositories.</p>
+<p>sudo apt-get install iperf</p>
+<h3 id="Iperf-server"><a href="#Iperf-server" class="headerlink" title="Iperf server"></a>Iperf server</h3><p>Now turn one of the systems in to the Iperf server.</p>
+<p>iperf -s</p>
+<p>Iperf server output.</p>
+<p>-———————————————————–<br>Server listening on TCP port 5001<br>TCP window size: 85.3 KByte (default)</p>
+<hr>
+<h3 id="Iperf-client"><a href="#Iperf-client" class="headerlink" title="Iperf client"></a>Iperf client</h3><p>On the Iperf client issue the following command to connect with the Iperf server and initiate the test.</p>
+<p>iperf -c 192.168.1.103</p>
+<p>Client side output.</p>
+<p>-———————————————————–<br>Client connecting to 192.168.1.103, TCP port 5001<br>TCP window size: 16.0 KByte (default)</p>
+<hr>
+<p>[  3] local 192.168.1.101 port 59291 connected with 192.168.1.103 port 5001<br>[ ID] Interval       Transfer     Bandwidth<br>[  3]  0.0-10.0 sec    113 MBytes  94.5 Mbits/sec</p>
+<p>You can see that on this test Iperf successfully transfered 113 MB of data at a network speed of 94.2 Mbits/sec. You can also tell Iperf to wait before giving you the network results, by adding <strong>-t 30</strong> at the end of the command. This will tell Iperf to wait and in the mean time transferer more data across the network.</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/iperf">http://sourceforge.net/projects/iperf</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/12/28/create-a-virtual-machine-from-an-iso-with-vmware-player/">prev</a><a class="next" href="/2008/12/25/temperature-monitoring-with-lm-sensors-on-ubuntu/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

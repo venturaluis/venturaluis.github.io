@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Keyboard Not Working Propertly on VMware | Linhost.info</title><meta name="description" content="Keyboard Not Working Propertly on VMware - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Keyboard Not Working Propertly on VMware</h1><div class="post-info"><a></a>2008-11-02</div><div class="post-content"><p>Yesterday, I made the upgrade to Ubuntu 8.10 and minutes later installed my number one application WMware Player only to notice moments later that my keyboard was not working property, the arrow keys were disabled for some reason. Thanks to a problem with the evdev input driver my keyboard was partially functional. The solution is actually very simple. Create a new file and place the following values in the new file.</p>
+<p>sudo nano /etc/vmware/config</p>
+<p>xkeymap.keycode.108 = 0x138 # Alt_R</p>
+<p>xkeymap.keycode.106 = 0x135 # KP_Divide</p>
+<p>xkeymap.keycode.104 = 0x11c # KP_Enter</p>
+<p>xkeymap.keycode.111 = 0x148 # Up</p>
+<p>xkeymap.keycode.116 = 0x150 # Down</p>
+<p>xkeymap.keycode.113 = 0x14b # Left</p>
+<p>xkeymap.keycode.114 = 0x14d # Right</p>
+<p>xkeymap.keycode.105 = 0x11d # Control_R</p>
+<p>xkeymap.keycode.118 = 0x152 # Insert</p>
+<p>xkeymap.keycode.119 = 0x153 # Delete</p>
+<p>xkeymap.keycode.110 = 0x147 # Home</p>
+<p>xkeymap.keycode.115 = 0x14f # End</p>
+<p>xkeymap.keycode.112 = 0x149 # Prior</p>
+<p>xkeymap.keycode.117 = 0x151 # Next</p>
+<p>xkeymap.keycode.78 = 0x46 # Scroll_Lock</p>
+<p>xkeymap.keycode.127 = 0x100 # Pause</p>
+<p>xkeymap.keycode.133 = 0x15b # Meta_L</p>
+<p>xkeymap.keycode.134 = 0x15c # Meta_R</p>
+<p>xkeymap.keycode.135 = 0x15d # Menu</p>
+<p>Close the file and test the changes by starting VMware Player. Enjoy. All credit goes to <a target="_blank" rel="noopener" href="http://communities.vmware.com/thread/177321">communities.vmware.com</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/11/03/when-is-bittorrent-becoming-an-option/">prev</a><a class="next" href="/2008/11/01/canonical-landscape-part-of-the-business-model/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

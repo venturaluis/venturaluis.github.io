@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>How To Install MiniDLNA On Ubuntu | Linhost.info</title><meta name="description" content="How To Install MiniDLNA On Ubuntu - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">How To Install MiniDLNA On Ubuntu</h1><div class="post-info"><a></a>2012-07-15</div><div class="post-content"><p>MiniDLNA is a lightweight and simple to configure DLNA server for Linux, I say simple because for this tutorial we only need to edit a single configuration file. while you can always change more settings, this tutorial will only cover the basics needed to have a working server.</p>
+<blockquote>
+<p>MiniDLNA is server software with the aim of being fully compliant with DLNA/UPnP clients.</p>
+</blockquote>
+<h3 id="Preparations"><a href="#Preparations" class="headerlink" title="Preparations"></a>Preparations</h3><p>Before we can install MiniDLNA make sure the installation is up to date.</p>
+<p>sudo apt-get update<br>sudo apt-get upgrade</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>MiniDLNA is available in the Ubuntu repositories, why is why we can install the package with the help of <em>apt-get</em>.</p>
+<p>sudo apt-get install minidlna</p>
+<p><em>For this tutorial I will be using an Ubuntu 12.04 64-Bit installation. Also, you will need access to root.</em></p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>We need to edit the MiniDLNA configuration file.</p>
+<p>sudo nano /etc/minidlna.conf</p>
+<p>And uncomment and change the following settings.</p>
+<p>#network_interface=eth0<br>#media_dir=/opt<br>#friendly_name=My DLNA Server</p>
+<p>After making the changes your configuration should look somewhat similar to mine, make changes as necessary.</p>
+<p>network_interface=eth0<br>media_dir=/usr/local/media<br>friendly_name=Multimedia Server</p>
+<p>Let me explain the changes. <strong>network_interface=eth0</strong> - This is the network interface where all the content will be served to the clients. <strong>media_dir=/usr/local/media</strong> - I’ve decided to store all my media files in the <strong>/usr</strong> directory, you can change the path according to your needs. <strong>friendly_name=Multimedia</strong> - This is the name by which all the clients will recognize the server. Restart the service.</p>
+<p>sudo service minidlna restart</p>
+<p>And your MiniDLNA Server is configured to serve your media files. Now go over to the client and attempt to connect. In my case the client is an Xbox 360. <img src="https://lh6.googleusercontent.com/-QBEH22GWXpo/UAJsVKkj9DI/AAAAAAAADbY/u4Y87XrJm5c/s512/xbox-dlna-0.JPG" alt="xbox-dlna-0"> BTW: If your client is an Xbox 360 you may have to use a transcoder like <a target="_blank" rel="noopener" href="http://handbrake.fr/">Handbrake</a> to transcode all your files to an Xbox 360 friendly video file, Otherwise MiniDLNA will serve the files but they will appear as unvailable to the clients. <img src="https://lh6.googleusercontent.com/-sLHCsQ8XvdM/UAJsVrYxj7I/AAAAAAAADbg/WDK4kqV37OY/s308/xbox-dlna-1.JPG" alt="xbox-dlna-1"></p>
+<h3 id="Optional"><a href="#Optional" class="headerlink" title="Optional"></a>Optional</h3><p>In the configuration above I only specified a single directory for media files, but if you wish to add more directories all you have to do is add another line to the configuration like this one:</p>
+<p>media_dir=/usr/local/media_video</p>
+<p><strong>Links</strong> <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/minidlna/">MiniDLNA home page</a></p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2012/07/21/new-comment-system/">prev</a><a class="next" href="/2012/06/19/create-a-bootable-deft-linux-usb-drive-in-windows/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

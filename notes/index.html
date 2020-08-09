@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Notes | Linhost.info</title><meta name="description" content="Notes - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Notes</h1><div class="post-info"><a></a>2012-06-18</div><div class="post-content"><p>Clear system of any files related to package.</p>
+<p>apt-get remove –purge dump1090</p>
+<h3 id="RouterOS"><a href="#RouterOS" class="headerlink" title="RouterOS"></a>RouterOS</h3><p>Dead simple bandwidth limiting. Make sure FastTrack is disabled first.</p>
+<p>/queue simple</p>
+<p>add max-limit=512K/128K name=queue0 target=192.168.1.253/32<br>add max-limit=1M/1M name=queue1 target=192.168.1.254/32</p>
+<p>More complicated traffic limiting queue.</p>
+<p>name=”chromecast” target=192.168.100.248/32 parent=none packet-marks=”” priority=8/8<br>      queue=default-small/default-small limit-at=0/0 max-limit=2M/128k burst-limit=4M/0 burst-threshold=1500k/0<br>      burst-time=55s/0s</p>
+<h3 id="LINUX-Notes"><a href="#LINUX-Notes" class="headerlink" title="LINUX Notes"></a>LINUX Notes</h3><ol>
+<li><a href="#a1">cp: omitting directory</a></li>
+<li><a href="#a2">Create symbolic links</a></li>
+<li><a href="#a3">Test disk performance with hdparm</a></li>
+<li><a href="#a4">Install from source</a></li>
+<li><a href="#a5">Install .bin</a></li>
+<li><a href="#a6">RPM installation</a></li>
+<li><a href="#a7">Find USB devices</a></li>
+<li><a href="#a8">Mount USB storage devices</a></li>
+<li><a href="#a9">Static IP configuration for Linux</a></li>
+<li><a href="#a10">Install default LAMP stack (Ubuntu) using apt-get</a></li>
+<li><a href="#a11">Network interface disappeared after moving VMware virtual machine</a></li>
+<li><a href="#a12">Update and patch CentOS / Redhat</a></li>
+<li><a href="#a13">Show list of software to be updated</a></li>
+<li><a href="#a14">Some packages are being held back</a></li>
+<li><a href="#a15">Basic IPTables configuration</a></li>
+<li><a href="#a16">Only update specific packages</a></li>
+<li><a href="#a17">Configure SELinux to be permissive</a></li>
+</ol>
+<hr>
+<p>tail -f /var/log/messages</p>
+<p>ls -lh</p>
+<h4 id="cp-omitting-directory"><a href="#cp-omitting-directory" class="headerlink" title="cp: omitting directory"></a>cp: omitting directory</h4><p>Problem: when trying to copy a directory to another location I get the following error <strong>cp: omitting directory</strong>. Solution: add <strong>-r</strong> after the command <strong>cp</strong>, which means copy directories recursively.</p>
+<p>cp -r old_file new_file</p>
+<h4 id="Create-symbolic-links"><a href="#Create-symbolic-links" class="headerlink" title="Create symbolic links"></a>Create symbolic links</h4><p>ln -s /etc/apache2 /home/user</p>
+<p>* Directories must use soft links.</p>
+<h4 id="Test-disk-performanance"><a href="#Test-disk-performanance" class="headerlink" title="Test disk performanance"></a>Test disk performanance</h4><p>hdparm -Tt /dev/sda</p>
+<h4 id="Install-from-source"><a href="#Install-from-source" class="headerlink" title="Install from source"></a>Install from source</h4><p>Untar</p>
+<p>tar zxvf file.tar.gz</p>
+<p>Move to the newly created directory.</p>
+<p>cd file</p>
+<p>Execute the script.</p>
+<p>./file.sh</p>
+<h4 id="Install-bin"><a href="#Install-bin" class="headerlink" title="Install .bin"></a>Install .bin</h4><p>Change permission.</p>
+<p>chmod +x file.bin</p>
+<p>Execute the script.</p>
+<p>./file.bin</p>
+<h4 id="RPM-installation"><a href="#RPM-installation" class="headerlink" title="RPM installation"></a>RPM installation</h4><p>Install RPM package.</p>
+<p>rpm -iuh packages</p>
+<p>Upgrade RPM package.</p>
+<p>rpm -uvh package</p>
+<h4 id="Find-USB-devices"><a href="#Find-USB-devices" class="headerlink" title="Find USB devices"></a>Find USB devices</h4><p>lsusb</p>
+<h4 id="Mount-USB-storage-devices"><a href="#Mount-USB-storage-devices" class="headerlink" title="Mount USB storage devices"></a>Mount USB storage devices</h4><p>The USB drive will be mount in to the folder named “mount” located in the users home directory.</p>
+<p>mount /dev/usb mount</p>
+<p>Assign the mount directory proper permission.</p>
+<p>chmod 777 /mount/point</p>
+<p>Unmount the USB device.</p>
+<p>umount /dev/usb</p>
+<h4 id="Static-IP-configuration-for-Linux"><a href="#Static-IP-configuration-for-Linux" class="headerlink" title="Static IP configuration for Linux"></a>Static IP configuration for Linux</h4><p>The configuration is located at <strong>/etc/network/interfaces.</strong></p>
+<p># The primary network interface</p>
+<h1 id="allow-hotplug-eth0"><a href="#allow-hotplug-eth0" class="headerlink" title="allow-hotplug eth0"></a>allow-hotplug eth0</h1><p>auto eth0<br>iface eth0 inet static<br>address 192.168.1.3<br>network 192.168.1.0<br>netmask 255.255.255.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
+<p>Set DNS to resolve <strong>/etc/resolv.conf.</strong></p>
+<p>nameserver 192.168.1.1</p>
+<h4 id="Install-default-LAMP-stack-Ubuntu-using-apt-get"><a href="#Install-default-LAMP-stack-Ubuntu-using-apt-get" class="headerlink" title="Install default LAMP stack (Ubuntu) using apt-get"></a>Install default LAMP stack (Ubuntu) using apt-get</h4><p>apt-get install apache2 php5-mysql libapache2-mod-php5 mysql-server</p>
+<h4 id="Network-interface-disappeared-after-moving-VMware-virtual-machine"><a href="#Network-interface-disappeared-after-moving-VMware-virtual-machine" class="headerlink" title="Network interface disappeared after moving VMware virtual machine"></a>Network interface disappeared after moving VMware virtual machine</h4><p>The solution is to remove the <strong>persistent-net.rules</strong>. In Debian the file has the name of :</p>
+<p>rm /etc/udev/rules.d/z25_persistent-net.rules</p>
+<p>On Ubuntu the file name changes to :</p>
+<p>rm /etc/udev/rules.d/70-persistent-net.rules</p>
+<p>Then reboot.</p>
+<h4 id="Update-and-patch-CentOS-Redhat"><a href="#Update-and-patch-CentOS-Redhat" class="headerlink" title="Update and patch CentOS / Redhat"></a>Update and patch CentOS / Redhat</h4><p>To update CentOS or Redhat issue the following command with Root privileges.</p>
+<p>yum update</p>
+<p>The output will be</p>
+<h4 id="Show-list-of-software-to-be-updated"><a href="#Show-list-of-software-to-be-updated" class="headerlink" title="Show list of software to be updated"></a>Show list of software to be updated</h4><p>yum list updates</p>
+<h4 id="Some-packages-are-being-held-back"><a href="#Some-packages-are-being-held-back" class="headerlink" title="Some packages are being held back"></a>Some packages are being held back</h4><p>Run</p>
+<p>apt-get dist-upgrade</p>
+<h4 id="Basic-IPTables-configuration"><a href="#Basic-IPTables-configuration" class="headerlink" title="Basic IPTables configuration"></a>Basic IPTables configuration</h4><p>The following allows port 22, 80 and 443 in.</p>
+<p>*filter</p>
+<h1 id="Allows-all-loopback-lo0-traffic-and-drop-all-traffic-to-127-8-that-doesn’t-use-lo0"><a href="#Allows-all-loopback-lo0-traffic-and-drop-all-traffic-to-127-8-that-doesn’t-use-lo0" class="headerlink" title="Allows all loopback (lo0) traffic and drop all traffic to 127/8 that doesn’t use lo0"></a>Allows all loopback (lo0) traffic and drop all traffic to 127/8 that doesn’t use lo0</h1><p>-A INPUT -i lo -j ACCEPT<br>-A INPUT -i ! lo -d 127.0.0.0/8 -j REJECT</p>
+<h1 id="Accepts-all-established-inbound-connections"><a href="#Accepts-all-established-inbound-connections" class="headerlink" title="Accepts all established inbound connections"></a>Accepts all established inbound connections</h1><p>-A INPUT -m state –state ESTABLISHED,RELATED -j ACCEPT</p>
+<h1 id="Allows-all-outbound-traffic"><a href="#Allows-all-outbound-traffic" class="headerlink" title="Allows all outbound traffic"></a>Allows all outbound traffic</h1><h1 id="You-can-modify-this-to-only-allow-certain-traffic"><a href="#You-can-modify-this-to-only-allow-certain-traffic" class="headerlink" title="You can modify this to only allow certain traffic"></a>You can modify this to only allow certain traffic</h1><p>-A OUTPUT -j ACCEPT</p>
+<h1 id="Allows-HTTP-and-HTTPS-connections-from-anywhere-the-normal-ports-for-websites"><a href="#Allows-HTTP-and-HTTPS-connections-from-anywhere-the-normal-ports-for-websites" class="headerlink" title="Allows HTTP and HTTPS connections from anywhere (the normal ports for websites)"></a>Allows HTTP and HTTPS connections from anywhere (the normal ports for websites)</h1><p>-A INPUT -p tcp –dport 80 -j ACCEPT<br>-A INPUT -p tcp –dport 443 -j ACCEPT</p>
+<h1 id="Allows-SSH-connections"><a href="#Allows-SSH-connections" class="headerlink" title="Allows SSH connections"></a>Allows SSH connections</h1><p>#</p>
+<h1 id="THE-dport-NUMBER-IS-THE-SAME-ONE-YOU-SET-UP-IN-THE-SSHD-CONFIG-FILE"><a href="#THE-dport-NUMBER-IS-THE-SAME-ONE-YOU-SET-UP-IN-THE-SSHD-CONFIG-FILE" class="headerlink" title="THE -dport NUMBER IS THE SAME ONE YOU SET UP IN THE SSHD_CONFIG FILE"></a>THE -dport NUMBER IS THE SAME ONE YOU SET UP IN THE SSHD_CONFIG FILE</h1><p>#<br>-A INPUT -p tcp -m state –state NEW –dport 22 -j ACCEPT</p>
+<h1 id="Allow-ping"><a href="#Allow-ping" class="headerlink" title="Allow ping"></a>Allow ping</h1><p>-A INPUT -p icmp -m icmp –icmp-type 8 -j ACCEPT</p>
+<h1 id="log-iptables-denied-calls"><a href="#log-iptables-denied-calls" class="headerlink" title="log iptables denied calls"></a>log iptables denied calls</h1><p>-A INPUT -m limit –limit 5/min -j LOG –log-prefix “iptables denied: “ –log-level 7</p>
+<h1 id="Reject-all-other-inbound-default-deny-unless-explicitly-allowed-policy"><a href="#Reject-all-other-inbound-default-deny-unless-explicitly-allowed-policy" class="headerlink" title="Reject all other inbound - default deny unless explicitly allowed policy"></a>Reject all other inbound - default deny unless explicitly allowed policy</h1><p>-A INPUT -j REJECT<br>-A FORWARD -j REJECT</p>
+<p>COMMIT</p>
+<p><a href="/download/code/iptables.txt">Download: iptables.txt</a></p>
+<h4 id="Only-update-specific-packages"><a href="#Only-update-specific-packages" class="headerlink" title="Only update specific packages"></a>Only update specific packages</h4><p>yum update packagename</p>
+<p><em>exp:</em></p>
+<p>yum update httpd</p>
+<h4 id="Configure-SELinux-to-be-permissive"><a href="#Configure-SELinux-to-be-permissive" class="headerlink" title="Configure SELinux to be permissive"></a>Configure SELinux to be permissive</h4><p>To modify SELINUX we need to edit the file /etc/selinux/config, do not forget to become root before modifying the files.</p>
+<p>nano /etc/selinux/config</p>
+<p>Search for the line that reads :</p>
+<p>SELINUX=enforcing </p>
+<p>The following alternative options are available : permissive and disabled I prefer the service to function under “permissive”.</p>
+<p>SELINUX=permissive</p>
+<p>Now, reboot the system and the changes should take effect.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p>Dump1090 <a target="_blank" rel="noopener" href="https://discussions.flightaware.com/ads-b-flight-tracking-f21/raspbian-ubuntu-packages-for-dump1090-mutability-available-t19619.html">https://discussions.flightaware.com/ads-b-flight-tracking-f21/raspbian-ubuntu-packages-for-dump1090-mutability-available-t19619.html</a></p>
+</div></article></div></main><footer><div class="paginator"></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>

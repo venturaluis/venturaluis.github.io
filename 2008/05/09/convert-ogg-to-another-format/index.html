@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>Convert Ogg | Linhost.info</title><meta name="description" content="Convert Ogg - Moody Gent"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/theme.css"><link rel="search" type="application/opensearchdescription+xml" href="/atom.xml" title="Linhost.info"><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="wrap"><header><h1 class="branding"><a href="/" title="Linhost.info">Linhost.info</a></h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives" target="_self">ARCHIVES</a></li><li class="nav-list-item"><a class="nav-list-link" href="https://github.com/Dreyer" target="_blank">GITHUB</a></li><li class="nav-list-item"><a class="nav-list-link" href="/atom.xml" target="_self">RSS</a></li><li class="nav-list-item"><a class="nav-list-link" href="/about" target="_self">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Convert Ogg</h1><div class="post-info"><a></a>2008-05-09</div><div class="post-content"><p>Out of all the screencast tools for Linux I find recordMyDesktop to be the most stable one, however the output capture is in .ogg which is not supported by most editing software. The solution is to turn the .ogg file in to another format that is commonly supported like avi, what an irony. First let’s install mencoder which will convert the files.</p>
+<blockquote>
+<p>sudo apt-get install mencoder</p>
+</blockquote>
+<p>I am assuming you have a previously created .ogg file in you home folder, now use the command below to convert the .ogg file in to an avi (change the file name if you need to).</p>
+<blockquote>
+<p>mencoder out.ogg -o out.avi -oac mp3lame -ovc lavc</p>
+</blockquote>
+<p>The output will be in form of an avi file, keep in mind that some quality loss will occur. Explanation out.ogg &gt; the the original file out.avi &gt; is the format we want mp3lame &gt; audio codex lavc &gt; video codec I support open formats but if the solution I am looking resides in proprietary I’ll use it.</p>
+</div></article></div></main><footer><div class="paginator"><a class="prev" href="/2008/05/15/installing-truecrypt-in-ubuntu-804/">prev</a><a class="next" href="/2008/05/07/playing-protected-dvds-under-ubuntu-804/">next</a></div><div class="copyright"><p>&copy; 2016 - 2020 <a target="_blank" rel="noopener" href="https://www.example.org/john-doe">John Doe</a>.<br>Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/Dreyer/hexo-theme-artemis" target="_blank">Artemis</a>.</p></div></footer></div><script>var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12345678-9']);
+_gaq.push(['_trackPageview']);
+
+(function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script></body></html>
