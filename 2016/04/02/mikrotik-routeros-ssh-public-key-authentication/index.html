@@ -5,7 +5,7 @@
 <p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p>
 <p>lventura@HM-R:~/scripts $ ls ~/.ssh<br>authorized_keys  id_rsa  id_rsa.pub  known_hosts</p>
 <p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p>
-<p>lventura@SF-DEV:~$ scp ~/.ssh/id_rsa.pub <a href="mailto:&#97;&#100;&#x6d;&#x69;&#x6e;&#x40;&#49;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x31;&#x30;&#48;&#46;&#x31;">&#97;&#100;&#x6d;&#x69;&#x6e;&#x40;&#49;&#x39;&#50;&#46;&#x31;&#54;&#x38;&#46;&#x31;&#x30;&#48;&#46;&#x31;</a>:id_rsa.pub</p>
+<p>lventura@SF-DEV:~$ scp ~/.ssh/id_rsa.pub <a href="mailto:&#x61;&#100;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#46;&#x31;&#48;&#48;&#x2e;&#x31;">&#x61;&#100;&#109;&#105;&#x6e;&#64;&#49;&#x39;&#x32;&#46;&#49;&#54;&#x38;&#46;&#x31;&#48;&#48;&#x2e;&#x31;</a>:id_rsa.pub</p>
 <p>Now log-in to RouterOS and import <strong>id_rsa.pub</strong> key we just uploaded. I’m importing a key for the user <strong>admin</strong> you can change this to the of any other user.</p>
 <h3 id="RouterOS-Key-Import"><a href="#RouterOS-Key-Import" class="headerlink" title="RouterOS Key Import"></a>RouterOS Key Import</h3><p>[admin@HM-GW] &gt; /user ssh-keys import public-key-file=id_rsa.pub user=admin</p>
 <p>Let’s view the user new SSH key.</p>
