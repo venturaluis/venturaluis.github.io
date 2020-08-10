@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Nuke a hard drive with DBAN"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Nuke a hard drive with DBAN - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Nuke a hard drive with DBAN</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2009-07-31
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/dban/">#dban</a> <a href="/tags/security/">#security</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>No!, we are not going to blow up a hard drive, but instead render any data in it un-recoverable by using a free and open source utility called DBAN. DBAN is both trusted by government agencies and easy to use. DBAN can boot from a floppy disk, CD, DVD, or USB flash drive.</p>
+<blockquote>
+<p>Formatting a hard drive is not the same as using DBAN, formated data can still be recovered with minimal effort. Please make sure you are using DBAN on the intended hard drive, you cannot reverse the process.</p>
+</blockquote>
+<p>DBAN supports multiple ways of erasing data from a hard drive ranging from quick to paranoid. Paranoid wipes will take a long time to complete. Let’s look at some of the methods offered by DBAN to erase data.</p>
+<ul>
+<li><strong>Quick Erase</strong><br>Writes the hard drive with zeroes in one pass*   <strong>RCMP TSSIT OPS-II</strong><br>Total of eight(wipe) passes using a random byte, overwrite sequence changed every time*   <strong>DoD Short</strong><br>DoD 5220.22-M recommends a total of seven passes, instead DoD Short does 3 of the seven passes which results in quicker results*   <strong>DoD 5220.22-M</strong><br>It follows the standard by completing the seven required passes*   <strong>Gutmann Wipe</strong><br>35 passes across the hard drive, named after security expert Peter Gutmann’s who is also responsible for the same*   <strong>PRNG</strong><br>Uses the PRNG algorithm which is a sequence of numbers that approximates the properties of random numbers. You have options when it comes to how many passes PRNG will do.</li>
+</ul>
+<p>For the sake of security I went with DoD Short, since its fast and safe from common recovery tools. By fast I mean, it wont take 6 hours to complete.</p>
+<hr>
+<h4 id="Prior-to-using-DBAN"><a href="#Prior-to-using-DBAN" class="headerlink" title="Prior to using DBAN"></a>Prior to using DBAN</h4><p>The process is straight forward and easy to understand.</p>
+<ul>
+<li>First you need to <a target="_blank" rel="noopener" href="http://www.dban.org/download">download the ISO</a>, which then needs to be burned into a CD/DVD.</li>
+<li>In order to boot from the CD/DVD, you need to set the BIOS to boot from CD/DVD.</li>
+</ul>
+<hr>
+<h4 id="How-To"><a href="#How-To" class="headerlink" title="How-To"></a>How-To</h4><p>For this How-To I will be using DoD Short since it’s safe and quick on one hard drive. Three passes instead of seven will result in quicker results and no possibility of recovery using conventional tools.</p>
+<ul>
+<li>Insert the CD/DVD and boot from it. Let the live CD start by it self. Once DBAN starts you will be presented with the following options.</li>
+</ul>
+<p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SnKSAGBRkOI/AAAAAAAABXc/zZYduC5RgQQ/s800/autonuke_1.png" alt="dban_1"></p>
+<ul>
+<li>To automatically start DBAN type <strong>autonuke</strong>, what autonuke does is automatically use DoD Short to erase the contents of the hard drive.</li>
+</ul>
+<p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SnKSAL1tmiI/AAAAAAAABXg/SvbQiPFSMWY/s800/autonuke_2.png" alt="dban_2"></p>
+<ul>
+<li>As you can seen in this screen DBAN is informing you of the progress being made.</li>
+</ul>
+<p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SnKSAOwqQiI/AAAAAAAABXk/cNfkUah3Qbw/s800/autonuke_4.png" alt="autonuke_4"></p>
+<ul>
+<li>After the three passes are done you will be presented with the following <strong>DBAN succeeded</strong>. Now you can take the media out of the CD/DVD drive and reboot if you wish.</li>
+</ul>
+<p><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SnKSAYWLz6I/AAAAAAAABXo/4zzTcxoq-yE/s800/autonuke_5.png" alt="dban_5"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

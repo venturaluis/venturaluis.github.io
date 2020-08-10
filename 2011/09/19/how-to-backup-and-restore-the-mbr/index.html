@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="How To Backup And Restore The MBR"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>How To Backup And Restore The MBR - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>How To Backup And Restore The MBR</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2011-09-19
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/windows/">#windows</a> <a href="/tags/linux/">#linux</a> <a href="/tags/dd/">#dd</a> <a href="/tags/mbr/">#mbr</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in getting a blank screen. BTW: The MBR holds partition data and Operating System boot essential data. Therefore, it’s essential to know how to backup the MBR, fortunately we can backup with a few simple steps and only using free tools.</p>
+<blockquote>
+<p>MBR = Master Boot Record</p>
+</blockquote>
+<p>This tutorial uses a Live CD which includes the utility know as <strong>dd</strong> with can be used to copy entire drives or just sections of it. First of all you should boot in to your Linux environment and mount a second drive where we can store the MBR backup.</p>
+<blockquote>
+<p>Do not save the backup file in the same drive from which you are making the backup.</p>
+</blockquote>
+<p>Create a directory.</p>
+<p>mkdir mountusb</p>
+<p>Use the <strong>ls</strong> command to identify the second drive. In my case I have a SATA drive and a USB drive, the SATA drive is always assigned the first letter of the alphabet in this case it’s named <strong>sda</strong> and the USB drive was assigned the name <strong>sdb</strong>.</p>
+<p>root@PartedMagic:~# ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sdb  /dev/sdb1</p>
+<p>You can’t mount the drive itself, instead you have to mount partitions. In this case I will be mounting a USB drive which is where I will be storing the MBR backup, <em>remember to mount the partition not the drive</em>.</p>
+<p>mount /dev/sdb1 mountusb</p>
+<p>And now we back up the <strong>MBR</strong> aka the first 512 bytes.</p>
+<p>dd if=/dev/sda count=1 bs=512 &gt; mountusb/sda.mbr</p>
+<ul>
+<li><strong>mountusb -</strong> Is the previously created directory</li>
+<li><strong>sda.mbr -</strong> Represents the actual backup</li>
+</ul>
+<p>Restoring the <strong>MBR</strong> follows similar steps, you first need to mount the drive where the MBR was backup to and use the <strong>dd</strong> command to restore the backup to the desired drive.</p>
+<p>dd if=mountusb/sda.mbr of=/dev/sda</p>
+<p>Now that you know how to backup the MBR go ahead and start playing with multiple operating system, if at a latter time you decided to remove them you can always revert to the original MBR with a single command. Thanks for reading.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

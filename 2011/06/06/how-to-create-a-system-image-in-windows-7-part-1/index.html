@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="How To &#39;Create A System Image&#39; In Windows 7 - Part 1"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>How To &#39;Create A System Image&#39; In Windows 7 - Part 1 - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>How To 'Create A System Image' In Windows 7 - Part 1</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2011-06-06
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/windows/">#windows</a> <a href="/tags/backup/">#backup</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>The reason why backups and imaging tools never go out of style is due to the fact that magnetic media fails, flash media fails, storage arrays fail and once in a while users fail. The good news is that Windows 7 improved in several areas and one of them was better backup options like imaging. The focus of this tutorial will be to demonstrate the creation of a system image only using the tools provided by Windows and the steps need to restore a system using the image. The first portion of this tutorial will focus on creating an image, the second portion will cover the restore process. Microsoft defines a ‘system image’ in the following way.</p>
+<blockquote>
+<p>A system image is an exact copy of a drive. By default, a system image includes the drives required for Windows to run. It also includes Windows and your system settings, programs, and files. Source: <a target="_blank" rel="noopener" href="http://windows.microsoft.com/en-US/windows7/What-is-a-system-image">Microsoft</a></p>
+</blockquote>
+<p>Think of a <strong>system image</strong> as a one time complete backup only to be used in special events and the kind of event I am talking about refers to :</p>
+<ol>
+<li>Hard drive failure</li>
+<li>In the case you have to reinstall the entire system because of malware, or maintenance</li>
+<li>Or you wish to have a backup copy of your current system with all customizations</li>
+</ol>
+<p>Keep in mind that you can only image the drive that holds Windows also known as the <em>C:</em> drive.</p>
+<h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes:"></a>Notes:</h4><ul>
+<li>You will need to store the resulting image either on a 2nd drive or network drive</li>
+<li>You can included more than one drive in the imaging process, except for the drive where the system will be residing</li>
+<li>It’s a one time process, if you want scheduled backups look for another solution</li>
+<li>Images do not support compression, you better have plenty of storage space for the resulting image</li>
+</ul>
+<h4 id="Let’s-Start-Imaging"><a href="#Let’s-Start-Imaging" class="headerlink" title="Let’s Start Imaging"></a>Let’s Start Imaging</h4><p>Start by going to <strong>Start &gt; Control Panel &gt; Back up you computer &gt; Create a system image</strong> Or just type: <strong>backup</strong> on the search bar. <img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TcZMcFZ68WI/AAAAAAAADFQ/GoCLb6LN33Y/s800/sys-img-1.png" title="Sys-img-1"> Click on <strong>Create a system image</strong>. <img src="https://lh4.googleusercontent.com/_fF0LO28FGYY/TcZMgTOoqWI/AAAAAAAADFU/5FKnF67v7Eg/s800/sys-img-2.png" title="Sys-img-2"> Choose the location where the <strong>C:</strong> drive image will stored. Your options are to either save the image in: other hard drive, DVD, or network location. This tutorial will store the image in a second internal drive. Also known as the <strong>E:</strong> drive. <img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TcZMgWFRWMI/AAAAAAAADFY/sCkqPWoXUpc/s800/sys-img-3.png" title="sys-img-3"> Select the drive you wish to include in the image. I only want to image the <strong>C:</strong> drive. <img src="https://lh6.googleusercontent.com/_fF0LO28FGYY/TdCo3Ur09DI/AAAAAAAADGE/O03Osml5jaE/s800/sys-img-a.png" title="sys-img-a"> The image is being prepared. <img src="https://lh3.googleusercontent.com/_fF0LO28FGYY/TcZMgr2KgEI/AAAAAAAADFc/NwHjazBCFkU/s800/sys-img-5.png" title="sys-img-5"> Confirm this the correct backup location and drives to be included in the image. <img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TcZMgaStUuI/AAAAAAAADFg/D66M-lng298/s800/sys-img-4.png" title="sys-img-4"> You will be asked to ‘Create a system repair disc’ do so unless you already have a disc, without the repair disc you will not be able to restore the system. <img src="https://lh3.googleusercontent.com/_fF0LO28FGYY/TcZMggnCUvI/AAAAAAAADFk/IcDfAkq38jo/s800/sys-img-6.png" title="sys-img-6"> There is no option to save the image to an ISO you will need a blank CD. Save the disk otherwise you will not be able to restore the image until you make one in a working system. You cannot use a disc created on a X86 system to restore an X64 image and vice-versa(architecture matters). Insert the blank disc and press on <strong>Create disc</strong>. <img src="https://lh4.googleusercontent.com/_fF0LO28FGYY/TcZMg5BOU-I/AAAAAAAADFo/XO3HKFNRQow/s800/sys-img-7.png" title="sys-img-7"> The result was an image that weights around 9GB in size <img src="https://lh6.googleusercontent.com/_fF0LO28FGYY/TcZMiEXrT9I/AAAAAAAADFs/KM8s6m2yCr8/s800/sys-img-8.png" title="sys-img-8"> Pretty easy to accomplish, with a few clicks you were able to create an exact image of your system drive that may come in handy at some point. The second portion of this tutorial will cover the Recovery process. <strong>How To ‘Create A System Image’ In Windows 7 - Part 2</strong></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

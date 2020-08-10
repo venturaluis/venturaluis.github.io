@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Create a NAS4Free Bootable USB Drive in Windows"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Create a NAS4Free Bootable USB Drive in Windows - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Create a NAS4Free Bootable USB Drive in Windows</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2012-09-03
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/freebsd/">#freebsd</a> <a href="/tags/NAS/">#NAS</a> <a href="/tags/nas4free/">#nas4free</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>NAS4Free is a continuation of the FreeNAS 7 project, while FreeNAS 8 is based on nanoBSD NAS4Free is based on FreeBSD 9. You will notice that NAS4Free retains the FreeNAS 7 web interface and general feel.</p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/">NAS4Free embedded image</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.7-zip.org/">7-Zip</a> to decompress the NAS4Free image</li>
+<li><a target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download">Win32 Disk Imager</a> to write the NAS4Free image over to a USB drive</li>
+</ul>
+<h2 id="Take-Note"><a href="#Take-Note" class="headerlink" title="Take Note:"></a>Take Note:</h2><ul>
+<li>USB boot can be slight slower, compared to a hard drive</li>
+<li>You will need at least a 512MB USB drive</li>
+<li>NAS4Free is available in x86 and x64 architectures, pick according to what is supported by your hardware</li>
+</ul>
+<h2 id="Download-NAS4Free"><a href="#Download-NAS4Free" class="headerlink" title="Download NAS4Free"></a>Download NAS4Free</h2><p>Download the .img version if you want to boot NAS4Free from a USB drive or any other flash media. <em>NAS4Free-x86-embedded-9.1.0.1.262.img</em>, as the name suggest this is the embedded version. Visit <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/">http://sourceforge.net/projects/nas4free/files/</a> and browse until you find the latest version. <img src="http://cdn.linhost.info/static/nas4free-1.png" alt="NAS4Free"> Now that we have the file we first need to decompress it, otherwise we won’t be able to create a bootable drive. To decompress the file you will need a third party utility like <a target="_blank" rel="noopener" href="http://www.7-zip.org/">7-Zip</a>. <img src="http://cdn.linhost.info/static/nas4free-2.png" alt="NAS4Free"> This is the resulting file, now rename the file by adding the .img extension. <img src="http://cdn.linhost.info/static/nas4free-3.png" alt="NAS4Free"> Start <a target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download">Win32 Disk Imager</a> and click on the folder icon, now browse to the location where the file we just renamed resides. <img src="http://cdn.linhost.info/static/nas4free-4.png" alt="NAS4Free"> From the device list select the USB drive you wish to write the image to and click on the <strong>Write</strong> button to start the operation. <img src="http://cdn.linhost.info/static/nas4free-5.png" alt="NAS4Free"> Make sure you selected the right drive since this operation will overwrite the contents of the selected drive. Click on <strong>Yes</strong> to continue. <img src="http://cdn.linhost.info/static/nas4free-6.png" alt="NAS4Free"> Progress. <img src="http://cdn.linhost.info/static/nas4free-7.png" alt="NAS4Free"> The operation encountered no problems, this means the USB drive is now bootable. <img src="http://cdn.linhost.info/static/nas4free-8.png" alt="NAS4Free"> You can now exit the application. <img src="http://cdn.linhost.info/static/nas4free-9.png" alt="NAS4Free"> Now you have to make sure the BIOS supports booting from removable media <img src="http://cdn.linhost.info/static/nas4free-13.png" alt="NAS4Free"> The installation will be loaded into RAM. <img src="http://cdn.linhost.info/static/nas4free-10.png" alt="NAS4Free"> This the NAS4Free console and the default IP address for the web interface is 192.168.1.250. <img src="http://cdn.linhost.info/static/nas4free-11.png" alt="NAS4Free"> From a web browser try to access <a target="_blank" rel="noopener" href="http://192.168.1.250/">http://192.168.1.250</a>, you should see an interface similar to the one in the picture below. Congratulations on your NAS4Free installation. <img src="http://cdn.linhost.info/static/nas4free-12.png" alt="NAS4Free"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>There could not be a better continuation of the FreeNAS 7 project, I am sure NAS4Free will find its place. Home page: <a target="_blank" rel="noopener" href="http://www.nas4free.org/">www.nas4free.org</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

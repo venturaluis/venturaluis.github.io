@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Monitor network latency with SmokePing"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Monitor network latency with SmokePing - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Monitor network latency with SmokePing</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2009-02-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/network/">#network</a> <a href="/tags/smokeping/">#smokeping</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>If you have ever manage network devices over long distance or even in a local area network you might want to keep an eye on the health of the network and the links they operate on. That’s a very good reason for using <strong>SmokePing</strong> on the network, SmokePing can graph over time the latency experienced by the probe. In the long run network monitoring can help identify trouble points or areas of interest. If you are paying for a T1 then you should get your moneys worth. There is nothing worse than having little or no data to troubleshoot network problems.</p>
+<h4 id="SmokePing-overview"><a href="#SmokePing-overview" class="headerlink" title="SmokePing overview"></a>SmokePing overview</h4><p>SmokePing generates graphs over time that show vital network information about the quality of the selected link being monitored by the probe. SmokePing can be easily configured to monitor multiple sites at the same time and show the specific time in which the link experienced unusual activity. It’s common knowledge that high latency will result on poor network performance. Prior to the installation you should have a full functional web server installed.</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><ul>
+<li>Monitor the latency of the OpenDNS servers and make an informed decision on whether they are or not in your best interest.</li>
+<li>Monitor links from the central office to the remote office. Constant and unusual high levels of latency may indicate a problem with the ISP.</li>
+<li>Servers become unreachable during certain periods of the day. With the data log by the probe you can pin point the time of failure (disconnection).</li>
+</ul>
+<h4 id="SmokePing-installation-on-Ubuntu"><a href="#SmokePing-installation-on-Ubuntu" class="headerlink" title="SmokePing installation on Ubuntu"></a>SmokePing installation on Ubuntu</h4><p>SmokePing is available in the Ubuntu repositories. For Debian based Distributions you can use Apt-Get, installation may depend on you distribution.</p>
+<p>sudo apt-get install smokeping</p>
+<h4 id="SmokePing-configuration"><a href="#SmokePing-configuration" class="headerlink" title="SmokePing configuration"></a>SmokePing configuration</h4><p>The configuration file is located at <strong>/etc/smokeping/config</strong>. The configuration file I am using is organised to monitor two separate sites with multiple hosts. In real life this examples would represent the local site and the remote site. Copy of <a href="/download/code/config">SmokePing configuration file</a>. Open and edit.</p>
+<p>sudo nano /etc/smokeping/config</p>
+<p>To get SmokePing started let’s edit some of the basic options. I hope this is somewhat self explanatory, change the following values to match your server values.</p>
+<ul>
+<li>owner and contact</li>
+<li>cgiurl</li>
+<li>mailhost</li>
+<li>to</li>
+<li>from</li>
+</ul>
+<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SYPWE44LKfI/AAAAAAAAAa8/hDqzUnuQssY/s800/serv_config.png"> Remember what I said about monitoring two separate sites, well one is the local area network (NETWORK1) and the other monitors colocated servers (NETWORK2). You can see the hierarchy “+++” represents the target host. Make changes as you see fit. In this case I am monitoring three network devices. Change the hostname to match your own, enter the IP address or domain name of the devices.</p>
+<ul>
+<li>++ NETWORK1 (Name of the network)</li>
+<li>+++ LAN_ROUTER (Target host)</li>
+</ul>
+<p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SYPWFDbRhKI/AAAAAAAAAbE/pYiG4lGdXX0/s800/loc_site.png"> Same can be said about the second example (NETWORK2), again three network devices are being monitored. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SYPWFDCTYrI/AAAAAAAAAbM/RrCtGVs8bto/s800/rem_site.png"> After you are done with the changes save and restart SmokePing.</p>
+<p>/etc/init.d/smokeping restart</p>
+<p>Open your browser and go to the following address.</p>
+<p><a target="_blank" rel="noopener" href="http://www.domain.com/cgi-bin/smokeping.cgi">http://www.domain.com/cgi-bin/smokeping.cgi</a></p>
+<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SYdrDwDT-sI/AAAAAAAAAbs/nAJhYn7rQA0/s800/smokeping_resize.png"> Give SmokePing some time to log the data. Try to experiment with the configuration file, but all try to keep the target host’s organized.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><a target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/doc/smokeping_examples.en.html">SmokePing examples.en.html</a> <a target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/">SmokePing web site</a></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Simple Samba Server Configuration"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Simple Samba Server Configuration - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Simple Samba Server Configuration</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2010-05-17
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/ubuntu/">#ubuntu</a> <a href="/tags/linux/">#linux</a> <a href="/tags/smb/">#smb</a> <a href="/tags/file-share/">#file share</a> <a href="/tags/samba/">#samba</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/Article/">Article</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>Samba is a print and file sharing implementation of the SMB/CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the clients may be Windows the file/print server will be a Linux/Unix-like system. In this tutorial I will demonstrate the necessary steps to set-up a simple Samba server on Ubuntu Server 8.04. By simple I mean the resulting share will not require and kind of authentication to access the shares.</p>
+<h4 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h4><p>Start by installing Samba from the Ubuntu repositories by using apt-get.</p>
+<p>sudo apt-get install samba</p>
+<p>Now we are going to make changes to the Samba configuration.</p>
+<p>/etc/samba/smb.conf</p>
+<p>I will be using nano a text editor. Edit with your text editor of choice:</p>
+<p>sudo nano /etc/samba/smb.conf</p>
+<p>Close to the top of the configuration file below <strong>Global Settings</strong> you will find the option to change the workgroup to match that of your network.</p>
+<p> workgroup = WORKGROUP</p>
+<p>The security option is commented (remove semicolon) the default is set to <strong>user</strong> change it to <strong>share</strong> to match the new configuration.</p>
+<p> security = share</p>
+<p>Now we add the options for our new file share, I recommend you add the following options to the bottom of the configuration file.</p>
+<p>   [share]<br>    comment = Ubuntu File Server Share<br>    path = /media/mydrive/myshare<br>    browsable = yes<br>    guest ok = yes<br>    read only = no<br>    create mask = 0755</p>
+<ul>
+<li><strong>[share]</strong> - The name of our share</li>
+<li><strong>comment</strong> - Description of the share purpose</li>
+<li><strong>path</strong> - The location of the directory you wish to share</li>
+<li><strong>browsable</strong> - Should the directory be browsable</li>
+<li><strong>guest ok</strong> - Connect without requiring a password</li>
+<li><strong>read only</strong> - Write access to direcotry</li>
+<li><strong>create mask</strong> - Permission for new files</li>
+</ul>
+<p>Create a new directory where the files you wish to share will reside. -p if necessary it will create the directory tree.</p>
+<p>sudo mkdir -p /media/mydrive/myshare</p>
+<p>Change ownership to.</p>
+<p>sudo chown nobody.nogroup /media/mydrive/myshare/</p>
+<p>Restart Samba and wait for the changes to take effect.</p>
+<p>sudo /etc/init.d/samba restart</p>
+<p>To make sure the configuration file is clear of typos or missing options you should run <strong>testparm</strong> to check for any errors.</p>
+<p>testparm smb.conf</p>
+<p>Load smb config files from smb.conf<br>Processing section “[printers]“<br>Processing section “[print$]“<br>Processing section “[share]“<br>Loaded services file OK.<br>Server role: ROLE_STANDALONE<br>Press enter to see a dump of your service definitions</p>
+<h4 id="Windows-Client-Set-Up"><a href="#Windows-Client-Set-Up" class="headerlink" title="Windows Client Set-Up"></a>Windows Client Set-Up</h4><p>After we are done setting up the server side configuration we move on to the Windows client. Go to <strong>Start</strong> &gt; <strong>My Computer</strong> &gt; and click on <strong>Map network drive</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tgoYScxRkvL2EVDlnsB0BQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S_IMIXxe-xI/AAAAAAAACN4/1T2B6I3pbZc/s800/1.png"></a> In the Map Network Drive window <strong>enter the IP address</strong> and <strong>share name</strong>, click on <strong>Finish</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/bYU31hfK8UMaSKzI4iHmsA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S_IKzwr-lvI/AAAAAAAACNs/ABjE9UjYLSg/s800/2.png"></a> Go back to My Computer and in the Network Location section you should be able to see the mounted share (name and IP address). <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/FVn6kiEBKSiHfv8J3ihePA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S_IKz7lpDUI/AAAAAAAACNw/ulXnW2n0ei4/s800/3.png"></a> Congratulations, you have just set up a simple file server on Linux and configured the Windows client. In future posts I will go into securing a share.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="site, site"/>
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent"/>
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Tune2fs Quick Tips"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="site, site"/>
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article"/>
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+        <meta name="twitter:card" content="summary_large_image"/>
+
+    
+
+    
+        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
+    
+
+    <!-- Title -->
+    
+    <title>Tune2fs Quick Tips - Linhost.info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+    <!-- favicon -->
+    
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Configurable Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/VM">
+                            
+                                VM
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/atom.xml">
+                            
+                                RSS
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Tune2fs Quick Tips</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2010-05-10
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/ubuntu/">#ubuntu</a> <a href="/tags/linux/">#linux</a> <a href="/tags/tune2fs/">#tune2fs</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/General/">General</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="What-is-tune2fs"><a href="#What-is-tune2fs" class="headerlink" title="What is tune2fs ?"></a>What is tune2fs ?</h2><blockquote>
+<p>tune2fs adjusts tunable filesystem parameters on a Linux second extended filesystem.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.netadmintools.com/html/8tune2fs.man.html">Tune2fs</a> brings the ability to modify various parameters on a file system volume that may not be the best or require some changes to reflect the needs of the environment. One example is Ubuntu: by default Ubuntu verifies file system integrity every 33 mounts/bootups or every 120 days(whichever comes first), while well intended the defaults may not be the best on a test or development system which may be subject to frequent reboots. Tune2fs is easy to understand, I will walk you through what I consider to be some of the most common uses for tune2fs.</p>
+<h2 id="More-Information"><a href="#More-Information" class="headerlink" title="More Information"></a>More Information</h2><p>You can always consult the man pages for more information. Just use:</p>
+<p>$ man tune2fs</p>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/freXS3TLqkwkzrJ2X2Xv7A?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S-aK1m5IPeI/AAAAAAAACMg/lnUhZWtBWdg/s800/tune2fs.png"></a></p>
+<h2 id="Change-integrity-amount-and-time"><a href="#Change-integrity-amount-and-time" class="headerlink" title="Change integrity amount and time"></a>Change integrity amount and time</h2><p>I tend to boot Ubuntu more than 33 times a month, which is why I always increase the number of mounts.</p>
+<p>$ sudo tune2fs -c 120 -i 3m /dev/sdb1<br>tune2fs 1.40.8 (13-Mar-2008)<br>Setting maximal mount count to 120<br>Setting interval between checks to 7776000 seconds</p>
+<p><strong>- c</strong> <em>max_mount_count</em> This option is responsible for the number of mounts before the integrity check is done. <strong>- i</strong> <em>interval-between-checks</em> This option is responsible for the mounts of days the system should wait before performing an integrity check. <strong>d = days | w = weeks | m = months</strong>, in this example the check is to be performed every 3 months <strong>-i 3M</strong>.</p>
+<h2 id="Disable-file-system-integrity-check"><a href="#Disable-file-system-integrity-check" class="headerlink" title="Disable file system integrity check"></a>Disable file system integrity check</h2><p>While dangerous some people may opt to disable checks all at once.</p>
+<p>$ sudo tune2fs -i 0 /dev/sda1<br>tune2fs 1.40.8 (13-Mar-2008)<br>Setting interval between checks to 0 seconds</p>
+<p><strong>-i 0</strong> - This option disables checks based on time of the file system. Be careful the system will no longer perform integrity check after this options is selected.</p>
+<h2 id="Change-the-name-of-a-volume"><a href="#Change-the-name-of-a-volume" class="headerlink" title="Change the name of a volume"></a>Change the name of a volume</h2><p>Changing the volume label name may be useful for personal labeling porpuses such as changing the name of a portable drive. Use the <strong>-l</strong> parameter to list the name of the filesystem superblock.</p>
+<p>$ sudo tune2fs -l /dev/sda1 | grep volume<br>Filesystem volume name:   /home/user</p>
+<p>Capital <strong>-L</strong> parameter will change the volume-label name. In this example I am changing the name from <strong>/home/user</strong> to <strong>myhome</strong>.</p>
+<p>$ sudo tune2fs -L myhome /dev/sda1<br>tune2fs 1.40.8 (13-Mar-2008)</p>
+<p>Verify the new name change.</p>
+<p>$ sudo tune2fs -l /dev/sda1 | grep volume<br>Filesystem volume name:   myhome</p>
+<h2 id="Display-file-system-superblock-information"><a href="#Display-file-system-superblock-information" class="headerlink" title="Display file system superblock information"></a>Display file system superblock information</h2><p>Lots of valuable information.</p>
+<p>$ sudo tune2fs -l /dev/sdb1</p>
+<p>tune2fs 1.40.8 (13-Mar-2008)<br>Filesystem volume name:   Last mounted on:          Filesystem UUID:          f060d692-53fd-4180-811c-f20bcf7f24d0<br>Filesystem magic number:  0xEF53<br>Filesystem revision #:    1 (dynamic)<br>Filesystem features:      has_journal ext_attr resize_inode dir_index filetype n                                                                                                 eeds_recovery sparse_super large_file<br>Filesystem flags:         signed_directory_hash<br>Default mount options:    (none)<br>Filesystem state:         clean<br>Errors behavior:          Continue<br>Filesystem OS type:       Linux<br>Inode count:              3932160<br>Block count:              15727627<br>Reserved block count:     786381<br>Free blocks:              15557651<br>Free inodes:              3932146<br>First block:              0<br>Block size:               4096<br>Fragment size:            4096<br>Reserved GDT blocks:      1020<br>Blocks per group:         32768<br>Fragments per group:      32768<br>Inodes per group:         8192<br>Inode blocks per group:   256<br>Filesystem created:       Sun May  9 00:43:38 2010<br>Last mount time:          Sun May  9 01:05:38 2010<br>Last write time:          Sun May  9 01:05:38 2010<br>Mount count:              2<br>Maximum mount count:      33<br>Last checked:             Sun May  9 00:43:38 2010<br>Check interval:           15552000 (6 months)<br>Next check after:         Fri Nov  5 00:43:38 2010<br>Reserved blocks uid:      0 (user root)<br>Reserved blocks gid:      0 (group root)<br>First inode:              11<br>Inode size:               128<br>Journal inode:            8<br>Default directory hash:   tea<br>Directory Hash Seed:      949c1e9b-19b3-437f-be23-05b14a671d3a<br>Journal backup:           inode blocks </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.netadmintools.com/html/8tune2fs.man.html">Tune2fs</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
