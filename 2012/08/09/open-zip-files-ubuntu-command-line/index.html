@@ -147,10 +147,7 @@
 
 <!-- Content -->
 <p>If you have an Ubuntu/Debian server installation and need to open or create Zip file then you need to install the necessary packages to work with Zip files. Fortunately, we can easily add support for Zip to our installation by installing two packages(Zip, Unzip) both available from the repositories. <strong>Note:</strong> This post assumes you have the ability to install packages, root or sudo access.</p>
-
-        <h3 id="Creating-a-Zip-Archive"   >
-          <a href="#Creating-a-Zip-Archive" class="heading-link"><i class="fas fa-link"></i></a>Creating a Zip Archive</h3>
-      <p>Install <strong>Zip</strong> from the repositories.</p>
+<h3 id="Creating-a-Zip-Archive"><a href="#Creating-a-Zip-Archive" class="headerlink" title="Creating a Zip Archive"></a>Creating a Zip Archive</h3><p>Install <strong>Zip</strong> from the repositories.</p>
 <p># apt-get install zip</p>
 <p>The entire process is quite simple to understand.</p>
 <p># zip -r new-file-name.zip directory-to-compress/</p>
@@ -164,10 +161,7 @@
 <p># zip -r new-file-name.zip directory-1/ directory-2/</p>
 <p>But, what if I only need to compress a single file. Similar process except we don’t need to use the -r(recurse) option.</p>
 <p># zip report.zip LitenDuplicateReport.csv</p>
-
-        <h3 id="Opening-a-Zip-archive"   >
-          <a href="#Opening-a-Zip-archive" class="heading-link"><i class="fas fa-link"></i></a>Opening a Zip archive</h3>
-      <p>Opening or extracting the contents from a compressed archive is handled not by the Zip package but by a second package called <strong>Unzip</strong>.</p>
+<h3 id="Opening-a-Zip-archive"><a href="#Opening-a-Zip-archive" class="headerlink" title="Opening a Zip archive"></a>Opening a Zip archive</h3><p>Opening or extracting the contents from a compressed archive is handled not by the Zip package but by a second package called <strong>Unzip</strong>.</p>
 <p># apt-get install unzip</p>
 <p>With Unzip you have two options as to how the contents will be extracted, either you can extract the contents of the compressed archive to a directory or simply extract the contents to the current directory.</p>
 <p># unzip nc111nt.zip -d netcat/</p>
@@ -179,10 +173,7 @@
 </ul>
 <p>Or you can extract the contents of the archive to the current directory you are in.</p>
 <p># unzip nc111nt.zip</p>
-
-        <h3 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
-      <p>All you need is two packages and your installation will be able to work with Zip archives. I know Ubuntu/Debian have support for Gzip but if you work with Windows users and need to share files with them then Zip might be the only way to go.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>All you need is two packages and your installation will be able to work with Zip archives. I know Ubuntu/Debian have support for Gzip but if you work with Windows users and need to share files with them then Zip might be the only way to go.</p>
 
 
 <!-- Tags -->

@@ -152,7 +152,7 @@
 </blockquote>
 <p>Cron can very easy to set up, here is my automatic update / upgrade example.</p>
 <blockquote>
-<p>MAILTO=”<span class="exturl"><a class="exturl__link"   href="mailto:&#x61;&#100;&#109;&#105;&#110;&#x40;&#108;&#x69;&#110;&#x68;&#x6f;&#x73;&#116;&#46;&#x69;&#110;&#102;&#x6f;" >&#x61;&#100;&#109;&#105;&#110;&#x40;&#108;&#x69;&#110;&#x68;&#x6f;&#x73;&#116;&#46;&#x69;&#110;&#102;&#x6f;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>“ # Check for updates at 6:30 everyday 30 18 * * * apt-get -qq update &amp;&amp; apt-get -qq –simulate upgrade</p>
+<p>MAILTO=”<a href="mailto:&#97;&#x64;&#109;&#x69;&#110;&#64;&#x6c;&#105;&#110;&#104;&#111;&#115;&#116;&#46;&#105;&#110;&#102;&#111;">&#97;&#x64;&#109;&#x69;&#110;&#64;&#x6c;&#105;&#110;&#104;&#111;&#115;&#116;&#46;&#105;&#110;&#102;&#111;</a>“ # Check for updates at 6:30 everyday 30 18 * * * apt-get -qq update &amp;&amp; apt-get -qq –simulate upgrade</p>
 </blockquote>
 <p>Let me explain that the “MAILTO” line will send an email only if an upgrade becomes available, the server will check for updates and upgrades at 6:30. If you don’t have a mail server I recommend installing Postfix for outgoing email only. <em>If you run Ubuntu 6.06 LTS you won’t get many emails.</em></p>
 

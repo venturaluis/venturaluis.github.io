@@ -151,34 +151,22 @@
 <li>First - System were MDADM will be running is up to date</li>
 <li>Second - Every step below will be performed with Root privileges or similar.</li>
 </ul>
-
-        <h3 id="How-Many-Drives-Are-Available"   >
-          <a href="#How-Many-Drives-Are-Available" class="heading-link"><i class="fas fa-link"></i></a>How Many Drives Are Available ?</h3>
-      <p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
+<h3 id="How-Many-Drives-Are-Available"><a href="#How-Many-Drives-Are-Available" class="headerlink" title="How Many Drives Are Available ?"></a>How Many Drives Are Available ?</h3><p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
 <p>ls /dev/sd*</p>
 <p>user@ubuntu:~$ ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdc  /dev/sdd</p>
 <p>Listed are five drives, <strong>/sda /1 /2</strong> contain the Operating System, <strong>/sdb</strong> and <strong>/sdc</strong> are empty and will be used to create the RAID1 array, <strong>/sdd</strong> can be left alone or used as a hot-spare.</p>
-
-        <h3 id="Drive-Prepartions"   >
-          <a href="#Drive-Prepartions" class="heading-link"><i class="fas fa-link"></i></a>Drive Prepartions</h3>
-      <p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
+<h3 id="Drive-Prepartions"><a href="#Drive-Prepartions" class="headerlink" title="Drive Prepartions"></a>Drive Prepartions</h3><p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
 <p>root@ubuntu:~# fdisk /dev/sdb</p>
 <p>Command (m for help): n<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): p<br>Partition number (1-4, default 1): 1<br>First sector (2048-251658239, default 2048):<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-251658239, default 251658239):<br>Using default value 251658239</p>
 <p>Command (m for help): t<br>Selected partition 1<br>Hex code (type L to list codes): fd<br>Changed system type of partition 1 to fd (Linux raid autodetect)</p>
 <p>Command (m for help): w<br>The partition table has been altered!</p>
 <p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
 <p><em>If you prefer a graphical interface, GParted is a good alternative to fdisk.</em></p>
-
-        <h3 id="Is-MDADM-Installed-In-The-System"   >
-          <a href="#Is-MDADM-Installed-In-The-System" class="heading-link"><i class="fas fa-link"></i></a>Is MDADM Installed In The System?</h3>
-      <p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
+<h3 id="Is-MDADM-Installed-In-The-System"><a href="#Is-MDADM-Installed-In-The-System" class="headerlink" title="Is MDADM Installed In The System?"></a>Is MDADM Installed In The System?</h3><p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
 <p>yum install mdadm</p>
 <p>Debian and derivatives you can use.</p>
 <p>apt-get install mdadm</p>
-
-        <h3 id="Array-Creation"   >
-          <a href="#Array-Creation" class="heading-link"><i class="fas fa-link"></i></a>Array Creation</h3>
-      <p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
+<h3 id="Array-Creation"><a href="#Array-Creation" class="headerlink" title="Array Creation"></a>Array Creation</h3><p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
 <p>mdadm –create /dev/md0 –level=1 –raid-devices=2 /dev/sdb1 /dev/sdc1</p>
 <ul>
 <li><p>/dev/md0</p>
@@ -210,15 +198,9 @@ Number   Major   Minor   RaidDevice State
 <p>root@ubuntu:~# cat /proc/mdstat<br>Personalities : [raid1]<br>md0 : active raid1 sdc1[1] sdb1[0]<br>      125827000 blocks super 1.2 [2/2] [UU]<br>      [&gt;………………..]  resync =  3.8% (4838272/125827000) finish=30.7min speed=65591K/sec</p>
 <p>unused devices: </p>
 <p>Grab a cup of coffee or a beer it might take a while before the operation completes.</p>
-
-        <h3 id="Format-The-Array"   >
-          <a href="#Format-The-Array" class="heading-link"><i class="fas fa-link"></i></a>Format The Array</h3>
-      <p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
+<h3 id="Format-The-Array"><a href="#Format-The-Array" class="headerlink" title="Format The Array"></a>Format The Array</h3><p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
 <p>mkfs -t ext3 /dev/md0</p>
-
-        <h3 id="Mount-The-New-Array"   >
-          <a href="#Mount-The-New-Array" class="heading-link"><i class="fas fa-link"></i></a>Mount The New Array</h3>
-      <p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
+<h3 id="Mount-The-New-Array"><a href="#Mount-The-New-Array" class="headerlink" title="Mount The New Array"></a>Mount The New Array</h3><p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
 <p>mkdir /media/volume0</p>
 <p>Now provide the path to the array and path to the directory we create in the previous step.</p>
 <p>mount /dev/md0 /media/volume0</p>
@@ -230,20 +212,8 @@ Number   Major   Minor   RaidDevice State
 <p>echo ‘/dev/md0 /media/volume0 ext3 noatime,rw 0 0’ &gt;&gt; /etc/fstab</p>
 <p>Let’s see if our new entry is in the <strong>/etc/fstab</strong> file.</p>
 <p>[root@iou ~]# cat /etc/fstab<br>#</p>
-
-        <h1 id="etc-fstab"   >
-          <a href="#etc-fstab" class="heading-link"><i class="fas fa-link"></i></a>/etc/fstab</h1>
-      
-        <h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"   >
-          <a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="heading-link"><i class="fas fa-link"></i></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1>
-      <p>#</p>
-
-        <h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"   >
-          <a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="heading-link"><i class="fas fa-link"></i></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1>
-      
-        <h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"   >
-          <a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="heading-link"><i class="fas fa-link"></i></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1>
-      <p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
+<h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="headerlink" title="Created by anaconda on Thu Mar 22 20:41:14 2012"></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1><p>#</p>
+<h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"><a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="headerlink" title="Accessible filesystems, by reference, are maintained under ‘/dev/disk’"></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1><h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="headerlink" title="See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info"></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1><p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
 <p>/dev/md0 /media/volume0 ext3 noatime,rw 0 0</p>
 <p>There it is, now our array should be mount it every time we start the system. If you have questions or suggestion on how this tutorial could be improved leave a comment below, thank you.</p>
 

@@ -147,27 +147,18 @@
 
 <!-- Content -->
 <p>This is fool proof How-To for playing protected DVD’s under Ubuntu, thanks to Medibuntu repository your Ubuntu Linux system can play the popular media formats. Support for audio and video formats will be added. Medibuntu offers a different repository for each version of Ubuntu, make sure to pick the repository that matches your Ubuntu version. Lucky you this How-To is mostly about copy and paste.</p>
-
-        <h4 id="Repositories"   >
-          <a href="#Repositories" class="heading-link"><i class="fas fa-link"></i></a>Repositories</h4>
-      <p>First add the Medibuntu repository to the sources list using Wget. Choose the repository that matches your version of Ubuntu. Open a terminal window and type. For <strong>Ubuntu 8.04</strong> use the following repository.</p>
-<p>sudo wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/hardy.list" >http://www.medibuntu.org/sources.list.d/hardy.list</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
+<h4 id="Repositories"><a href="#Repositories" class="headerlink" title="Repositories"></a>Repositories</h4><p>First add the Medibuntu repository to the sources list using Wget. Choose the repository that matches your version of Ubuntu. Open a terminal window and type. For <strong>Ubuntu 8.04</strong> use the following repository.</p>
+<p>sudo wget <a target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/hardy.list">http://www.medibuntu.org/sources.list.d/hardy.list</a> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
 <p>For <strong>Ubuntu 8.10</strong> use the following repository.</p>
-<p>sudo wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/intrepid.list" >http://www.medibuntu.org/sources.list.d/intrepid.list</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
-
-        <h4 id="After-the-repository-is-added"   >
-          <a href="#After-the-repository-is-added" class="heading-link"><i class="fas fa-link"></i></a>After the repository is added</h4>
-      <p>Add the GPG Key. When asked answer <strong>Yes</strong> to accept the package.</p>
+<p>sudo wget <a target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/intrepid.list">http://www.medibuntu.org/sources.list.d/intrepid.list</a> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
+<h4 id="After-the-repository-is-added"><a href="#After-the-repository-is-added" class="headerlink" title="After the repository is added"></a>After the repository is added</h4><p>Add the GPG Key. When asked answer <strong>Yes</strong> to accept the package.</p>
 <p>sudo apt-get update &amp;&amp; sudo apt-get install medibuntu-keyring &amp;&amp; sudo apt-get update</p>
 <p>After the repository is added we can add <strong>support for encrypted</strong> DVD’s (movies) using APT.</p>
 <p>sudo apt-get install libdvdcss2</p>
 <p>Add support for other media formats like Windows media, Apple Quicktime among many other formats.</p>
 <p>sudo apt-get install w32codecs</p>
 <p>Just to make sure all the changes go into effect restart the system, by the way my player is Totem Movie player.</p>
-
-        <h3 id="Food-for-thought"   >
-          <a href="#Food-for-thought" class="heading-link"><i class="fas fa-link"></i></a>Food for thought</h3>
-      <p><em>Multimedia, Entertainment &amp; Distractions In Ubuntu (Medibuntu) Software in the free component are not distributed in the Ubuntu repositories because of legal issues with that software in certain countries. Some software such as Amarok and Kaffeine are distributed through the main Ubuntu repositories but with certain functionalities taken away, again because of legal issues. Medibuntu distributes these kind of packages with those functionalities in place. Software in the non-free component are not distributed in the main Ubuntu repositories because of the licenses that these software are distributed with restricts how they can be distributed. The software in the non-free component are usually not needed for general use as there are alternatives or implementations in other open source licensed software. Some software, such as Google Earth and Adobe Acrobat Reader, are available directly from the company’s website that owns the rights to them.</em> For other versions of Ubuntu go to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Medibuntu" >https://help.ubuntu.com/community/Medibuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h3 id="Food-for-thought"><a href="#Food-for-thought" class="headerlink" title="Food for thought"></a>Food for thought</h3><p><em>Multimedia, Entertainment &amp; Distractions In Ubuntu (Medibuntu) Software in the free component are not distributed in the Ubuntu repositories because of legal issues with that software in certain countries. Some software such as Amarok and Kaffeine are distributed through the main Ubuntu repositories but with certain functionalities taken away, again because of legal issues. Medibuntu distributes these kind of packages with those functionalities in place. Software in the non-free component are not distributed in the main Ubuntu repositories because of the licenses that these software are distributed with restricts how they can be distributed. The software in the non-free component are usually not needed for general use as there are alternatives or implementations in other open source licensed software. Some software, such as Google Earth and Adobe Acrobat Reader, are available directly from the company’s website that owns the rights to them.</em> For other versions of Ubuntu go to <a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Medibuntu">https://help.ubuntu.com/community/Medibuntu</a></p>
 
 
 <!-- Tags -->

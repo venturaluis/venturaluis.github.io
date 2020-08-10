@@ -147,48 +147,27 @@
 
 <!-- Content -->
 <p>This tutorial will cover the required steps to configure a basic iSCSI Target on Ubuntu. The installation for this tutorial was performed on an Ubuntu 12.04 64-bit system, but the same configuration applies to Ubuntu 12.04-32bit.</p>
-
-        <h3 id="Before-We-Install"   >
-          <a href="#Before-We-Install" class="heading-link"><i class="fas fa-link"></i></a>Before We Install</h3>
-      <p>Before the target can be installed check to see of the system you are planning to run the target from is up to date.</p>
+<h3 id="Before-We-Install"><a href="#Before-We-Install" class="headerlink" title="Before We Install"></a>Before We Install</h3><p>Before the target can be installed check to see of the system you are planning to run the target from is up to date.</p>
 <p>sudo apt-get update<br>sudo apt-get upgrade</p>
-
-        <h3 id="Target-Installation-Minimal-Changes"   >
-          <a href="#Target-Installation-Minimal-Changes" class="heading-link"><i class="fas fa-link"></i></a>Target Installation, Minimal Changes</h3>
-      <p>Proceed to install the iSCSI target(<em>iscsitarget</em>) along with <em>iscsitarget-source</em> and <em>iscsitarget-dkms</em>.</p>
+<h3 id="Target-Installation-Minimal-Changes"><a href="#Target-Installation-Minimal-Changes" class="headerlink" title="Target Installation, Minimal Changes"></a>Target Installation, Minimal Changes</h3><p>Proceed to install the iSCSI target(<em>iscsitarget</em>) along with <em>iscsitarget-source</em> and <em>iscsitarget-dkms</em>.</p>
 <p>sudo apt-get install iscsitarget iscsitarget-source iscsitarget-dkms</p>
 <p>If you don’t install the extra two packages you will be greeted with the following error every time you attempt to restart the target.</p>
 <p>user@ubuntu:~$ sudo service iscsitarget restart<br> * Removing iSCSI enterprise target devices:           [ OK ]<br> * Starting iSCSI enterprise target service            FATAL: Module iscsi_trgt not found.</p>
 <p>Next edit <em>/etc/default/iscsitarget</em>. Change the default value of <em>ISCSITARGET_ENABLE=false</em> over to <em>ISCSITARGET_ENABLE=true</em>. Not doing so will not allow the target to start.</p>
 <p>sudo nano /etc/default/iscsitarget</p>
 <p>ISCSITARGET_ENABLE=true</p>
-
-        <h3 id="Storage-Creation"   >
-          <a href="#Storage-Creation" class="heading-link"><i class="fas fa-link"></i></a>Storage Creation</h3>
-      <p>When working with iSCSI you have to also think of LUN’s. This when you decide whether you want to use files or partitions when offering the targets storage to the iSCSI clients. For the tutorial I will be using files. To create a file we can use dd to create and empty file that will grow once the users start storing file in it. The file weights 50GB.</p>
+<h3 id="Storage-Creation"><a href="#Storage-Creation" class="headerlink" title="Storage Creation"></a>Storage Creation</h3><p>When working with iSCSI you have to also think of LUN’s. This when you decide whether you want to use files or partitions when offering the targets storage to the iSCSI clients. For the tutorial I will be using files. To create a file we can use dd to create and empty file that will grow once the users start storing file in it. The file weights 50GB.</p>
 <p>dd if=/dev/zero of=/media/volume0/storlun0.bin count=0 obs=1 seek=50G</p>
 <p>I want to store the resulting files in a different path than my home directory which is why I specified that the file be deposited at /media/volume0.</p>
-
-        <h3 id="Target-Creation"   >
-          <a href="#Target-Creation" class="heading-link"><i class="fas fa-link"></i></a>Target Creation</h3>
-      <p>Configurations and targets we create can be found in the <em>/etc/iet/ietd.conf</em> configuration file.</p>
+<h3 id="Target-Creation"><a href="#Target-Creation" class="headerlink" title="Target Creation"></a>Target Creation</h3><p>Configurations and targets we create can be found in the <em>/etc/iet/ietd.conf</em> configuration file.</p>
 <p>sudo nano /etc/iet/ietd.conf</p>
 <p>Scroll to the bottom of the configuration file and add:</p>
 <p>Target iqn.2012-05.local.mynet:storage.sys0<br>        Lun 0 Path=/media/volume0/storlun0.bin,Type=fileio,ScsiId=lun0,ScsiSN=lun0</p>
 <p>If you don’t want to use files you can also use partitions, just use <strong>Lun 0 Path=/dev/sdb1,Type=fileio</strong> instead. The first line can be changed, but the second line specifies where the LUN actually is. If you want, you could create a second LUN using <strong>LUN 1 Path=/XXXX XXXX XXXX</strong> and expose a second iSCSI drive withing the same target, this assumes you have created a second storage file.</p>
-
-        <h3 id="Restart-Target"   >
-          <a href="#Restart-Target" class="heading-link"><i class="fas fa-link"></i></a>Restart Target</h3>
-      <p>All that is left to do is restart the target with our changes.</p>
+<h3 id="Restart-Target"><a href="#Restart-Target" class="headerlink" title="Restart Target"></a>Restart Target</h3><p>All that is left to do is restart the target with our changes.</p>
 <p>sudo service iscsitarget restart</p>
-
-        <h3 id="Test-The-Target"   >
-          <a href="#Test-The-Target" class="heading-link"><i class="fas fa-link"></i></a>Test The Target</h3>
-      <p>To test the target I will be using built-in Windows 7 iSCSI client(initiator) <img src="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png"> Enter the IP address of the Ubuntu server and click on <strong>Quick Connect…</strong> <img src="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png"> You are now connected, click on <strong>Done</strong>. <img src="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png"> Go over to <strong>Administrative Tools &gt; Computer Management</strong>. <img src="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png"> On the left sidebar you should notice the <strong>Disk Management</strong> option. <img src="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png"> Look for the iSCSI drive, for this tutorial we made a 50GB drive which is listed at the bottom. Here you can choose to format the drive if you like. <img src="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png"></p>
-
-        <h3 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
-      <p>As you can see configuring an iSCSI target in Ubuntu doesn’t have to be complex. Keep in mind the above was just a basic installation, deploying iSCSI also brings other variables in to consideration such as security since the above configuration will allow just about any one to connect to the target. Perhaps I should make another post about iSCSI best practices, thank you for reading. If you have any questions or comments use the form below.</p>
+<h3 id="Test-The-Target"><a href="#Test-The-Target" class="headerlink" title="Test The Target"></a>Test The Target</h3><p>To test the target I will be using built-in Windows 7 iSCSI client(initiator) <img src="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png"> Enter the IP address of the Ubuntu server and click on <strong>Quick Connect…</strong> <img src="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png"> You are now connected, click on <strong>Done</strong>. <img src="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png"> Go over to <strong>Administrative Tools &gt; Computer Management</strong>. <img src="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png"> On the left sidebar you should notice the <strong>Disk Management</strong> option. <img src="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png"> Look for the iSCSI drive, for this tutorial we made a 50GB drive which is listed at the bottom. Here you can choose to format the drive if you like. <img src="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png"></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>As you can see configuring an iSCSI target in Ubuntu doesn’t have to be complex. Keep in mind the above was just a basic installation, deploying iSCSI also brings other variables in to consideration such as security since the above configuration will allow just about any one to connect to the target. Perhaps I should make another post about iSCSI best practices, thank you for reading. If you have any questions or comments use the form below.</p>
 
 
 <!-- Tags -->

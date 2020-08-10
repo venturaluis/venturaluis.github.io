@@ -149,23 +149,14 @@
 <p>Could not open virtual machine: [vm name]</p>
 <p>Taking ownership of the virtual machine is failed</p>
 <p>This is an error that occurs mostly as the result of an unclean shutdown either because the host or guest didn’t have the time to properly stop operations. Fortunately this error can be solved with a few easy to follow steps.</p>
-
-        <h2 id="VM-Path"   >
-          <a href="#VM-Path" class="heading-link"><i class="fas fa-link"></i></a>VM Path</h2>
-      <p>This is the type of error you will be presented with every time you try to start the virtual machine. Take note of the <strong>virtual machine path</strong>, you will need to navigate to where the virtual machine is located. Click on <strong>OK</strong> to dismiss. <img src="https://lh4.googleusercontent.com/-VgHQ9r_UaKo/UGK2g6bitpI/AAAAAAAADdU/lnLVmD57Wf0/s800/vmware-locked-1.png" alt="VM Locked"> In my case all virtual machines are stored in <strong>E:Virtualization</strong>(yours will be different). The VM I am looking for is <strong>Ubuntu 12.04 Server 64-bit</strong>. <img src="https://lh6.googleusercontent.com/-lfP5JlPGn_A/UGK2iA93q2I/AAAAAAAADdc/7BWXIut2tUs/s800/vmware-locked-2.png" alt="VM Locked"></p>
-
-        <h2 id="Solution"   >
-          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
-      <p>With the VM directory open now search for all files with the extension <strong>.lck</strong> this are the files are responsible for the error. You have two options in order to solve the problem:</p>
+<h2 id="VM-Path"><a href="#VM-Path" class="headerlink" title="VM Path"></a>VM Path</h2><p>This is the type of error you will be presented with every time you try to start the virtual machine. Take note of the <strong>virtual machine path</strong>, you will need to navigate to where the virtual machine is located. Click on <strong>OK</strong> to dismiss. <img src="https://lh4.googleusercontent.com/-VgHQ9r_UaKo/UGK2g6bitpI/AAAAAAAADdU/lnLVmD57Wf0/s800/vmware-locked-1.png" alt="VM Locked"> In my case all virtual machines are stored in <strong>E:Virtualization</strong>(yours will be different). The VM I am looking for is <strong>Ubuntu 12.04 Server 64-bit</strong>. <img src="https://lh6.googleusercontent.com/-lfP5JlPGn_A/UGK2iA93q2I/AAAAAAAADdc/7BWXIut2tUs/s800/vmware-locked-2.png" alt="VM Locked"></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>With the VM directory open now search for all files with the extension <strong>.lck</strong> this are the files are responsible for the error. You have two options in order to solve the problem:</p>
 <ol>
 <li>You can move all files with the extension <strong>.lck</strong> to another directory that isn’t the same as the current one.</li>
 <li>Or you can do what I do and erase all <strong>.lck</strong> files. Only erase those ending with <strong>.lck</strong>.</li>
 </ol>
 <p><img src="https://lh4.googleusercontent.com/-4C0UrKCQpX0/UGK2kRHYemI/AAAAAAAADdk/ncz84BmHRCM/s800/vmware-locked-3.png" alt="VM Locked"></p>
-
-        <h2 id="Results"   >
-          <a href="#Results" class="heading-link"><i class="fas fa-link"></i></a>Results</h2>
-      <p>Now go back and try to start the virtual machine. This time the VM should start like usual. <img src="https://lh5.googleusercontent.com/-W2dpHNKhXjQ/UGLL_OyantI/AAAAAAAADd8/ObpYPeWud3c/s800/vmware-locked-4.png" alt="VMware Locked "></p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>Now go back and try to start the virtual machine. This time the VM should start like usual. <img src="https://lh5.googleusercontent.com/-W2dpHNKhXjQ/UGLL_OyantI/AAAAAAAADd8/ObpYPeWud3c/s800/vmware-locked-4.png" alt="VMware Locked "></p>
 
 
 <!-- Tags -->

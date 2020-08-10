@@ -147,20 +147,17 @@
 
 <!-- Content -->
 <p>I like the new release of Transmission the Bittorrent client because it’s web interface requires no additional installation of a web server or the entire LAMP stack to do something very simple. My headless server runs Ubuntu 8.04 LTS which till now only had the job of being a file server, not long ago I decided to expand it’s functions and make it grab torrents for me. Remember I have a headless server and only manage it via SSH. The main requirement was for a BT client that was light and also manageable via HTTP. In my case I decided for Transmission 1.34 because it bring everything I need under one name, except it’s not officially supported or included in the Ubuntu 8.04 repositories. The solution is to simply add an extra repository to the <strong>/etc/apt/sources.list</strong> and then execute a simple apt-get install.</p>
-
-        <h4 id="Transmission-installation"   >
-          <a href="#Transmission-installation" class="heading-link"><i class="fas fa-link"></i></a>Transmission installation</h4>
-      <p>To install Transmission 1.34 or newer versions in Ubuntu 8.04 LTS we first need to add an entry to the sources.list.</p>
+<h4 id="Transmission-installation"><a href="#Transmission-installation" class="headerlink" title="Transmission installation"></a>Transmission installation</h4><p>To install Transmission 1.34 or newer versions in Ubuntu 8.04 LTS we first need to add an entry to the sources.list.</p>
 <p>sudo nano /etc/apt/sources.list</p>
 <p>And add the following.</p>
-<p>## Transmission repository not officially supported by the Ubuntu team<br>deb <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu" >http://ppa.launchpad.net/bortis/ubuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> hardy main<br>deb-src <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu" >http://ppa.launchpad.net/bortis/ubuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> hardy main</p>
+<p>## Transmission repository not officially supported by the Ubuntu team<br>deb <a target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu">http://ppa.launchpad.net/bortis/ubuntu</a> hardy main<br>deb-src <a target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu">http://ppa.launchpad.net/bortis/ubuntu</a> hardy main</p>
 <p>Now that we have the new repository in the sources list let’s install the new package.</p>
 <p>sudo apt-get install transmission-cli</p>
 <p>Check to see if Transmission starts.</p>
 <p>transmission-daemon</p>
 <p>Now we have Transmission running, let’s log in to the web interface.</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://192.168.15.1:9091/" >http://192.168.15.1:9091</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>This is by far the easiest way of installing a Bittorrent client that by default includes a web interface and has no need for a web server to be installed in order to work. Information compiled from: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://forum.transmissionbt.com/viewtopic.php?f=13&t=5604" >http://forum.transmissionbt.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Verify the installed version.</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.15.1:9091/">http://192.168.15.1:9091</a></p>
+<p>This is by far the easiest way of installing a Bittorrent client that by default includes a web interface and has no need for a web server to be installed in order to work. Information compiled from: <a target="_blank" rel="noopener" href="http://forum.transmissionbt.com/viewtopic.php?f=13&t=5604">http://forum.transmissionbt.com/</a> Verify the installed version.</p>
 <p>transmissioncli -v</p>
 
 

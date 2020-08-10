@@ -147,10 +147,7 @@
 
 <!-- Content -->
 <p>Higher resolution means more text in the same window this especially applies to the console. The following was tested in Debian 7 Wheezy and Ubuntu 13.04. With Grub 2 with can easily increase the resolution by making a few changes.</p>
-
-        <h3 id="Console-Resolution"   >
-          <a href="#Console-Resolution" class="heading-link"><i class="fas fa-link"></i></a>Console Resolution</h3>
-      <p>Open and edit the grub file.</p>
+<h3 id="Console-Resolution"><a href="#Console-Resolution" class="headerlink" title="Console Resolution"></a>Console Resolution</h3><p>Open and edit the grub file.</p>
 <p>nano /etc/default/grub</p>
 <p>Search for the following line and uncomment “<strong>#GRUB_GFXMODE=640</strong>“, modify it to include a higher resolution such as <strong>1440x900</strong>. Also add the line “<strong>GRUB_GFXPAYLOAD_LINUX=keep</strong>“.</p>
 <p>GRUB_GFXMODE=1440X900<br>GRUB_GFXPAYLOAD_LINUX=keep</p>

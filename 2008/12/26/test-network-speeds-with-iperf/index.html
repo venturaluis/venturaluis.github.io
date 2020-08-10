@@ -147,33 +147,21 @@
 
 <!-- Content -->
 <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SVV0d5wrBGI/AAAAAAAAAUQ/s2XSj77g1Zg/s800/iperf.jpg"> It happens to all of us, sometimes segments of the network may become unusable or slow. The documentation created by the previous administrator may say Gigabit ethernet is supported or enabled across the network, yet only a fraction of the bandwidth is available. <strong>Iperf</strong> can measure the throughput of a network, Iperf operates in a client server mode. Best of all it’s open source and cross platform. Iperf is the perfect tool to measure wired and wireless networks, bandwidth is measured through TCP tests.</p>
-
-        <h3 id="Iperf-installation"   >
-          <a href="#Iperf-installation" class="heading-link"><i class="fas fa-link"></i></a>Iperf installation</h3>
-      <p>For the network test I will install Iperf on two systems, one will act as the server and the other as the client. Iperf is available on the Ubuntu repositories.</p>
+<h3 id="Iperf-installation"><a href="#Iperf-installation" class="headerlink" title="Iperf installation"></a>Iperf installation</h3><p>For the network test I will install Iperf on two systems, one will act as the server and the other as the client. Iperf is available on the Ubuntu repositories.</p>
 <p>sudo apt-get install iperf</p>
-
-        <h3 id="Iperf-server"   >
-          <a href="#Iperf-server" class="heading-link"><i class="fas fa-link"></i></a>Iperf server</h3>
-      <p>Now turn one of the systems in to the Iperf server.</p>
+<h3 id="Iperf-server"><a href="#Iperf-server" class="headerlink" title="Iperf server"></a>Iperf server</h3><p>Now turn one of the systems in to the Iperf server.</p>
 <p>iperf -s</p>
 <p>Iperf server output.</p>
 <p>-———————————————————–<br>Server listening on TCP port 5001<br>TCP window size: 85.3 KByte (default)</p>
 <hr>
-
-        <h3 id="Iperf-client"   >
-          <a href="#Iperf-client" class="heading-link"><i class="fas fa-link"></i></a>Iperf client</h3>
-      <p>On the Iperf client issue the following command to connect with the Iperf server and initiate the test.</p>
+<h3 id="Iperf-client"><a href="#Iperf-client" class="headerlink" title="Iperf client"></a>Iperf client</h3><p>On the Iperf client issue the following command to connect with the Iperf server and initiate the test.</p>
 <p>iperf -c 192.168.1.103</p>
 <p>Client side output.</p>
 <p>-———————————————————–<br>Client connecting to 192.168.1.103, TCP port 5001<br>TCP window size: 16.0 KByte (default)</p>
 <hr>
 <p>[  3] local 192.168.1.101 port 59291 connected with 192.168.1.103 port 5001<br>[ ID] Interval       Transfer     Bandwidth<br>[  3]  0.0-10.0 sec    113 MBytes  94.5 Mbits/sec</p>
 <p>You can see that on this test Iperf successfully transfered 113 MB of data at a network speed of 94.2 Mbits/sec. You can also tell Iperf to wait before giving you the network results, by adding <strong>-t 30</strong> at the end of the command. This will tell Iperf to wait and in the mean time transferer more data across the network.</p>
-
-        <h3 id="References"   >
-          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h3>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://sourceforge.net/projects/iperf" >http://sourceforge.net/projects/iperf</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/iperf">http://sourceforge.net/projects/iperf</a></p>
 
 
 <!-- Tags -->

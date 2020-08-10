@@ -154,22 +154,10 @@
 <li>2TB Storage / 1TB Usable</li>
 </ul>
 <p>It’s not the hardware that I find to be the problem, but the lack of expansion that’s holding me back. If you look at the picture below you can see the board currently in my NAS. For starters I am limited to a single 10/100 onboard NIC, there is no option to upgrade to SATA only IDE, while there is one PCI slot available its currently occupied by a PCI SATA controller meaning its not possible to upgrade to gigabit speeds. <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s800/VIAC3Board.png"><img src="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s288/VIAC3Board.png" title="VIA C3 Board"></a></p>
-
-        <h3 id="CPU"   >
-          <a href="#CPU" class="heading-link"><i class="fas fa-link"></i></a>CPU:</h3>
-      <p>While the onboard VIA C3 CPU is no monster its certainly capable of handling most tasks: File server, web server. But there is one service I don’t even want to try and run with the current limitations, SCSI Target. Since I would not be making of a TOE NIC for the iSCSI traffic, all calculations would have to be performed in CPU which would take a toll on performance and nothing good would come out of it. Although I thought about running software RAID I opted not to because of the possible added load on the CPU.</p>
-
-        <h3 id="STORAGE"   >
-          <a href="#STORAGE" class="heading-link"><i class="fas fa-link"></i></a>STORAGE:</h3>
-      <p>Another serious limitation is storage capacity, because of its age the board lacks SATA ports leaving me with IDE as the default option, good luck trying to find a 1TB IDE hard drive. The only possible expansion came from the PCI slot in which I installed a PCI SATA controller and connected two 1TB SATA drives, only 1TB is usable because the second drive contains a copy of the first.</p>
-
-        <h3 id="RAM"   >
-          <a href="#RAM" class="heading-link"><i class="fas fa-link"></i></a>RAM:</h3>
-      <p>Currently running with 512MB, but can be upgraded to 1GB. I don’t see the point of upgrading.</p>
-
-        <h3 id="Networking"   >
-          <a href="#Networking" class="heading-link"><i class="fas fa-link"></i></a>Networking:</h3>
-      <p>The board comes with a 10/100 NIC, the only expansion port is being used by the PCI SATA controller. Its either a 10/100/1000 NIC or a PCI SATA controller. I thought of using an external USB drives or an eSATA enclosure but that would have been a temporary measure. Instead I’ve started to look for a replacement solution something that is capable, with the possibility for future expansion and with enough resources to run iSCSI, SMB, RAID, SSH for tunneling, and expansion slots.</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU:"></a>CPU:</h3><p>While the onboard VIA C3 CPU is no monster its certainly capable of handling most tasks: File server, web server. But there is one service I don’t even want to try and run with the current limitations, SCSI Target. Since I would not be making of a TOE NIC for the iSCSI traffic, all calculations would have to be performed in CPU which would take a toll on performance and nothing good would come out of it. Although I thought about running software RAID I opted not to because of the possible added load on the CPU.</p>
+<h3 id="STORAGE"><a href="#STORAGE" class="headerlink" title="STORAGE:"></a>STORAGE:</h3><p>Another serious limitation is storage capacity, because of its age the board lacks SATA ports leaving me with IDE as the default option, good luck trying to find a 1TB IDE hard drive. The only possible expansion came from the PCI slot in which I installed a PCI SATA controller and connected two 1TB SATA drives, only 1TB is usable because the second drive contains a copy of the first.</p>
+<h3 id="RAM"><a href="#RAM" class="headerlink" title="RAM:"></a>RAM:</h3><p>Currently running with 512MB, but can be upgraded to 1GB. I don’t see the point of upgrading.</p>
+<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking:"></a>Networking:</h3><p>The board comes with a 10/100 NIC, the only expansion port is being used by the PCI SATA controller. Its either a 10/100/1000 NIC or a PCI SATA controller. I thought of using an external USB drives or an eSATA enclosure but that would have been a temporary measure. Instead I’ve started to look for a replacement solution something that is capable, with the possibility for future expansion and with enough resources to run iSCSI, SMB, RAID, SSH for tunneling, and expansion slots.</p>
 <ul>
 <li>Either an Intel or AMD CPU</li>
 <li>At least 1GB of RAM</li>

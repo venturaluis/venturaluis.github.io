@@ -146,11 +146,8 @@
 
 
 <!-- Content -->
-<p>Making use of dynaminc VHDs or Virtual Hard Disks has the benefit of growing along with the users need. The downside is that even after files are deleted from a dynamic VHD it will remain the same size as if the files where never deleted. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TT0-dwJmSkI/AAAAAAAAC5o/nuUZUMXA02Q/s800/Windows_generic_h_web.jpg" title="Windows"> This becomes a problem if you make use of multiple VHDs because you are essentially wasting space on files that no longer exist. The solution is to Compact the VHD using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://support.microsoft.com/kb/300415" >Diskpart</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a tool provided with Windows.</p>
-
-        <h3 id="Start-Compacting"   >
-          <a href="#Start-Compacting" class="heading-link"><i class="fas fa-link"></i></a>Start Compacting</h3>
-      <p>Open a command line window and type:</p>
+<p>Making use of dynaminc VHDs or Virtual Hard Disks has the benefit of growing along with the users need. The downside is that even after files are deleted from a dynamic VHD it will remain the same size as if the files where never deleted. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TT0-dwJmSkI/AAAAAAAAC5o/nuUZUMXA02Q/s800/Windows_generic_h_web.jpg" title="Windows"> This becomes a problem if you make use of multiple VHDs because you are essentially wasting space on files that no longer exist. The solution is to Compact the VHD using <a target="_blank" rel="noopener" href="http://support.microsoft.com/kb/300415">Diskpart</a> a tool provided with Windows.</p>
+<h3 id="Start-Compacting"><a href="#Start-Compacting" class="headerlink" title="Start Compacting"></a>Start Compacting</h3><p>Open a command line window and type:</p>
 <p>diskpart</p>
 <p>Select the disk you wish to compact by specifying the drive where the file is located and the path:</p>
 <p>select vdisk file=”F:DAT100GB.vhd”</p>

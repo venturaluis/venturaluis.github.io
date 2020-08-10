@@ -151,10 +151,7 @@
 <p>DEVICE=”eth0”<br>HWADDR=”MAC Address”<br>NM_CONTROLLED=”yes”<br>ONBOOT=”no”</p>
 <p>The output above indicates <em><strong>eth0</strong></em> is disabled, this is when you either opt to set a static IP or dynamically assigned IP. With the text editor of your choice open the <strong>/etc/sysconfig/network-scripts/ifcfg-eth0</strong> and edit as indicated below.</p>
 <p>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-
-        <h3 id="DHCP-Configuration"   >
-          <a href="#DHCP-Configuration" class="heading-link"><i class="fas fa-link"></i></a>DHCP Configuration</h3>
-      <p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”dhcp”</p>
+<h3 id="DHCP-Configuration"><a href="#DHCP-Configuration" class="headerlink" title="DHCP Configuration"></a>DHCP Configuration</h3><p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”dhcp”</p>
 <ul>
 <li><em><strong>DEVICE=”eth0”</strong></em> - Name of Network Interface.</li>
 <li><strong>HWADDR=MAC Address*System MAC*</strong> - MAC address of Network Interface.</li>
@@ -166,10 +163,7 @@
 <p>/etc/init.d/network restart</p>
 <p>or</p>
 <p>service network restart</p>
-
-        <h3 id="Static-Configuration"   >
-          <a href="#Static-Configuration" class="heading-link"><i class="fas fa-link"></i></a>Static Configuration</h3>
-      <p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”static”<br>IPADDR=192.168.x.x.<br>NETMASK=255.255.255.0.</p>
+<h3 id="Static-Configuration"><a href="#Static-Configuration" class="headerlink" title="Static Configuration"></a>Static Configuration</h3><p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”static”<br>IPADDR=192.168.x.x.<br>NETMASK=255.255.255.0.</p>
 <ul>
 <li><strong><em>DEVICE=”eth0″</em></strong> - Name of Network Interface.</li>
 <li><strong><em>HWADDR=MAC Address*System MAC*</em></strong> - MAC address of Network Interface.</li>
@@ -179,15 +173,9 @@
 <li><strong><em>IPADDR=192.168.x.x</em></strong> - System IP address.</li>
 <li><strong><em>NETMASK=255.255.255.0</em></strong> - Network Mask.</li>
 </ul>
-
-        <h3 id="Gateway-Configuration"   >
-          <a href="#Gateway-Configuration" class="heading-link"><i class="fas fa-link"></i></a>Gateway Configuration</h3>
-      <p><em>*DHCP Users should ignore this step.</em> In order to add a Gateway to our system we need to edit <strong><em>/etc/sysconfig/network</em></strong>. In order to add the network gateway edit <strong><em>/etc/sysconfig/network</em></strong> and add <strong><em>GATEWAY=192.168.x.x</em></strong>.</p>
+<h3 id="Gateway-Configuration"><a href="#Gateway-Configuration" class="headerlink" title="Gateway Configuration"></a>Gateway Configuration</h3><p><em>*DHCP Users should ignore this step.</em> In order to add a Gateway to our system we need to edit <strong><em>/etc/sysconfig/network</em></strong>. In order to add the network gateway edit <strong><em>/etc/sysconfig/network</em></strong> and add <strong><em>GATEWAY=192.168.x.x</em></strong>.</p>
 <p>NETWORKING=yes<br>HOSTNAME=localhost.localdomain<br>GATEWAY=192.168.111.1</p>
-
-        <h3 id="DNS-Configuration"   >
-          <a href="#DNS-Configuration" class="heading-link"><i class="fas fa-link"></i></a>DNS Configuration</h3>
-      <p><em>*DHCP Users should ignore this step.</em> Now we add the DNS server(s) for our host. Edit <strong>/etc/resolv.conf</strong> and add <strong>nameserver 192.168.x.x</strong>.</p>
+<h3 id="DNS-Configuration"><a href="#DNS-Configuration" class="headerlink" title="DNS Configuration"></a>DNS Configuration</h3><p><em>*DHCP Users should ignore this step.</em> Now we add the DNS server(s) for our host. Edit <strong>/etc/resolv.conf</strong> and add <strong>nameserver 192.168.x.x</strong>.</p>
 <p>nameserver 192.168.111.1</p>
 <p>Restart the network service. This will make sure the changes take effect.</p>
 <p>/etc/init.d/network restart</p>

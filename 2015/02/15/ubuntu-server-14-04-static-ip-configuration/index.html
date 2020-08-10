@@ -150,21 +150,9 @@
 <p>sudo nano /etc/network/interfaces</p>
 <p>You can remove the content referring to the previous DHCP configuration and add the parameters below. Change the addresses below to fit your needs.</p>
 <p># This file describes the network interfaces available on your system</p>
-
-        <h1 id="and-how-to-activate-them-For-more-information-see-interfaces-5"   >
-          <a href="#and-how-to-activate-them-For-more-information-see-interfaces-5" class="heading-link"><i class="fas fa-link"></i></a>and how to activate them. For more information, see interfaces(5).</h1>
-      
-        <h1 id="The-loopback-network-interface"   >
-          <a href="#The-loopback-network-interface" class="heading-link"><i class="fas fa-link"></i></a>The loopback network interface</h1>
-      <p>auto lo<br>iface lo inet loopback</p>
-
-        <h1 id="The-primary-network-interface"   >
-          <a href="#The-primary-network-interface" class="heading-link"><i class="fas fa-link"></i></a>The primary network interface</h1>
-      <p>auto eth0</p>
-
-        <h1 id="Static-IP-configuration"   >
-          <a href="#Static-IP-configuration" class="heading-link"><i class="fas fa-link"></i></a>Static IP configuration</h1>
-      <p>iface eth0 inet static<br>address 192.168.1.5<br>netmask 255.255.255.0<br>network 192.168.1.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1<br>dns-nameservers 8.8.4.4</p>
+<h1 id="and-how-to-activate-them-For-more-information-see-interfaces-5"><a href="#and-how-to-activate-them-For-more-information-see-interfaces-5" class="headerlink" title="and how to activate them. For more information, see interfaces(5)."></a>and how to activate them. For more information, see interfaces(5).</h1><h1 id="The-loopback-network-interface"><a href="#The-loopback-network-interface" class="headerlink" title="The loopback network interface"></a>The loopback network interface</h1><p>auto lo<br>iface lo inet loopback</p>
+<h1 id="The-primary-network-interface"><a href="#The-primary-network-interface" class="headerlink" title="The primary network interface"></a>The primary network interface</h1><p>auto eth0</p>
+<h1 id="Static-IP-configuration"><a href="#Static-IP-configuration" class="headerlink" title="Static IP configuration"></a>Static IP configuration</h1><p>iface eth0 inet static<br>address 192.168.1.5<br>netmask 255.255.255.0<br>network 192.168.1.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1<br>dns-nameservers 8.8.4.4</p>
 <p>You don’t have to restart the system instead restart the networking service.</p>
 <p>sudo service networking restart</p>
 

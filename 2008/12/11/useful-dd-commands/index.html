@@ -147,23 +147,17 @@
 
 <!-- Content -->
 <p>The Windows world has Norton Ghost, Linux has <strong>dd</strong> which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards using dd, you can always do more research. This is a list of the common ways I use <strong>dd</strong>.</p>
-
-        <h3 id="Disk-cloning"   >
-          <a href="#Disk-cloning" class="heading-link"><i class="fas fa-link"></i></a>Disk cloning</h3>
-      <p>Clone a hard disk, move all the data located in sda to sdb.</p>
+<h3 id="Disk-cloning"><a href="#Disk-cloning" class="headerlink" title="Disk cloning"></a>Disk cloning</h3><p>Clone a hard disk, move all the data located in sda to sdb.</p>
 <p>dd if=/dev/sda of=/dev/sdb</p>
 <p>If duplication of the disk is not needed we can instead create an image file for storage.</p>
 <p>dd if=/dev/sda of=~/disk1.img</p>
 <p>Restore the image file.</p>
 <p>dd if=disk1.img of=/dev/sda</p>
-
-        <h3 id="Copy-CD-DVD-in-to-ISO"   >
-          <a href="#Copy-CD-DVD-in-to-ISO" class="heading-link"><i class="fas fa-link"></i></a>Copy CD/DVD in to ISO</h3>
-      <p>Create a ISO out of a CD or DVD</p>
+<h3 id="Copy-CD-DVD-in-to-ISO"><a href="#Copy-CD-DVD-in-to-ISO" class="headerlink" title="Copy CD/DVD in to ISO"></a>Copy CD/DVD in to ISO</h3><p>Create a ISO out of a CD or DVD</p>
 <p>dd if=/dev/cdrom of=/home/user/cd.iso bs=2048 conv=notrunc</p>
 <p>Erase the data from the drive by overwriting it with random data. Keep in mind this solution does not comply with any kind of standard.</p>
 <p>dd if=/dev/urandom of=/dev/hda</p>
-<p>If you wish to use a solution that securely erases the data in hard drives use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.dban.org/" >Darik’s Boot and Nuke (DBAN)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+<p>If you wish to use a solution that securely erases the data in hard drives use <a target="_blank" rel="noopener" href="http://www.dban.org/">Darik’s Boot and Nuke (DBAN)</a>.</p>
 
 
 <!-- Tags -->

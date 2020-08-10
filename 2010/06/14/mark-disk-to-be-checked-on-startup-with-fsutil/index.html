@@ -146,31 +146,19 @@
 
 
 <!-- Content -->
-<p>If you need to have a drive checked (Check Disk) on Windows but instead you are having a though time doing so because of open file handles, then you might want to use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx" >Fsutil</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Thanks to Fsutil you can query the drive in question and mark the drive as dirty and have autochk check for error on the next restart.</p>
-
-        <h3 id="Official-Explanation"   >
-          <a href="#Official-Explanation" class="heading-link"><i class="fas fa-link"></i></a>Official Explanation</h3>
-      <blockquote>
+<p>If you need to have a drive checked (Check Disk) on Windows but instead you are having a though time doing so because of open file handles, then you might want to use <a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx">Fsutil</a>. Thanks to Fsutil you can query the drive in question and mark the drive as dirty and have autochk check for error on the next restart.</p>
+<h3 id="Official-Explanation"><a href="#Official-Explanation" class="headerlink" title="Official Explanation"></a>Official Explanation</h3><blockquote>
 <p>Performs tasks that are related to file allocation table (FAT) and NTFS file systems, such as managing reparse points, managing sparse files, or dismounting a volume. If it is used without parameters, fsutil displays a list of supported subcommands.</p>
 </blockquote>
-
-        <h3 id="Query-The-Drive"   >
-          <a href="#Query-The-Drive" class="heading-link"><i class="fas fa-link"></i></a>Query The Drive</h3>
-      <p>Will the drive be checked on start up?</p>
+<h3 id="Query-The-Drive"><a href="#Query-The-Drive" class="headerlink" title="Query The Drive"></a>Query The Drive</h3><p>Will the drive be checked on start up?</p>
 <p>fsutil dirty query c:</p>
 <p><strong>Example:</strong></p>
 <p>C:Windowssystem32&gt;fsutil dirty query c:<br>Volume - c: is NOT Dirty</p>
-
-        <h3 id="Force-A-Check"   >
-          <a href="#Force-A-Check" class="heading-link"><i class="fas fa-link"></i></a>Force A Check</h3>
-      <p>Fsutil will mark the disk as dirty, the next time you restart the system the disk in question will be checked and repaired.</p>
+<h3 id="Force-A-Check"><a href="#Force-A-Check" class="headerlink" title="Force A Check"></a>Force A Check</h3><p>Fsutil will mark the disk as dirty, the next time you restart the system the disk in question will be checked and repaired.</p>
 <p>fsutil dirty set c:</p>
 <p><strong>Example:</strong></p>
 <p>C:Windowssystem32&gt;fsutil dirty set c:<br>Volume - c: is now marked dirty </p>
-
-        <h3 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h3>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx" >Fsutil at TechNet</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc753059(WS.10).aspx">Fsutil at TechNet</a></p>
 
 
 <!-- Tags -->

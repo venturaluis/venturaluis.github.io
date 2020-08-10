@@ -146,7 +146,7 @@
 
 
 <!-- Content -->
-<p>Nginx 502 Bad Gateway cost me more time than the actual Ubuntu + PHP-FPM + MySQL installation I was working on. In my case the <strong>502 Bad Gateway</strong> error on my installation was the result of a parameter mismatch between <strong>/etc/ningx/sites-available/default</strong> and <strong>/etc/php5/fpm/pool.d/<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.conf/" >www.conf</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong>. In order to solve the 502 Bad Gateway problem edit the Nginx file <strong>/etc/ningx/sites-available/default</strong>.</p>
+<p>Nginx 502 Bad Gateway cost me more time than the actual Ubuntu + PHP-FPM + MySQL installation I was working on. In my case the <strong>502 Bad Gateway</strong> error on my installation was the result of a parameter mismatch between <strong>/etc/ningx/sites-available/default</strong> and <strong>/etc/php5/fpm/pool.d/<a target="_blank" rel="noopener" href="http://www.conf/">www.conf</a></strong>. In order to solve the 502 Bad Gateway problem edit the Nginx file <strong>/etc/ningx/sites-available/default</strong>.</p>
 <p>nano /etc/ningx/sites-available/default</p>
 <p>And look for the commented line <strong># fastcgi_pass unix:/var/run/php5-fpm.sock;</strong> and uncomment the line.</p>
 <p>fastcgi_pass unix:/var/run/php5-fpm.sock;</p>

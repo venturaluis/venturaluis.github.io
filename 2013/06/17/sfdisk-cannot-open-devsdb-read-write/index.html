@@ -151,7 +151,7 @@
 <p>Here is the error I received.</p>
 <p>sudo sfdisk -d /dev/sdb | sfdisk –force /dev/sdc<br>         /dev/sdc: Permission denied</p>
 <pre><code>sfdisk: cannot open /dev/sdc read-write</code></pre>
-<p>Even with Sudo the command refused to do what I expected. After a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://askubuntu.com/questions/225472/i-would-like-to-have-a-copy-of-all-the-partitions-of-primary-drive-to-a-secondar" >quick Google search</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> I found the following which simply suggested to double the Sudo command which if you think about it makes sense.</p>
+<p>Even with Sudo the command refused to do what I expected. After a <a target="_blank" rel="noopener" href="http://askubuntu.com/questions/225472/i-would-like-to-have-a-copy-of-all-the-partitions-of-primary-drive-to-a-secondar">quick Google search</a> I found the following which simply suggested to double the Sudo command which if you think about it makes sense.</p>
 <p>sudo sfdisk -d /dev/sdb | sudo sfdisk –force /dev/sdc</p>
 <p>Now I feel stupid, BTW I was creating a RAID 10 array.</p>
 

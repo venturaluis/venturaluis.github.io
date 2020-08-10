@@ -146,10 +146,10 @@
 
 
 <!-- Content -->
-<p>EdgeOS firmware can be downloaded from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ubnt.com/download/" >Ubiquity download page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. First we need to see the installed version.</p>
+<p>EdgeOS firmware can be downloaded from the <a target="_blank" rel="noopener" href="http://www.ubnt.com/download/">Ubiquity download page</a>. First we need to see the installed version.</p>
 <p>admin@ubnt:~$ show version<br>Version:      v1.2.0<br>Build ID:     4574253<br>Build on:     06/26/13 12:48<br>Copyright:    2012-2013 Ubiquiti Networks, Inc.<br>HW model:     EdgeRouter Lite 3-Port<br>HW S/N:       ————-<br>Uptime:       14:53:51 up  4:00,  2 users,  load average: 0.00, 0.02, 0.00</p>
 <p>I like EdgeOS because you can pull the image directly into the router via HTTP. Alternatively you can download the image into a local webserver(like I did) and install from there. After the download is complete installation will begin.</p>
-<p>admin@ubnt:~$ add system image <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar" >http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>Trying to get upgrade file from <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar" >http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current<br>                                 Dload  Upload   Total   Spent    Left  Speed<br>100 68.9M  100 68.9M    0     0  7837k      0  0:00:09  0:00:09 –:–:– 6334k<br>Download suceeded<br>Checking upgrade image… Done<br>Preparing to upgrade… Done<br>Copying upgrade image… Done<br>Removing old image… Done<br>Checking upgrade image… Done<br>Finishing upgrade… Done<br>Upgrade completed</p>
+<p>admin@ubnt:~$ add system image <a target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar">http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><br>Trying to get upgrade file from <a target="_blank" rel="noopener" href="http://192.168.1.5/ER-e100.v1.5.0.4677648.tar">http://192.168.1.5/ER-e100.v1.5.0.4677648.tar</a><br>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current<br>                                 Dload  Upload   Total   Spent    Left  Speed<br>100 68.9M  100 68.9M    0     0  7837k      0  0:00:09  0:00:09 –:–:– 6334k<br>Download suceeded<br>Checking upgrade image… Done<br>Preparing to upgrade… Done<br>Copying upgrade image… Done<br>Removing old image… Done<br>Checking upgrade image… Done<br>Finishing upgrade… Done<br>Upgrade completed</p>
 <p>The image has been installed but its not running yet, we need to reboot the router for the new image to become the default.</p>
 <p>admin@ubnt:~$ show system image<br>The system currently has the following image(s) installed:</p>
 <p>v1.5.0.4677648.140620.1301     (default boot)<br>v1.2.0.4574253.130626.1248     (running image)</p>
@@ -158,10 +158,7 @@
 <p>admin@ubnt:~$ reboot<br>Proceed with reboot? [confirm]</p>
 <p>Verify the router is running the recently installed image.</p>
 <p>admin@ubnt:~$ show version<br>Version:      v1.5.0<br>Build ID:     4677648<br>Build on:     06/20/14 13:01<br>Copyright:    2012-2014 Ubiquiti Networks, Inc.<br>HW model:     EdgeRouter Lite 3-Port<br>HW S/N:       ————-<br>Uptime:       15:01:36 up 1 min,  1 user,  load average: 0.78, 0.30, 0.11</p>
-
-        <h3 id="Optional-commands"   >
-          <a href="#Optional-commands" class="heading-link"><i class="fas fa-link"></i></a>Optional commands</h3>
-      <p>EdgeOS can store two images in the event you need to revert to a previous version.</p>
+<h3 id="Optional-commands"><a href="#Optional-commands" class="headerlink" title="Optional commands"></a>Optional commands</h3><p>EdgeOS can store two images in the event you need to revert to a previous version.</p>
 <p>admin@ubnt:~$ show system image<br>The system currently has the following image(s) installed:</p>
 <p>v1.5.0.4677648.140620.1301     (running image) (default boot)<br>v1.2.0.4574253.130626.1248</p>
 <p>You can also delete one of the image.</p>

@@ -147,26 +147,14 @@
 
 <!-- Content -->
 <p>CDP or Cisco Discovery Protocol is enable by default on Cisco routers, CDP can be disabled either globally (stops advertisements on all interfaces) or partially by disabling advertisements on specific interface(s).</p>
-
-        <h3 id="Disable-CDP-Globally"   >
-          <a href="#Disable-CDP-Globally" class="heading-link"><i class="fas fa-link"></i></a>Disable CDP Globally</h3>
-      <p>R1# configure terminal</p>
+<h3 id="Disable-CDP-Globally"><a href="#Disable-CDP-Globally" class="headerlink" title="Disable CDP Globally"></a>Disable CDP Globally</h3><p>R1# configure terminal</p>
 <p>R1(config)# no cdp run</p>
-
-        <h3 id="Disable-CDP-on-Specific-Interface"   >
-          <a href="#Disable-CDP-on-Specific-Interface" class="heading-link"><i class="fas fa-link"></i></a>Disable CDP on Specific Interface</h3>
-      <p>R1# configure terminal</p>
+<h3 id="Disable-CDP-on-Specific-Interface"><a href="#Disable-CDP-on-Specific-Interface" class="headerlink" title="Disable CDP on Specific Interface"></a>Disable CDP on Specific Interface</h3><p>R1# configure terminal</p>
 <p>R1(config)# interface fa0/0</p>
 <p>R1(config-if)# no cdp enable</p>
-
-        <h3 id="Re-enable-CDP"   >
-          <a href="#Re-enable-CDP" class="heading-link"><i class="fas fa-link"></i></a>Re-enable CDP</h3>
-      <p>Changed your mind, that’s ok you can re-enable CDP.</p>
+<h3 id="Re-enable-CDP"><a href="#Re-enable-CDP" class="headerlink" title="Re-enable CDP"></a>Re-enable CDP</h3><p>Changed your mind, that’s ok you can re-enable CDP.</p>
 <p>R1(config)# cdp run</p>
-
-        <h3 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
-      <p>CDP is usually disable due to security reasons people don’t like to advertise more than they have to, another good reason is CDP happens to be Cisco proprietary if the device on the other side of the interface is not Cisco then there is no reason for CDP to be running in the first place. Feel free to leave a comment below, who knows I maybe able to provide some extra assistance. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.cisco.com/en/US/docs/ios/12_1/configfun/configuration/guide/fcd301c.html" >Configuring Cisco Discovery Protocol (CDP)- cisco.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>CDP is usually disable due to security reasons people don’t like to advertise more than they have to, another good reason is CDP happens to be Cisco proprietary if the device on the other side of the interface is not Cisco then there is no reason for CDP to be running in the first place. Feel free to leave a comment below, who knows I maybe able to provide some extra assistance. <a target="_blank" rel="noopener" href="http://www.cisco.com/en/US/docs/ios/12_1/configfun/configuration/guide/fcd301c.html">Configuring Cisco Discovery Protocol (CDP)- cisco.com</a></p>
 
 
 <!-- Tags -->

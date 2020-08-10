@@ -146,27 +146,18 @@
 
 
 <!-- Content -->
-<p>Linux distributions among them Ubuntu include <strong>GPG</strong> which is used to encrypt files in a very simple and straight forward manner. The whole process for encrypting a file with GPG requires less manual input when compared to OpenSSL. Do not forget, there is no way to reset the password once a file has been encrypted without access the to original password. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard" >Excerpt from Wikipedia</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <em>GNU Privacy Guard (GnuPG or GPG) is a free open source alternative to the PGP suite of cryptographic software. GnuPG is compliant with RFC 4880, which is the current IETF standards track specification of OpenPGP.</em></p>
-
-        <h4 id="How-to-use-GPG"   >
-          <a href="#How-to-use-GPG" class="heading-link"><i class="fas fa-link"></i></a>How to use GPG</h4>
-      <p>To encrypt a file all you need to do is type <strong>gpg</strong>, followed by <strong>-c</strong> to encrypt with a symmetric cipher and the name of the file you want to encrypt.</p>
+<p>Linux distributions among them Ubuntu include <strong>GPG</strong> which is used to encrypt files in a very simple and straight forward manner. The whole process for encrypting a file with GPG requires less manual input when compared to OpenSSL. Do not forget, there is no way to reset the password once a file has been encrypted without access the to original password. <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard">Excerpt from Wikipedia</a> <em>GNU Privacy Guard (GnuPG or GPG) is a free open source alternative to the PGP suite of cryptographic software. GnuPG is compliant with RFC 4880, which is the current IETF standards track specification of OpenPGP.</em></p>
+<h4 id="How-to-use-GPG"><a href="#How-to-use-GPG" class="headerlink" title="How to use GPG"></a>How to use GPG</h4><p>To encrypt a file all you need to do is type <strong>gpg</strong>, followed by <strong>-c</strong> to encrypt with a symmetric cipher and the name of the file you want to encrypt.</p>
 <p>gpg -c filename.pdf</p>
 <p>Then you will be asked to provide a password for the encrypted file twice.</p>
 <p>Enter passphrase: mypassword<br>Repeat passphrase: mypassword</p>
 <p>The result will a file with the file extension ending in <strong>.gpg</strong>, for example <strong>filename.pdf</strong> becomes <strong>filename.pdf.gpg</strong> indicating the file has been encrypted with GPG.</p>
-
-        <h4 id="Decrypt-the-file"   >
-          <a href="#Decrypt-the-file" class="heading-link"><i class="fas fa-link"></i></a>Decrypt the file</h4>
-      <p>To decrypt the file the process is similar. Just type <strong>gpg</strong> and the file name, you will then be asked to provide the password for the encrypted file.</p>
+<h4 id="Decrypt-the-file"><a href="#Decrypt-the-file" class="headerlink" title="Decrypt the file"></a>Decrypt the file</h4><p>To decrypt the file the process is similar. Just type <strong>gpg</strong> and the file name, you will then be asked to provide the password for the encrypted file.</p>
 <p>gpg filename.pdf.gpg</p>
 <p>and provide the passphrase needed to decrypt the file.</p>
 <p>Enter passphrase: mypassword</p>
 <p>The file will now be decrypted and presented in it’s original format.</p>
-
-        <h4 id="References"   >
-          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h4>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard" >GPG on Wikipedia</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/GNU_Privacy_Guard">GPG on Wikipedia</a></p>
 
 
 <!-- Tags -->

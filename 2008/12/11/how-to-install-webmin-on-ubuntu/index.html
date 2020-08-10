@@ -147,24 +147,18 @@
 
 <!-- Content -->
 <p>Webmin is a web based interface for system administration of common services like Apache, DNS and file sharing among many others. The installation is simple and straight forward. Keep in mind that Webmin is available in tar.gz, .rpm, .deb and pkg.gz for your specific Linux distribution, for this How-To I will use the .deb package used in Debian based systems and tar.gz which should should translate to other Linux distributions. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/dYPhTRYkCT5tfXwpjhO_0A?authkey=v9GULFQHxZs"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUH-ClvM6mI/AAAAAAAAAP8/3RvGsW1wjZY/s400/webmin_portal.jpg"></a></p>
-
-        <h4 id="deb-installation"   >
-          <a href="#deb-installation" class="heading-link"><i class="fas fa-link"></i></a>.deb installation</h4>
-      <p>Download the .deb from the Webmin site.</p>
-<p>wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin/_1.441/_all.deb" >http://prdownloads.sourceforge.net/webadmin/webmin\_1.441\_all.deb</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="deb-installation"><a href="#deb-installation" class="headerlink" title=".deb installation"></a>.deb installation</h4><p>Download the .deb from the Webmin site.</p>
+<p>wget <a target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin/_1.441/_all.deb">http://prdownloads.sourceforge.net/webadmin/webmin\_1.441\_all.deb</a></p>
 <p>Install Webmin.</p>
 <p>sudo dpkg -i webmin_1.340_all.deb</p>
 <p>If the system complains that some libraries are missing issue the following command.</p>
 <p>sudo apt- get install -f</p>
 <p>And login with the user name and password of a user with privileges in the system.</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ubuntu:10000/" >http://ubuntu:10000/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://ubuntu:10000/">http://ubuntu:10000/</a></p>
 <p>Installation complete.</p>
-
-        <h2 id="tar-gz-installation"   >
-          <a href="#tar-gz-installation" class="heading-link"><i class="fas fa-link"></i></a>.tar.gz installation</h2>
-      <p>Download the Webmin tarball to (locations depends on preference), Visit the Webmin site for newer versions.</p>
+<h2 id="tar-gz-installation"><a href="#tar-gz-installation" class="headerlink" title=".tar.gz installation"></a>.tar.gz installation</h2><p>Download the Webmin tarball to (locations depends on preference), Visit the Webmin site for newer versions.</p>
 <p>cd /usr/local</p>
-<p>wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz" >http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget <a target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz">http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz</a></p>
 <p>and untar.</p>
 <p>tar zxvf webmin-1.441.tar.gz</p>
 <p>Move to the newly created directory.</p>
@@ -174,7 +168,7 @@
 <p>When completing the install use common sense and change the default port. Some of the questions to be answered are :</p>
 <p>Config file directory [/etc/webmin]:<br>Log file directory [/var/webmin]:<br>Full path to perl (default /usr/bin/perl):<br>Web server port (default 10000):<br>Login name (default admin): user<br>Login password: user<br>Password again: user<br>Use SSL (y/n): y<br>Start Webmin at boot time (y/n): y</p>
 <p>And login with the user name and password you entered previously.</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ubuntu:10000/" >http://ubuntu:10000/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://ubuntu:10000/">http://ubuntu:10000/</a></p>
 <p>In case you decide to uninstall Webmin issue the following commands.</p>
 <p>cd /etc/webmin/</p>
 <p>sudo ./uninstall.sh</p>

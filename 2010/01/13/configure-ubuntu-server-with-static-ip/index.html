@@ -150,17 +150,8 @@
 <p>sudo nano /etc/network/interfaces</p>
 <p>This is how the the <strong>/etc/network/interfaces</strong> file looks like.</p>
 <p># This file describes the network interfaces available on your system</p>
-
-        <h1 id="and-how-to-activate-them-For-more-information-see-interfaces-5"   >
-          <a href="#and-how-to-activate-them-For-more-information-see-interfaces-5" class="heading-link"><i class="fas fa-link"></i></a>and how to activate them. For more information, see interfaces(5).</h1>
-      
-        <h1 id="The-loopback-network-interface"   >
-          <a href="#The-loopback-network-interface" class="heading-link"><i class="fas fa-link"></i></a>The loopback network interface</h1>
-      <p>auto lo<br>iface lo inet loopback</p>
-
-        <h1 id="The-primary-network-interface"   >
-          <a href="#The-primary-network-interface" class="heading-link"><i class="fas fa-link"></i></a>The primary network interface</h1>
-      <p>auto eth0<br>iface eth0 inet dhcp</p>
+<h1 id="and-how-to-activate-them-For-more-information-see-interfaces-5"><a href="#and-how-to-activate-them-For-more-information-see-interfaces-5" class="headerlink" title="and how to activate them. For more information, see interfaces(5)."></a>and how to activate them. For more information, see interfaces(5).</h1><h1 id="The-loopback-network-interface"><a href="#The-loopback-network-interface" class="headerlink" title="The loopback network interface"></a>The loopback network interface</h1><p>auto lo<br>iface lo inet loopback</p>
+<h1 id="The-primary-network-interface"><a href="#The-primary-network-interface" class="headerlink" title="The primary network interface"></a>The primary network interface</h1><p>auto eth0<br>iface eth0 inet dhcp</p>
 <p>You can safely erase all the information for <strong>eth0</strong> and add the information below. Make sure to change the information in order to meet your networking requirements.</p>
 <p>auto eth0<br>iface eth0 inet static<br>address 192.168.1.10<br>netmask 255.255.255.0<br>network 192.168.1.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
 <p>After adding the appropriate networking information you can restart the networking service for the new changes to take effect.</p>

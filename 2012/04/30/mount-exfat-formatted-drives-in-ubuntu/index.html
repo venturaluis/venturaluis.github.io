@@ -146,17 +146,14 @@
 
 
 <!-- Content -->
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/aa914353.aspx" >ExFAT</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is an abbreviation for <strong>Extended File Allocation Table</strong> a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT/FAT32 file system is that it can store a file larger than 4GB. With the increase in flash drive capacity FAT/FAT32 can be limiting. While exFAT sounds like the right solution it comes with inherit problems for users of Free Software such as Linux, you see exFAT is a file system created and patented by Microsoft meaning due to patents support for exFAT in Free Software is bound to be flaky. ExFAT adoption is not a problem for the Windows platform: by Windows XP (SP2), Vista, and 7 are already support exFAT. While not the best solution it is possible to mount exFAT formatted drives by using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace" >FUSE</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is also an abbreviation for <strong>File system in Userspace</strong>, :( . <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG"></p>
-
-        <h3 id="Installation-and-Configuration"   >
-          <a href="#Installation-and-Configuration" class="heading-link"><i class="fas fa-link"></i></a>Installation and Configuration</h3>
-      <p>Before you can make use of <strong>Fuse-exFAT</strong> you need to first install <strong>python-software-properties</strong> which includes <strong>add-apt-repository</strong>.</p>
+<p><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/aa914353.aspx">ExFAT</a> is an abbreviation for <strong>Extended File Allocation Table</strong> a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT/FAT32 file system is that it can store a file larger than 4GB. With the increase in flash drive capacity FAT/FAT32 can be limiting. While exFAT sounds like the right solution it comes with inherit problems for users of Free Software such as Linux, you see exFAT is a file system created and patented by Microsoft meaning due to patents support for exFAT in Free Software is bound to be flaky. ExFAT adoption is not a problem for the Windows platform: by Windows XP (SP2), Vista, and 7 are already support exFAT. While not the best solution it is possible to mount exFAT formatted drives by using <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> which is also an abbreviation for <strong>File system in Userspace</strong>, :( . <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG"></p>
+<h3 id="Installation-and-Configuration"><a href="#Installation-and-Configuration" class="headerlink" title="Installation and Configuration"></a>Installation and Configuration</h3><p>Before you can make use of <strong>Fuse-exFAT</strong> you need to first install <strong>python-software-properties</strong> which includes <strong>add-apt-repository</strong>.</p>
 <ul>
 <li>This is required of you wish to continue with this tutorial, this package includes the tool needed to add the repository.</li>
 </ul>
 <p>sudo apt-get install python-software-properties</p>
 <ul>
-<li>Add the new PPA (<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://pre.google.com/p/exfat/" >http://pre.google.com/p/exfat/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>).</li>
+<li>Add the new PPA (<a target="_blank" rel="noopener" href="http://pre.google.com/p/exfat/">http://pre.google.com/p/exfat/</a>).</li>
 </ul>
 <p>sudo add-apt-repository ppa:relan/exfat</p>
 <ul>

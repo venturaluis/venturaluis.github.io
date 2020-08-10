@@ -146,11 +146,8 @@
 
 
 <!-- Content -->
-<p>Known network manager bug <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298" >https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
-
-        <h4 id="First-Solution"   >
-          <a href="#First-Solution" class="heading-link"><i class="fas fa-link"></i></a>First Solution</h4>
-      <p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
+<p>Known network manager bug <a target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298">https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
+<h4 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h4><p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
 <p>sudo nano /etc/network/interfaces</p>
 <p># The primary network interface<br>auto eth0<br>iface eth0 inet static<br>address 192.168.1.3<br>network 192.168.1.0<br>netmask 255.255.255.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
 <p>And save it. Now move on to edit the <strong>/etc/resolv.conf</strong>. And add the name server.</p>
@@ -158,10 +155,7 @@
 <p>nameserver 192.168.1.1</p>
 <p>If you don’t want to reboot the system restart the networking service instead.</p>
 <p>sudo /etc/init.d/networking restart</p>
-
-        <h4 id="Second-Solution"   >
-          <a href="#Second-Solution" class="heading-link"><i class="fas fa-link"></i></a>Second Solution</h4>
-      <ol>
+<h4 id="Second-Solution"><a href="#Second-Solution" class="headerlink" title="Second Solution"></a>Second Solution</h4><ol>
 <li>Right click on the <strong>network icon</strong> located in the top panel. Select <strong>Edit Connections…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UJC-A_ZzunNA7hvp1lLUjw"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SRti9dpKvqI/AAAAAAAAAJA/yrR_9qQpXSc/s800/1.jpg"></a></li>
 <li>Right click on <strong>Add</strong>. This is when we add the new configuration. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/8EIZ90PQVtjWl1O-wcFDQA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjqMQcf_I/AAAAAAAAAJ0/Dp28qp2VE5o/s800/2.jpg"></a></li>
 <li>Now you are presented with empty fields. Check <strong>Connect automatically</strong> at the top, otherwise the older configuration will take over. For the configuration to work you need to provide the <strong>MAC address</strong> of your network interface card in my case it’s <strong>eth0</strong>.<em>Tip : Issue <strong>ifconfig</strong> in the command line and copy and paste the resulting MAC address.</em><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tAI8vTNu1soXAbkN90JihQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjnkrEHGI/AAAAAAAAAJw/ERpTOAIqa30/s800/3.jpg"></a></li>

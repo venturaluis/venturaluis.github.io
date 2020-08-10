@@ -151,18 +151,12 @@
 <p>Unable to add virtual machine “/home/ls354/VM/xp/Clone of Windows XP Home Edition.VMX” to the inventory: Configuration file was created by a VMware product with more features than this version.</p>
 </blockquote>
 <p>Basically VMware Server has a problem with the configuration file created by VMware Workstation, after searching around one of the proposed solutions proposed was to make manual changes to the configuration file except that I had mixed results and not enough good results to justify the changes. Then I remember that VMware offers a little know option called VMware Converter at no cost which among many things has the capabilities to convert a machine from bare metal to virtual, change the amount of NIC’s, and most important of all reconfigure virtual machines for specific VMware product like ESX or VMware Server. I will guarantee you that VMware Converter solves the “Unable to add virtual machine” problem, however there is one catch the software is only available for Windows and the bare metal transition only works for Windows lucky me I dual boot into Windows XP which happens to be my secondary operating system.</p>
-
-        <h4 id="Reconfiguring-an-existing-virtual-machine"   >
-          <a href="#Reconfiguring-an-existing-virtual-machine" class="heading-link"><i class="fas fa-link"></i></a>Reconfiguring an existing virtual machine</h4>
-      <p>Requirements</p>
+<h4 id="Reconfiguring-an-existing-virtual-machine"><a href="#Reconfiguring-an-existing-virtual-machine" class="headerlink" title="Reconfiguring an existing virtual machine"></a>Reconfiguring an existing virtual machine</h4><p>Requirements</p>
 <ul>
 <li>A Windows box.</li>
 <li>Enough storage for the end result modified vm.</li>
 </ul>
-
-        <h4 id="Convertion"   >
-          <a href="#Convertion" class="heading-link"><i class="fas fa-link"></i></a>Convertion</h4>
-      <ul>
+<h4 id="Convertion"><a href="#Convertion" class="headerlink" title="Convertion"></a>Convertion</h4><ul>
 <li>Start VMware Converter and click on “Import Machine”.</li>
 <li>Click Next and select “Standalone virtual machine, backup or disk image”.</li>
 <li>Browse and find your previously created machine.</li>
