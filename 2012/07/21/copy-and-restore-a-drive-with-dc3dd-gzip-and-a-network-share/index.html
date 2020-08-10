@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Copy and Restore a Drive with Dc3dd, Gzip and a Network Share"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Copy and Restore a Drive with Dc3dd, Gzip and a Network Share - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Copy and Restore a Drive with Dc3dd, Gzip and a Network Share</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>In the past I’ve written about combining dd, Gzip and OpenSSH to image a drive over a network, while the above works just fine there are better tools available that can improve the results or at least make it easier to clone a drive. By better I mean:</p>
+<ol>
+<li>Unlike dd, Dc3dd comes with a progress indicator</li>
+<li>With Gigabit links OpenSSH appears to become the bottleneck, even when resources are available network throughput is low</li>
+</ol>
+<h3 id="Keep-in-mind"><a href="#Keep-in-mind" class="headerlink" title="Keep in mind"></a>Keep in mind</h3><p>Before we start the tutorial I recommend using a one of the many available Live-CD distributions like <a target="_blank" rel="noopener" href="http://partedmagic.com/doku.php?id=start">Parted Magic</a> or <a target="_blank" rel="noopener" href="http://www.deftlinux.net/">Deft Linux</a> because they include all the tools I’ll be using in this post. This tutorial assumes a working network share is already available. The process for imaging a drive over a network revolves around five commands ls, Dc3dd, Gzip, Gunzip and mount.cifs.</p>
+<h3 id="Prepare"><a href="#Prepare" class="headerlink" title="Prepare"></a>Prepare</h3><p>Locate the drive you need to image, we can use the ls command to list all available drives and their respective partitions, decide whether you need to copy the partitions or the entire drive.</p>
+<p># ls /dev/sd*</p>
+<p>/dev/sda   /dev/sda1  /dev/sda2  /dev/sdb   /dev/sdb1</p>
+<p>* <em>/dev/sda and /dev/sda represent the actual drive, /dev/sda1/2 and /dev/sdb1 represent a partition within the drive</em>. Create a mount point for the network share.</p>
+<p># mkdir /media/netshare</p>
+<p>Mount the network share.</p>
+<p># mount.cifs //192.168.1.8/072012/ /media/netshare/ -o user=tempuser,password=tempuser</p>
+<p>Change the following:</p>
+<ol>
+<li><strong>mount.cifs //192.168.1.8/072012/</strong> - This is the network share IP address and share name</li>
+<li>/<strong>media/netshare/</strong> - This is the mount point we created with <em>mkdir</em>.</li>
+<li><strong>-o user=tempuser,password=tempuser</strong> - This is the username and password for the network share</li>
+</ol>
+<p>Verify that the network share mounted successfully.</p>
+<p># df -h</p>
+<p>Filesystem            Size  Used Avail Use% Mounted on<br>/dev/sdb1             2.0G  8.0K  2.0G   1% /media/usb<br>//192.168.1.8/072012/<br>                       80G   23G   58G  29% /media/netshare</p>
+<h3 id="Copy"><a href="#Copy" class="headerlink" title="Copy"></a>Copy</h3><p>Star imaging or cloning the drive, compress and direct the output to the network share mount point.</p>
+<p># dc3dd if=/dev/sda progress=on | gzip -1 &gt; /media/netshare/sda.img.gz</p>
+<p>warning: sector size not probed, assuming 512<br>dc3dd 6.12.3 started at 2012-07-21 07:11:13 +0000<br>command line: dc3dd if=/dev/sda progress=on<br>compiled options: DEFAULT_BLOCKSIZE=32768<br>sector size: 512 (assumed)<br>9830400+0 sectors in<br>9830400+0 sectors out<br>5033164800 bytes (4.7 G) copied (??%), 444.728 s, 11 M/s<br>dc3dd completed at 2012-07-21 07:18:39 +0000</p>
+<ol>
+<li><strong>dc3dd if=/dev/sda</strong> - Dc3dd will work with drive /dev/sda</li>
+<li><strong>progress=on</strong> - Dc3dd will display the progress</li>
+<li><strong>gzip -1 &gt;</strong> - Gzip will be used for compression, -1 means fast compression</li>
+<li><strong>/media/netshare/sda.img.gz</strong> - This is the network share path</li>
+</ol>
+<p>My network share is in a Windows Server 2003 and as you can see the image was successfully created and compressed. <img src="http://cdn.linhost.info/static/ws2003-img.png"></p>
+<h3 id="Restore"><a href="#Restore" class="headerlink" title="Restore"></a>Restore</h3><p>To restore the image we use Gunzip to decompress and Dc3dd to write the decompressed data over to the target disk. I recommend using the <em>progress=on</em> option when working with large images, its nice to have an idea of the progress being made.</p>
+<p># gunzip -c /media/netshare/sda.img.gz | dc3dd of=/dev/sda progress=on</p>
+<p>warning: sector size not probed, assuming 512<br>dc3dd 6.12.3 started at 2012-07-21 22:55:04 +0000<br>command line: dc3dd of=/dev/sda<br>compiled options: DEFAULT_BLOCKSIZE=32768<br>sector size: 512 (assumed)<br>9830400+0 sectors in<br>9830400+0 sectors out<br>5033164800 bytes (4.7 G) copied (??%), 192.915 s, 25 M/s<br>dc3dd completed at 2012-07-21 22:58:19 +0000</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>This is my preferred method for imaging drives over the network because the tools required to copy and restore are easily found in most distributions. If you have any questions feel free comment below.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/gzip/" class="button small">gzip</a> <a href="/tags/dc3dd/" class="button small">dc3dd</a> <a href="/tags/smb/" class="button small">smb</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

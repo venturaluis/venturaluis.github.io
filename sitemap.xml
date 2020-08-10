@@ -2552,13 +2552,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/windows/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/bitdefender/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -2601,14 +2594,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/enterprise/</loc>
+    <loc>http://linhost.info/tags/dban/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/firefox/</loc>
+    <loc>http://linhost.info/tags/openfiler/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2622,28 +2615,21 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/debian/</loc>
+    <loc>http://linhost.info/tags/vyatta/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/nginx/</loc>
+    <loc>http://linhost.info/tags/enterprise/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/php/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/ubuntu/</loc>
+    <loc>http://linhost.info/tags/firefox/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2678,21 +2664,105 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/dban/</loc>
+    <loc>http://linhost.info/tags/windows/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/openfiler/</loc>
+    <loc>http://linhost.info/tags/debian/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/vyatta/</loc>
+    <loc>http://linhost.info/tags/nginx/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/php/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/ubuntu/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/acronis/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/acronis-drive-monitor/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/smart/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/security/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/IT/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/real-life/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/backup/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/western-digital/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/anvir/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/apache/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2741,76 +2811,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/IT/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/real-life/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/acronis/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/security/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/acronis-drive-monitor/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/smart/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/backup/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/western-digital/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/anvir/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/apache/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/windows-defender/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -2846,20 +2846,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/avg/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/live-cd/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/azure/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -2889,6 +2875,20 @@
   
   <url>
     <loc>http://linhost.info/tags/office/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/avg/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/live-cd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2937,14 +2937,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/IP/</loc>
+    <loc>http://linhost.info/tags/hostgator/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/hostgator/</loc>
+    <loc>http://linhost.info/tags/IP/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3063,13 +3063,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/cloning/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/dd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3091,6 +3084,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/cloning/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/hash/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3106,6 +3106,13 @@
   
   <url>
     <loc>http://linhost.info/tags/raid-1/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/selinux/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3147,6 +3154,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/mencoder/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/dc3dd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3161,35 +3175,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/mencoder/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/vmware/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/7z/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/7zip/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/archive/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3211,6 +3197,27 @@
   
   <url>
     <loc>http://linhost.info/tags/nas4free/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/7z/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/7zip/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/archive/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3259,14 +3266,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/selinux/</loc>
+    <loc>http://linhost.info/tags/dell/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/desktopbsd/</loc>
+    <loc>http://linhost.info/tags/vostro-1500/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3280,14 +3287,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/dell/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/vostro-1500/</loc>
+    <loc>http://linhost.info/tags/desktopbsd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3322,6 +3322,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/download/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/monowall/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3336,14 +3343,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/download/</loc>
+    <loc>http://linhost.info/tags/drm/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/drm/</loc>
+    <loc>http://linhost.info/tags/compiz/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3365,13 +3372,6 @@
   
   <url>
     <loc>http://linhost.info/tags/secu/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/compiz/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3420,6 +3420,20 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/photorec/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/recovery/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/grub/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3435,20 +3449,6 @@
   
   <url>
     <loc>http://linhost.info/tags/xfs/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/photorec/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/recovery/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3476,6 +3476,20 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/hashcheck/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/installer/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/benchmark/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3490,14 +3504,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/installer/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/hashcheck/</loc>
+    <loc>http://linhost.info/tags/windows-mobile/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3539,13 +3546,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/windows-mobile/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/compression/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3574,28 +3574,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/libreoffice/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/openoffice/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/webmin/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/ISO/</loc>
+    <loc>http://linhost.info/tags/text-books/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3609,14 +3588,28 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/split/</loc>
+    <loc>http://linhost.info/tags/ISO/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/wget/</loc>
+    <loc>http://linhost.info/tags/webmin/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/libreoffice/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/openoffice/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3644,6 +3637,20 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/split/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/wget/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/htop/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3652,20 +3659,6 @@
   
   <url>
     <loc>http://linhost.info/tags/top/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/array/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/Windows-Server-2003/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3735,7 +3728,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/text-books/</loc>
+    <loc>http://linhost.info/tags/kubuntu/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3750,13 +3743,6 @@
   
   <url>
     <loc>http://linhost.info/tags/network-performance/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/kubuntu/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3805,34 +3791,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/fsutil/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/zenmap/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/7-zip/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/metasploit/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/tux/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3847,6 +3805,34 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/fsutil/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/7-zip/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/zenmap/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/metasploit/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/anti-virus/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3855,6 +3841,20 @@
   
   <url>
     <loc>http://linhost.info/tags/microsoft-security-essentials/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/array/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/Windows-Server-2003/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3882,6 +3882,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/vm/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/mtop/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -3897,20 +3904,6 @@
   
   <url>
     <loc>http://linhost.info/tags/virtualisation/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/namecheap/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/vm/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3938,14 +3931,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/netcat/</loc>
+    <loc>http://linhost.info/tags/namecheap/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/bsd/</loc>
+    <loc>http://linhost.info/tags/netcat/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3960,6 +3953,13 @@
   
   <url>
     <loc>http://linhost.info/tags/uua-driver/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/bsd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4022,6 +4022,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/partedmagic/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/blackberry/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -4050,35 +4057,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/partedmagic/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/text-installer/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/kiwi/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/log/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/syslog/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4107,6 +4086,27 @@
   
   <url>
     <loc>http://linhost.info/tags/testing/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/kiwi/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/log/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/syslog/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4491,6 +4491,13 @@
   </url>
   
   <url>
+    <loc>http://linhost.info/tags/pcspkr/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://linhost.info/tags/tune2fs/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -4499,13 +4506,6 @@
   
   <url>
     <loc>http://linhost.info/tags/http/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/pcspkr/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4673,7 +4673,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/RAM/</loc>
+    <loc>http://linhost.info/tags/diskpart/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4687,7 +4687,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/diskpart/</loc>
+    <loc>http://linhost.info/tags/RAM/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4715,13 +4715,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/dcfldd/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/wlan/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
@@ -4736,14 +4729,7 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/nanobsd/</loc>
-    <lastmod>2020-08-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/physdiskwrite/</loc>
+    <loc>http://linhost.info/tags/dcfldd/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4758,6 +4744,20 @@
   
   <url>
     <loc>http://linhost.info/tags/spudger/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/nanobsd/</loc>
+    <lastmod>2020-08-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/physdiskwrite/</loc>
     <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

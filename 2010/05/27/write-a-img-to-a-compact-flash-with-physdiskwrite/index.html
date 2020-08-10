@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Write a .img to a Compact Flash with Physdiskwrite"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Write a .img to a Compact Flash with Physdiskwrite - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Write a .img to a Compact Flash with Physdiskwrite</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>For this tutorial I am going to write a 2GB pfSense image to a 4GB Compact Flash card using <strong><a target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php">Physdiskwrite</a></strong> a command line utility for Windows. Sometimes the images may be compressed, extract the contents before attempting to write them to a card. It would be wise to place both physdiskwrite.exe and the .img file in the same directory. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/fy1JnbhK72RU_XtEyFwUsA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S_eILtNINdI/AAAAAAAACQs/Z8SEDWGNZ6A/s800/2.png"></a></p>
+<h2 id="Let’s-Start…"><a href="#Let’s-Start…" class="headerlink" title="Let’s Start…"></a>Let’s Start…</h2><p>Open a command prompt in Windows with Administrator rights(necessary) and move to the directory where Physdiskwrite and the image are located. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/9EMJpcyiuP4Err5Km3qBvg?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S_d419qRKiI/AAAAAAAACQM/55vK2FnGgM8/s800/1.png"></a></p>
+<p>C:UsersLuisDesktop&gt;cd tools</p>
+<p>C:UsersLuisDesktoptools</p>
+<p>To find all available disk use the following command.</p>
+<p>physdiskwrite.exe -a</p>
+<p>physdiskwrite v0.5.2 by Manuel Kasper Searching for physical drives…</p>
+<p>Information for .PhysicalDrive0:<br>   Windows:       cyl: 77825<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD6401AALS-00J7B1<br>   Serial number:      WD-WMATV3658664<br>   Firmware rev.: 05.00K05</p>
+<p>Information for .PhysicalDrive1:<br>   Windows:       cyl: 60801<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD5001AALS-00L3B2<br>   Serial number:      WD-WMASZ0056513<br>   Firmware rev.: 01.03B01</p>
+<p>Information for .PhysicalDrive2:<br>   Windows:       cyl: 924<br>                  tpc: 128<br>                  spt: 63<br>   C/H/S:         7395/16/63<br>   Model:         ELITE PRO CF CARD 4GB<br>   Serial number:     5B021A040<br>   Firmware rev.: Ver3.05K</p>
+<p>Information for .PhysicalDrive3:<br>   Windows:       cyl: 30401<br>                  tpc: 255<br>                  spt: 63</p>
+<p>Which disk do you want to write? (0..3) Which disk do you want to write? (0..3) </p>
+<p>The output above tells us that <strong>PhysicalDrive2</strong> is the name of our 4GB Compact Flash. With that in mind we are going to tell Physdiskwrite to write our image file <em>pfSense-1.2.3-2g-20091207-1914- nanobsd.img</em> to the second drive.</p>
+<blockquote>
+<p>Note: You need to use the -u parameter on cards bigger than 2GB, this is due to a safety precaution.</p>
+</blockquote>
+<p>physdiskwrite.exe -u pfSense-1.2.3-2g-20091207-1914-nanobsd.img</p>
+<p>physdiskwrite v0.5.2 by Manuel Kasper Searching for physical drives…</p>
+<p>Information for .PhysicalDrive0:<br>   Windows:       cyl: 77825<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD6401AALS-00J7B1<br>   Serial number:      WD-WMATV3658664<br>   Firmware rev.: 05.00K05</p>
+<p>Information for .PhysicalDrive1:<br>   Windows:       cyl: 60801<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD5001AALS-00L3B2<br>   Serial number:      WD-WMASZ0056513<br>   Firmware rev.: 01.03B01</p>
+<p>Information for .PhysicalDrive2:<br>   Windows:       cyl: 924<br>                  tpc: 128<br>                  spt: 63<br>   C/H/S:         7395/16/63<br>   Model:         ELITE PRO CF CARD 4GB<br>   Serial number:     5B021A040<br>   Firmware rev.: Ver3.05K</p>
+<p>Information for .PhysicalDrive3:<br>   Windows:       cyl: 30401<br>                  tpc: 255<br>                  spt: 63 </p>
+<p>Specify the number of the disk you wish to write to, in this case the disk is number 2.</p>
+<p>Which disk do you want to write? (0..3) 2</p>
+<p>WARNING: that disk is larger than 2 GB! Make sure you’re not accidentally<br>overwriting your primary hard disk! Proceeding on your own risk…</p>
+<p>Make this is the disk you want to overwrite, if so type <strong>y</strong> and press <strong>Enter</strong> to start.</p>
+<p>About to overwrite the contents of disk 2 with new data. Proceed? (y/n) y<br>2001194496/2001194496 bytes written in total</p>
+<p>Depending on the quality of the card and amount of data the process may take from 5 minutes to 10 minutes(may vary).</p>
+<h2 id="Conslusion"><a href="#Conslusion" class="headerlink" title="Conslusion"></a>Conslusion</h2><p>Compact Flash cards offer some benefits like no movable parts and quiet operation, if you intend to install FreeNAS, pfSense, or any other operating system in a compact flash then this tutorial will be useful.</p>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php">Home Page for physdiskwrite</a></strong></li>
+</ul>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/pfsense/" class="button small">pfsense</a> <a href="/tags/compact-flash/" class="button small">compact flash</a> <a href="/tags/nanobsd/" class="button small">nanobsd</a> <a href="/tags/physdiskwrite/" class="button small">physdiskwrite</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

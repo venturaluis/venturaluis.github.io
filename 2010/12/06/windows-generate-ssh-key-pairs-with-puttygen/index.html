@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Windows: Generate SSH Key Pairs with PuTTYgen"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Windows: Generate SSH Key Pairs with PuTTYgen - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Windows: Generate SSH Key Pairs with PuTTYgen</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>If you ever find yourself in need of generating an SSH key pairs then you should know about PuTTYgen. PuTTYgen is a Windows utility with only one purpose the generation of either RSA or DSA key pairs. The Key generation process is straight forward and can be completed in a matter of seconds.</p>
+<blockquote>
+<p>Keys provide a stronger authentication method</p>
+</blockquote>
+<p>PuTTYgen is available in the form of a executable (.EXE) and requires no installation. To download the utility use the link below. <strong>Download:</strong> <a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYgen.exe</a></p>
+<h3 id="Key-Generation"><a href="#Key-Generation" class="headerlink" title="Key Generation"></a>Key Generation</h3><p>By default PuTTYgen is set to generate SSH-RSA 1024 bit key, the defaults can be easily changed to accomodate the users need. Make the necessary changes before generating the keys. Start by double clicking on the executable. Once the application is started click on <strong>Generate</strong>, this will start the process needed to Generate a public/private key pair. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TPDPSm0Kq4I/AAAAAAAACqw/vDDtOE-Twms/s800/PuTTYgen-1.png" alt="Putty 1"> You will need to move the mouse cursor over the blank area (highlighted) to generate the necessary randomness with which to generate the keys. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TPDPS_aAA8I/AAAAAAAACq0/Y9-XpB6vLoY/s800/PuTTYgen-2.png" alt="Putty 2"> The process is done but for added security its recommended you provide a <strong>Key passphrase</strong>. Now you need to save the public and private key. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TPyzHY-5yUI/AAAAAAAACwA/TBPX0EZsxI0/s800/PuTTYgen-3.png" alt="Putty 3"> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TPDQJ4fjbPI/AAAAAAAACrU/T1TDU_MaeIU/s800/PuTTYgen-4.png" alt="Putty 4"> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TPDPTGXy7lI/AAAAAAAACrA/OJg_LcCAYIY/s800/PuTTYgen-5.png" alt="Putty 5"> The private key can be identified thanks to its extension file <strong>.ppk</strong>. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TPDQJ6U_f9I/AAAAAAAACrY/vruebFOksTA/s800/PuTTYgen-6.png" alt="Putty 6"> The private key should never be made public, you are only supposed to distribute the public key. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TPDPWhPV1ZI/AAAAAAAACrI/o22s_OQvjvk/s800/PuTTYgen-7.png" alt="Putty 7"></p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links:"></a>Links:</h3><p><strong>Download:</strong> <a target="_blank" rel="noopener" href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">PuTTYgen</a></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/windows/" class="button small">windows</a> <a href="/tags/puttygen/" class="button small">puttygen</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

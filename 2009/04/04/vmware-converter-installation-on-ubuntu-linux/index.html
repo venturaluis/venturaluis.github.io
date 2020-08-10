@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="VMware Converter installation on Ubuntu Linux"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>VMware Converter installation on Ubuntu Linux - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>VMware Converter installation on Ubuntu Linux</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>Linux users will be pleased to discover that <strong>VMware Converter</strong> is now available on Linux free of charge. As a user of VMware products this makes me very happy, meaning I do not have to be booting the Windows machine just to use VMware Converter. For those not aware of what Converter can do, it can convert multiple virtual machines simultaneously, modify, resize and hot clone existing bare metal installations just to mention a few. The installation of VMware Converter on Linux is simple. This tutorial uses <strong>Ubuntu</strong> Linux as the installation system.</p>
+<h2 id="Download-VMware-Converter"><a href="#Download-VMware-Converter" class="headerlink" title="Download VMware Converter"></a>Download VMware Converter</h2><p>First download VMware Converter free of charge from the VMware web site, you will need an account. <a target="_blank" rel="noopener" href="http://www.vmware.com/products/converter/overview.html">http://www.vmware.com/products/converter/overview.html</a> After you are granted access to the download page select <strong>Converter Installer for Linux</strong>. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SdcCb4CbqgI/AAAAAAAAAis/wZ-dSXYmjas/vmware_2.png"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>After the download is complete move to the directory where the file is located and untar the file. The version of VMware Converter may vary.</p>
+<p>tar xvzf VMware-converter-4.x.x-xxxx.tar.gz</p>
+<p>Now move to the new directory.</p>
+<p>cd vmware-converter-distrib</p>
+<p>And execute the installation script.</p>
+<p>sudo ./vmware-install.pl</p>
+<h2 id="License-agreement"><a href="#License-agreement" class="headerlink" title="License agreement"></a>License agreement</h2><p>You will be asked to accept the license agreement in order to continue, <strong>press enter</strong> until reach the end of the agreement and answer <strong>yes</strong> to accept.</p>
+<h2 id="Press-enter-all-the-way"><a href="#Press-enter-all-the-way" class="headerlink" title="Press enter, all the way"></a>Press enter, all the way</h2><p>Its <strong>ok</strong> accept the default installation options when installing VMware software, unless you want specific changes. This is not the case. Pay attention to the questions below, accept the defaults.</p>
+<p>Do you want to install Converter Standalone Client? [yes]</p>
+<p>Do you want to install Converter Standalone Server? [yes]</p>
+<p>Now you are asked whether you want to enable remote access for <strong>Converter Standalone Server</strong> for security reasons I decided not to. This is installation is for personal use.</p>
+<p>Do you want to enable remote access in Converter Standalone Server? [no] no</p>
+<p>And keep pressing <strong>enter</strong>.</p>
+<h2 id="Installation-complete"><a href="#Installation-complete" class="headerlink" title="Installation complete"></a>Installation complete</h2><p>Allow some time for the installation to finalize, after the installation is successful you can find <strong>VMware Converter</strong> on <strong>System Tools &gt; VMware Standalone Client</strong>. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SdcCbm7L4YI/AAAAAAAAAik/cZ6RKfwQrIY/s400/vmware_1.png"></p>
+<h2 id="Un-install"><a href="#Un-install" class="headerlink" title="Un-install ?"></a>Un-install ?</h2><p>If for some reason you decided to un-install VMware Converter navigate to <strong>/usr/bin</strong> and execute the un-install script.</p>
+<p>cd /usr/bin</p>
+<p>sudo ./vmware-uninstall-converter.pl</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.vmware.com/">http://www.vmware.com</a></li>
+</ul>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/ubuntu/" class="button small">ubuntu</a> <a href="/tags/linux/" class="button small">linux</a> <a href="/tags/vmware/" class="button small">vmware</a> <a href="/tags/converter/" class="button small">converter</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
