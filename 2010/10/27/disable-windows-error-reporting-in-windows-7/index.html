@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Disable Windows Error Reporting In Windows 7"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Disable Windows Error Reporting In Windows 7 - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Disable Windows Error Reporting In Windows 7</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>It’s nice that Microsoft wants to know the reason behind why a piece of software fails to function like it should with the help of Windows Error Reporting. The problem is that after a while WER or Windows Error Reporting can become annoying, and in some cases you will see frequent alerts prompting you to take action. While the software works just fine WER will assume it was an error, if you have to use software that triggers frequent alerts then you know what I am talking about. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TMUGkb5j5FI/AAAAAAAACjs/9eP0wMqkZSA/s800/wer-alert.png" alt="Windows Error Reporting 1"></p>
+<blockquote>
+<p>Don’t blame Windows Error Reporting, instead developers should make the necessary changes to comply</p>
+</blockquote>
+<p>While I don’t believe in disabling Windows Error Reporting by default, in some cases you will have no other option but to disable it all together.</p>
+
+        <h4 id="How-To"   >
+          <a href="#How-To" class="heading-link"><i class="fas fa-link"></i></a>How-To</h4>
+      <p>First you need to start the Windows Group Policy Editor by running the command <strong>gpedit.msc</strong> <a target="_blank" rel="noopener" href="http://lh6.ggpht.com/_fF0LO28FGYY/TMUlcUH7E1I/AAAAAAAACj0/6fG95nX5QqI/s800/gpedit.png" title="Graphic"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TMUlcUH7E1I/AAAAAAAACj0/6fG95nX5QqI/s288/gpedit.png"></a> <em>Click on image to enlarge</em> With the help of Group Policy Editor search on the sidebar for <strong>Computer Configuration &gt; Administrative Templates &gt; Systems &gt; Internet Communication Management &gt; Internet Communication Settings</strong> <a target="_blank" rel="noopener" href="http://lh6.ggpht.com/_fF0LO28FGYY/TMT3zhEn3hI/AAAAAAAACjI/DpS2fo6L9rI/s800/Local_Group_Policy_Editor-2010-10-21_16.00.31.png" title="Graphic"> <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TMT3zhEn3hI/AAAAAAAACjI/DpS2fo6L9rI/s400/Local_Group_Policy_Editor-2010-10-21_16.00.31.png"></a> <em>Click on image to enlarge</em> The next step is to right click on <strong>Turn off Windows Error Reporting</strong>. And select <strong>Edit</strong>. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TMT9Jr-jGvI/AAAAAAAACjQ/W3yAEmt1ruc/s800/edit-wer.png" alt="Edit-WER"> Select <strong>Disabled</strong> and click on <strong>OK</strong> to save. From now on you will not be bothered. <a target="_blank" rel="noopener" href="http://lh4.ggpht.com/_fF0LO28FGYY/TMUFK7onlII/AAAAAAAACjk/TcG7knm_z2I/s800/disable-full-wer.png" title="Graphic"> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TMUE27_aLrI/AAAAAAAACjc/XGUoPW8Pce4/s800/disable-wer-half%20.png"></a> <em>Click on image to enlarge</em> I hope this tutorial was of some use, if you have any questions leave a comment. Thank you for reading.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/windows-7/" class="button small">windows 7</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

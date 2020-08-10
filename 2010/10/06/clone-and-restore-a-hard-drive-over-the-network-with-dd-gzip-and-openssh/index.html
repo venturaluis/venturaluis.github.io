@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Clone a Hard Drive over the Network with DD"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Clone a Hard Drive over the Network with DD - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Clone a Hard Drive over the Network with DD</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of three different tools available in UNIX-like operating systems. Thanks to DD, Gzip, and OpenSSH I am able to make an exact copy of a drive, compress the resulting drive image while sending the resulting data to another remote system. The case for making use of this method is for when you either lack the local space to store the image or want to keep a backup in a remote system. It doesn’t hurt to backup valuable data, accidents happen. Also, it would be wise to compress the resulting image, I rather have the system spend the extra effort compressing the image using Gzip than to thave the uncompressed image taking more space than it should. What is great about this combination is that you can backup and restore the image using the same tools.</p>
+<blockquote>
+<p>Remember to un-mount the drive you wish to clone. Not doing so may result in possible data corruption.</p>
+</blockquote>
+
+        <h2 id="Locate-The-Drive-You-Wish-To-Backup"   >
+          <a href="#Locate-The-Drive-You-Wish-To-Backup" class="heading-link"><i class="fas fa-link"></i></a>Locate The Drive You Wish To Backup</h2>
+      <p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
+<p>[root@system7]# lshw -C disk</p>
+<p>*-cdrom<br>       description: DVD-RAM writer<br>       product: CDDVDW SH-S203N<br>       vendor: TSSTcorp<br>       physical id: 0.0.0<br>       bus info: scsi@1:0.0.0<br>       logical name: /dev/cdrom<br>       logical name: /dev/dvd<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       version: SB01<br>       serial: NECVMWarVMware IDE CDR101.00<br>       capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram<br>       configuration: ansiversion=5 status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       size: 50GiB (53GB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=000e4a4e</p>
+
+        <h2 id="Backup-To-Remote-Server"   >
+          <a href="#Backup-To-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Backup To Remote Server</h2>
+      <p>This command will copy, compress and send the image to the remote server.</p>
+<p>dd if=/dev/sdb | gzip -c –fast | ssh user@ip ‘dd of=/home/user/sdb.img.gz’</p>
+<p>Explanation: DD has been instructed to copy the drive /dev/sdb. Gzip will be used for compression, <strong>- c</strong> means Write on standard output, keep original files unchanged, <strong>- -fast</strong> mean Compress faster at the expense of high compression ration. The image will then be transferred via OpenSSH using the provided user credentials to the user directory <em>/home/user</em>. Note: the backup image makes use of the <strong>.gz</strong> extension to indicate compression is being used.</p>
+
+        <h2 id="Restore-From-Remote-Server"   >
+          <a href="#Restore-From-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Restore From Remote Server</h2>
+      <p>Restoring the image is not that different from the command used to backup the image.</p>
+<p>ssh user@ip ‘dd if=/home/user/sdb.img.gz’ | gunzip -1 - | dd of=/dev/sdb</p>
+<p>Explanation: Using OpenSSH log in to the remote system where the image is stored and with DD pull the image. <strong>Gunzip</strong> will be used to decompress the image crated by Gzip. Once again DD will be in charged of writing the image to /dev/sdb.</p>
+
+        <h2 id="Keep-In-Mind"   >
+          <a href="#Keep-In-Mind" class="heading-link"><i class="fas fa-link"></i></a>Keep In Mind</h2>
+      <p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/dd/" class="button small">dd</a> <a href="/tags/gzip/" class="button small">gzip</a> <a href="/tags/openssh/" class="button small">openssh</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Mount an Image File on Windows"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Mount an Image File on Windows - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Mount an Image File on Windows</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>If you created a image from a drive with a tool like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Dd_(Unix)" >dd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and are now wondering how it can be mounted on Windows, well then this post will answer that question. In my opinion one of the best tools for the job is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free application by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.passmark.com/" >PassMark</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> that can mount all sort of image files such as ISO, image files and even VMDKs. **Note:**When mounting an image file in Windows they need to be formatted with NTFS, exFAT or FAT in order to be able to view the contents. Windows is unaware of other file systems like EXT2/3/4, XFS, UFS, etc….</p>
+
+        <h2 id="1-First-Things-First"   >
+          <a href="#1-First-Things-First" class="heading-link"><i class="fas fa-link"></i></a>1. First Things First</h2>
+      <p>First you need to visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSForensics</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> download the free tool <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>(32-bit/64-bit) and install it, there is no need to register pretty cool of PassMark.</p>
+
+        <h2 id="2-Locate-the-Image"   >
+          <a href="#2-Locate-the-Image" class="heading-link"><i class="fas fa-link"></i></a>2. Locate the Image</h2>
+      <p>Probably the image you intend to mount has an extension ending with .bin, .img, .dd. <img src="http://linhost.info/content/2012-08/windows-osfmount-1.png" alt="OSFMount 1"></p>
+
+        <h2 id="3-Mount-It"   >
+          <a href="#3-Mount-It" class="heading-link"><i class="fas fa-link"></i></a>3. Mount It</h2>
+      <p>Start OSFMount and click on <strong>Mount new…</strong> <img src="http://linhost.info/content/2012-08/windows-osfmount-2.png" alt="OSFMount 2"> Click on the button and browse to the location where the image file you wish to mount resides. <img src="http://linhost.info/content/2012-08/windows-osfmount-3.png" alt="OSFMount 3"> Select the image and click on <strong>Open</strong>. The image I’ll be mounting for this tutorial was created with the help of dd from a hard drive with Vista installed. <img src="http://linhost.info/content/2012-08/windows-osfmount-4.png" alt="OSFMount 4"> When mounting an image with OSFMount you have mount the individual partitions, otherwise Windows will ask you to format the image instead of mounting it. I’ll be mounting <strong>Primary parition 1 50.1GB</strong> because this is the partition where all of the files I want reside. Partition 2 contains the recovery partition. <img src="http://linhost.info/content/2012-08/windows-osfmount-5.png" alt="OSFMount 5"> I suggest you stay within the default settings picked by OSFMount since its pretty accurate at choosing them. By default the image will be mounted as <strong>read only</strong> to prevent changes to the source image file(safer), otherwise remove the check mark and you will have write access. Click on <strong>Ok</strong> to mount the image. <img src="http://linhost.info/content/2012-08/windows-osfmount-6.png" alt="OSFMount 6"> The image we just mounted was assigned the letter <strong>I:</strong>. <img src="http://linhost.info/content/2012-08/windows-osfmount-7.png" alt="OSFMount 7"></p>
+
+        <h2 id="4-View-the-Results"   >
+          <a href="#4-View-the-Results" class="heading-link"><i class="fas fa-link"></i></a>4. View the Results</h2>
+      <p>If we open My Computer we can see the image file mounted as drive <strong>I:</strong> and is recognized as a <strong>Local disk</strong>. You can open the drive and work with the files inside. <img src="http://linhost.info/content/2012-08/windows-osfmount-8.png" alt="OSFMount 8"></p>
+
+        <h3 id="Conclusion"   >
+          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
+      <p>In Linux image files can be mounted with the help of <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://linux.die.net/man/8/mount" >Mount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, OSFMount is the best image mounting tool for Windows. I am working on a post where I will show you how an image file can be converted in to a virtual machine, will post when ready. Feel fee to leave a comment below.</p>
+
+        <h3 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h3>
+      <p>Home Page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.passmark.com/" >Passmark</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Download Page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/windows/" class="button small">windows</a> <a href="/tags/dd/" class="button small">dd</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

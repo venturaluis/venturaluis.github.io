@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Test for errors in memory with Memtest86+"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Test for errors in memory with Memtest86+ - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Test for errors in memory with Memtest86+</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/" >Memtest86+</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstable, incapable of booting at all, or even worse in possible data corruption. That’s why it’s good practice to use Memtest86+ or other tools with the same purpose every time new memory is acquired, better to spend a few minutes checking for errors than encounter errors at a later time. Fortunately, Memtest86+ is an easy to use tool and the whole process happens automatically.</p>
+
+        <h4 id="How-do-we-use-it"   >
+          <a href="#How-do-we-use-it" class="heading-link"><i class="fas fa-link"></i></a>How do we use it ?</h4>
+      <p>First of all you will need to visit the Memtest86+ home page and download the pre-compiled bootable ISO file. My preference is for the .zip ISO. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/#downiso" >http://www.memtest.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>Note: I expect Nix* users to already have the knowledge of how to burn an ISO, meaning this tutorial will mainly focus on burning the ISO from Windows.</p>
+</blockquote>
+<p>After the ISO is completely downloaded you will need to burn it to either a CD or DVD. Windows 7 has the capability to burn ISOs, if you have Windows XP I recommend you download <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.imgburn.com/" >ImgBurn</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is a free burning application.</p>
+<blockquote>
+<p>Note: older machines may not have a DVD drive.</p>
+</blockquote>
+
+        <h4 id="How-to-burn-an-ISO-on-Windows-7"   >
+          <a href="#How-to-burn-an-ISO-on-Windows-7" class="heading-link"><i class="fas fa-link"></i></a>How to burn an ISO on Windows 7</h4>
+      <p>Open the directory where Memtest86+ resides and right click on the ISO application, now click on <strong>Burn disc image</strong> this will start a new window. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/aX_ynmOotYnegGeYi4Ne4A?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S49TRFq0yqI/AAAAAAAACAE/ervimIJBAUk/s800/memtest86%2B-4.00.iso-2010-03-03_23.05.20.png"></a> You can see in this window both the ISO and optical media are ready. Click on <strong>Burn</strong> to start the burning process. After it’s done the CD/DVD will be ejected. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/dEgdQPWvSiRoMcqCYHZ2BA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S49TRjTIDfI/AAAAAAAACAI/P6WylEoxrAY/s800/Windows_Disc_Image_Burner-2010-03-03_23.05.45.png"></a></p>
+
+        <h4 id="How-to-Burn-an-ISO-on-Windows-XP"   >
+          <a href="#How-to-Burn-an-ISO-on-Windows-XP" class="heading-link"><i class="fas fa-link"></i></a>How to Burn an ISO on Windows XP</h4>
+      <p>After you are done downloading and installing <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.imgburn.com/" >ImgBurn</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> you can start burning the ISO. Since ImgBurn will integrate in to Windows you can just <strong>right click</strong> on the ISO and select <strong>Burn using ImgBurn</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/X51iovEnLZY73RrfFEzU-A?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S49TRmBR0VI/AAAAAAAACAM/W9e9ibhPzNU/s800/memtest86%2B-4.00.iso-2010-03-03_23.08.28.png"></a> A new window will automatically open, this window will prepare both the ISO and CD/DVD all you have to is click on the Write button which is located at the bottom of the window. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/0s6xonUEeG11Y9Jb3o-B1g?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S49TR0ZuxgI/AAAAAAAACAQ/8aNMo4FxKrk/s800/ImgBurn-2010-03-03_23.08.44.png"></a></p>
+
+        <h4 id="How-do-we-start-Memtest86"   >
+          <a href="#How-do-we-start-Memtest86" class="heading-link"><i class="fas fa-link"></i></a>How do we start Memtest86+ ?</h4>
+      <p>Once the ISO has been burned in to the media you will need to restart the computer and access the BIOS to set it to boot from CD/DVD media. The steps may change depending on the manufacturer, in some you may need to press <strong>F2</strong>, <strong>F10</strong>,or <strong>F12</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UKgE5VZw3L05-tr9SbrFDw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S49Tzii2PaI/AAAAAAAACAU/YqiGtDxYCTg/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.17.47.png"></a> After you access the BIOS head over to the Boot configuration and set it to boot from <strong>CD-ROM/DVD-ROM Drive</strong>. Save the changes to the BIOS and exit, which will cause the system to restart. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/nIdpIpbfTN3Mpam4P_aDZg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S49Tznb7PXI/AAAAAAAACAY/r6dR5AHSI_g/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.15.30.png"></a> Instead of booting from the hard drive the system will start from the CD/DVD Drive, since our CD/DVD containing Memtest86+ is inside the drive it will be automatically booted from. Here is the beauty of Memtest86+, you have to do nothing else just let the diagnosis tool run. Any errors will be reported on <strong>Errors</strong> column located in the middle of the screen. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/rOQBu3RzYjYbWK4mdNQ4lw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S49Tzz0sseI/AAAAAAAACAc/05An0-X4BMo/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.18.13.png"></a> Memtest86+ is simple tool you should keep around it may come in handy at a later time or whenever you buy new memory. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/" >Memtest86+ Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/diagnosis/" class="button small">diagnosis</a> <a href="/tags/memtest86/" class="button small">memtest86+</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>

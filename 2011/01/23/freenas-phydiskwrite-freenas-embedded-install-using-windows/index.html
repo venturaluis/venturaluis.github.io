@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Description-->
+    
+        <meta name="description" content="site, site">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Moody Gent">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Windows: FreeNAS Embedded Installation"/>
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Linhost.info"/>
+
+    <!--Page Cover-->
+    
+        <meta property="og:image" content=""/>
+    
+
+    <!-- Title -->
+    
+    <title>Windows: FreeNAS Embedded Installation - Linhost.info</title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/sass/main.css">
+
+
+    <!--[if lt IE 8]>
+        
+<script src="/js/ie/html5shiv.js"></script>
+
+    <![endif]-->
+
+    <!--[if lt IE 8]>
+        
+<link rel="stylesheet" href="/sass/ie8.css">
+
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+        
+<link rel="stylesheet" href="/sass/ie9.css">
+
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-12345678-9', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Menu -->
+        <!-- Header -->
+<header id="header">
+    <div class="inner">
+
+        <!-- Logo -->
+        <a href="/" class="logo">
+            <span class="symbol"><img src="/images/logo.svg" alt="" /></span><span class="title">Linhost.info</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <h2>Menu</h2>
+    <ul>
+        
+            <li>
+                <a href="/">Home</a>
+            </li>
+        
+            <li>
+                <a href="/archives">Archives</a>
+            </li>
+        
+            <li>
+                <a href="/about.html">About</a>
+            </li>
+        
+            <li>
+                <a href="/VM">VM</a>
+            </li>
+        
+            <li>
+                <a href="/atom.xml">RSS</a>
+            </li>
+        
+    </ul>
+</nav>
+
+
+        <div id="main">
+            <div class="inner">
+
+                <!-- Main Content -->
+                
+
+    <h1>Windows: FreeNAS Embedded Installation</h1>
+
+
+
+<!-- Gallery -->
+
+
+<!-- Content -->
+<p>FreeNAS is available for download in two forms .ISO and .IMG. If all you want to do is try FreeNAS and possibly install then you should download the ISO. The .IMG is intended for embedded installs like the kind of install you do in USB flash drive or compact flash card. The thing about the embedded install is that unlike the .ISO the .IMG file includes no installer. Instead the user is expected to make use of third party tools to complete the installation. <strong>Before we can start the tutorial you will need the following:</strong></p>
+<ul>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://freenas.org/#downloads" >FreeNAS .IMG</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (61MB file)</li>
+<li>USB Flash drive or Compact Flash card larger than the .IMG file</li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php" >physdiskwrite</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (3rd party tool), this is what will write the image</li>
+</ul>
+<p>Nix* users have DD to write images, in the case of Windows the closest tool available is physdiskwrite. With <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://m0n0.ch/wall/physdiskwrite.php" >physdiskwrite</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> we can write the raw image to the storage media. Physdiskwrite is a command line tool, I will try my best to guide you trugh the commands. At the time of this tutorial the latest release for i386 is <em>FreeNAS-i386-embedded-0.7.2.5543.img</em>. <strong>I will break the tutorial in to two parts:</strong></p>
+<ol>
+<li>We will use Diskpart a windows tools that in this case will help us clean the storage media. Not performing this steps may perform in errors</li>
+<li>Write the image with the help of Physdiskwrite</li>
+</ol>
+
+        <h2 id="Working-With-Diskpart"   >
+          <a href="#Working-With-Diskpart" class="heading-link"><i class="fas fa-link"></i></a>Working With Diskpart</h2>
+      <p>I recommend following the Diskpart steps below to avoid errors that may come up when writing the image. The steps below will clear the drive you intend to use for the installation. Open a command line window and type: <strong>Diskpart</strong> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TSQ-9S_akFI/AAAAAAAAC2I/ifSqOggXh_g/s800/diskpart-1.png"> Now list of all available drives: <strong>list disk</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TSQ-9QjhI4I/AAAAAAAAC2M/7hpaSIDO60E/s800/diskpart-2.png"> The USB drive intend to use for the installation is listed as disk 3, select it: <strong>select disk 3</strong> <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TSQ-9gAu7rI/AAAAAAAAC2Q/1x6aYJXPfo8/s800/diskpart-3.png"> And clean it by typing: <strong>clean</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TSQ-9pQ8blI/AAAAAAAAC2U/0OGg8on2h9k/s800/diskpart-4.png"> Once the process is complete type: <strong>exit</strong> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TSQ_B59coDI/AAAAAAAAC2o/x-IWAHYaRBY/s800/diskpart-9.png"></p>
+
+        <h2 id="Write-The-Image-With-Physdiskwrite"   >
+          <a href="#Write-The-Image-With-Physdiskwrite" class="heading-link"><i class="fas fa-link"></i></a>Write The Image With Physdiskwrite</h2>
+      <p>For the sake of simplicity I recommend placing both <em>Physdiskwrite.exe</em> and <em>FreeNAS-i386-embedded-x.x.x.xxxx.img</em> in the same folder. Open the command line and CD(move) to the location where the Physdiskwrite and the .img file are located. Type the command below to find the drive:</p>
+<p>C:UsersLuisDocumentsIMG&gt;physdiskwrite.exe -u FreeNAS-i386-embedded-0.7.2.554.img<br>3.img</p>
+<p>physdiskwrite v0.5.2 by Manuel Kasper Searching for physical drives…</p>
+<p>Information for .PhysicalDrive0:<br>   Windows:       cyl: 77825<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD6401AALS-00J7B1<br>   Serial number:      WD-WMATV3658664<br>   Firmware rev.: 05.00K05</p>
+<p>Information for .PhysicalDrive1:<br>   Windows:       cyl: 121601<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD10EALS-00Z8A0<br>   Serial number:      WD-WCATR0751123<br>   Firmware rev.: 05.01D05</p>
+<p>Information for .PhysicalDrive2:<br>   Windows:       cyl: 60801<br>                  tpc: 255<br>                  spt: 63<br>   C/H/S:         16383/16/63<br>   Model:         WDC WD5001AALS-00L3B2<br>   Serial number:      WD-WMASZ0056513<br>   Firmware rev.: 01.03B01</p>
+<p>Information for .PhysicalDrive3:<br>   Windows:       cyl: 62<br>                  tpc: 255<br>                  spt: 63 </p>
+<p>The output above tells us that PhysicalDrive3 is the removable drive. Which is why we select drive number 3 to write the image to.</p>
+<p>Which disk do you want to write? (0..3) 3</p>
+<p>Confirm you want to overwrite by typing <strong>Y</strong>.</p>
+<p>About to overwrite the contents of disk 3 with new data. Proceed? (y/n) y<br>Found compressed image file<br>75350016/75350016 bytes written in total</p>
+<p>Once the process is done close the terminal window. The image is now in the Flash drive.</p>
+
+        <h2 id="Other-Steps"   >
+          <a href="#Other-Steps" class="heading-link"><i class="fas fa-link"></i></a>Other Steps</h2>
+      <p>Keep in mind that in order to boot from a Flash drive you need to set the BIOS to boot from removable media. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TT0CgnSULYI/AAAAAAAAC5I/6uW8n6M3N80/s800/BIOS.png" alt="BIOS"> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TT0JGhIPmhI/AAAAAAAAC5Q/EgsZDL9n50I/s800/freenas.png" alt="FreeNAS"></p>
+
+
+<!-- Tags -->
+
+
+
+<div class="tags">
+    <a href="/tags/freebsd/" class="button small">freebsd</a> <a href="/tags/NAS/" class="button small">NAS</a> <a href="/tags/freenas/" class="button small">freenas</a>
+</div>
+
+
+
+<!-- Comments -->
+<div>
+    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+</div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <section>
+            <h2>About</h2>
+            <div>
+                This theme was initially developed by <a href="http://html5up.net" target="_blank">HTML5 UP</a>. It is adapted for Hexo by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a>.<br />The source code is available on <a href="https://github.com/klugjo/hexo-theme-phantom" target="_blank">GitHub</a>.
+            </div>
+        </section>
+        <section>
+            <h2>Follow</h2>
+            <ul class="icons">
+                
+                    <li><a href="https://twitter.com/?lang=en" class="icon style2 fa-twitter" target="_blank" ><span class="label">Twitter</span></a></li>
+                
+                
+                    <li><a href="https://www.facebook.com/" class="icon style2 fa-facebook" target="_blank" ><span class="label">Facebook</span></a></li>
+                
+                
+                    <li><a href="https://www.instagram.com/" class="icon style2 fa-instagram" target="_blank" ><span class="label">Instagram</span></a></li>
+                
+                
+                    <li><a href="https://dribbble.com/" class="icon style2 fa-dribbble" target="_blank" ><span class="label">Dribbble</span></a></li>
+                
+                
+                    <li><a href="https://github.com/klugjo/hexo-theme-phantom/commits?author=klugjo" class="icon style2 fa-github" target="_blank" ><span class="label">GitHub</span></a></li>
+                
+                
+                    <li><a href="https://plus.google.com/" class="icon style2 fa-google-plus" target="_blank" ><span class="label">Google+</span></a></li>
+                
+                
+                    <li><a href="https://www.behance.net/" class="icon style2 fa-behance" target="_blank" ><span class="label">Behance</span></a></li>
+                
+                
+                    <li><a href="https://500px.com/" class="icon style2 fa-500px" target="_blank" ><span class="label">500px</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-envelope-o" target="_blank" ><span class="label">Email</span></a></li>
+                
+                
+                    <li><a href="\#" class="icon style2 fa-rss" target="_blank" ><span class="label">RSS</span></a></li>
+                
+            </ul>
+        </section>
+        <ul class="copyright">
+            <li>&copy; Untitled. All rights reserved</li>
+            <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a></li>
+            <li>Hexo: <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></li>
+        </ul>
+    </div>
+</footer>
+    </div>
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- skel -->
+
+<script src="/js/skel.min.js"></script>
+
+
+<!-- Custom Code -->
+
+<script src="/js/util.js"></script>
+
+
+<!--[if lte IE 8]>
+
+<script src="/js/ie/respond.min.js"></script>
+
+<![endif]-->
+
+<!-- Custom Code -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Gallery -->
+<script src="//cdn.rawgit.com/noelboss/featherlight/1.3.5/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'klugjo';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+</body>
+
+</html>
