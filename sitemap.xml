@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://linhost.info/2016/03/upgrade-routeros-from-the-command-line/</loc>
+    
+    <lastmod>2020-08-11</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://linhost.info/2017/02/tar-and-compress-a-directory-in-linux/</loc>
     
     <lastmod>2020-08-11</lastmod>
@@ -80,13 +87,6 @@
   
   <url>
     <loc>http://linhost.info/2016/04/mikrotik-routeros-ssh-public-key-authentication/</loc>
-    
-    <lastmod>2020-08-09</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/2016/03/upgrade-routeros-from-the-command-line/</loc>
     
     <lastmod>2020-08-09</lastmod>
     
