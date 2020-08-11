@@ -18,7 +18,7 @@
 
     <!--Author-->
     
-        <meta name="author" content="Moody Gent"/>
+        <meta name="author" content="Lven"/>
     
 
     <!--Open Graph Title-->
@@ -116,7 +116,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Configurable Title</a>
+            <a class="navbar-brand" href="/">Linhost.info</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -244,7 +244,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>My VPS is hosted with Slicehost running on 256MB of RAM, 10GB HD, and Ubuntu its all a miracle. In this guide I will assume the server is freshly installed and you wish to set up Wordpress (can change). I don’t want to sound mean but securing and optimizing the box to use less processes is up to you after all we are running Linux get use to it .The server will run. Apache2 PHP5 MySQL PHPMYADMIN (makes things easy) VSFTPD <img src="http://linhost.info/download/images/wp.jpg" alt="wp"> 1. Basic Server install, this will install necessary and useful packages to run Wordpress. The first step will be to update and upgrade the server using apt-get, failure to update and upgrade will result in LAMP not installing. <em>$sudo apt-get update</em> <em>$sudo apt-get upgrade</em> The next step will be installing LAMP using apt-get. The beauty of this step is in bringing together different modules and reducing the time spend on each component. <em>$sudo apt-get install mysql-server mysql-admin apache2 php5 libapache2-mod-php5 libapache2-mod-auth-mysql php5-mysql phpmyadmin</em> After the install of LAMP is complete we need to set the root password for MySQL. For your own safety try to make the password long and difficult. <em>$sudo mysqladmin -u root password newrootsqlpassword</em> When the root password is set restart MySQL. <em>$/etc/init.d/mysql restart</em> We need a way to get our files to the server after the blog install, the solution is VSFTP very easy to configure use Google if you need further help. <em>$sudo apt-get install vsftpd</em> 2. Setting up the webserver for Wordpress. I hope that you have an understanding of the Linux file system (not necessary but it helps), on our home directory we are going to create a series of folders for logs, public data, private data, cgi, backup and one VirtualHost file for our domain. The domain will be phxcore.info and username demo. 1. In the home directory we create a folder dedicated to hosting our site file. <em>$mkdir public_html</em> 2.A series of folders will be create to host logs, backups, public files, etcetera. <em>$mkdir -p public_html/phxcore.info/{public,private,logs,cgi-bin,backup}</em> 3. For basic testing of the webserver we create a simple .html file in the public folder using the nano editor. <em>$nano public_html/phxcore.info/public/index.html</em> VirtualHosts are pretty cool they allow you to run multiple sites from one server, we need to create one for our site phxcore.info. <em>$sudo nano /etc/apache2/sites-available/phxcore.info</em> After the nano opens the new files copy and paste the text below change as you see fit for your site.</p>
 <blockquote>
-<p># Try to place notes here, they are useful later # domain: phxcore.info # public: /home/demo/public_html/phxcore.info/ # Admin email, Server Name (domain name) and any aliases ServerAdmin <a href="mailto:&#100;&#x65;&#x6d;&#111;&#64;&#x70;&#104;&#120;&#x63;&#111;&#114;&#x65;&#46;&#105;&#x6e;&#102;&#111;">&#100;&#x65;&#x6d;&#111;&#64;&#x70;&#104;&#120;&#x63;&#111;&#114;&#x65;&#46;&#105;&#x6e;&#102;&#111;</a> ServerName phxcore.info ServerAlias <a target="_blank" rel="noopener" href="http://www.phxcore.info/">www.phxcore.info</a> # Index file and Document Root (where the public files are located) DirectoryIndex index.php DocumentRoot /home/ldemo/public_html/phxcore.info/public # Custom log file locations LogLevel warn ErrorLog /home/demo/public_html/phxcore.info/logs/error.log CustomLog /home/demo/public_html/phxcore.info/logs/access.log combined</p>
+<p># Try to place notes here, they are useful later # domain: phxcore.info # public: /home/demo/public_html/phxcore.info/ # Admin email, Server Name (domain name) and any aliases ServerAdmin <a href="mailto:&#x64;&#101;&#109;&#x6f;&#64;&#112;&#x68;&#x78;&#99;&#111;&#x72;&#101;&#46;&#x69;&#110;&#x66;&#x6f;">&#x64;&#101;&#109;&#x6f;&#64;&#112;&#x68;&#x78;&#99;&#111;&#x72;&#101;&#46;&#x69;&#110;&#x66;&#x6f;</a> ServerName phxcore.info ServerAlias <a target="_blank" rel="noopener" href="http://www.phxcore.info/">www.phxcore.info</a> # Index file and Document Root (where the public files are located) DirectoryIndex index.php DocumentRoot /home/ldemo/public_html/phxcore.info/public # Custom log file locations LogLevel warn ErrorLog /home/demo/public_html/phxcore.info/logs/error.log CustomLog /home/demo/public_html/phxcore.info/logs/access.log combined</p>
 </blockquote>
 <p>The text has been pasted in our VirtualHost file, lets activate our website phxcore.info using. To disable a site use “a2dissite”. <em>$sudo a2ensite phxcore.info</em> Lets restart Apache. <em>$sudo /etc/init.d/apache2 reload</em> 3. Lets install Wordpress. Now lets download Wordpress using the wget command. <em>$wget <a target="_blank" rel="noopener" href="http://wordpress.org/latest.tar.gz">http://wordpress.org/latest.tar.gz</a></em> Then unzip <em>$tar -xzvf latest.tar.gz</em> The contents have been uncrompressed and a directory named Wordpress has been created. I will now direct you to the official Wordpress website they provide instructions on how to use PHPMYADMIN to create a database using MySQL. <a target="_blank" rel="noopener" href="http://codex.wordpress.org/Installing/_WordPress#Using\_phpMyAdmin">http://codex.wordpress.org/Installing\_WordPress#Using\_phpMyAdmin</a> After the database is set I recommend you keep reading the remaining instructions on their website. <a target="_blank" rel="noopener" href="http://codex.wordpress.org/Installing/_WordPress#Detailed\_Instructions">http://codex.wordpress.org/Installing\_WordPress#Detailed\_Instructions</a> Step 3: Set up wp-config.php Step 4: Place the files Step 5: Run the Install Script This set of instructions has help me set up Wordpress on my server, you will have to make some changes to fit you configuration. Good Luck.</p>
 
@@ -278,15 +278,6 @@
                     
 
                     
-                        <li>
-                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    
 
                     
 
@@ -294,7 +285,7 @@
 
                     
                 </ul>
-                <p class="copyright text-muted">&copy; 2020 Moody Gent<br></p>
+                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
                 <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
                 <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
             </div>
