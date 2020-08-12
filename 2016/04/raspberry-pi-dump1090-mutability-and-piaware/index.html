@@ -236,37 +236,50 @@
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>I’ve been running a <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware</a> installation for the last couple of months but after a reinstall I notice some problems specifically with dump1090 provided by the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware installation instructions</a>. After searching on various forums I decided to give <a target="_blank" rel="noopener" href="https://github.com/mutability/dump1090">dump1090-mutability</a> a fork of dump1090 a try and can report great success which is why I decided to list the steps needed to configure dump1090-mutability in a Raspbian install. <strong>Current set-up:</strong> Raspbian Jessie Lite on a Raspberry Pi 2 + RTL2832U.</p>
-<h3 id="Prepare-Raspbian"><a href="#Prepare-Raspbian" class="headerlink" title="Prepare Raspbian"></a>Prepare Raspbian</h3><p>sudo apt-get update</p>
-<p>sudo apt-get upgrade</p>
+<h3 id="Prepare-Raspbian"><a href="#Prepare-Raspbian" class="headerlink" title="Prepare Raspbian"></a>Prepare Raspbian</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
 <h3 id="Dump1090-Mutability-Install"><a href="#Dump1090-Mutability-Install" class="headerlink" title="Dump1090 Mutability Install"></a>Dump1090 Mutability Install</h3><p>Download the necessary .deb from GitHub.</p>
-<p>wget <a target="_blank" rel="noopener" href="https://github.com/mutability/mutability-repo/releases/download/v0.1.0/mutability-repo/_0.1.0/_armhf.deb">https://github.com/mutability/mutability-repo/releases/download/v0.1.0/mutability-repo\_0.1.0\_armhf.deb</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;mutability&#x2F;mutability-repo&#x2F;releases&#x2F;download&#x2F;v0.1.0&#x2F;mutability-repo\_0.1.0\_armhf.deb</span><br></pre></td></tr></table></figure>
+
 <p>Install the downloaded .deb. Notice the version number.</p>
-<p>sudo dpkg -i mutability-repo_0.1.0_armhf.deb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i mutability-repo\_0.1.0\_armhf.deb</span><br></pre></td></tr></table></figure>
+
 <p>Once again update the installation.</p>
-<p>sudo apt-get update</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
 <p>The GPG key provided with mutability-repo_0.1.0_armhf.deb expired which will result in an error every time you run apt-get we can fix the source for the error.</p>
 <p>W: GPG error: <a target="_blank" rel="noopener" href="http://repo.mutability.co.uk/">http://repo.mutability.co.uk</a> wheezy InRelease: The following signatures were invalid: KEYEXPIRED 1451307476 KEYEXPIRED 1451307476 KEYEXPIRED 1451307476</p>
 <p>Now re-install <strong>mutability-repo</strong> this will pull the latest version with a valid signature.</p>
-<p>sudo apt-get install mutability-repo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mutability-repo</span><br></pre></td></tr></table></figure>
+
 <p>Install <strong>dump1090-mutability</strong> the version from the repository at the time of this writing was <strong>dump1090-mutability v1.14</strong>.</p>
-<p>sudo apt-get install dump1090-mutability</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dump1090-mutability</span><br></pre></td></tr></table></figure>
+
 <p>Install the web server.</p>
-<p>sudo apt-get install lighttpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lighttpd</span><br></pre></td></tr></table></figure>
+
 <p>Enable module.</p>
-<p>sudo lighty-enable-mod dump1090</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lighty-enable-mod dump1090</span><br></pre></td></tr></table></figure>
+
 <p>Reload web server for changes to take effect.</p>
-<p>sudo service lighttpd force-reload</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service lighttpd force-reload</span><br></pre></td></tr></table></figure>
+
 <p>Or you can reboot the entire installation which is why I recommend.</p>
-<p>sudo reboot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
 <p>On a web browser and enter the IP address for your Raspberry Pi followed by <strong>/dump1090</strong>.</p>
 <p><a target="_blank" rel="noopener" href="http://your/_ip/_address/dump1090/">http://your\_ip\_address/dump1090/</a></p>
 <p><a href="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg"><img src="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg" alt="dump1090"></a></p>
 <h3 id="PiAware-Install"><a href="#PiAware-Install" class="headerlink" title="PiAware Install"></a>PiAware Install</h3><p>For the latest version of PiAware check the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">FlightAware page</a>. At the time of this writing the current version was <strong>piaware_2.1-5</strong>.</p>
 <p>wget <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/files/piaware/_2.1-5/_armhf.deb">http://flightaware.com/adsb/piaware/files/piaware\_2.1-5\_armhf.deb</a></p>
 <p>Install the downloaded package.</p>
-<p>sudo dpkg -i piaware_2.1-5_armhf.deb</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i piaware\_2.1-5\_armhf.deb</span><br></pre></td></tr></table></figure>
+
 <p>You will receive multiple errors regarding missing dependencies let apt-get install the missing dependencies.</p>
-<p>sudo apt-get install -fy</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -fy</span><br></pre></td></tr></table></figure>
+
 <p>Auto-update the PiAware Software.</p>
 <p>sudo piaware-config -autoUpdate 1 -manualUpdate 1</p>
 <h3 id="Connect-To-FlightAware"><a href="#Connect-To-FlightAware" class="headerlink" title="Connect To FlightAware"></a>Connect To FlightAware</h3><p>Connect the PiAware install to flightAware by providing user credentials.</p>
