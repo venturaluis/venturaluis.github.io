@@ -244,13 +244,17 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <p>Higher resolution means more text in the same window this especially applies to the console. The following was tested in Debian 7 Wheezy and Ubuntu 13.04. With Grub 2 with can easily increase the resolution by making a few changes.</p>
 <h3 id="Console-Resolution"><a href="#Console-Resolution" class="headerlink" title="Console Resolution"></a>Console Resolution</h3><p>Open and edit the grub file.</p>
-<p>nano /etc/default/grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></figure>
+
 <p>Search for the following line and uncomment “<strong>#GRUB_GFXMODE=640</strong>“, modify it to include a higher resolution such as <strong>1440x900</strong>. Also add the line “<strong>GRUB_GFXPAYLOAD_LINUX=keep</strong>“.</p>
-<p>GRUB_GFXMODE=1440X900<br>GRUB_GFXPAYLOAD_LINUX=keep</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRUB\_GFXMODE&#x3D;1440X900</span><br><span class="line">GRUB\_GFXPAYLOAD\_LINUX&#x3D;keep</span><br></pre></td></tr></table></figure>
+
 <p>The lines above should be what increases the console resolution. Now update Grub.</p>
-<p>sudo update-grub</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+
 <p>And restart the system.</p>
-<p>sudo shutdown -r now</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></figure>
+
 <p>Now you should be able to make better use of your monitor resolution. <img src="http://linhost.info/wordpress/wp-content/uploads/2013/09/htop-1440x900.png" alt="HTOP 1440x900"></p>
 
 
