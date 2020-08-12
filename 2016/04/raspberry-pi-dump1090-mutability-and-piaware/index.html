@@ -270,10 +270,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
 
 <p>On a web browser and enter the IP address for your Raspberry Pi followed by <strong>/dump1090</strong>.</p>
-<p><a target="_blank" rel="noopener" href="http://your/_ip/_address/dump1090/">http://your\_ip\_address/dump1090/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;your\_ip\_address&#x2F;dump1090&#x2F;</span><br></pre></td></tr></table></figure>
+
+
 <p><a href="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg"><img src="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg" alt="dump1090"></a></p>
 <h3 id="PiAware-Install"><a href="#PiAware-Install" class="headerlink" title="PiAware Install"></a>PiAware Install</h3><p>For the latest version of PiAware check the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">FlightAware page</a>. At the time of this writing the current version was <strong>piaware_2.1-5</strong>.</p>
-<p>wget <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/files/piaware/_2.1-5/_armhf.deb">http://flightaware.com/adsb/piaware/files/piaware\_2.1-5\_armhf.deb</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;flightaware.com&#x2F;adsb&#x2F;piaware&#x2F;files&#x2F;piaware\_2.1-5\_armhf.deb</span><br></pre></td></tr></table></figure>
+
+
 <p>Install the downloaded package.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i piaware\_2.1-5\_armhf.deb</span><br></pre></td></tr></table></figure>
 
@@ -290,7 +294,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;piaware restart</span><br></pre></td></tr></table></figure>
 
 <p>View the status of the install.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">lventura@raspberrypi:~ $ sudo piaware-status</span><br><span class="line"></span><br><span class="line">dump1090 is not running.</span><br><span class="line">faup1090 is running.</span><br><span class="line">piaware is running.</span><br><span class="line">dump1090-mutabi is listening for connections on port 30005.</span><br><span class="line">faup1090 is connected to port 30005.</span><br><span class="line">piaware is connected to FlightAware.</span><br><span class="line">dump1090-mutabi is producing data on port 30005.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo piaware-status</span><br><span class="line"></span><br><span class="line">dump1090 is not running.</span><br><span class="line">faup1090 is running.</span><br><span class="line">piaware is running.</span><br><span class="line">dump1090-mutabi is listening for connections on port 30005.</span><br><span class="line">faup1090 is connected to port 30005.</span><br><span class="line">piaware is connected to FlightAware.</span><br><span class="line">dump1090-mutabi is producing data on port 30005.</span><br></pre></td></tr></table></figure>
 
 <p>The new install should start feeding data back to FlightAware.</p>
 
