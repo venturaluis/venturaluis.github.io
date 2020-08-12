@@ -380,30 +380,6 @@
   </entry>
   
   <entry>
-    <title>I&#39;m still around</title>
-    <link href="http://linhost.info/2016/02/im-still-around/"/>
-    <id>http://linhost.info/2016/02/im-still-around/</id>
-    <published>2016-02-15T22:28:13.000Z</published>
-    <updated>2020-08-09T09:07:54.003Z</updated>
-    
-    <content type="html"><![CDATA[<p>It’s been a while since I’ve posted to the blog not because I forgot about it but because it has been a busy few months. Expect content soon I promise. <a href="https://linhost.info/wp-content/uploads/2016/02/wp-1455575152952.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1455575152952.jpg" alt="image" title="wp-1455575152952"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;It’s been a while since I’ve posted to the blog not because I forgot about it but because it has been a busy few months. Expect content s
-      
-    
-    </summary>
-    
-    
-      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Update the Firmware on a Raspberry Pi</title>
     <link href="http://linhost.info/2015/05/update-the-firmware-on-a-raspberry-pi/"/>
     <id>http://linhost.info/2015/05/update-the-firmware-on-a-raspberry-pi/</id>
@@ -481,23 +457,46 @@
     <link href="http://linhost.info/2015/04/upgrade-ubuntu-14-10-to-15-04-2/"/>
     <id>http://linhost.info/2015/04/upgrade-ubuntu-14-10-to-15-04-2/</id>
     <published>2015-04-27T19:06:02.000Z</published>
-    <updated>2020-08-09T09:07:53.996Z</updated>
+    <updated>2020-08-12T02:28:41.978Z</updated>
     
-    <content type="html"><![CDATA[<p>You can view your version of Ubuntu with the following command.</p><p>lsb_release -a</p><p>user@ubuntu:~$ lsb_release -a<br>No LSB modules are available.<br>Distributor ID: Ubuntu<br>Description:    Ubuntu 14.10<br>Release:        14.10<br>Codename:       utopic</p><p>Update and upgrade the system.</p><p>sudo apt-get update</p><p>sudo apt-get upgrade</p><p>If not already installed, then install the <strong>update-manager-core</strong> package from the repository.</p><p>sudo apt-get install update-manager-core</p><p>Start the upgrade tool.</p><p>sudo do-release-upgrade</p><p>Now follow the prompts to complete the upgrade to Ubuntu 15.04. Read the instructions carefully. Verify the upgrade was successful with the help of the <strong>lsb_release</strong> command.</p><p>lsb_release -a</p><p>user@ubuntu:~$ lsb_release -a<br>No LSB modules are available.<br>Distributor ID: Ubuntu<br>Description:    Ubuntu 15.04<br>Release:        15.04<br>Codename:       vivid</p>]]></content>
+    <content type="html"><![CDATA[<p>You can view your version of Ubuntu with the following command.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb\_release -a</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ lsb\_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 14.10</span><br><span class="line">Release:        14.10</span><br><span class="line">Codename:       utopic</span><br></pre></td></tr></table></figure><p>Update and upgrade the system.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure><p>If not already installed, then install the <strong>update-manager-core</strong> package from the repository.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install update-manager-core</span><br></pre></td></tr></table></figure><p>Start the upgrade tool.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo do-release-upgrade</span><br></pre></td></tr></table></figure><p>Now follow the prompts to complete the upgrade to Ubuntu 15.04. Read the instructions carefully. Verify the upgrade was successful with the help of the <strong>lsb_release</strong> command.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb\_release -a</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ lsb\_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 15.04</span><br><span class="line">Release:        15.04</span><br><span class="line">Codename:       vivid</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
         &lt;p&gt;You can view your version of Ubuntu with the following command.&lt;/p&gt;
-&lt;p&gt;lsb_release -a&lt;/p&gt;
-&lt;p&gt;user@ubuntu:~$ lsb_release -a&lt;br&gt;No LSB modu
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;s
       
     
     </summary>
     
     
       <category term="Article" scheme="http://linhost.info/categories/Article/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Wget Ignore Invalid SSL Certificates</title>
+    <link href="http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/"/>
+    <id>http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/</id>
+    <published>2015-04-24T01:36:42.000Z</published>
+    <updated>2020-08-09T09:07:53.993Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The added parameter below is self explanatory, it tell Wget to ignore the cert check and go ahead.</p><p>wget –no-check-certificate <a href="https://ididntpayforacert.ca/file.gz">https://ididntpayforacert.ca/file.gz</a></p><p>If you frequently work with self-signed certificates then you can make a change to the Wget config file to let you work with self-signed certificates without resulting in an error.</p><p>nano $HOME/.wgetrc</p><p>And add the following parameter to the bottom of the config file.</p><p>check_certificate=off</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The
+      
+    
+    </summary>
+    
+    
+      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
     
     
   </entry>
