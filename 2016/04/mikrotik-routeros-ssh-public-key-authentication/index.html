@@ -240,7 +240,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
 
 <p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lventura@HM-R:~&#x2F;scripts $ ls ~&#x2F;.ssh</span><br><span class="line">authorized\_keys  id\_rsa  id\_rsa.pub  known\_hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">authorized\_keys  id\_rsa  id\_rsa.pub  known\_hosts</span><br></pre></td></tr></table></figure>
 
 <p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~&#x2F;.ssh&#x2F;id\_rsa.pub admin@192.168.100.1:id\_rsa.pub</span><br></pre></td></tr></table></figure>
