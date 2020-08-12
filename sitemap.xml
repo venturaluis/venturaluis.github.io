@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://linhost.info/2015/04/upgrade-ubuntu-14-10-to-15-04-2/</loc>
+    
+    <lastmod>2020-08-12</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://linhost.info/2015/01/ubiquiti-edgerouter-firmware-upgrade/</loc>
     
     <lastmod>2020-08-12</lastmod>
@@ -17,13 +24,6 @@
   
   <url>
     <loc>http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/</loc>
-    
-    <lastmod>2020-08-12</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/2015/04/upgrade-ubuntu-14-10-to-15-04-2/</loc>
     
     <lastmod>2020-08-12</lastmod>
     
