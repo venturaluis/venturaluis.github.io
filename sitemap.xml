@@ -2531,13 +2531,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/windows/</loc>
-    <lastmod>2020-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/cisco/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
@@ -2546,6 +2539,13 @@
   
   <url>
     <loc>http://linhost.info/tags/ios/</loc>
+    <lastmod>2020-08-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/windows/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2734,20 +2734,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/acronis/</loc>
-    <lastmod>2020-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://linhost.info/tags/security/</loc>
-    <lastmod>2020-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/IT/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
@@ -2756,6 +2742,20 @@
   
   <url>
     <loc>http://linhost.info/tags/real-life/</loc>
+    <lastmod>2020-08-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/acronis/</loc>
+    <lastmod>2020-08-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/security/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3574,14 +3574,14 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/minidlna/</loc>
+    <loc>http://linhost.info/tags/webmin/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/webmin/</loc>
+    <loc>http://linhost.info/tags/minidlna/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4281,13 +4281,6 @@
   </url>
   
   <url>
-    <loc>http://linhost.info/tags/samba/</loc>
-    <lastmod>2020-08-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://linhost.info/tags/domain/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
@@ -4296,6 +4289,13 @@
   
   <url>
     <loc>http://linhost.info/tags/site/</loc>
+    <lastmod>2020-08-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://linhost.info/tags/samba/</loc>
     <lastmod>2020-08-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
