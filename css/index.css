@@ -665,7 +665,7 @@ kbd {
 }
 .content-wrap {
   width: calc(100% - 330px);
-  float: right;
+  float: left;
 }
 .content-wrap--noside {
   float: none;
@@ -951,7 +951,7 @@ kbd {
 }
 .sidebar-wrap {
   width: 300px;
-  float: left;
+  float: right;
 }
 .sidebar-nav {
   padding-bottom: 1em;
