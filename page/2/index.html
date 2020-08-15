@@ -1,423 +1,198 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/2/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Lven">
+<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/2/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/04/mikrotik-routeros-disable-fasttrack-to-limit-bandwidth/">Mikrotik - RouterOS Disable FastTrack To Limit Bandwidth</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-04-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>You can read more about FastTrack from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wiki.mikrotik.com/wiki/Manual:Wiki/Fasttrack" >Mikrotik Wiki on FastTrack</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. The function has it’s advantages by increasing throughout and reducing CPU load. However I wanted to limit bandwidth to clients and FastTrack had to be disabled in order to limit. From the RouterOS command line move to <strong>/ip firewall filter</strong> and issue the <strong>print</strong> command to view all available rules. Rule <strong>4</strong> has what we are looking for which is <strong>fasttrack</strong> depending on previous changes made to your rules the placement maybe different resulting in a completely different number.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-R] &#x2F;ip firewall filter&gt; print</span><br><span class="line"></span><br><span class="line">Flags: X - disabled, I - invalid, D - dynamic</span><br><span class="line"> 0  D ;;; special dummy rule to show fasttrack counters</span><br><span class="line">      chain&#x3D;forward</span><br><span class="line"></span><br><span class="line"> 1    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;accept protocol&#x3D;icmp log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 2    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;accept connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 3    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;drop in-interface&#x3D;ether1-gateway log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 4    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;fasttrack-connection connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 5    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;accept connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 6    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;drop connection-state&#x3D;invalid log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 7    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;drop connection-state&#x3D;new connection-nat-state&#x3D;!dstnat in-interface&#x3D;ether1-gateway log&#x3D;no</span><br><span class="line">      log-prefix&#x3D;&quot;&quot;</span><br></pre></td></tr></table></div></figure>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<p>Now issue the <strong>disable</strong> command along with the rule number you wish to disable. Alternatively the rule can be removed completely with the command <strong>remove</strong> but I rather preserve it in case I needed at a later time.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-R] &#x2F;ip firewall filter&gt; disable numbers&#x3D;4</span><br></pre></td></tr></table></div></figure>
 
-    <!--Description-->
+<p>Rule 4 is now disabled as indicated by the capital XI in front of the rule.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-R] &#x2F;ip firewall filter&gt; print</span><br><span class="line"></span><br><span class="line">Flags: X - disabled, I - invalid, D - dynamic</span><br><span class="line"> 0  D ;;; special dummy rule to show fasttrack counters</span><br><span class="line">      chain&#x3D;forward</span><br><span class="line"></span><br><span class="line"> 1    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;accept protocol&#x3D;icmp log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 2    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;accept connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 3    ;;; default configuration</span><br><span class="line">      chain&#x3D;input action&#x3D;drop in-interface&#x3D;ether1-gateway log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 4 XI  ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;fasttrack-connection connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 5    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;accept connection-state&#x3D;established,related log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 6    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;drop connection-state&#x3D;invalid log&#x3D;no log-prefix&#x3D;&quot;&quot;</span><br><span class="line"></span><br><span class="line"> 7    ;;; default configuration</span><br><span class="line">      chain&#x3D;forward action&#x3D;drop connection-state&#x3D;new connection-nat-state&#x3D;!dstnat in-interface&#x3D;ether1-gateway log&#x3D;no</span><br><span class="line">      log-prefix&#x3D;&quot;&quot;</span><br></pre></td></tr></table></div></figure>
 
-    
+<p>With Fasttrack disabled I can add my 20/20 Megabit symmetrical limit.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-R] &#x2F;queue simple&gt; add max-limit&#x3D;20M&#x2F;20M name&#x3D;client-arq target&#x3D;192.168.200.2&#x2F;32</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/04/mikrotik-routeros-ssh-public-key-authentication/">Mikrotik - RouterOS SSH Public Key Authentication</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-04-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p>
 
-    
-        <meta name="description" content="site, site"/>
-    
+        <h3 id="Key-Generation"   >
+          <a href="#Key-Generation" class="heading-link"><i class="fas fa-link"></i></a>Key Generation</h3>
+      <p>Use the <strong>ssh-keygen</strong> command to generate an RSA key pair. This step is almost automated for you just wait.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></div></figure>
 
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
+<p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">authorized\_keys  id\_rsa  id\_rsa.pub  known\_hosts</span><br></pre></td></tr></table></div></figure>
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Linhost.info"/>
-    
+<p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~&#x2F;.ssh&#x2F;id\_rsa.pub admin@192.168.100.1:id\_rsa.pub</span><br></pre></td></tr></table></div></figure>
 
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
+<p>Now log-in to RouterOS and import <strong>id_rsa.pub</strong> key we just uploaded. I’m importing a key for the user <strong>admin</strong> you can change this to the of any other user.</p>
 
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
+        <h3 id="RouterOS-Key-Import"   >
+          <a href="#RouterOS-Key-Import" class="heading-link"><i class="fas fa-link"></i></a>RouterOS Key Import</h3>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;user ssh-keys import public-key-file&#x3D;id\_rsa.pub user&#x3D;admin</span><br></pre></td></tr></table></div></figure>
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="website"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>page - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
+<p>Let’s view the user new SSH key.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;user ssh-keys print</span><br><span class="line">Flags: R - RSA, D - DSA</span><br><span class="line"> #   USER                       BITS KEY-OWNER</span><br><span class="line"> 0 R admin                      2048</span><br></pre></td></tr></table></div></figure>
 
 
+        <h3 id="New-Key-Test"   >
+          <a href="#New-Key-Test" class="heading-link"><i class="fas fa-link"></i></a>New Key Test</h3>
+      <p>Using an SSH client with the new private SSH key attempt to log-in to RouterOS, if successful you shouldn’t be prompted for a password. <a href="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png"><img src="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png" alt="ssh-login"></a></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/03/upgrade-routeros-from-the-command-line/">Mikrotik - Upgrade RouterOS from the Command Line</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-03-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>My Mikrotik router was running version 6.30 which I needed to update to version 6.31 in order to support RSA keys. I found updating the router from the command line to be quite easy an straight forward. it only requires a few commands and requires little user input. I know of two ways to view the current running firmware. My hAP at the time it arrived was running RouterOS version 6.30.4.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system resource&gt; print</span><br><span class="line"></span><br><span class="line">                   uptime: 14h43m39s</span><br><span class="line">                  version: 6.30.4</span><br><span class="line">               build-time: Aug&#x2F;25&#x2F;2015 12:59:46</span><br><span class="line">              free-memory: 41.0MiB</span><br><span class="line">             total-memory: 64.0MiB</span><br><span class="line">                      cpu: MIPS 24Kc V7.4</span><br><span class="line">                cpu-count: 1</span><br><span class="line">            cpu-frequency: 650MHz</span><br><span class="line">                 cpu-load: 3%</span><br><span class="line">           free-hdd-space: 4.8MiB</span><br><span class="line">          total-hdd-space: 16.0MiB</span><br><span class="line">  write-sect-since-reboot: 691</span><br><span class="line">         write-sect-total: 5566</span><br><span class="line">               bad-blocks: 0%</span><br><span class="line">        architecture-name: mipsbe</span><br><span class="line">               board-name: hAP ac lite</span><br><span class="line">                 platform: MikroTik</span><br></pre></td></tr></table></div></figure>
 
-    <!-- favicon -->
-    
+<p>Making use of the <strong>/system package update check-for-updates</strong> we can also view the running version and latest available version of RouterOS for download.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system package update&gt; check-for-updates</span><br><span class="line"></span><br><span class="line">   current-version: 6.30.4</span><br><span class="line">   latest-version: 6.34.3</span><br></pre></td></tr></table></div></figure>
 
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
+<p>Now that we know there is an available update we tell the router to download and install. The router will reboot.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system package update&gt; download</span><br><span class="line"></span><br><span class="line">          channel: current</span><br><span class="line">  current-version: 6.34.3</span><br><span class="line">   latest-version: 6.34.4</span><br><span class="line">           status: Downloaded, please reboot router to upgrade it</span><br></pre></td></tr></table></div></figure>
 
+<p>Reboot for the changes to take effect.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system package update&gt; &#x2F;system reboot</span><br></pre></td></tr></table></div></figure>
 
-<body>
+<p>You will be asked for confirmation prior to rebooting.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Reboot, yes? \[y&#x2F;N\]: y</span><br><span class="line">system will reboot shortly</span><br></pre></td></tr></table></div></figure>
 
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
+<p>Installing the new firmware took less than a minute. Let’s check again and see what version of RouterOS is currently running.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system package update&gt; check-for-updates</span><br><span class="line"></span><br><span class="line">          channel: current</span><br><span class="line">  current-version: 6.34.3</span><br><span class="line">   latest-version: 6.34.3</span><br><span class="line">           status: System is already up to date</span><br></pre></td></tr></table></div></figure>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+<p>We are done and the system is now updated to the latest available firmware. Fairly easy and painless to update RouterOS. <em>4/8/2016 - Corrected grammatical error. Thank you for pointing it out.</em></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/">Xiaomi USB Type C Adapter - Convert Micro USB to Type-C</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-02-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Just a heads up if you are looking for a certified Micro USB to Type C adapter then I would recommend looking at the Xiaomi USB Type C Adapter they are a great way of converting the Micro USB cables you already have to Type C. The adapter works just fine with the Nexus 6P I have yet to see any problem after almost two months of use. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.geekbuying.com/item/Original-Xiaomi-Mi-USB-Type-C-To-Micro-USB-Adapter-Xiaomi-USB-Turn-Type-C-OTG-Adapter-Mobile-Phone-Cables-355450.html" >I bought mine from Geekbuying</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for under $2.oo USD. <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg" alt="wp-1456790651766.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg" alt="wp-1456790705443.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg" alt="wp-1456790715172.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg" alt="wp-1456790724740.jpg"></a></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/02/test/">Adding a Serial Port to the Raspberry Pi Zero</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-02-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of accessing the Pi Zero without having to plug a keyboard and HDMI connector and it frees the Micro USB port. There are many flavors of USB to RS232 adapters and one of them is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2047675.m570.l1312.R1.TR0.TRC2.A0.H0.TRS5&_nkw=ch340&_sacat=0" >CH340 eBay</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is affordable. Another adapter I like is the CP2102 you can find them on eBay. This are just recommendations in the end it’s your choice as to the one you choose.</p>
 
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Linhost.info</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2016/04/mikrotik-routeros-disable-fasttrack-to-limit-bandwidth/">
-        <h2 class="post-title">
-            Mikrotik - RouterOS Disable FastTrack To Limit Bandwidth
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-04-03
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/04/mikrotik-routeros-ssh-public-key-authentication/">
-        <h2 class="post-title">
-            Mikrotik - RouterOS SSH Public Key Authentication
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-04-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/03/upgrade-routeros-from-the-command-line/">
-        <h2 class="post-title">
-            Mikrotik - Upgrade RouterOS from the Command Line
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-03-27
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/">
-        <h2 class="post-title">
-            Xiaomi USB Type C Adapter - Convert Micro USB to Type-C
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-02-29
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2016/02/test/">
-        <h2 class="post-title">
-            Adding a Serial Port to the Raspberry Pi Zero
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2016-02-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/05/update-the-firmware-on-a-raspberry-pi/">
-        <h2 class="post-title">
-            Update the Firmware on a Raspberry Pi
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-05-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/">
-        <h2 class="post-title">
-            Expand the Root Partition in Kali Linux for the Raspberry Pi
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-05-04
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/04/auto-mount-usb-drives-in-raspbian/">
-        <h2 class="post-title">
-            Auto Mount USB Drives in Raspbian
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-04-28
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/04/upgrade-ubuntu-14-10-to-15-04-2/">
-        <h2 class="post-title">
-            Upgrade Ubuntu 14.10 to 15.04
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-04-27
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/04/wget-ignore-invalid-ssl-certificates/">
-        <h2 class="post-title">
-            Wget Ignore Invalid SSL Certificates
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-04-23
-    </p>
-</div>
-<hr>
-            
-
-            <ul class="pager">
-    
-        <li class="previous"><a href="/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/page/3/">Older Posts  &rarr;</a></li>
-    
+        <h3 id="How-I-wire-my-Pi-Zero"   >
+          <a href="#How-I-wire-my-Pi-Zero" class="heading-link"><i class="fas fa-link"></i></a>How I wire my Pi Zero</h3>
+      <ul>
+<li>The Raspberry Pi can be powered from the same 5V pin coming from the USB to RS232 adapter, I rather have the Zero use a dedicated PSU for stable power.</li>
 </ul>
-        </div>
-    </div>
-</div>
+
+        <h3 id="Wiring-the-Pi-Zero"   >
+          <a href="#Wiring-the-Pi-Zero" class="heading-link"><i class="fas fa-link"></i></a>Wiring the Pi Zero</h3>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://pinout.xyz/" >https://pinout.xyz/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Use the MicroSD slot as a reference point. On the Pi Zero you will make use of the following pins:</p>
+<ul>
+<li><strong>pin 6</strong> is ground(GND)</li>
+<li><strong>pin 8</strong> is transmit(TXD)</li>
+<li><strong>pin 10</strong> is receive(RXD)</li>
+</ul>
+<p><a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg" alt="image" title="wp-1456175762341"></a></p>
+
+        <h3 id="Wiring-the-USB-to-RS232"   >
+          <a href="#Wiring-the-USB-to-RS232" class="heading-link"><i class="fas fa-link"></i></a>Wiring the USB to RS232</h3>
+      <p>There might be a slight difference with your USB to RS232 adapter but I am certain it will be the same as below. Make sure to match wiring with those of the Pi Zero. <a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg" alt="image" title="wp-1456175769127"></a> On the terminal client of your choice use the COM port assigned to the USB adapter and baud rate of <strong>115200</strong>. <img src="https://linhost.info/wp-content/uploads/2016/02/PUTTY-115200.jpg"></p>
+
+        <h3 id="Troubleshooting"   >
+          <a href="#Troubleshooting" class="heading-link"><i class="fas fa-link"></i></a>Troubleshooting</h3>
+      <p>If you don’t see any output in the console make sure the TXD and RXD pins are in the correct position, otherwise swap them. <img src="https://linhost.info/wp-content/uploads/2016/02/COMMANDLINE-1.jpg"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/05/update-the-firmware-on-a-raspberry-pi/">Update the Firmware on a Raspberry Pi</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-05-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Updating the Raspberry Pi firmware is easy thanks to a nice utility called rpi-update included by default in Raspbian but I’ve also included an extra step for those of us who use other distributions for the Raspberry Pi like Minibian(my favorite), Kali Linux, etc… Understand that rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. The three steps below are included because <strong>rpi-update</strong> is not included by default in other distributions. Update and upgrade the system. First update and upgrade the OS.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
+
+<p>Install <strong>rpi-config</strong> from the repository.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install rpi-update</span><br></pre></td></tr></table></div></figure>
 
 
+        <h3 id="Update-the-Firmware"   >
+          <a href="#Update-the-Firmware" class="heading-link"><i class="fas fa-link"></i></a>Update the Firmware</h3>
+      <p>Rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. Sit back and watch the process.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">sudo rpi-update</span><br><span class="line"></span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* Performing self-update</span><br><span class="line">% Total % Received % Xferd Average Speed Time Time Time Current</span><br><span class="line">Dload Upload Total Spent Left Speed</span><br><span class="line">100 9823 100 9823 0 0 1837 0 0:00:05 0:00:05 --:--:-- 34346</span><br><span class="line">\*\*\* Relaunching after update</span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* We&#39;re running for the first time</span><br><span class="line">\*\*\* Backing up files (this will take a few minutes)</span><br><span class="line">\*\*\* Backing up firmware</span><br><span class="line">\*\*\* Backing up modules 3.18.7-v7+</span><br><span class="line">\*\*\* Downloading specific firmware revision (this will take a few minutes)</span><br><span class="line">% Total % Received % Xferd Average Speed Time Time Time Current</span><br><span class="line">Dload Upload Total Spent Left Speed</span><br><span class="line">100 168 0 168 0 0 419 0 --:--:-- --:--:-- --:--:-- 585</span><br><span class="line">100 46.1M 100 46.1M 0 0 448k 0 0:01:45 0:01:45 --:--:-- 565k</span><br><span class="line">\*\*\* Updating firmware</span><br><span class="line">\*\*\* Updating kernel modules</span><br><span class="line">\*\*\* depmod 3.18.11+</span><br><span class="line">\*\*\* depmod 3.18.11-v7+</span><br><span class="line">\*\*\* Updating VideoCore libraries</span><br><span class="line">\*\*\* Using HardFP libraries</span><br><span class="line">\*\*\* Updating SDK</span><br><span class="line">\*\*\* Running ldconfig</span><br><span class="line">\*\*\* Storing current firmware revision</span><br><span class="line">\*\*\* Deleting downloaded files</span><br><span class="line">\*\*\* Syncing changes to disk</span><br><span class="line">\*\*\* If no errors appeared, your firmware was successfully updated to 5b0cbedacf45e111f02d925fa5b1cec9041fb279</span><br><span class="line">\*\*\* A reboot is needed to activate the new firmware</span><br></pre></td></tr></table></div></figure>
 
-    <!-- Footer -->
-    <hr />
+<p>Reboot the Raspberry Pi for the new firmware to take effect.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></div></figure>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+<p>Let’s check again to see what the Raspberry Pi has to say about the new firmware.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo rpi-update</span><br><span class="line"></span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* Performing self-update</span><br><span class="line">% Total % Received % Xferd Average Speed Time Time Time Current</span><br><span class="line">Dload Upload Total Spent Left Speed</span><br><span class="line">100 9823 100 9823 0 0 54727 0 --:--:-- --:--:-- --:--:-- 79861</span><br><span class="line">\*\*\* Relaunching after update</span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* Your firmware is already up to date</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>Your Raspberry Pi is now running the latest available firmware.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/">Expand the Root Partition in Kali Linux for the Raspberry Pi</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-05-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>By default when Kali Linux for the Rapsberry Pi is installed the file system will only expand to occupy 3GB of storage, in my case I have a 16GB Micro SD card in my Raspberry Pi 2 with most of its capacity unused. One can easily expand the file system by making use of a script that automatically does the job for you. File system after install.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line"></span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs          2.9G  1.5G  1.2G  56% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;root       2.9G  1.5G  1.2G  56% &#x2F;</span><br><span class="line">devtmpfs        460M     0  460M   0% &#x2F;dev</span><br><span class="line">tmpfs            93M  468K   93M   1% &#x2F;run</span><br><span class="line">tmpfs           5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs           186M     0  186M   0% &#x2F;run&#x2F;shm</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>I should note I did not create the script and found it at the following address <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs" >http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> but it has proven useful. Download the script into the boot directory. Locally hosted.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O &#x2F;boot&#x2F;raspi-expand-rootfs.sh http:&#x2F;&#x2F;dl.linhost.info&#x2F;file1&#x2F;raspi-expand-rootfs.sh</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>Now we make the script executable.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x &#x2F;boot&#x2F;raspi-expand-rootfs.sh</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>And execute the script. Don’t be scared by the output.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">sh &#x2F;boot&#x2F;raspi-expand-rootfs.sh</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br><span class="line">Disk &#x2F;dev&#x2F;mmcblk0: 15.9 GB, 15931539456 bytes</span><br><span class="line">4 heads, 16 sectors&#x2F;track, 486192 cylinders, total 31116288 sectors</span><br><span class="line">Units &#x3D; sectors of 1 \* 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 512 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 512 bytes &#x2F; 512 bytes</span><br><span class="line">Disk identifier: 0x000697c0</span><br><span class="line"></span><br><span class="line">        Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p1               1      125000       62500    c  W95 FAT32 (LBA)</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p2          125001     6143999     3009499+  83  Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): Partition number (1-4):</span><br><span class="line">Command (m for help): Partition type:</span><br><span class="line">   p   primary (1 primary, 0 extended, 3 free)</span><br><span class="line">   e   extended</span><br><span class="line">Select (default p): Partition number (1-4, default 2): First sector (125001-31116287, default 125001): Last sector, +sectors or +size&#123;K,M,G&#125; (125001-31116287, default 31116287): Using default value 31116287</span><br><span class="line"></span><br><span class="line">Command (m for help):</span><br><span class="line">Disk &#x2F;dev&#x2F;mmcblk0: 15.9 GB, 15931539456 bytes</span><br><span class="line">4 heads, 16 sectors&#x2F;track, 486192 cylinders, total 31116288 sectors</span><br><span class="line">Units &#x3D; sectors of 1 \* 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 512 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 512 bytes &#x2F; 512 bytes</span><br><span class="line">Disk identifier: 0x000697c0</span><br><span class="line"></span><br><span class="line">        Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p1               1      125000       62500    c  W95 FAT32 (LBA)</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p2          125001    31116287    15495643+  83  Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): The partition table has been altered!</span><br><span class="line"></span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line"></span><br><span class="line">WARNING: Re-reading the partition table failed with error 16: Device or resource busy.</span><br><span class="line">The kernel still uses the old table. The new table will be used at</span><br><span class="line">the next reboot or after you run partprobe(8) or kpartx(8)</span><br><span class="line">Syncing disks.</span><br><span class="line">update-rc.d: using dependency based boot sequencing</span><br><span class="line">update-rc.d: warning: default start runlevel arguments (2 3 4 5) do not match resize2fs\_once Default-Start values (2 3 4 5 S)</span><br><span class="line">update-rc.d: warning: default stop runlevel arguments (0 1 6) do not match resize2fs\_once Default-Stop values (none)</span><br><span class="line">Root partition has been resized. The filesystem will be enlarged upon the next reboot</span><br></pre></td></tr></table></div></figure>
 
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+<p>It is necessary to reboot the OS for the changes to take effect.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></div></figure>
 
+<p>Once again us the <strong>df</strong> command to verify the file system successfully expanded.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line"></span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs           15G  1.5G   13G  11% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;root        15G  1.5G   13G  11% &#x2F;</span><br><span class="line">devtmpfs        460M     0  460M   0% &#x2F;dev</span><br><span class="line">tmpfs            93M  468K   93M   1% &#x2F;run</span><br><span class="line">tmpfs           5.0M  4.0K  5.0M   1% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs           186M     0  186M   0% &#x2F;run&#x2F;shm</span><br></pre></td></tr></table></div></figure>
 
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<p>If you like you can remove the script from the <strong>/boot</strong> directory.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;boot&#x2F;raspi-expand-rootfs.sh</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/auto-mount-usb-drives-in-raspbian/">Auto Mount USB Drives in Raspbian</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-28</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Update and upgrade the Raspbian installation.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<p>Install the package necessary to automatically mount USB drives.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install usbmount</span><br></pre></td></tr></table></div></figure>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+<p>Now plug a USB drive and issue the <strong>df</strong> command to view all volumes. My USB drive was recognized <strong>/dev/sdb</strong> and mounted as <strong>/media/usb0</strong> by the system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">df -hT</span><br><span class="line"></span><br><span class="line">pi@raspberrypi ~ $ df -hT</span><br><span class="line">Filesystem     Type      Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs         rootfs    2.9G  2.6G  215M  93% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;root      ext4      2.9G  2.6G  215M  93% &#x2F;</span><br><span class="line">devtmpfs       devtmpfs  460M     0  460M   0% &#x2F;dev</span><br><span class="line">tmpfs          tmpfs      93M  256K   93M   1% &#x2F;run</span><br><span class="line">tmpfs          tmpfs     5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs          tmpfs     186M     0  186M   0% &#x2F;run&#x2F;shm</span><br><span class="line">&#x2F;dev&#x2F;mmcblk0p1 vfat       56M   15M   42M  26% &#x2F;boot</span><br><span class="line">&#x2F;dev&#x2F;sdb1      vfat      2.0G  200M  1.8G  11% &#x2F;media&#x2F;usb0</span><br></pre></td></tr></table></div></figure>
 
-<!-- Disqus Comments -->
+<p>To un-mount a volume make use of the <strong>df</strong> command above to discover the USB drive mount point and issue the <strong>unmount</strong> command as follows.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount &#x2F;media&#x2F;usb0</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/upgrade-ubuntu-14-10-to-15-04-2/">Upgrade Ubuntu 14.10 to 15.04</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>You can view your version of Ubuntu with the following command.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lsb release -a</span><br><span class="line"></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 14.10</span><br><span class="line">Release:        14.10</span><br><span class="line">Codename:       utopic</span><br></pre></td></tr></table></div></figure>
 
+<p>Update and upgrade the system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></div></figure>
 
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
 
-</body>
+<p>If not already installed, then install the <strong>update-manager-core</strong> package from the repository.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install update-manager-core</span><br></pre></td></tr></table></div></figure>
 
-</html>
+<p>Start the upgrade tool.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo do-release-upgrade</span><br></pre></td></tr></table></div></figure>
+
+<p>Now follow the prompts to complete the upgrade to Ubuntu 15.04. Read the instructions carefully. Verify the upgrade was successful with the help of the <strong>lsb_release</strong> command.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb release -a</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ lsb release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 15.04</span><br><span class="line">Release:        15.04</span><br><span class="line">Codename:       vivid</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/wget-ignore-invalid-ssl-certificates/">Wget Ignore Invalid SSL Certificates</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The added parameter below is self explanatory, it tell Wget to ignore the cert check and go ahead.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;ididntpayforacert.ca&#x2F;file.gz</span><br></pre></td></tr></table></div></figure>
+
+<p>If you frequently work with self-signed certificates then you can make a change to the Wget config file to let you work with self-signed certificates without resulting in an error.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano $HOME&#x2F;.wgetrc</span><br></pre></td></tr></table></div></figure>
+
+<p>And add the following parameter to the bottom of the config file.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check certificate&#x3D;off</span><br></pre></td></tr></table></div></figure>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

@@ -1,423 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/25/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Lven">
+<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/25/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/06/detail-the-configuration-registry-database-is-corrupt/">Detail - The configuration registry database is corrupt</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-06-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>One of the Windows XP virtual machines on my LAB was infected in a nasty way (Duuh!) and by nasty I mean persistent and annoying. In the end my trusty malware removal toolkit came to the rescue. After rebooting the system I was presented with an error prior to login in.</p>
+<p>Windows was unable to load the registry. This is often caused by insufficient memory or insufficient security rights.</p>
+<p>DETAIL - The configuration registry database is corrupt.</p>
+<p>More than anything the error is annoying. The recommendation I received from Microsoft was to replace the affected user profile with a new one. While this is a valid recommendation, I knew there had to be an easier/automated solution. Then, I remembered that <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ccleaner.com/" >CCleaner</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> comes with an integrated <strong>Registry Cleaner</strong>, it was worth a shot.</p>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!--Description-->
-
-    
-
-    
-        <meta name="description" content="site, site"/>
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Linhost.info"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>page - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Linhost.info</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2009/06/detail-the-configuration-registry-database-is-corrupt/">
-        <h2 class="post-title">
-            Detail - The configuration registry database is corrupt
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-06-05
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/ask-the-admin-how-do-i-install-windows-defender-on-windows-server-2008/">
-        <h2 class="post-title">
-            Install Windows Defender on Server 2008
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-31
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/directx-attack-on-xp-ws-2003-wave-consolidates-core-online-features-no-windows-7-starter-3-app-limit-intel-wants-linux-on-netbooks-ciscos-crs-1-five-year-milestone-sp2-for-vista-and-ws-2008/">
-        <h2 class="post-title">
-            IT links for 2009/05/31
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-31
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/flaw-found-on-openssh-pirated-windows-7-rc-builds-a-botnet-xen-release-34-windows-7-virtual-wifi-conficker-still-infecting-50000-pcs-per-day-window-7-prices-in-june/">
-        <h2 class="post-title">
-            IT links for 2009/05/25
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/5-tools-that-should-be-part-of-any-malware-removal-toolkit/">
-        <h2 class="post-title">
-            5 tools that should be part of any malware removal toolkit
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/7-useful-linux-live-cds/">
-        <h2 class="post-title">
-            7 useful Linux Live CDs
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-06
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/05/mount-isos-on-linux-with-gmount-iso/">
-        <h2 class="post-title">
-            Mount ISOs on Linux with GMount ISO
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-05-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/04/volume-activation-error-0xc004c020/">
-        <h2 class="post-title">
-            Volume activation error 0xC004C020
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-04-27
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/04/anvir-task-manager-free/">
-        <h2 class="post-title">
-            AnVir Task Manager Free
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-04-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2009/04/heidisql-client-for-mysql/">
-        <h2 class="post-title">
-            HeidiSQL - client for MySQL
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2009-04-22
-    </p>
-</div>
-<hr>
-            
-
-            <ul class="pager">
-    
-        <li class="previous"><a href="/page/24/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/page/26/">Older Posts  &rarr;</a></li>
-    
+        <h2 id="Registry-Repair"   >
+          <a href="#Registry-Repair" class="heading-link"><i class="fas fa-link"></i></a>Registry Repair</h2>
+      <ul>
+<li>Start <strong>CCleaner</strong></li>
+<li>Click on <strong>Registry</strong></li>
+<li>Click on <strong>Scan for Issues</strong> and let it scan for issues</li>
+<li>When the scan is done click on <strong>Fix selected issues…</strong></li>
+<li>And <strong>Reboot</strong></li>
 </ul>
-        </div>
-    </div>
-</div>
+<p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SinVu9X_d_I/AAAAAAAABEE/ibLU0CtVzxc/s800/ccleaner.png" alt="CCleaner"> Keep in mind, I would not normally use a Registry Cleaner but this time it was necessary.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/ask-the-admin-how-do-i-install-windows-defender-on-windows-server-2008/">Install Windows Defender on Server 2008</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-31</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><strong>Ask the admin: How do I install Windows Defender on Windows Server 2008</strong> If you try to install Windows Defender by downloading a separate file as you would on XP, you will receive an error preventing you from installing. Vista and Windows Server 2008 have no need to download a separate file in order to install <strong>Windows Defender</strong>. To install Windows Defender on Server 2008 you first need to install the <strong>Desktop Experience</strong> which includes <strong>Windows Defender</strong>. <strong>Desktop Experience</strong> is available as a <strong>Feature</strong> from the <strong>Server Manager</strong>.</p>
 
+        <h2 id="How-To"   >
+          <a href="#How-To" class="heading-link"><i class="fas fa-link"></i></a>How To</h2>
+      <p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SiC9wMqR09I/AAAAAAAABC8/9apWMRct_mA/s800/greenshot_2009-05-29_16-36-30.png" alt="server_manager"> <strong>1.</strong> Open the <strong>Server Manager</strong>, from the <strong>Features Summary</strong> click on <strong>Add Features</strong>. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9wTgVtnI/AAAAAAAABDA/d20OSkduC7A/s800/greenshot_2009-05-29_16-44-11.png" alt="windows_defender"> <strong>2.</strong> From the <strong>Add Features Wizard</strong> select <strong>Desktop Experience</strong> and click one <strong>Next</strong>. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SiC9wbCmlTI/AAAAAAAABDE/uAK0YD_HzvI/s800/greenshot_2009-05-29_16-46-55.png" alt="defender_002"> <strong>3.</strong> Now confirm the selection by clicking on <strong>Install</strong>. The installation may take some time. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SiDOPdCqltI/AAAAAAAABDc/3xh6dQ_reJg/s800/greenshot_2009-05-29_17-02-51.png" alt="defender_003"> <strong>4.</strong> For the new feature (Windows Defender) to take effect you must restart the server. Click on <strong>Close</strong> and you will be prompted to restart the server. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9zqYIdDI/AAAAAAAABDQ/hH-Y6Bs6Fg8/s800/greenshot_2009-05-29_17-04-40.png" alt="defender_004"> <strong>5.</strong> After the server starts allow for some time to complete the installation and configuration. If everything is OK you should see a message confirming the installation. Then click on <strong>Close</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiDP0sSg9rI/AAAAAAAABDk/uydl9zd_wYc/s800/greenshot_2009-05-29_19-10-48.png" alt="defender_004"> <strong>6.</strong> To start <strong>Windows Defender</strong> go to <strong>Start &gt; All Programs &gt; Windows Defender</strong> <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SiDdKPXpcUI/AAAAAAAABDo/r8Ist7cNAaA/s800/greenshot_2009-05-30_00-13-38.png" alt="windows_defender_front_end"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/directx-attack-on-xp-ws-2003-wave-consolidates-core-online-features-no-windows-7-starter-3-app-limit-intel-wants-linux-on-netbooks-ciscos-crs-1-five-year-milestone-sp2-for-vista-and-ws-2008/">IT links for 2009/05/31</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-31</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><ul>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.networkworld.com/community/node/42263?hpg1=bn" >Microsoft warns of DirectX attack on XP, WS2003 in the wild</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.networkworld.com/news/2009/052809-googles-wave-consolidates-core-online.html?hpg1=bn" >Google’s Wave consolidates core online features in one tool</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9133694" >Microsoft kills Windows 7 Starter’s 3-app limit</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9133279" >Intel goes after Windows 7 on netbooks with Linux</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.infoworld.com/d/hardware/ciscos-crs-1-router-reaches-five-year-milestone-985" >Cisco’s CRS-1 router reaches five-year milestone (HFR)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.zdnet.com/microsoft/?p=2871" >SP2 for Vista, Windows Server 2008 now on Microsoft Download site</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/flaw-found-on-openssh-pirated-windows-7-rc-builds-a-botnet-xen-release-34-windows-7-virtual-wifi-conficker-still-infecting-50000-pcs-per-day-window-7-prices-in-june/">IT links for 2009/05/25</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><ul>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://news.zdnet.com/2100-9595_22-303182.html" >Flaw found on OpenSSH</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/wga/archive/2009/05/16/pirated-windows-7-rc-builds-a-botnet.aspx" >Pirated Windows 7 RC builds a botnet</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://vmblog.com/archive/2009/05/19/xen-announces-the-release-of-xen-3-4.aspx" >Xen Announces the Release of Xen 3.4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.istartedsomething.com/20090516/windows-7-native-virtual-wifi-technology-microsoft-research/" >Windows 7 adds native Virtual WiFi technology from Microsoft Research</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=009133363" >Conficker still infecting 50,000 PCs per day</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&articleId=9133380" >Report: Microsoft to reveal Window 7 prices in June</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/5-tools-that-should-be-part-of-any-malware-removal-toolkit/">5 tools that should be part of any malware removal toolkit</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Malware is an example of human generated wreck and at the same time proof of the ingenuity the same are capable of. For this reason part of my home laboratory is dedicated to a group of virtual machines which only have the job of tearing each other apart with malware. The lab serves a double purpose which is to test the effectiveness of both proactive and reactive tools. On this occasion I am writing about reactive tools that have worked for me multiple times. Keep in mind that one tool alone will never do the job. It may take multiple tools to completely remove the infection.</p>
+<blockquote>
+<p>Those who refuse to experiment will never know their true potential</p>
+</blockquote>
+<p>After sacrificing multiple virtual machines I have generated a list of tools that work against malware. <em>Disclamer: Most of the software listed in this page is free for personal use only.</em></p>
 
+        <h2 id="Toolkit"   >
+          <a href="#Toolkit" class="heading-link"><i class="fas fa-link"></i></a>Toolkit</h2>
+      
+        <h3 id="Malwarebytes-Anti-Malware-free-version"   >
+          <a href="#Malwarebytes-Anti-Malware-free-version" class="heading-link"><i class="fas fa-link"></i></a>Malwarebytes Anti-Malware free version</h3>
+      <p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/ShdTkFb-hgI/AAAAAAAABAw/p9kHK9HmPoo/s800/malwarebytes.png" alt="malwarebytes"> Malwarebytes Anti-Malware is one of my favorite tools to remove nasty malware of the likes of Antivirus XP which is particularly difficult to detect and remove. You have the option between a paid version with real time scanning or a free version which lacks real time scanning but still does the same job and has access to the same database of malware as the paid version.</p>
 
-    <!-- Footer -->
-    <hr />
+        <h3 id="BitDefender-Rescue-Disk"   >
+          <a href="#BitDefender-Rescue-Disk" class="heading-link"><i class="fas fa-link"></i></a>BitDefender Rescue Disk</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/ShdaK2C9bDI/AAAAAAAABA4/o6FUnFfj_7I/s800/screenshot-Windows%20XP%20Home%20Edition.png" alt="rescuecd"> BitDefender Rescue Disk is a bootable antivirus live CD (based on Linux). BitDefender Rescue CD scans the operating system from the outside, another important feature is the ability to automatically update definitions from the BitDefender Internet servers. Definition updates are important to keep up with the latest threats.</p>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+        <h3 id="TrendMicro-HijackThis"   >
+          <a href="#TrendMicro-HijackThis" class="heading-link"><i class="fas fa-link"></i></a>TrendMicro HijackThis</h3>
+      <p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/ShdTkGshwmI/AAAAAAAABAs/7W-RV8mDAZM/s800/hijackthis.png" alt="trendmicro"> HijackThis is a some what complex tool that serves for reconnaissance by scanning and reporting back with a log file. The log simply reports on changes that may or may not be malicious. The user has to make the decision on what kind of action to take. If you have no idea on how to read and interpret the log file you could end up damaging the system. Be cautious when using this tool.</p>
 
-                    
+        <h3 id="CCleaner"   >
+          <a href="#CCleaner" class="heading-link"><i class="fas fa-link"></i></a>CCleaner</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/ShdTkDT4dRI/AAAAAAAABAo/r0ZDFEAWNGQ/s800/ccleaner.png" alt="ccleaner"> Not exactly a security tool but CCleaner is useful because of the ability to fix problems found in the registry and other garbage left behind.</p>
 
-                    
+        <h3 id="Sysinternals-Process-Explorer"   >
+          <a href="#Sysinternals-Process-Explorer" class="heading-link"><i class="fas fa-link"></i></a>Sysinternals Process Explorer</h3>
+      <p><img src="http://lh3.ggpht.com/_fF0LO28FGYY/ShkEjsKzh1I/AAAAAAAABBY/xziJf7L4Cdc/s800/process_explorer.png" alt="Process_Explorer"> Process Explorer is my favorite tool for tracking and solving problems on a Windows system that may not be evident or obscured by the OS. While not intended to be a security tool, Process Explorer can display all running process and information about the system is running on. As an exmaple the information displayed by Process Explorer can help the user inspect and stop unwanted malware from running on the system. <strong>Do you know of any other tool that should be part of this list?</strong></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/7-useful-linux-live-cds/">7 useful Linux Live CDs</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h3 id="Darik’s-Boot-and-Nuke-“DBAN”"   >
+          <a href="#Darik’s-Boot-and-Nuke-“DBAN”" class="heading-link"><i class="fas fa-link"></i></a>Darik’s Boot and Nuke (“DBAN”)</h3>
+      <p><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SgD7BIHSKbI/AAAAAAAAA3Y/0f7lH6-mszY/s800/dban.png"> The program is designed to securely erase a hard disk until data is permanently removed and no longer recoverable, which is achieved by overwriting the data with random numbers generated by Mersenne twister or ISAAC (a PRNG). The Gutmann method is included with DBAN. DBAN can be booted from a floppy disk, CD, DVD, or USB flash drive and it is based on Linux. It supports IDE, SCSI and SATA hard drives. DBAN can be configured to automatically wipe every hard disk on a system that it sees, making it very useful for unattended data destruction scenarios.</p>
 
-                    
+        <h3 id="Inquisitor"   >
+          <a href="#Inquisitor" class="heading-link"><i class="fas fa-link"></i></a>Inquisitor</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SgEOG5prZoI/AAAAAAAAA3s/Kin3kSGTyG8/s800/Screenshot-Test.png"> Inquisitor is a software suite used for hardware diagnostics, stress testing, certification and benchmarking platform. Minimal steps that can be undertaken for purposes of testing or benchmarking are called “tests” in Inquisitor and are implemented as simple Unix shell scripts that run other (binary) programs and collects their results. In its simplest form, test outputs only binary result: success or failure.</p>
 
-                    
+        <h3 id="StressLinux"   >
+          <a href="#StressLinux" class="heading-link"><i class="fas fa-link"></i></a>StressLinux</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SgD7fCBXcAI/AAAAAAAAA3k/EyKT8txvwD4/s800/stresslinux.png"> Stresslinux is a Mini Linux designed to test a computer’s hardware by running the components at high load while monitoring their health. It is designed to be booted from CD-ROM or via PXE.</p>
 
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+        <h3 id="Ophcrack"   >
+          <a href="#Ophcrack" class="heading-link"><i class="fas fa-link"></i></a>Ophcrack</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SgDbBw7Eq2I/AAAAAAAAA2o/nWrrOtkUsQ4/s800/ophcrack.png"> Ophcrack is an open source program that cracks Windows passwords by using LM hashes through rainbow tables. The program includes the ability to import the hashes from a variety of formats, including dumping directly from the SAM files of Windows. These tables can crack 99.9% of alphanumeric passwords of up to 14 characters in usually a few minutes.</p>
 
+        <h3 id="BackTrack"   >
+          <a href="#BackTrack" class="heading-link"><i class="fas fa-link"></i></a>BackTrack</h3>
+      <p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SgDgsQcTUSI/AAAAAAAAA3E/orxAubue0Qo/s800/backtrack.png"> BackTrack is a Linux distribution distributed as a Live CD which resulted from the merger of WHAX and the Auditor Security Collection, which is used for Penetration testing. It allows the user to include customizable scripts, additional tools, configurable kernels in personalized distributions, and includes over 300 security tools.</p>
 
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <h3 id="perfSONAR-Network-Performance-Toolkit"   >
+          <a href="#perfSONAR-Network-Performance-Toolkit" class="heading-link"><i class="fas fa-link"></i></a>perfSONAR Network Performance Toolkit</h3>
+      <p><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SgDbCFnu6sI/AAAAAAAAA2w/QfCRxyaUqrs/s800/networktoolkit.png"> Based on a customized version of Knoppix perfSONAR Network Performance Toolkit delivers network performance software developed by Internet2. NTP offers a complete network performance suite.</p>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <h3 id="Clonezilla"   >
+          <a href="#Clonezilla" class="heading-link"><i class="fas fa-link"></i></a>Clonezilla</h3>
+      <p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SgDgR4n8HlI/AAAAAAAAA24/3tNegF89FSo/s800/clonezilla.png"> Clonezilla is a free software disaster recovery, disk cloning and deployment solution. Clonezilla Live allows a user to clone an individual machine. A particular partition or entire disk can be cloned to another medium. This can be saved as an image file or as a replicated copy of the data. The data can be saved to locally attached storage, an SSH server, Samba Server or a NFS file share and then restore them at a later date. <strong>Do you know of any other live CD that should be included in this list?</strong></p>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <h3 id="References"   >
+          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h3>
+      <ul>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.internet2.edu/performance/pS-NPToolkit/" >http://www.internet2.edu/performance/pS-NPToolkit/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Darik%27s_Boot_and_Nuke" >http://en.wikipedia.org/wiki/Darik%27s_Boot_and_Nuke</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Inquisitor_(hardware_testing_software)" >http://en.wikipedia.org/wiki/Inquisitor_(hardware_testing_software)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Stresslinux" >http://en.wikipedia.org/wiki/Stresslinux</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Ophcrack" >http://en.wikipedia.org/wiki/Ophcrack</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/BackTrack" >http://en.wikipedia.org/wiki/BackTrack</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Clonezilla" >http://en.wikipedia.org/wiki/Clonezilla</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/05/mount-isos-on-linux-with-gmount-iso/">Mount ISOs on Linux with GMount ISO</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-05-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><strong>GMount ISO</strong> is a simple tool for Linux that facilitates mounting ISO images as a virtual drive. GMount ISO is a frontend to the <strong>mount command</strong> and is written using PyGTK and Glade. Virtual disc access rate is about 200 times faster than that of a physical disc. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SfvQN9EA1uI/AAAAAAAAAxs/JzTRM1ysmKo/s800/Screenshot-Gmount-iso.png"> The system will not know the difference. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfvbkgNDvLI/AAAAAAAAAyM/DZo3L1UcFLE/s800/44Screenshot.png"></p>
 
-<!-- Disqus Comments -->
+        <h2 id="Installation"   >
+          <a href="#Installation" class="heading-link"><i class="fas fa-link"></i></a>Installation</h2>
+      <p>GMount ISO is available in the Ubuntu repositories. You can install the tool using the command line.</p>
+<p>sudo apt-get install gmountiso</p>
+<p>Or Synaptic by typing <strong>gmountiso</strong> on the search box.. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SfvNQru2IeI/AAAAAAAAAxk/yajU1v7XNFw/s800/Screenshot-Synaptic%20Package%20Manager%20.png"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/04/volume-activation-error-0xc004c020/">Volume activation error 0xC004C020</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-04-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>When I try to activate my Windows Server 2008 installation I receive the following: <strong>Error Code 0xC004C020</strong>, this prevents me from using the online activation to validate the installation.</p>
+<p>0xC004C020 The activation server reported that the Multiple Activation Key has exceeded its limit.</p>
+<p>When a <strong>Multiple Activation Key</strong> is used during an installation it checks with Microsoft and reduces the license pool by one, the size of the license pool is determined by the type of agreement. The user cannot reset the pool, this is why you have to call Microsoft once the limit has been reached. <strong>MAK</strong> - <em>Multiple Activation Key</em> <strong>KMS</strong> - <em>Key Management Service</em></p>
 
+        <h2 id="SOLUTION"   >
+          <a href="#SOLUTION" class="heading-link"><i class="fas fa-link"></i></a>SOLUTION</h2>
+      <p>For this tutorial to work first attempt to validate the installation online.</p>
+<ul>
+<li>Go to <strong>Start &gt; Control Panel &gt; System</strong></li>
+<li>At the bottom of the window search for and click on <strong>Change product Key</strong></li>
+<li>Enter the license key</li>
+</ul>
+<p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfOMtyOawNI/AAAAAAAAAqg/vuO_o8TztX8/s800/greenshot_2009-04-25_14-41-50.png"> If you receive an error like the one below preventing you from validating the installation then it will be necessary to call the Microsoft automated activation line. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SfOOn47_CBI/AAAAAAAAArQ/mWlcMI78xBE/s800/greenshot_2009-04-25_15-20-00.png"></p>
 
+        <h2 id="OVER-THE-PHONE-ACTIVATION"   >
+          <a href="#OVER-THE-PHONE-ACTIVATION" class="heading-link"><i class="fas fa-link"></i></a>OVER THE PHONE ACTIVATION</h2>
+      <ul>
+<li>Go to <strong>Start</strong></li>
+<li>Click on <strong>Run</strong></li>
+<li>And type <strong>SLUI 05</strong></li>
+</ul>
+<p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SnNoUZN7ZFI/AAAAAAAABYE/esM28rWqEkY/s800/slui_05.png"> From the drop down list select the name of the country you live in. This is important because depending on the country you select you will be assigned a number to call.</p>
+<ul>
+<li><strong>Click the nearest location &gt; United States</strong></li>
+<li>Click on <strong>Next</strong></li>
+</ul>
+<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SfOTByS_DLI/AAAAAAAAAro/Z-MwZ-LvoLE/s800/greenshot_2009-04-25_15-43-16.png"> This window contains all the information you will need. <strong>Step 1</strong> contains the number you need to call. <strong>Step 2</strong> contains a series of unique numbers, you will need to provide the series of numbers to the operator (do not make mistakes). <strong>Step 3</strong> If everything is Ok the operator will provide you with a confirmation ID, you will need to enter the numbers in the boxes located in <strong>Step 3</strong> and press Enter. <em>The activation over the phone process is a simple one, try to use common sense when answering.</em> <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfOWVFnF3nI/AAAAAAAAAr0/aozHNyCcQk8/s800/greenshot_2009-04-25_15-45-02.png"> If the correct confirmation ID was provided you should be greeted with a new window confirming a genuine installation. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SfQOJA4CA8I/AAAAAAAAAs4/e3CuiVzALw8/s800/004w.png"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/04/anvir-task-manager-free/">AnVir Task Manager Free</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-04-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.anvir.com/taskmanager/" >AnVir Task Manager Free</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> provides full set of Windows enhancements that help with every day work. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/Se0EXtyhfbI/AAAAAAAAAks/m4Z-oLnK6fA/s288/anvir_main.png"></p>
 
-</body>
+        <h2 id="Overview"   >
+          <a href="#Overview" class="heading-link"><i class="fas fa-link"></i></a>Overview</h2>
+      <ul>
+<li>Full information about processes, services, Internet connections, drivers, DLLs</li>
+<li>Security analysis of programs behavior detects Trojans and Spyware, alerts on new startups</li>
+<li>Speed up boot time (Delayed Startup), balance CPU usage, optimize memory</li>
+<li>Run programs as services on Windows startup, save process priority, monitor TCP/UPD</li>
+<li>Monitor CPU, memory, HDD temperature and load, network, notebook battery</li>
+</ul>
 
-</html>
+        <h2 id="References"   >
+          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h2>
+      <ul>
+<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.anvir.com/taskmanager/" >http://www.anvir.com/taskmanager/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+</ul>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2009/04/heidisql-client-for-mysql/">HeidiSQL - client for MySQL</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-04-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.heidisql.com/" >HeidiSQL</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a brilliant, simple and free open source SQL tool for easy management of your MySQL server and databases. It does exactly what you expect it to - and a few extra things. It allows you to browse your databases, manage tables, view and edit records, manage user-privileges and more from an intuitive Windows® interface. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/M52xY3G8lmLegjeXKbKs-A?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/Se6-syCLzOI/AAAAAAAAAmw/Q0IcpGMyuZo/s400/800px-HeidiSQL_main_screenshot.png"></a></p>
+
+        <h2 id="Some-of-the-features-found-on-HeidiSQL"   >
+          <a href="#Some-of-the-features-found-on-HeidiSQL" class="heading-link"><i class="fas fa-link"></i></a>Some of the features found on HeidiSQL</h2>
+      <ul>
+<li>generate nice SQL-exports</li>
+<li>synchronize tables between two databases</li>
+<li>manage user-privileges</li>
+<li>import text-files</li>
+<li>export table-data as CSV, HTML and XML</li>
+<li>browse and edit table-data using a comfortable grid</li>
+<li>batch-insert ascii or binary files into tables</li>
+<li>write queries with syntax-highlighting (next version will have also code-completion)</li>
+<li>monitor and kill client-processes and much more</li>
+</ul>
+
+        <h2 id="References"   >
+          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.heidisql.com/" >http://www.heidisql.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/24/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/26/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

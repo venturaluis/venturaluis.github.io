@@ -1,253 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="There are certain tools that every IT Pro should have in its arsenal and surprisingly sometimes insted of recovering data we may be required to destroy data. The reason is that you wouldn’t want some">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Acronis Drive Cleanser - Securely Erase Hard Drives">
+<meta property="og:url" content="http://linhost.info/2011/06/acronis-drive-cleanser-securely-erase-hard-drives/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="There are certain tools that every IT Pro should have in its arsenal and surprisingly sometimes insted of recovering data we may be required to destroy data. The reason is that you wouldn’t want some">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s400/Acronis_DriveCleanser_1.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-fJFhkCXlYxo/Tg0anIeIOAI/AAAAAAAADG4/oKhL51KJSp4/s400/Acronis_DriveCleanser_2.png">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-_r0sNvrv6BM/Tg0e7ez15HI/AAAAAAAADG8/Ae9YKZWX_0k/s400/Acronis_Media_Builder_1.png">
+<meta property="article:published_time" content="2011-07-01T01:26:04.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.782Z">
+<meta property="article:author" content="Lven">
+<meta property="article:tag" content="acronis">
+<meta property="article:tag" content="security">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s400/Acronis_DriveCleanser_1.png"><title>Acronis Drive Cleanser - Securely Erase Hard Drives | Linhost.info</title><link ref="canonical" href="http://linhost.info/2011/06/acronis-drive-cleanser-securely-erase-hard-drives/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!--Description-->
-
-    
-
-    
-        <meta name="description" content="site, site"/>
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Acronis Drive Cleanser - Securely Erase Hard Drives"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>Acronis Drive Cleanser - Securely Erase Hard Drives - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>Acronis Drive Cleanser - Securely Erase Hard Drives</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
-                            2011-06-30
-                        
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/acronis/">#acronis</a> <a href="/tags/security/">#security</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/Article/">Article</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>There are certain tools that every IT Pro should have in its arsenal and surprisingly sometimes insted of recovering data we may be required to destroy data. The reason is that you wouldn’t want some unintended party to get hold of a drive with your data on it. If you need to completely destroy all data from a drive then you need to know about <a target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/">Acronis Drive Cleanser</a>. With Acronis Drive Cleanser a Windows application you can choose between a wide selection of supported National Data Destruction Standards depending on how thorough of a job you want done.</p>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Acronis Drive Cleanser - Securely Erase Hard Drives</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-06-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>There are certain tools that every IT Pro should have in its arsenal and surprisingly sometimes insted of recovering data we may be required to destroy data. The reason is that you wouldn’t want some unintended party to get hold of a drive with your data on it. If you need to completely destroy all data from a drive then you need to know about <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/" >Acronis Drive Cleanser</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. With Acronis Drive Cleanser a Windows application you can choose between a wide selection of supported National Data Destruction Standards depending on how thorough of a job you want done.</p>
 <blockquote>
 <p>When you format a drive all the previously held data in the drive can still be recovered with standard data recovery tools.</p>
 </blockquote>
-<h3 id="The-Interface"><a href="#The-Interface" class="headerlink" title="The Interface"></a>The Interface</h3><p><a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s800/Acronis_DriveCleanser_1.png"><img src="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s400/Acronis_DriveCleanser_1.png" title="Acronis DriveCleanser Main"></a> The user interface will not bother with unnecessary options that only serve the purpose of taking space rather than providing functionality. The whole operation can be described as pick a drive you want to erase, select method, and proceed. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-fJFhkCXlYxo/Tg0anIeIOAI/AAAAAAAADG4/oKhL51KJSp4/s800/Acronis_DriveCleanser_2.png"><img src="https://lh6.googleusercontent.com/-fJFhkCXlYxo/Tg0anIeIOAI/AAAAAAAADG4/oKhL51KJSp4/s400/Acronis_DriveCleanser_2.png" title="Acronis DriveCleanser Drive Selection"></a></p>
-<h3 id="Data-destruction-standards-and-Algorithms"><a href="#Data-destruction-standards-and-Algorithms" class="headerlink" title="Data destruction standards and Algorithms"></a>Data destruction standards and Algorithms</h3><p>Among the supported National data destruction standards:</p>
+
+        <h3 id="The-Interface"   >
+          <a href="#The-Interface" class="heading-link"><i class="fas fa-link"></i></a>The Interface</h3>
+      <p><a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s800/Acronis_DriveCleanser_1.png"><img src="https://lh6.googleusercontent.com/-jaXp6LZ6U9k/Tg0akwyx1fI/AAAAAAAADG0/iGflgbRS3Y4/s400/Acronis_DriveCleanser_1.png" title="Acronis DriveCleanser Main"></a> The user interface will not bother with unnecessary options that only serve the purpose of taking space rather than providing functionality. The whole operation can be described as pick a drive you want to erase, select method, and proceed. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-fJFhkCXlYxo/Tg0anIeIOAI/AAAAAAAADG4/oKhL51KJSp4/s800/Acronis_DriveCleanser_2.png"><img src="https://lh6.googleusercontent.com/-fJFhkCXlYxo/Tg0anIeIOAI/AAAAAAAADG4/oKhL51KJSp4/s400/Acronis_DriveCleanser_2.png" title="Acronis DriveCleanser Drive Selection"></a></p>
+
+        <h3 id="Data-destruction-standards-and-Algorithms"   >
+          <a href="#Data-destruction-standards-and-Algorithms" class="heading-link"><i class="fas fa-link"></i></a>Data destruction standards and Algorithms</h3>
+      <p>Among the supported National data destruction standards:</p>
 <ul>
 <li>American: DoD 5220.22-M;</li>
 <li>American: NAVSO P-5239-26 (RLL);</li>
@@ -260,71 +67,21 @@
 <li>Peter Gutmann’s algorithm — data is destroyed with 35 passes</li>
 <li>Bruce Schneier’s algorithm — data is destroyed with 7 passes</li>
 </ul>
-<h3 id="Acronis-Media-Builder"><a href="#Acronis-Media-Builder" class="headerlink" title="Acronis Media Builder"></a>Acronis Media Builder</h3><p>Acronis Media Builder is a feature that creates a bootable version of Acronis Drive Cleanser that is OS independent for erasing drives that are in other systems. You can save the bootable version of Drive Cleanser either to an ISO or Flash Drive (23MB in total). <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-_r0sNvrv6BM/Tg0e7ez15HI/AAAAAAAADG8/Ae9YKZWX_0k/s800/Acronis_Media_Builder_1.png"><img src="https://lh4.googleusercontent.com/-_r0sNvrv6BM/Tg0e7ez15HI/AAAAAAAADG8/Ae9YKZWX_0k/s400/Acronis_Media_Builder_1.png" title="Acronis Media Builder 1"></a></p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>At $61 USD per license I consider <a target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/">Acronis Drive Cleanser 6.0</a> to be a good option for when you need to erase all data from a drive. Easy to use, and with the right options makes for a winning option for when you need to securely erase hard drives before repurposing it, selling it or handing it over to an un-trusted party.</p>
-<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/">Acronis Drive Cleanser</a></p>
 
+        <h3 id="Acronis-Media-Builder"   >
+          <a href="#Acronis-Media-Builder" class="heading-link"><i class="fas fa-link"></i></a>Acronis Media Builder</h3>
+      <p>Acronis Media Builder is a feature that creates a bootable version of Acronis Drive Cleanser that is OS independent for erasing drives that are in other systems. You can save the bootable version of Drive Cleanser either to an ISO or Flash Drive (23MB in total). <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-_r0sNvrv6BM/Tg0e7ez15HI/AAAAAAAADG8/Ae9YKZWX_0k/s800/Acronis_Media_Builder_1.png"><img src="https://lh4.googleusercontent.com/-_r0sNvrv6BM/Tg0e7ez15HI/AAAAAAAADG8/Ae9YKZWX_0k/s400/Acronis_Media_Builder_1.png" title="Acronis Media Builder 1"></a></p>
 
-                
-            </div>
+        <h3 id="Conclusion"   >
+          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
+      <p>At $61 USD per license I consider <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/" >Acronis Drive Cleanser 6.0</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> to be a good option for when you need to erase all data from a drive. Easy to use, and with the right options makes for a winning option for when you need to securely erase hard drives before repurposing it, selling it or handing it over to an un-trusted party.</p>
 
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
-        </div>
-    </div>
-</article>
-
-    <!-- Footer -->
-    <hr />
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
-
-
-
-</body>
-
-</html>
+        <h3 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h3>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.acronis.com/enterprise/products/drivecleanser/" >Acronis Drive Cleanser</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Lven</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2011/06/acronis-drive-cleanser-securely-erase-hard-drives/">http://linhost.info/2011/06/acronis-drive-cleanser-securely-erase-hard-drives/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/acronis/">acronis</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/security/">security</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2011/06/disable-vmware-workstation-player-from-automatically-connecting-new-usb-devices/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Disable VMware Workstation / Player from automatically connecting new usb devices</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2011/06/net-use-on-windows-pe/"><span class="paginator-prev__text">Net Use On Windows PE</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Interface"><span class="toc-number">1.</span> <span class="toc-text">
+          The Interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-destruction-standards-and-Algorithms"><span class="toc-number">2.</span> <span class="toc-text">
+          Data destruction standards and Algorithms</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Acronis-Media-Builder"><span class="toc-number">3.</span> <span class="toc-text">
+          Acronis Media Builder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Conclusion"><span class="toc-number">4.</span> <span class="toc-text">
+          Conclusion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Links"><span class="toc-number">5.</span> <span class="toc-text">
+          Links</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

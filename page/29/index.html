@@ -1,423 +1,206 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/29/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Lven">
+<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/29/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/how-to-create-a-virtual-machine-with-vmware-player/">How to create a virtual machine with VMWare Player</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>When going mobile I mostly use VMWare Player because of it’s simple interface and speed, unlike VMWare Server which in my opinion has a bloated web interface. However using VMWare Player means there is no native way to create new virtual machines. Third party solution like EasyVMX do a good job but I knew there had to be an easier way, the lazy way. The solution was to create a blank virtual machine, meaning it’s just an empty container waiting to be filled. The process is very simple just insert a CD/DVD with the operating system prior to starting the virtual machine, then proceed with the regular installation. Download <a href="http://linhost.info/?download=Blank%20Virtual%20Machine">blank virtual machine</a></p>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!--Description-->
-
-    
-
-    
-        <meta name="description" content="site, site"/>
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Linhost.info"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>page - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Linhost.info</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2008/12/how-to-create-a-virtual-machine-with-vmware-player/">
-        <h2 class="post-title">
-            How to create a virtual machine with VMWare Player
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-24
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/missing-vmware-network-adapter/">
-        <h2 class="post-title">
-            Missing VMWare network Adapter
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/view-printer-ink-levels-on-ubuntu/">
-        <h2 class="post-title">
-            View Printer Ink Levels On Ubuntu
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/force-fsck-on-the-next-reboot/">
-        <h2 class="post-title">
-            Force Fsck On The Next Reboot
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/postfix-installation/">
-        <h2 class="post-title">
-            Postfix Installation on Ubuntu 8.04
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-14
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/how-to-install-webmin-on-ubuntu/">
-        <h2 class="post-title">
-            How To Install Webmin On Ubuntu
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-11
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/useful-dd-commands/">
-        <h2 class="post-title">
-            DD the Swiss army knife for Linux
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-11
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/ddclient-set-up-for-ubuntu/">
-        <h2 class="post-title">
-            How To Install DDclient On Ubuntu
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-11
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/">
-        <h2 class="post-title">
-            Ubuntu: Connect To An Access Point From The Command Line
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-07
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2008/12/centos-52-is-now-available-for-download/">
-        <h2 class="post-title">
-            CentOS 5.2 Is Now Available For Download
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2008-12-07
-    </p>
-</div>
-<hr>
-            
-
-            <ul class="pager">
-    
-        <li class="previous"><a href="/page/28/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/page/30/">Older Posts  &rarr;</a></li>
-    
+        <h2 id="Specifications"   >
+          <a href="#Specifications" class="heading-link"><i class="fas fa-link"></i></a>Specifications</h2>
+      <ul>
+<li>1 processor</li>
+<li>512 MB of allocated RAM</li>
+<li>25 GB of hard drive space (unallocated)</li>
 </ul>
-        </div>
-    </div>
-</div>
+<p>You might also find this article interesting : <a href="http://linhost.info/2008/12/create-a-virtual-machine-from-an-iso-with-vmware-player/">Create a virtual machine from an ISO with VMWare Player</a></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/missing-vmware-network-adapter/">Missing VMWare network Adapter</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><img src="/download/images/logo/vmware.png"></p>
+<p>If you clone or move a Linux virtual machine created on a VMWare product the network adaptor will just disappear with no explanation. The usual solution is to delete the <strong>“xx-persistent-net.rules”</strong> file for Linux hosts, which makes the network adapter reaper after rebooting the system. However, I had a virtual machine with two network adapters (eth0, eth1) and only one of them worked (eth0). After digging for information I discovered that the interface configuration file only had one entry for eth0 and none for eth1. The solution was an easy one, just add the configuration for eth1. <strong>Note</strong>: the virtual machines was Ubuntu Server.</p>
 
+        <h2 id="Configuration"   >
+          <a href="#Configuration" class="heading-link"><i class="fas fa-link"></i></a>Configuration</h2>
+      <p>Open the interface configuration file.</p>
+<p>nano /etc/network/interfaces</p>
+<p>And add the remaining network interface configuration.</p>
+<p># The secondary network interface<br>auto eth1<br>iface eth1 inet dhcp</p>
+<p>Save and restart the system or networking service. Now issue the <strong>ifconfig</strong> command to see all available interfaces.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/view-printer-ink-levels-on-ubuntu/">View Printer Ink Levels On Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you use Ubuntu like me and have an HP printer then you may want to check your printer ink level from time to time. For HP printers the solution is available in the repositories in the form of <strong>HPLIP</strong> (Hewlett-Packard’s Linux Imaging and Printing), which is installed on Ubuntu systems by default. In the case of Ubuntu 8.04 we only need to install the graphical interface. Make sure HPLIP is installed on your system with <strong>Synaptic</strong> and search for <strong>hplip</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/lsEzF8HdSz55HC9Yl6Kfpg?authkey=JMZdntsX92c&feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SVBG_-hGI8I/AAAAAAAAARw/JOlwl3T5VZg/s400/hplip.jpg"></a> You can either choose to install <strong>hplip-gui</strong> with Synaptic or use apt-get.</p>
+<p>apt-get install hplip-gui</p>
+<p>After the install you can find HPLIP Toolbox on <strong>System &gt; Preferences &gt; HPLIP Toolbox</strong> , and check you ink levels. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/gkbwjVP-47Pg351FZBd6Qw?authkey=JMZdntsX92c&feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SVBHcWYYPZI/AAAAAAAAAR0/qWlGlioZTb8/s400/hplip_ink_leveles.jpg"></a></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/force-fsck-on-the-next-reboot/">Force Fsck On The Next Reboot</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>It’s normal for <strong>fsck</strong> to automatically check the Linux file system after a predetermined amount of reboots. However some times the Linux administrator may need to force fsck to check and repair the Linux file system prematurely. To do so is very easy and only requires root privileges. I consider this to be the universal way.</p>
+<p>touch /forcefsck</p>
+<p>Then reboot the system and behold fsck working it’s magic.</p>
+<p>shutdown -r now</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/postfix-installation/">Postfix Installation on Ubuntu 8.04</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The goal of this article is to install <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.postfix.org/" >Postfix</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> on a Linux server in order to send emails (Ubuntu 8.04), in case you didn’t know Postfix is very easy to configure and the whole process only takes a few minutes. If you want to set up Postfix on your server but do not have access to a static IP perhaps you should read <a href="http://linhost.info/2008/12/ddclient-set-up-for-ubuntu/">my DDNS article first</a>.</p>
 
+        <h2 id="Installation"   >
+          <a href="#Installation" class="heading-link"><i class="fas fa-link"></i></a>Installation</h2>
+      <p>First Install Postfix along with Telnet and Mailx(need to test the configuration).</p>
+<p>sudo apt-get install postfix telnet mailx</p>
+<p>Before configuring Postfix you should read the available configuration options. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/TysYp819ZSovc8iTI4pkCw?authkey=KLiniNSoMOA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUWZ7n3IB5I/AAAAAAAAARc/MiMxFZG2g2A/s800/001.jpg"></a> You will be asked to provide a general Postfix configuration, in this case choose <strong>Internet Site</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ZgGHYEF-wkFmQYGdKH37hQ?authkey=KLiniNSoMOA"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SUWZ-786S-I/AAAAAAAAARg/FXc6GypCKMk/s800/002.jpg"></a> Now you are required to provide a domain name, for example purposes I typed <strong>mail.domain.com</strong>. And press <strong>OK</strong> to finalize the installation. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/7sPllt_E0FV22f03K4xaYw?authkey=KLiniNSoMOA"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SUWaB49ONkI/AAAAAAAAARk/qCxaZsEv4TI/s800/003.jpg"></a></p>
 
-    <!-- Footer -->
-    <hr />
+        <h2 id="Verify-the-installation-and-configuration"   >
+          <a href="#Verify-the-installation-and-configuration" class="heading-link"><i class="fas fa-link"></i></a>Verify the installation and configuration</h2>
+      <p>Let’s test the new Postfix installation by sending an email to a working address.</p>
+<p>mail <span class="exturl"><a class="exturl__link"   href="mailto:&#97;&#100;&#109;&#x69;&#x6e;&#64;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#x63;&#x6f;&#x6d;" >&#97;&#100;&#109;&#x69;&#x6e;&#64;&#x64;&#x6f;&#109;&#x61;&#105;&#x6e;&#46;&#x63;&#x6f;&#x6d;</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Provide a subject and press enter. Write the message and press enter followed by a period, then press enter again. To skip the ‘CC:’ press enter twice. And now check your invoice, congratulations. If you want to reconfigure the installation at a later time type the following command.</p>
+<p>sudo dpkg-reconfigure postfix</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/how-to-install-webmin-on-ubuntu/">How To Install Webmin On Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Webmin is a web based interface for system administration of common services like Apache, DNS and file sharing among many others. The installation is simple and straight forward. Keep in mind that Webmin is available in tar.gz, .rpm, .deb and pkg.gz for your specific Linux distribution, for this How-To I will use the .deb package used in Debian based systems and tar.gz which should should translate to other Linux distributions. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/dYPhTRYkCT5tfXwpjhO_0A?authkey=v9GULFQHxZs"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUH-ClvM6mI/AAAAAAAAAP8/3RvGsW1wjZY/s400/webmin_portal.jpg"></a></p>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+        <h4 id="deb-installation"   >
+          <a href="#deb-installation" class="heading-link"><i class="fas fa-link"></i></a>.deb installation</h4>
+      <p>Download the .deb from the Webmin site.</p>
+<p>wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin/_1.441/_all.deb" >http://prdownloads.sourceforge.net/webadmin/webmin\_1.441\_all.deb</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Install Webmin.</p>
+<p>sudo dpkg -i webmin_1.340_all.deb</p>
+<p>If the system complains that some libraries are missing issue the following command.</p>
+<p>sudo apt- get install -f</p>
+<p>And login with the user name and password of a user with privileges in the system.</p>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ubuntu:10000/" >http://ubuntu:10000/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Installation complete.</p>
 
-                    
+        <h2 id="tar-gz-installation"   >
+          <a href="#tar-gz-installation" class="heading-link"><i class="fas fa-link"></i></a>.tar.gz installation</h2>
+      <p>Download the Webmin tarball to (locations depends on preference), Visit the Webmin site for newer versions.</p>
+<p>cd /usr/local</p>
+<p>wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz" >http://prdownloads.sourceforge.net/webadmin/webmin-1.441.tar.gz</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>and untar.</p>
+<p>tar zxvf webmin-1.441.tar.gz</p>
+<p>Move to the newly created directory.</p>
+<p>cd webmin-1.441</p>
+<p>and execute the install script.</p>
+<p>./setup.sh</p>
+<p>When completing the install use common sense and change the default port. Some of the questions to be answered are :</p>
+<p>Config file directory [/etc/webmin]:<br>Log file directory [/var/webmin]:<br>Full path to perl (default /usr/bin/perl):<br>Web server port (default 10000):<br>Login name (default admin): user<br>Login password: user<br>Password again: user<br>Use SSL (y/n): y<br>Start Webmin at boot time (y/n): y</p>
+<p>And login with the user name and password you entered previously.</p>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ubuntu:10000/" >http://ubuntu:10000/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>In case you decide to uninstall Webmin issue the following commands.</p>
+<p>cd /etc/webmin/</p>
+<p>sudo ./uninstall.sh</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/useful-dd-commands/">DD the Swiss army knife for Linux</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The Windows world has Norton Ghost, Linux has <strong>dd</strong> which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards using dd, you can always do more research. This is a list of the common ways I use <strong>dd</strong>.</p>
 
-                    
+        <h3 id="Disk-cloning"   >
+          <a href="#Disk-cloning" class="heading-link"><i class="fas fa-link"></i></a>Disk cloning</h3>
+      <p>Clone a hard disk, move all the data located in sda to sdb.</p>
+<p>dd if=/dev/sda of=/dev/sdb</p>
+<p>If duplication of the disk is not needed we can instead create an image file for storage.</p>
+<p>dd if=/dev/sda of=~/disk1.img</p>
+<p>Restore the image file.</p>
+<p>dd if=disk1.img of=/dev/sda</p>
 
-                    
+        <h3 id="Copy-CD-DVD-in-to-ISO"   >
+          <a href="#Copy-CD-DVD-in-to-ISO" class="heading-link"><i class="fas fa-link"></i></a>Copy CD/DVD in to ISO</h3>
+      <p>Create a ISO out of a CD or DVD</p>
+<p>dd if=/dev/cdrom of=/home/user/cd.iso bs=2048 conv=notrunc</p>
+<p>Erase the data from the drive by overwriting it with random data. Keep in mind this solution does not comply with any kind of standard.</p>
+<p>dd if=/dev/urandom of=/dev/hda</p>
+<p>If you wish to use a solution that securely erases the data in hard drives use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.dban.org/" >Darik’s Boot and Nuke (DBAN)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/ddclient-set-up-for-ubuntu/">How To Install DDclient On Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>DDNS is the answer for those networking devices that have no access to a static IP address and a common need for residential users. In this post I have a Linux server at home and need to have remote access to it from any location.</p>
 
-                    
+        <h3 id="First-install-the-required-SSH-and-SSL-socket"   >
+          <a href="#First-install-the-required-SSH-and-SSL-socket" class="heading-link"><i class="fas fa-link"></i></a>First install the required SSH and SSL socket</h3>
+      <p>Self explanatory we want to be able to send the account password via a secure connection.</p>
+<p>sudo apt-get install ssh libio-socket-ssl-perl</p>
+<p>Install DDclient.</p>
+<p>sudo apt-get install ddclient</p>
 
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+        <h3 id="Installation-wizard"   >
+          <a href="#Installation-wizard" class="heading-link"><i class="fas fa-link"></i></a>Installation wizard</h3>
+      <p>Select the DDNS provider <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/d_UrgVYKKj9KhhK0lyeQ-g"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUDOJFB_ZzI/AAAAAAAAAPg/JD1848wyXew/s800/01.jpg"></a> Provide the assigned qualified domain name <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/k_6z_tixFQkjDcgSuRPfiQ"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUDOLKXPyGI/AAAAAAAAAPk/yph_rCbjcDo/s800/02.jpg"></a> Provide your username <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/RR2Y0kHLtGT3eF_ymhelQw"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SUDOOVA08xI/AAAAAAAAAPo/EALSl27QPKY/s800/03.jpg"></a> Provide your password <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tA7mj2Ilt8aZeOKUh4bZ8A"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUDORgdtvoI/AAAAAAAAAPs/bhZHCP-rQS0/s800/04.jpg"></a> And the interface <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tzIgPYx7_oqjKJPK8U5icg"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SUDOXPeMlGI/AAAAAAAAAP0/nin5mTY8hIM/s800/06.jpg"></a> The configuration file is located at <strong>/etc/ddclient.conf</strong>. Edit your configuration to make use of the secure configuration.</p>
+<p>sudo nano /etc/ddclient.conf</p>
+<p># Configuration file for ddclient generated by debconf<br>#</p>
 
+        <h1 id="etc-ddclient-conf"   >
+          <a href="#etc-ddclient-conf" class="heading-link"><i class="fas fa-link"></i></a>/etc/ddclient.conf</h1>
+      <p>daemon=300<br>pid=/var/run/ddclient.pid<br>ssl=yes<br>use=web, web=checkip.dyndns.com/, web-skip=’IP Address’<br>login=username<br>password=password<br>protocol=dyndns2<br>server=members.dyndns.org<br>hostname.dyndns.org</p>
+<p>Now make sure DDclient is set to work as a daemon. You need to change <strong>run_daemon=”false”</strong> to <strong>run_daemon=”true”</strong>.</p>
+<p>sudo nano /etc/default/ddclient</p>
+<p># Configuration for ddclient scripts</p>
 
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <h1 id="generated-from-debconf-on-Tue-Dec-9-19-52-12-EST-2008"   >
+          <a href="#generated-from-debconf-on-Tue-Dec-9-19-52-12-EST-2008" class="heading-link"><i class="fas fa-link"></i></a>generated from debconf on Tue Dec 9 19:52:12 EST 2008</h1>
+      <p>#</p>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <h1 id="etc-default-ddclient"   >
+          <a href="#etc-default-ddclient" class="heading-link"><i class="fas fa-link"></i></a>/etc/default/ddclient</h1>
+      
+        <h1 id="Set-to-“true”-if-ddclient-should-be-run-every-time-a"   >
+          <a href="#Set-to-“true”-if-ddclient-should-be-run-every-time-a" class="heading-link"><i class="fas fa-link"></i></a>Set to “true” if ddclient should be run every time a</h1>
+      
+        <h1 id="new-ppp-connection-is-established-This-might-be-useful"   >
+          <a href="#new-ppp-connection-is-established-This-might-be-useful" class="heading-link"><i class="fas fa-link"></i></a>new ppp connection is established. This might be useful,</h1>
+      
+        <h1 id="if-you-are-using-dial-on-demand"   >
+          <a href="#if-you-are-using-dial-on-demand" class="heading-link"><i class="fas fa-link"></i></a>if you are using dial-on-demand</h1>
+      <p>run_ipup=”false”</p>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <h1 id="Set-to-“true”-if-ddclient-should-run-in-daemon-mode"   >
+          <a href="#Set-to-“true”-if-ddclient-should-run-in-daemon-mode" class="heading-link"><i class="fas fa-link"></i></a>Set to “true” if ddclient should run in daemon mode</h1>
+      <p>run_daemon=”true”</p>
 
-<!-- Disqus Comments -->
+        <h1 id="Set-the-time-interval-between-the-updates-of-the-dynamic-DNS-name-in-seconds"   >
+          <a href="#Set-the-time-interval-between-the-updates-of-the-dynamic-DNS-name-in-seconds" class="heading-link"><i class="fas fa-link"></i></a>Set the time interval between the updates of the dynamic DNS name in seconds.</h1>
+      
+        <h1 id="This-option-only-takes-effect-if-the-ddclient-runs-in-daemon-mode"   >
+          <a href="#This-option-only-takes-effect-if-the-ddclient-runs-in-daemon-mode" class="heading-link"><i class="fas fa-link"></i></a>This option only takes effect if the ddclient runs in daemon mode.</h1>
+      <p>daemon_interval=”300″</p>
+<p>Now verify DDclient is working by rebooting first and issuing the following two commands.</p>
+<p>sudo /etc/init.d/ddclient restart</p>
+<p>sudo /etc/init.d/ddclient status</p>
+<p>If the client is working correctly you should see the same output.</p>
+<p>Status of Dynamic DNS service update utility: ddclient is running</p>
+<p>In case you want to reconfigure the client issue the following command.</p>
+<p>dpkg-reconfigure ddclient</p>
+<p>Don’t forget to allow port forwarding on your router otherwise all attempts will fail. Flashed routers like the Linksys WRT54GL with Tomato firmware allow for a wide range of options when it come to choosing a DDNS provider from the web interface. This means centralisation and easy configuration.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/">Ubuntu: Connect To An Access Point From The Command Line</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Running a headless server presents several challenges, networking is not one of them. In this case I have a headless server with a USB wireless adapter and I wish to connect to the nearest access point. The wireless interface has to be activated, in this case I am using Ubuntu and the interface name is <strong>wlan0</strong>, keep in mind that the name may change on Backtrack the same wireless adapter appears under a different name <strong>rusb0</strong>.</p>
 
-
-
-</body>
-
-</html>
+        <h2 id="Activate-the-wireless-interface"   >
+          <a href="#Activate-the-wireless-interface" class="heading-link"><i class="fas fa-link"></i></a>Activate the wireless interface</h2>
+      <p>Let’s bring the interface wlan0 up.</p>
+<p>ifconfig wlan0 up</p>
+<p>Scan for the wireless network you wish to connect.</p>
+<p>sudo iwlist wlan0 scan</p>
+<p>wlan0     Scan completed :<br>          Cell 01 - Address: 00:19:5B:0C:30:CA<br>                    ESSID:”wireless”<br>                    Mode:Master<br>                    Channel:6<br>                    Frequency:2.437 GHz (Channel 6)<br>                    Quality=47/100  Signal level:-76 dBm<br>                    Encryption key:on<br>                    Bit Rates:1 Mb/s; 2 Mb/s; 5.5 Mb/s; 11 Mb/s; 6 Mb/s<br>                              12 Mb/s; 24 Mb/s; 36 Mb/s; 9 Mb/s; 18 Mb/s<br>                              48 Mb/s; 54 Mb/s<br>                    Extra:tsf=0000010b1bfe2181<br>                    Extra: Last beacon: 28ms ago</p>
+<p>After we take note of the target ESSID we associate our wireless adapter to the AP. In this case the AP has no encryption.</p>
+<p>iwconfig wlan0 essid “wireless”</p>
+<p>Last but no least we need to request an IP address from the server, if using static IP ignored this command.</p>
+<p>sudo dhclient wlan0</p>
+<p>There is already a pid file /var/run/dhclient.pid with pid 9738<br>killed old client process, removed PID file<br>Internet Systems Consortium DHCP Client V3.1.1<br>Copyright 2004-2008 Internet Systems Consortium.<br>All rights reserved.<br>For info, please visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.isc.org/sw/dhcp/" >http://www.isc.org/sw/dhcp/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wmaster0: unknown hardware address type 801<br>wmaster0: unknown hardware address type 801<br>Listening on LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   Socket/fallback<br>DHCPREQUEST of 192.168.1.104 on wlan0 to 255.255.255.255 port 67<br>DHCPACK of 192.168.1.104 from 192.168.1.1<br>bound to 192.168.1.104 – renewal in 40459 seconds.</p>
+<p>In case the AP requires a key, issue the following.</p>
+<p>iwconfig wlan0 key ABCD-ABCD-ABCD-ABCD</p>
+<p>Now just check the wireless adapter status.</p>
+<p>ifconfig</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2008/12/centos-52-is-now-available-for-download/">CentOS 5.2 Is Now Available For Download</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2008-12-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The library just keep growing, the new addition is <a href="/vmware/">CentOS 5.2 Server</a>. The new virtual machine has a compressed size of 318 MB and is available via HTTP.</p>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/28/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/28/">28</a><span class="page-number current">29</span><a class="page-number" href="/page/30/">30</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/30/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

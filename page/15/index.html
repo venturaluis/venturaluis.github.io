@@ -1,423 +1,226 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/15/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Lven">
+<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/15/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/10/windows-generate-a-file-of-any-size-with-fsutil/">Windows: Generate a File of any Size with Fsutil</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-10-08</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Inevitably, there will come a time when you will need files of various sizes to test application performance or to conduct a simple test on a new drive. Rather than hunt around for a file that fits your needs you can make use of the Fsutil command in Windows to create a file of any size, I would say the limit to how big of file you can create depends on the amount of free space available. Like I said before, in Windows you can use Fsutil to generate the file, the correct command would go like this.</p>
+<p>fsutil file createnew </p>
+<p>In the real world the command would actually look like this:</p>
+<p>fsutil file createnew f:/web/speedtest/1gb.bin 1073741824</p>
+<p>What this command did was create a 1GB file in a directory located in another drive and it only took seconds for the file to be generated.</p>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h2 id="Command-Explained"   >
+          <a href="#Command-Explained" class="heading-link"><i class="fas fa-link"></i></a>Command Explained:</h2>
+      <p>Fsutil is easy to understand, in the example above I want to create a 1GB file inside an existing directory located in a separate drive. If you want to keep the file in the local drive all you would have to change would be the drive letter from F: to C:. Equally important is the fact that you have to specify the size of the resulting file in bytes.</p>
 
-    <!--Description-->
+        <h2 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc788058(WS.10).aspx" >Fsutil @ Technet</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/">Clone a Hard Drive over the Network with DD</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-10-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of three different tools available in UNIX-like operating systems. Thanks to DD, Gzip, and OpenSSH I am able to make an exact copy of a drive, compress the resulting drive image while sending the resulting data to another remote system. The case for making use of this method is for when you either lack the local space to store the image or want to keep a backup in a remote system. It doesn’t hurt to backup valuable data, accidents happen. Also, it would be wise to compress the resulting image, I rather have the system spend the extra effort compressing the image using Gzip than to thave the uncompressed image taking more space than it should. What is great about this combination is that you can backup and restore the image using the same tools.</p>
+<blockquote>
+<p>Remember to un-mount the drive you wish to clone. Not doing so may result in possible data corruption.</p>
+</blockquote>
 
-    
+        <h2 id="Locate-The-Drive-You-Wish-To-Backup"   >
+          <a href="#Locate-The-Drive-You-Wish-To-Backup" class="heading-link"><i class="fas fa-link"></i></a>Locate The Drive You Wish To Backup</h2>
+      <p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
+<p>[root@system7]# lshw -C disk</p>
+<p>*-cdrom<br>       description: DVD-RAM writer<br>       product: CDDVDW SH-S203N<br>       vendor: TSSTcorp<br>       physical id: 0.0.0<br>       bus info: scsi@1:0.0.0<br>       logical name: /dev/cdrom<br>       logical name: /dev/dvd<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       version: SB01<br>       serial: NECVMWarVMware IDE CDR101.00<br>       capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram<br>       configuration: ansiversion=5 status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       size: 50GiB (53GB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=000e4a4e</p>
 
-    
-        <meta name="description" content="site, site"/>
-    
+        <h2 id="Backup-To-Remote-Server"   >
+          <a href="#Backup-To-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Backup To Remote Server</h2>
+      <p>This command will copy, compress and send the image to the remote server.</p>
+<p>dd if=/dev/sdb | gzip -c –fast | ssh user@ip ‘dd of=/home/user/sdb.img.gz’</p>
+<p>Explanation: DD has been instructed to copy the drive /dev/sdb. Gzip will be used for compression, <strong>- c</strong> means Write on standard output, keep original files unchanged, <strong>- -fast</strong> mean Compress faster at the expense of high compression ration. The image will then be transferred via OpenSSH using the provided user credentials to the user directory <em>/home/user</em>. Note: the backup image makes use of the <strong>.gz</strong> extension to indicate compression is being used.</p>
 
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
+        <h2 id="Restore-From-Remote-Server"   >
+          <a href="#Restore-From-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Restore From Remote Server</h2>
+      <p>Restoring the image is not that different from the command used to backup the image.</p>
+<p>ssh user@ip ‘dd if=/home/user/sdb.img.gz’ | gunzip -1 - | dd of=/dev/sdb</p>
+<p>Explanation: Using OpenSSH log in to the remote system where the image is stored and with DD pull the image. <strong>Gunzip</strong> will be used to decompress the image crated by Gzip. Once again DD will be in charged of writing the image to /dev/sdb.</p>
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Linhost.info"/>
-    
+        <h2 id="Keep-In-Mind"   >
+          <a href="#Keep-In-Mind" class="heading-link"><i class="fas fa-link"></i></a>Keep In Mind</h2>
+      <p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/">Bookmarks: Steady State Windows 7 - Ubuntu 10.10 - Google URL Shortner - Playbook</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-10-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt">
+        <h4 id="Steady-State-for-Windows-7"   >
+          <a href="#Steady-State-for-Windows-7" class="heading-link"><i class="fas fa-link"></i></a>Steady State for Windows 7</h4>
+      <p>Microsoft knows that admins like what Steady State has to offer for Widows XP and Vista, its also clear there will be no official support for Windows 7. Instead Microsoft opted to release a white paper and a reference document on how Windows 7 and group policy can be used to achieve the same results on Windows 7. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/S3E2" >http://goo.gl/S3E2</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
+        <h4 id="Ubuntu-10-10-Release-candidate"   >
+          <a href="#Ubuntu-10-10-Release-candidate" class="heading-link"><i class="fas fa-link"></i></a>Ubuntu 10.10 Release candidate</h4>
+      <p>Canonical released the official release candidate for the upcoming Ubuntu 10.10 (Maverick Meerkat), if everything goes like expected the stable release will occur on October 10. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/McJY" >http://goo.gl/McJY</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
+        <h4 id="Google-URL-shortner-avaible-to-the-public"   >
+          <a href="#Google-URL-shortner-avaible-to-the-public" class="heading-link"><i class="fas fa-link"></i></a>Google URL shortner avaible to the public</h4>
+      <blockquote>
+<p>There are many shorteners out there with great features, so some people may wonder whether the world really needs yet another. As we said late last year, we built goo.gl with a focus on quality. With goo.gl, every time you shorten a URL, you know it will work, it will work fast, and it will keep working. You also know that when you click a goo.gl shortened URL, you’re protected against malware, phishing and spam using the same industry-leading technology we use in search and other products.</p>
+</blockquote>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/5av9" >http://goo.gl/5av9</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-    <!--Type page-->
-    
-        <meta property="og:type" content="website"/>
-    
+        <h4 id="BlackBerry-Tablet-or-Playbook-is-in-the-horizon"   >
+          <a href="#BlackBerry-Tablet-or-Playbook-is-in-the-horizon" class="heading-link"><i class="fas fa-link"></i></a>BlackBerry Tablet or Playbook is in the horizon</h4>
+      <blockquote>
+<p>Called the BlackBerry Playbook. the device is a a “Flash-loving,” “device-pairing,” “enterprise-ready” tablet with an “uncompromised browsing experience” on a 7-inch screen. It is 9.7 millimeters thick and features a high-res wide screen display that supports 1080p with HDMI and USB ports.</p>
+</blockquote>
+<p>BlackBerry wants a piece of the cake and they are serious about it. iPad for hipsters , BB Tablet for bean counters. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/Dx0c" >http://goo.gl/Dx0c</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/09/microsoft-security-essentials-now-free-for-small-businesses/">Microsoft Security Essentials Now Free For Small Businesses</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you didn’t read “<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx" >The Microsoft Partner SMB Community Blog</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>” then you might have missed the announcement that small business as soon as early October 2010 will be able to legally install and use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> on up to 10 (commercial) PCs at no cost. In case you didn’t know the current EULA included with Microsoft Security Essentials does not allow for commercial use, Microsoft will adjust the EULA to reflect the announcement. <a target="_blank" rel="noopener" href="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s800/Microsoft_Security_Essentials-2010-10-13_15.37.10.png" title="Graphic"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s400/Microsoft_Security_Essentials-2010-10-13_15.37.10.png"></a> <em>Click on image to enlarge</em> Microsoft Security Essentials lacks centralized administration, If you need to secure more than 10 PCs you need to use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx" >Forefront</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
 
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
+        <h4 id="About-Microsoft-Security-Essentials"   >
+          <a href="#About-Microsoft-Security-Essentials" class="heading-link"><i class="fas fa-link"></i></a>About Microsoft Security Essentials</h4>
+      <blockquote>
+<p>Microsoft Security Essentials provides real-time protection for your home PC that guards against viruses, spyware, and other malicious software. Microsoft Security Essentials is a free* download from Microsoft that is simple to install, easy to use, and always kept up to date so you can be assured your PC is protected by the latest technology. It’s easy to tell if your PC is secure — when you’re green, you’re good. It’s that simple.</p>
+</blockquote>
+<p>Source: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 
-        <meta name="twitter:card" content="summary_large_image"/>
+        <h4 id="My-Take"   >
+          <a href="#My-Take" class="heading-link"><i class="fas fa-link"></i></a>My Take</h4>
+      <p>For a free product Microsoft Security Essentials does an excellent job as an AV product that gets out of the users way and consumes little resources. With this in mind, Small Business usually do not employ on site staff and due to the low amount of users centralized administration may be an overkill. Also, it would not be far-off to consider Microsoft Security Essentials a stepping stone in to Microsoft business oriented AV solution <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx" >Forefront</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for those businesses that want more control.</p>
 
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>page - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Linhost.info</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2010/10/windows-generate-a-file-of-any-size-with-fsutil/">
-        <h2 class="post-title">
-            Windows: Generate a File of any Size with Fsutil
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-10-08
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/">
-        <h2 class="post-title">
-            Clone a Hard Drive over the Network with DD
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-10-06
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/">
-        <h2 class="post-title">
-            Bookmarks: Steady State Windows 7 - Ubuntu 10.10 - Google URL Shortner - Playbook
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-10-02
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/09/microsoft-security-essentials-now-free-for-small-businesses/">
-        <h2 class="post-title">
-            Microsoft Security Essentials Now Free For Small Businesses
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-09-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/09/check-a-drive-for-bad-sectors-with-badblocks/">
-        <h2 class="post-title">
-            Check a Drive For Bad Sectors with Badblocks
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-09-20
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/09/teracopy-improve-file-copying-speeds/">
-        <h2 class="post-title">
-            TeraCopy - Improve File Copying Speeds
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-09-19
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/08/cutepdf-writer-print-to-pdf-on-windows/">
-        <h2 class="post-title">
-            CutePDF Writer: Print To PDF On Windows
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-08-26
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/08/google-integrates-voice-into-gmail/">
-        <h2 class="post-title">
-            Google Integrates Voice Into Gmail
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-08-25
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/">
-        <h2 class="post-title">
-            OpenSolaris Cancelled, Self-Wiping drive, Browsers Private Mode, Is SAS Dead?
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-08-14
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2010/08/qa-log-failed-ssh-log-in-attempts/">
-        <h2 class="post-title">
-            Q&A: Log Failed SSH Log-In Attempts
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2010-08-11
-    </p>
-</div>
-<hr>
-            
-
-            <ul class="pager">
-    
-        <li class="previous"><a href="/page/14/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/page/16/">Older Posts  &rarr;</a></li>
-    
+        <h4 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h4>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx" >Microsoft Partner SMB Community Blog</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/09/check-a-drive-for-bad-sectors-with-badblocks/">Check a Drive For Bad Sectors with Badblocks</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-09-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>At home I have a pfSense firewall, the thing about my firewall is that I did a full installation on a Compact Flash card. Because, I want the benefits of a full installation like not loosing RRD graphs in case someone accidentally pulls the plug. The downside of using Compact Flash cards or Flash memory is the finite number of writes before wearing down and resulting in damaged sectors (unusable ones). The advantages of Flash memory are: <em>no moving parts, creates little heat, low power, and no noise</em>. This is why Flash memory is ideal for my needs, and I know of other full installs on Compact Flash cards that have worked for up to three years and even longer. <strong>You can take some precautions to reduce wear on a Compact Flash like:</strong></p>
+<ul>
+<li>Use the embedded version of pfSense</li>
+<li>With enough RAM the system may not have to use the swap partition at all.</li>
+<li>Remove the swap partition.</li>
 </ul>
-        </div>
-    </div>
-</div>
+<p>And it doens’t hurt to know that SLC Flash will last longer than MLC Flash.</p>
+<blockquote>
+<p>Flash Cell Endurance: For Multi-Level Cell (MLC) Flash, up to 10,000 write cycles per physical sector. For Single-Level Cell (SLC) Flash, up to 100,000 write cycles per physical sector.</p>
+</blockquote>
+<p>Source: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.kingston.com/flash_memory_guide/" >Kingston Flash Memory Guide</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Because, I have 512MB of RAM in my Firewall which is more than enough, I did not remove the swap partition. Still, I worry about the finite number of writes on Flash memory, which prompted me to use badblocks. Badblocks is a tool capable of scanning a drive and report back on any damaged sectors it encounters. Modern drives can handle damaged sectors by seamlessly ignoring damaged sectors and only working with the remaining good sectors. This may sound great at first, but the truth is that the card is in the process of deteriorating(more to come) and the drive may need to be replaced.</p>
 
+        <h2 id="Tools-of-the-trade"   >
+          <a href="#Tools-of-the-trade" class="heading-link"><i class="fas fa-link"></i></a>Tools of the trade</h2>
+      <p>For this tutorial I will be using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://partedmagic.com/" >Parted Magic</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a Live distribution which includes badblocks. However, you will find badblocks on any Linux distributions. Also, make sure the target drive is unmounted before running badblocks. First you need the name of the drive you wish to scan, for this we can use <strong>lshw</strong> or Hardware Lister. The command is <strong>lshw -C disk</strong>.</p>
+<p>root@PartedMagic:~# lshw -C disk<br>  *-disk<br>       description: ATA Disk<br>       product: ELITE PRO CF CAR<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       version: Ver3<br>       serial: 5B021A040<br>       size: 3639MiB (3816MB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: ansiversion=5 signature=8f800000<br>  *-cdrom<br>       description: DVD reader<br>       physical id: 0.1.0<br>       bus info: scsi@3:0.1.0<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       capabilities: audio dvd<br>       configuration: status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@4:0.0.0<br>       logical name: /dev/sdb<br>       size: 492MiB (515MB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=795b8ead</p>
+<p>Fortunately, the Compact Flash card I am using provides more than enough information about its location <strong>/dev/sda</strong>. With that information in mind we can continue to the second step of this tutorial.</p>
 
+        <h2 id="Let’s-search-for-bad-blocks"   >
+          <a href="#Let’s-search-for-bad-blocks" class="heading-link"><i class="fas fa-link"></i></a>Let’s search for bad blocks</h2>
+      <p>The command is very simple to understand <strong>badblocks -options /target_drive</strong>. The graphic below should help explain the meaning of the parameters. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/vWirLxtJ6mH2DrMIOJ3cRA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TJVgkV3hR7I/AAAAAAAACgQ/ksAx-RunEnk/s800/badblocks_parameter.png"></a></p>
 
-    <!-- Footer -->
-    <hr />
+        <h2 id="Result"   >
+          <a href="#Result" class="heading-link"><i class="fas fa-link"></i></a>Result</h2>
+      <p>From the output below you can see that badblocks checks every block from 0 all the way to 3727079.</p>
+<p>root@PartedMagic:~# badblocks -nvs /dev/sda<br>Checking for bad blocks in non-destructive read-write mode<br>From block 0 to 3727079<br>Checking for bad blocks (non-destructive read-write test)<br>Testing with random pattern: done<br>Pass completed, 0 bad blocks found.</p>
+<p>After three months of use my 4GB Kingston Compact Flash card is performing like expected with zero bad blocks. If you plan on doing a full installation on a Compact Flash then you should use badblocks to monitor the health of the Compact Flash over time. Remember to unmount the drive you wish to scan with badblocks.</p>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+        <h2 id="Video"   >
+          <a href="#Video" class="heading-link"><i class="fas fa-link"></i></a>Video</h2>
+      <p>I also made a video of the process. </p>
 
-                    
+        <h2 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://partedmagic.com/" >Parted Magic Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://smartmontools.sourceforge.net/badblockhowto.html" >Badblocks</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ezix.org/project/wiki/HardwareLiSter" >lshw</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/09/teracopy-improve-file-copying-speeds/">TeraCopy - Improve File Copying Speeds</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-09-19</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Windows Explorer does a great job of moving small files, however the same cannot be said about large file transfers. The process of copying takes longer than it should. When moving or transferring files you run the risk of corrupting them, combined with the fact that Windows Explorer may not alert you of a mismatch you may be looking at trouble. Also, in the case of terminated transfer you may have to transfer the entire file all over again and waste valuable time, problems like this can be painful on files ranging in the tens of Gigabytes or even higher. To overcome this limitations you should consider using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.php" >TeraCopy</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Think of TeraCopy as a smart way of transferring files, by using TeraCopy you can expect to: <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TJMdq3bi73I/AAAAAAAACf4/HrNBkKjgc8E/s800/teracopy_main.png"></p>
+<ul>
+<li>Copy files faster. TeraCopy uses dynamically adjusted buffers to reduce seek times. Asynchronous copy speeds up file transfer between two physical hard drives.</li>
+<li>Pause and resume file transfers. Pause copy process at any time to free up system resources and continue with a single click.</li>
+<li>Error recovery. In case of copy error, TeraCopy will try several times and in the worse case just skip the file, not terminating the entire transfer.</li>
+<li>Interactive file list. TeraCopy shows failed file transfers and lets you fix the problem and recopy only problem files.</li>
+<li>Shell integration. TeraCopy can completely replace Explorer copy and move functions, allowing you work with files as usual.</li>
+<li>Full Unicode support.</li>
+<li>Windows 7 x64 support.</li>
+</ul>
+<blockquote>
+<p>In my not-so scientific test TeraCopy transferred a total of 9.28GB in a total time 2:53.59 minutes, while Windows Explorer took 3:41.49 to move the same amount of data.</p>
+</blockquote>
+<p>And it doesn’t hurt to have TeraCopy verify the checksum of the transferred files. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TJMdrp74YLI/AAAAAAAACf8/xfEVd9HY5ZE/s800/teracopy_verify.png"> Integrates nicely with Windows for convenience. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TJMclooTRRI/AAAAAAAACfo/ru4J0DqxNbk/s800/teracopy_windows_intergration.png"> While my test was minimal the value of TeraCopy becomes evident when moving large amounts of data between drives, not using a smart solution like TeraCopy can be a painful and wasteful experience. TeraCopy is available at no cost for home use and is also available in the form of a paid version that includes other features like support.</p>
 
-                    
+        <h4 id="Links"   >
+          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h4>
+      <p>To download TeraCopy visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.ph" >Codesector.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/08/cutepdf-writer-print-to-pdf-on-windows/">CutePDF Writer: Print To PDF On Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-08-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>It would be safe to assume that PDF or Portable Document Format is a convenient and widely supported format, specially if you wish to distribute documents that don’t have to be edited. The problem is that not all applications support exporting or printing to the PDF format natively. While plenty of online services will happily covert documents to other formats they usually come with inconveniences and the result may not look professional when a document is watermarked with the name of a third party. Meet <strong>CutePDF Writer</strong> a printer subsystem or in simple terms “CutePDF Writer is a plug-in that appears as if it was a printer, instead of a paper copy the result will be a PDF”, applications only have to support printing in order to use CutePDF Writer. When the subsytem is installed you can choose between printing to a regular printer or CutePDF Writer. CutePDF Writer has several advantages over online PDF convertion services like:</p>
+<ul>
+<li>No unwanted watermaks or ads on the resulting files</li>
+<li>No unecessary conversion from say .doc to PDF, output directly to PDF</li>
+<li>No need to modify local applications</li>
+<li>No limits on how much or what you print, privacy is in your hands</li>
+<li>Free for commercial and non-commercial use</li>
+</ul>
+<p>To start using the subsystem first you need to go over to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp" >cutepdf.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and download CutePDF Writer <em>CuteWriter.exe</em> and optionally the free PDF coverter <em>coverter.exe</em>. I say optionally because CuteWriter.exe alone has the capability of downloading converter.exe over the Internet and install it for you. However, if you do not expect to be near an Internet connection you should download both files. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TG3UrslGnrI/AAAAAAAACds/9b33pHlkqfg/s800/cute_screen.png"></p>
+<blockquote>
+<p>Ghostscript is an example of a PS2PDF, its a must if you wish to output file in to PDF</p>
+</blockquote>
+<p>Once the download in complete, double click on <strong>CuteWriter.exe</strong> to start the installer. Begin the installation by clicking on the <strong>Install</strong> button. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TGudds9rknI/AAAAAAAACck/UHdKqyLTI-Q/s800/1.png"> Since the CutePDF Writer installer did not find any sings of a PS2PDF on the system you are being given the option to automatically download and install <em>coverter.exe</em> for you. Click on <strong>Yes</strong> to install coverter.exe on the system. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TGuddjTasFI/AAAAAAAACco/RDjfx3rshZI/s800/2.png"> Internet connection required, allow some time for the download to complete. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGudd7JjGzI/AAAAAAAACcs/eFA0vbIyR14/s800/3.png"> When CutePDF Writer and all of the components are installed you will be presented with a page in your browser explaining how to use it. We will use this page to print out first PDF. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TGufeoerC3I/AAAAAAAACdQ/rkdHFq52psA/s800/4.png"> Let’s try it for the first time, depending on the browser you are using try to print a page or use <strong>Ctrl + P</strong>. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGudnUtpG5I/AAAAAAAACc4/bnJv9XOpzxI/s800/6.png"> To print to a PDF select <strong>CutePDF Writer</strong> and hit the <strong>Print</strong> button. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TGudngw14EI/AAAAAAAACc8/ldo-TTXbMLI/s800/7.png"> Name the document and select the location where the file will be saved. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/THYU9yztE4I/AAAAAAAACeo/r2WABavLpDQ/s800/save.png"> Go to the location where the file was stored and open it, as you can see the result is a PDF file. Saving documents to PDF could not be easier and might even help you save on the cost of printer ink. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGufe6o3UXI/AAAAAAAACdU/AerwOfPR6F4/s800/5-2.png"></p>
 
-                    
+        <h4 id="For-More-Information-Visit"   >
+          <a href="#For-More-Information-Visit" class="heading-link"><i class="fas fa-link"></i></a>For More Information Visit:</h4>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp" >CutePDF Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Portable_Document_Format" >Wikipedia Entry On PDF</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/08/google-integrates-voice-into-gmail/">Google Integrates Voice Into Gmail</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-08-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>In a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://googleblog.blogspot.com/2010/08/call-phones-from-gmail.html" >blog post Google announced</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> that Gmail will now integrate support for VOIP, the service will continue to provide free calling to countries like the United States and Canada, calling rates for other countries will vary (U.K., France, Germany, China, Japan pay $0.02 a minute). <img src="http://lh4.ggpht.com/_fF0LO28FGYY/THXraaTxmbI/AAAAAAAACeA/pPYq_E7k0EA/s800/screenshot2.jpeg" title="Google Voice"> However, Google Apps users and non-US users will have to wait longer.</p>
+<blockquote>
+<p>Given that most of us don’t spend all day in front of our computers, we thought, “wouldn’t it be nice if you could call people directly on their phones?”</p>
+</blockquote>
+<p>In order to be able to use the new service users will need to install the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.gmail.com/call" >Voice and video plug-in</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> before using it. The service is expected to become functional over the next few days. The most important aspect of this announcement is the convenient user experience, while raising questions on how much of your personal information Google now manages.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/">OpenSolaris Cancelled, Self-Wiping drive, Browsers Private Mode, Is SAS Dead?</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-08-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://mail.opensolaris.org/pipermail/opensolaris-discuss/2010-August/059310.html" >[osol-discuss] OpenSolaris cancelled, to be replaced with Solaris 11 Express</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>This memo was circulated internally within Oracle (and subsequently leaked). Basically, the open source development model has now been axed and OpenSolaris is officially now dead. A very sad day indeed.</p>
+</blockquote>
+<p>It seems that Oracle has no room for OpenSolaris in its new strategy to get Sun out of the whole its in. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180492/Toshiba_touts_drives_that_wipe_data_when_turned_off" >Toshiba touts drives that wipe data when turned off</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>The Wipe feature in Toshiba’s SED (Self-Encrypting Drives) will allow for deletion of secure data prior to disposing or repurposing hard drives, Toshiba said in a statement. This feature prevents secure data from getting lost or stolen.</p>
+</blockquote>
+<p>Think of the possibilities, seriously you think of them!. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blog.gridcentriclabs.com/2010/08/virtualization-and-over-subscription.html" >Virtualization and over-subscription: breaking the 100% utilization barrier</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>Our developers are hard at work on our next generation of products, which in addition to allowing instantaneous scaling and solving configuration nightmares, allows you to over-commit your physical resources (both processors and memory). This quick demo provides a great example of over-subscription, showing a development version of our platform cramming 16 gigabytes worth of clones onto a single host with 8 gigabytes of memory. Awesome.</p>
+</blockquote>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180493/Browsers_private_modes_leak_info_say_researchers" >Browsers’ private modes leak info, say researchers</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> kind of obvious, Private Mode is “like a candle in the wind… unreliable” <em>Garth Marenghi</em> , too many variables with room for leaks. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technologizer.com/2010/08/12/ipad-alternatives/" >iPadversaries! 32 Tablets, Slates, Pads, and More</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Most of them wont even survive the first round.</p>
 
-                    
+        <h3 id="Moving-On…"   >
+          <a href="#Moving-On…" class="heading-link"><i class="fas fa-link"></i></a>Moving On…</h3>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://storageadvisors.adaptec.com/2010/08/13/is-sas-dead-yet/" >Is SAS dead yet?</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>Just hold the horses … what about the writes.</p>
+</blockquote>
+<p>This one never gets old. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blog.fosketts.net/2010/08/11/320-gb-hard-disk-drive-reliability/" >Are 320 GB Drives Doomed?</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<blockquote>
+<p>Industry numbers suggest that one would have to fill a 320 GB SATA drive 37 times before encountering an unrecoverable read error, potentially losing data.</p>
+</blockquote>
+<p>Yeah, live on the wild side. Go 320GB!.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/08/qa-log-failed-ssh-log-in-attempts/">Q&amp;A: Log Failed SSH Log-In Attempts</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-08-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><strong>Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What file and parameter do I need to change in order to start logging failed attempts?.</strong> <strong>A)</strong> by default OpenSSH on Ubuntu is not set to log failed log-in attempts, I guess the logic behind this decision is to reduce the amount of logs being generated. The risk associated with not logging failed attempts is that you will never know if your server is being targeted by the bad guys, pretty much anything exposed to the Internet is bound to be a target of some sort.</p>
 
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
-
-
-
-</body>
-
-</html>
+        <h2 id="Solution"   >
+          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
+      <p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
+<p>nano /etc/ssh/sshd_config</p>
+<p>And look for the line starting with <em>#Logging</em> and change the parameter from <em>LogLevel INFO</em> to <em>LogLevel VERBOSE</em>.</p>
+<p># Logging<br>SyslogFacility AUTH<br>LogLevel INFO</p>
+<p>The new configuration should look like this:</p>
+<p># Logging<br>SyslogFacility AUTH<br>LogLevel VERBOSE</p>
+<p>From now on the system will log all failed attempts to <em>/var/log/auth.log</em>. Just don’t be surprised about your popularity with the bad guys!.</p>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/14/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/16/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

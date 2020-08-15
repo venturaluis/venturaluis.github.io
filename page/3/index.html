@@ -1,423 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/3/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Lven">
+<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/3/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/02/ubuntu-server-14-04-static-ip-configuration/">Ubuntu Server 14.04 Static IP configuration</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-02-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>In order to set up static IP configuration in Ubuntu 14.04 you need to edit the /etc/network/interfaces file.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;network&#x2F;interfaces</span><br></pre></td></tr></table></div></figure>
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<p>You can remove the content referring to the previous DHCP configuration and add the parameters below. Change the addresses below to fit your needs.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># This file describes the network interfaces available on your system</span><br><span class="line"># and how to activate them. For more information, see interfaces(5).</span><br><span class="line"># The loopback network interface</span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"># The primary network interface</span><br><span class="line">auto eth0</span><br><span class="line"></span><br><span class="line"># Static IP configuration</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.1.5</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">network 192.168.1.0</span><br><span class="line">broadcast 192.168.1.255</span><br><span class="line">gateway 192.168.1.1</span><br><span class="line">dns-nameservers 8.8.4.4</span><br></pre></td></tr></table></div></figure>
 
-    <!--Description-->
+<p>You don’t have to restart the system instead restart the networking service.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service networking restart</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/01/ubiquiti-edgerouter-firmware-upgrade/">Ubiquiti EdgeRouter Firmware Upgrade</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-01-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>EdgeOS firmware can be downloaded from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ubnt.com/download/" >Ubiquity download page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. First we need to see the installed version.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">show version</span><br><span class="line"></span><br><span class="line">Version:      v1.2.0</span><br><span class="line">Build ID:     4574253</span><br><span class="line">Build on:     06&#x2F;26&#x2F;13 12:48</span><br><span class="line">Copyright:    2012-2013 Ubiquiti Networks, Inc.</span><br><span class="line">HW model:     EdgeRouter Lite 3-Port</span><br><span class="line">HW S&#x2F;N:       -------------</span><br><span class="line">Uptime:       14:53:51 up  4:00,  2 users,  load average: 0.00, 0.02, 0.00</span><br></pre></td></tr></table></div></figure>
 
-    
+<p>I like EdgeOS because you can pull the image directly into the router via HTTP. Alternatively you can download the image into a local webserver(like I did) and install from there. After the download is complete installation will begin.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">add system image http:&#x2F;&#x2F;192.168.1.5&#x2F;ER-e100.v1.5.0.4677648.tar</span><br><span class="line"></span><br><span class="line">Trying to get upgrade file from http:&#x2F;&#x2F;192.168.1.5&#x2F;ER-e100.v1.5.0.4677648.tar</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100 68.9M  100 68.9M    0     0  7837k      0  0:00:09  0:00:09 --:--:-- 6334k</span><br><span class="line">Download suceeded</span><br><span class="line">Checking upgrade image... Done</span><br><span class="line">Preparing to upgrade... Done</span><br><span class="line">Copying upgrade image... Done</span><br><span class="line">Removing old image... Done</span><br><span class="line">Checking upgrade image... Done</span><br><span class="line">Finishing upgrade... Done</span><br><span class="line">Upgrade completed</span><br></pre></td></tr></table></div></figure>
 
-    
-        <meta name="description" content="site, site"/>
-    
+<p>The image has been installed but its not running yet, we need to reboot the router for the new image to become the default.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show system image</span><br><span class="line"></span><br><span class="line">The system currently has the following image(s) installed:</span><br><span class="line"></span><br><span class="line">v1.5.0.4677648.140620.1301     (default boot)</span><br><span class="line">v1.2.0.4574253.130626.1248     (running image)</span><br></pre></td></tr></table></div></figure>
 
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
+<p>A reboot is needed to boot default image</p>
+<p>Simply reboot and the new image will become the default boot.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br><span class="line"></span><br><span class="line">Proceed with reboot? \[confirm\]</span><br><span class="line"></span><br><span class="line">Verify the router is running the recently installed image.</span><br></pre></td></tr></table></div></figure>
 
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="Linhost.info"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="website"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>page - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">show version</span><br><span class="line"></span><br><span class="line">Version:      v1.5.0</span><br><span class="line">Build ID:     4677648</span><br><span class="line">Build on:     06&#x2F;20&#x2F;14 13:01</span><br><span class="line">Copyright:    2012-2014 Ubiquiti Networks, Inc.</span><br><span class="line">HW model:     EdgeRouter Lite 3-Port</span><br><span class="line">HW S&#x2F;N:       -------------</span><br><span class="line">Uptime:       15:01:36 up 1 min,  1 user,  load average: 0.78, 0.30, 0.11</span><br></pre></td></tr></table></div></figure>
 
 
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+        <h3 id="Optional-commands"   >
+          <a href="#Optional-commands" class="heading-link"><i class="fas fa-link"></i></a>Optional commands</h3>
+      <p>EdgeOS can store two images in the event you need to revert to a previous version.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show system image</span><br><span class="line"></span><br><span class="line">The system currently has the following image(s) installed:</span><br><span class="line"></span><br><span class="line">v1.5.0.4677648.140620.1301     (running image) (default boot)</span><br><span class="line">v1.2.0.4574253.130626.1248</span><br></pre></td></tr></table></div></figure>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<p>You can also delete one of the image.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete system image</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2014/02/feb-13-2014-downtime/">Feb 13, 2014 Downtime</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2014-02-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Sorry for the downtime on Feb 13, the VPS which hosts this site had a hypervisor failure, at least that’s what I was told by my hosting provider Digital Ocean.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/10/download-test-files/">Download Test Files</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-10-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>While this isn’t a definitive test of available bandwidth it should help you form an idea of what an Internet link throughput is. <strong>wget -O /dev/null</strong> avoids skewed results caused by disk performance limitations. <strong>CacheFly</strong> Location: CDN</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://cachefly.cachefly.net/100mb.test" >http://cachefly.cachefly.net/100mb.test</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>SoftLayer</strong> Location: USA and Amsterdam</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.dal01.softlayer.com/downloads/test100.zip" >http://speedtest.dal01.softlayer.com/downloads/test100.zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.sea01.softlayer.com/downloads/test100.zip" >http://speedtest.sea01.softlayer.com/downloads/test100.zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.ams01.softlayer.com/downloads/test500.zip" >http://speedtest.ams01.softlayer.com/downloads/test500.zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>Linode</strong> Location: USA, UK, and Japan</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.tokyo.linode.com/100MB-tokyo.bin" >http://speedtest.tokyo.linode.com/100MB-tokyo.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.london.linode.com/100MB-london.bin" >http://speedtest.london.linode.com/100MB-london.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.newark.linode.com/100MB-newark.bin" >http://speedtest.newark.linode.com/100MB-newark.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.atlanta.linode.com/100MB-atlanta.bin" >http://speedtest.atlanta.linode.com/100MB-atlanta.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.dallas.linode.com/100MB-dallas.bin" >http://speedtest.dallas.linode.com/100MB-dallas.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://speedtest.fremont.linode.com/100MB-fremont.bin" >http://speedtest.fremont.linode.com/100MB-fremont.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>Leaseweb</strong> Location: USA and Netherlands</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://mirror.nl.leaseweb.net/speedtest/1000mb.bin" >http://mirror.nl.leaseweb.net/speedtest/1000mb.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://mirror.us.leaseweb.net/speedtest/1000mb.bin" >http://mirror.us.leaseweb.net/speedtest/1000mb.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>FDCServer</strong> Location: USA</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://lg.denver.fdcservers.net/100MBtest.zip" >http://lg.denver.fdcservers.net/100MBtest.zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>OVH</strong> Location: France</p>
+<p>wget -O /dev/null <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://proof.ovh.net/files/100Mb.dat" >http://proof.ovh.net/files/100Mb.dat</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/09/automatically-mount-a-usb-drive-in-ubuntu-server/">Automatically Mount A USB Drive In Ubuntu Server</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-09-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>USB drives can be easily and automatically mounted on Ubuntu Server with the help of USBmount which is available from the Ubuntu and Debian repositories. Fortunately, USBmount requires little configuration in order to work. The following was tested in Debian 7 Wheezy and Ubuntu 13.04.</p>
 
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
+        <h2 id="Installation-and-Configuration"   >
+          <a href="#Installation-and-Configuration" class="heading-link"><i class="fas fa-link"></i></a>Installation and Configuration</h2>
+      <p>Make sure you run apt-get update/upgrade before starting the tutorial.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line"></span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
 
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+<p>Now install USBmount from the repositories.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install usbmount</span><br></pre></td></tr></table></div></figure>
 
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
+<p>USBmount mounts all USB drives in <strong>/media/usb*</strong>. Now plug a USB drive and wait for it to be detected and mounted. As long as the host OS supports the File System it should be mounted. To verify whether the USB drive was mounted correctly you can use <strong>df -h</strong> to view all available drives and their respective mount points. My 4GB USB drive is accessible from the /media/usb0 mount point.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">user@debian:~$ df -h</span><br><span class="line"></span><br><span class="line">Filesystem                                              Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs                                                   49G   18G   29G  38% &#x2F;</span><br><span class="line">udev                                                     10M     0   10M   0% &#x2F;dev</span><br><span class="line">tmpfs                                                   100M  432K  100M   1% &#x2F;run</span><br><span class="line">&#x2F;dev&#x2F;disk&#x2F;by-uuid&#x2F;af874479-b4ee-4d83-a3da-d2fdb48511ea   49G   18G   29G  38% &#x2F;</span><br><span class="line">tmpfs                                                   5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs                                                   404M     0  404M   0% &#x2F;run&#x2F;shm</span><br><span class="line">&#x2F;dev&#x2F;sdb1                                               138G   14G  118G  11% &#x2F;media&#x2F;hdd1</span><br><span class="line">&#x2F;dev&#x2F;sdc1                                               3.8G  6.6M  3.8G   1% &#x2F;media&#x2F;usb0</span><br></pre></td></tr></table></div></figure>
 
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Linhost.info</h1>
-                    <hr class="small">
-                    <span class="subheading"></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2015/02/ubuntu-server-14-04-static-ip-configuration/">
-        <h2 class="post-title">
-            Ubuntu Server 14.04 Static IP configuration
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-02-15
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2015/01/ubiquiti-edgerouter-firmware-upgrade/">
-        <h2 class="post-title">
-            Ubiquiti EdgeRouter Firmware Upgrade
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2015-01-12
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2014/02/feb-13-2014-downtime/">
-        <h2 class="post-title">
-            Feb 13, 2014 Downtime
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2014-02-20
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/10/download-test-files/">
-        <h2 class="post-title">
-            Download Test Files
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-10-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/09/automatically-mount-a-usb-drive-in-ubuntu-server/">
-        <h2 class="post-title">
-            Automatically Mount A USB Drive In Ubuntu Server
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-09-24
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/09/502-bad-gateway-nginx-and-php-fpm/">
-        <h2 class="post-title">
-            502 Bad Gateway - Nginx and PHP-FPM
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-09-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/09/mount-a-usb-drive-in-ubuntu-server/">
-        <h2 class="post-title">
-            Mount A USB Drive In Ubuntu Server
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-09-23
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/09/disable-emergency-alerts-in-the-htc-one-v/">
-        <h2 class="post-title">
-            Disable Emergency Alerts In The HTC One V
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-09-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/09/increase-console-resolution-in-ubuntu/">
-        <h2 class="post-title">
-            Increase Console Resolution In Ubuntu
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-09-22
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2013/08/passwd-authentication-token-manipulation-error-ubuntu/">
-        <h2 class="post-title">
-            Passwd: Authentication token manipulation error - Ubuntu
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2013-08-20
-    </p>
-</div>
-<hr>
-            
-
-            <ul class="pager">
-    
-        <li class="previous"><a href="/page/2/">&larr;  Newer Posts</a></li>
-    
-    
-        <li class="next"><a href="/page/4/">Older Posts  &rarr;</a></li>
-    
-</ul>
-        </div>
-    </div>
-</div>
+<p>To un-mount a drive you can use <strong>umount</strong>.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount &#x2F;media&#x2F;usb0</span><br></pre></td></tr></table></div></figure>
 
 
+        <h2 id="Conclusion"   >
+          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h2>
+      <p>USBmount is quite handy for mounting USB drives with no effort.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/09/502-bad-gateway-nginx-and-php-fpm/">502 Bad Gateway - Nginx and PHP-FPM</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Nginx 502 Bad Gateway cost me more time than the actual Ubuntu + PHP-FPM + MySQL installation I was working on. In my case the <strong>502 Bad Gateway</strong> error on my installation was the result of a parameter mismatch between <strong>/etc/ningx/sites-available/default</strong> and <strong>/etc/php5/fpm/pool.d/<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.conf/" >www.conf</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></strong>. In order to solve the 502 Bad Gateway problem edit the Nginx file <strong>/etc/ningx/sites-available/default</strong>.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;ningx&#x2F;sites-available&#x2F;default</span><br></pre></td></tr></table></div></figure>
 
-    <!-- Footer -->
-    <hr />
+<p>And look for the commented line <strong># fastcgi_pass unix:/var/run/php5-fpm.sock;</strong> and uncomment the line.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastcgi\_pass unix:&#x2F;var&#x2F;run&#x2F;php5-fpm.sock;</span><br></pre></td></tr></table></div></figure>
 
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
+<p>You <strong>location ~ .php$ {</strong> section should look similar to mine.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">location ~ .php$ &#123;</span><br><span class="line">               fastcgi\_split\_path\_info ^(.+.php)(&#x2F;.+)$;</span><br><span class="line">       #       # NOTE: You should have &quot;cgi.fix\_pathinfo &#x3D; 0;&quot; in php.ini</span><br><span class="line">       #</span><br><span class="line">       #       # With php5-cgi alone:</span><br><span class="line">       #       fastcgi\_pass 127.0.0.1:9000;</span><br><span class="line">       #       # With php5-fpm:</span><br><span class="line">               fastcgi\_pass unix:&#x2F;var&#x2F;run&#x2F;php5-fpm.sock;</span><br><span class="line">               fastcgi\_index index.php;</span><br><span class="line">               include fastcgi\_params;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>The final two steps are to restart Nginx and PHP-FPM.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx restart</span><br></pre></td></tr></table></div></figure>
 
-                    
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service php5-fpm restart</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>Now you have a working installation like it should have been from the beginning.</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/09/mount-a-usb-drive-in-ubuntu-server/">Mount A USB Drive In Ubuntu Server</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-09-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Before we can mount a USB drive we need to gather some information about it. With the help of <strong>fdisk</strong> we can see that my 4GB USB drive was recognized as <strong>/deb/sdc1</strong> and is formatted with FAT32.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br><span class="line"></span><br><span class="line">Disk &#x2F;dev&#x2F;sdc: 4049 MB, 4049600512 bytes</span><br><span class="line">255 heads, 63 sectors&#x2F;track, 492 cylinders, total 7909376 sectors</span><br><span class="line">Units &#x3D; sectors of 1 \* 512 &#x3D; 512 bytes</span><br><span class="line">Sector size (logical&#x2F;physical): 512 bytes &#x2F; 512 bytes</span><br><span class="line">I&#x2F;O size (minimum&#x2F;optimal): 512 bytes &#x2F; 512 bytes</span><br><span class="line">Disk identifier: 0x04c91666</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">&#x2F;dev&#x2F;sdb1   \*        2048     7909375     3953664    b  W95 FAT32</span><br></pre></td></tr></table></div></figure>
 
-                    
+<p>Now create a mount point where the USB drive will be mounted. Only one drive per mount point.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir &#x2F;media&#x2F;usb</span><br></pre></td></tr></table></div></figure>
 
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
+<p>There is a good change your USB drive will be formatted with FAT16/32 therefore using the parameter <strong>-t vfat</strong> will suffice, otherwise you can use <strong>-t ntfs</strong> or <strong>-t ext3</strong> depending on the file system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vfat &#x2F;dev&#x2F;sdb1 &#x2F;media&#x2F;usb</span><br></pre></td></tr></table></div></figure>
 
+<p>Make sure drive was mounted with the help of <strong>df -h</strong>. The 4GB USB drive is mounted and accessible from the <strong>/media/usb</strong> mount point.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">user@debian:~$ df -h</span><br><span class="line">Filesystem                                              Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs                                                   49G   18G   29G  38% &#x2F;</span><br><span class="line">udev                                                     10M     0   10M   0% &#x2F;dev</span><br><span class="line">tmpfs                                                   100M  432K  100M   1% &#x2F;run</span><br><span class="line">&#x2F;dev&#x2F;disk&#x2F;by-uuid&#x2F;af874479-b4ee-4d83-a3da-d2fdb48511ea   49G   18G   29G  38% &#x2F;</span><br><span class="line">tmpfs                                                   5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs                                                   404M     0  404M   0% &#x2F;run&#x2F;shm</span><br><span class="line">&#x2F;dev&#x2F;sdb1                                               3.8G  6.6M  3.8G   1% &#x2F;media&#x2F;usb</span><br></pre></td></tr></table></div></figure>
 
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<p>To un-mount the drive you can simply use the <strong>umount</strong> command folowed the mount point.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount &#x2F;media&#x2F;usb</span><br></pre></td></tr></table></div></figure>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/09/disable-emergency-alerts-in-the-htc-one-v/">Disable Emergency Alerts In The HTC One V</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-09-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Why would I disable the emergency alerts in my phone, well they tend to sound as if the world is about to end no matter the time of day. Also depending on the season you might received multiple alerts during the day. <img src="http://cdn.linhost.info/static/htc-one-v-1.png" alt="HTC One V"></p>
 
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <h2 id="Let’s-Disable-The-Alarms"   >
+          <a href="#Let’s-Disable-The-Alarms" class="heading-link"><i class="fas fa-link"></i></a>Let’s Disable The Alarms</h2>
+      <p>Find and select the <strong>Messages</strong> icon. <img src="http://cdn.linhost.info/static/htc-one-v-2.png" alt="HTC One V"> Once in the Messages application tap on <strong>Menu</strong> which is located in the upper right corner. From the drop down menu select <strong>Settings</strong>. <img src="http://cdn.linhost.info/static/htc-one-v-3.png" alt="HTC One V"> Select <strong>Emergency alerts</strong>. <img src="http://cdn.linhost.info/static/htc-one-v-4.png" alt="HTC One V"> Uncheck all available options. You can’t uncheck <strong>Presidential alert</strong>. <img src="http://cdn.linhost.info/static/htc-one-v-5.png" alt="HTC One V"> This is how your screen should look. <img src="http://cdn.linhost.info/static/htc-one-v-6.png" alt="HTC One V"> Now you can rest assured an emergency alert won’t wake you up in the middle of the night(multiple times).</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/09/increase-console-resolution-in-ubuntu/">Increase Console Resolution In Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-09-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Higher resolution means more text in the same window this especially applies to the console. The following was tested in Debian 7 Wheezy and Ubuntu 13.04. With Grub 2 with can easily increase the resolution by making a few changes.</p>
 
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+        <h3 id="Console-Resolution"   >
+          <a href="#Console-Resolution" class="heading-link"><i class="fas fa-link"></i></a>Console Resolution</h3>
+      <p>Open and edit the grub file.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano &#x2F;etc&#x2F;default&#x2F;grub</span><br></pre></td></tr></table></div></figure>
 
-<!-- Disqus Comments -->
+<p>Search for the following line and uncomment “<strong>#GRUB_GFXMODE=640</strong>“, modify it to include a higher resolution such as <strong>1440x900</strong>. Also add the line “<strong>GRUB_GFXPAYLOAD_LINUX=keep</strong>“.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GRUB\_GFXMODE&#x3D;1440X900</span><br><span class="line">GRUB\_GFXPAYLOAD\_LINUX&#x3D;keep</span><br></pre></td></tr></table></div></figure>
 
+<p>The lines above should be what increases the console resolution. Now update Grub.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></div></figure>
 
+<p>And restart the system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo shutdown -r now</span><br></pre></td></tr></table></div></figure>
 
-</body>
+<p>Now you should be able to make better use of your monitor resolution. <img src="http://linhost.info/wordpress/wp-content/uploads/2013/09/htop-1440x900.png" alt="HTOP 1440x900"></p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2013/08/passwd-authentication-token-manipulation-error-ubuntu/">Passwd: Authentication token manipulation error - Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-08-20</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>You probably encountered this error while trying to reset the password on a Ubuntu system.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passwd nyuser</span><br><span class="line"></span><br><span class="line">Enter new UNIX password:</span><br><span class="line">Retype new UNIX password:</span><br><span class="line">passwd: Authentication token manipulation error</span><br><span class="line">passwd: password unchanged</span><br></pre></td></tr></table></div></figure>
 
-</html>
+<p>This is the result of trying to work on a file system while mounted as read-only. The solution is a simple one. Before making changes to the users password mount the filesystem as read-write which allows for the necessary changes to be made.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -o rw,remount &#x2F;</span><br></pre></td></tr></table></div></figure>
+
+<p>Now try to change the users passwords again.</p>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">passwd nyuser</span><br><span class="line"></span><br><span class="line">Enter new UNIX password:</span><br><span class="line">Retype new UNIX password:</span><br><span class="line">passwd: password updated successfully</span><br></pre></td></tr></table></div></figure>
+</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>

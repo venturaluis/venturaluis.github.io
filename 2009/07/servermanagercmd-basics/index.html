@@ -1,332 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart ServermManagerCmd.exe. The command line orie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ServerManagerCmd basics">
+<meta property="og:url" content="http://linhost.info/2009/07/servermanagercmd-basics/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart ServermManagerCmd.exe. The command line orie">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SnDbzUeVgNI/AAAAAAAABWA/BCHUVAOdwcc/s800/servermanagercmd.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1Mh9DlZI/AAAAAAAABWE/RvrqJ5DzysM/s800/servermanager_install.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1M1GO6HI/AAAAAAAABWI/yh34JeSBCmY/s800/servermanafer_remove.png">
+<meta property="article:published_time" content="2009-07-31T04:18:03.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.514Z">
+<meta property="article:author" content="Lven">
+<meta property="article:tag" content="Windows Server 2003">
+<meta property="article:tag" content="cmd">
+<meta property="article:tag" content="server 2008">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SnDbzUeVgNI/AAAAAAAABWA/BCHUVAOdwcc/s800/servermanagercmd.png"><title>ServerManagerCmd basics | Linhost.info</title><link ref="canonical" href="http://linhost.info/2009/07/servermanagercmd-basics/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-3282416-1');
+}</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-<!-- Head tag -->
-<head>
-
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <!--Description-->
-
-    
-
-    
-        <meta name="description" content="site, site"/>
-    
-
-    <!--Author-->
-    
-        <meta name="author" content="Lven"/>
-    
-
-    <!--Open Graph Title-->
-    
-        <meta property="og:title" content="ServerManagerCmd basics"/>
-    
-
-    <!--Open Graph Description-->
-    
-        <meta property="og:description" content="site, site"/>
-    
-
-    <!--Open Graph Site Name-->
-        <meta property="og:site_name" content="Linhost.info"/>
-
-    <!--Type page-->
-    
-        <meta property="og:type" content="article"/>
-    
-
-    <!--Page Cover-->
-    
-    
-        <meta property="og:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-        <meta name="twitter:card" content="summary_large_image"/>
-
-    
-
-    
-        <meta name="twitter:image" content="http://linhost.infohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg"/>
-    
-
-    <!-- Title -->
-    
-    <title>ServerManagerCmd basics - Linhost.info</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet"/>
-
-    <!-- Google Analytics -->
-    
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-3282416-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-
-
-    <!-- favicon -->
-    
-
-<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head>
-
-
-<body>
-
-    <!-- Menu -->
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Linhost.info</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                
-                    <li>
-                        <a href="/">
-                            
-                                Home
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/archives">
-                            
-                                Archives
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/tags">
-                            
-                                Tags
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/categories">
-                            
-                                Categories
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-clean-blog">
-                            
-                                <i class="fa fa-github fa-stack-2x"></i>
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/VM">
-                            
-                                VM
-                            
-                        </a>
-                    </li>
-                
-                    <li>
-                        <a href="/atom.xml">
-                            
-                                RSS
-                            
-                        </a>
-                    </li>
-                
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<!-- Set your background image for this header in your post front-matter: cover -->
-
-<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>ServerManagerCmd basics</h1>
-                    
-                    <span class="meta">
-                        <!-- Date and Author -->
-                        
-                        
-                            2009-07-30
-                        
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Tags and categories -->
-           
-                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
-                    
-                        
-
-
-<a href="/tags/Windows-Server-2003/">#Windows Server 2003</a> <a href="/tags/cmd/">#cmd</a> <a href="/tags/server-2008/">#server 2008</a>
-
-
-                    
-                </div>
-                <div class="col-lg-4 col-md-5 post-categories">
-                    
-                        
-
-<a href="/categories/Article/">Article</a>
-
-                    
-                </div>
-            
-
-            <!-- Gallery -->
-            
-
-            <!-- Post Main Content -->
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <p>While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart <strong>ServermManagerCmd.exe</strong>. The command line oriented tool can be used to determine/install/uninstall roles, role services, and features.</p>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__text">menu.Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/VM"><span class="header-nav-menu-item__text">menu.VM</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/atom.xml"><span class="header-nav-menu-item__text">menu.RSS</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">ServerManagerCmd basics</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2009-07-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart <strong>ServermManagerCmd.exe</strong>. The command line oriented tool can be used to determine/install/uninstall roles, role services, and features.</p>
 <blockquote>
 <p>ServerManagerCmd requires an elevated command prompt</p>
 </blockquote>
-<h2 id="Query-the-system"><a href="#Query-the-system" class="headerlink" title="Query the system"></a>Query the system</h2><p>ServerManagerCmd is easy to lean and use. Let’s start by finding out which roles, role services, and features are installed on a system. In the Windows command-line prompt type.</p>
+
+        <h2 id="Query-the-system"   >
+          <a href="#Query-the-system" class="heading-link"><i class="fas fa-link"></i></a>Query the system</h2>
+      <p>ServerManagerCmd is easy to lean and use. Let’s start by finding out which roles, role services, and features are installed on a system. In the Windows command-line prompt type.</p>
 <p>servermanagercmd -query &gt; queryresults.txt</p>
 <ul>
 <li>What this command does is query the system and print the results to a text file.</li>
 <li>If you wish to can change the file extension from <strong>.txt</strong> to <strong>.xml</strong>, XML allows for the file to be used in conjunction with automation techniques.</li>
 </ul>
 <p><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SnDbzUeVgNI/AAAAAAAABWA/BCHUVAOdwcc/s800/servermanagercmd.png" alt="ServerManagerCmd"></p>
-<h2 id="Component-installation"><a href="#Component-installation" class="headerlink" title="Component installation"></a>Component installation</h2><p>Using ServerManagerCmd to install components could not be easier, just use -install in front of servermanagercmd to indicate you wish to install a component. In the Windows command-line prompt type.</p>
+
+        <h2 id="Component-installation"   >
+          <a href="#Component-installation" class="heading-link"><i class="fas fa-link"></i></a>Component installation</h2>
+      <p>Using ServerManagerCmd to install components could not be easier, just use -install in front of servermanagercmd to indicate you wish to install a component. In the Windows command-line prompt type.</p>
 <p>servermanagercmd -install fs-fileserver -allsubfeatures</p>
 <ul>
 <li>Notice the <strong>-allsubfeatures</strong>, what this does is install any other sub-feature required by the installation.</li>
 </ul>
-<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1Mh9DlZI/AAAAAAAABWE/RvrqJ5DzysM/s800/servermanager_install.png" alt="severmanager_install"> For a complete list of components you should take a look at <a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc748918(WS.10).aspx">this page</a>.</p>
-<h2 id="Component-uninstallation"><a href="#Component-uninstallation" class="headerlink" title="Component uninstallation"></a>Component uninstallation</h2><p>To uninstall or remove a component the process is almost the same as the installation, just use <strong>-remove</strong> to indicate you wish to remove a component. In the Windows command-line type.</p>
+<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1Mh9DlZI/AAAAAAAABWE/RvrqJ5DzysM/s800/servermanager_install.png" alt="severmanager_install"> For a complete list of components you should take a look at <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc748918(WS.10).aspx" >this page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+
+        <h2 id="Component-uninstallation"   >
+          <a href="#Component-uninstallation" class="heading-link"><i class="fas fa-link"></i></a>Component uninstallation</h2>
+      <p>To uninstall or remove a component the process is almost the same as the installation, just use <strong>-remove</strong> to indicate you wish to remove a component. In the Windows command-line type.</p>
 <p>servermanagercmd -remove fs-fileserver -allsubfeatures</p>
 <ul>
 <li>Notice the <strong>-allsubfeatures</strong> will also uninstall any subfeature required by the installation</li>
 </ul>
 <p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1M1GO6HI/AAAAAAAABWI/yh34JeSBCmY/s800/servermanafer_remove.png" alt="servermanager_remove"></p>
-
-
-                
-            </div>
-
-            <!-- Comments -->
-            
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    
-
-
-                </div>
-            
-        </div>
-    </div>
-</article>
-
-    <!-- Footer -->
-    <hr />
-
-<!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </ul>
-                <p class="copyright text-muted">&copy; 2020 Lven<br></p>
-                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
-                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-    <!-- After footer scripts -->
-    
-<!-- jQuery -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-
-<!-- Bootstrap -->
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<!-- Gallery -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!-- Disqus Comments -->
-
-
-
-</body>
-
-</html>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Lven</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2009/07/servermanagercmd-basics/">http://linhost.info/2009/07/servermanagercmd-basics/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/Windows-Server-2003/">Windows Server 2003</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/cmd/">cmd</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/server-2008/">server 2008</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2009/07/delay-boot-time-on-a-vmware-virtual-machine/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Delay boot time on a VMware virtual machine</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2009/07/truecrypt-encryption-cracked-windows-7-activation-hack-iphone-vulnerable-to-attacks-microsoft-declares-windows-7-rtm-yahoo-tosses-in-the-search-towel-firefox-to-hit-1-billion-downloads-frida/"><span class="paginator-prev__text">IT News 07/30/2009</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Query-the-system"><span class="toc-number">1.</span> <span class="toc-text">
+          Query the system</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-installation"><span class="toc-number">2.</span> <span class="toc-text">
+          Component installation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Component-uninstallation"><span class="toc-number">3.</span> <span class="toc-text">
+          Component uninstallation</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">356</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.0.0</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.1.1</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
