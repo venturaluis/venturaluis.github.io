@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://linhost.info/"/>
-  <updated>2020-08-08T01:45:44.384Z</updated>
+  <updated>2020-08-21T21:58:17.378Z</updated>
   <id>http://linhost.info/</id>
   
   <author>
@@ -17,33 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://linhost.info/2020/08/hello-world/"/>
-    <id>http://linhost.info/2020/08/hello-world/</id>
-    <published>2020-08-08T01:45:44.383Z</published>
-    <updated>2020-08-08T01:45:44.384Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <span class="exturl"><a class="exturl__link"   href="https://hexo.io/" >Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>! This is your very first post. Check <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/" >documentation</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for more info. If you get any problems when using Hexo, you can find the answer in <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or you can ask me on <span class="exturl"><a class="exturl__link"   href="https://github.com/hexojs/hexo/issues" >GitHub</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>        <h2 id="Quick-Start"   >          <a href="#Quick-Start" class="heading-link"><i class="fas fa-link"></i></a>Quick Start</h2>              <h3 id="Create-a-new-post"   >          <a href="#Create-a-new-post" class="heading-link"><i class="fas fa-link"></i></a>Create a new post</h3>      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></div></figure><p>More info: <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/writing.html" >Writing</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>        <h3 id="Run-server"   >          <a href="#Run-server" class="heading-link"><i class="fas fa-link"></i></a>Run server</h3>      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></div></figure><p>More info: <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/server.html" >Server</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>        <h3 id="Generate-static-files"   >          <a href="#Generate-static-files" class="heading-link"><i class="fas fa-link"></i></a>Generate static files</h3>      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></div></figure><p>More info: <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/generating.html" >Generating</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>        <h3 id="Deploy-to-remote-sites"   >          <a href="#Deploy-to-remote-sites" class="heading-link"><i class="fas fa-link"></i></a>Deploy to remote sites</h3>      <figure class="highlight bash"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></div></figure><p>More info: <span class="exturl"><a class="exturl__link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;   href=&quot;https://hexo.io/&quot; &gt;Hexo&lt;/a&gt;&lt;span class=&quot;exturl__icon&quot;&gt;&lt;i class=&quot;fas fa-ex
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Tar and compress a directory in Linux</title>
     <link href="http://linhost.info/2017/02/tar-and-compress-a-directory-in-linux/"/>
     <id>http://linhost.info/2017/02/tar-and-compress-a-directory-in-linux/</id>
     <published>2017-03-01T00:47:43.000Z</published>
-    <updated>2020-08-12T03:21:18.047Z</updated>
+    <updated>2020-08-21T21:58:17.378Z</updated>
     
     <content type="html"><![CDATA[<p>The following will tar and compress the contents of a directory</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar czf file.tar.gz input\_directory</span><br></pre></td></tr></table></div></figure><p>The same can be extracted with tar but indicating compression .</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xzvf file.tar.gz output_directory</span><br></pre></td></tr></table></div></figure>]]></content>
     
@@ -491,6 +469,31 @@
       
       
         &lt;p&gt;This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The
+      
+    
+    </summary>
+    
+    
+      <category term="unknown" scheme="http://linhost.info/categories/unknown/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu Server 14.04 Static IP configuration</title>
+    <link href="http://linhost.info/2015/02/ubuntu-server-14-04-static-ip-configuration/"/>
+    <id>http://linhost.info/2015/02/ubuntu-server-14-04-static-ip-configuration/</id>
+    <published>2015-02-16T06:37:57.000Z</published>
+    <updated>2020-08-12T02:33:56.164Z</updated>
+    
+    <content type="html"><![CDATA[<p>In order to set up static IP configuration in Ubuntu 14.04 you need to edit the /etc/network/interfaces file.</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;network&#x2F;interfaces</span><br></pre></td></tr></table></div></figure><p>You can remove the content referring to the previous DHCP configuration and add the parameters below. Change the addresses below to fit your needs.</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># This file describes the network interfaces available on your system</span><br><span class="line"># and how to activate them. For more information, see interfaces(5).</span><br><span class="line"># The loopback network interface</span><br><span class="line">auto lo</span><br><span class="line">iface lo inet loopback</span><br><span class="line"></span><br><span class="line"># The primary network interface</span><br><span class="line">auto eth0</span><br><span class="line"></span><br><span class="line"># Static IP configuration</span><br><span class="line">iface eth0 inet static</span><br><span class="line">address 192.168.1.5</span><br><span class="line">netmask 255.255.255.0</span><br><span class="line">network 192.168.1.0</span><br><span class="line">broadcast 192.168.1.255</span><br><span class="line">gateway 192.168.1.1</span><br><span class="line">dns-nameservers 8.8.4.4</span><br></pre></td></tr></table></div></figure><p>You don’t have to restart the system instead restart the networking service.</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service networking restart</span><br></pre></td></tr></table></div></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;In order to set up static IP configuration in Ubuntu 14.04 you need to edit the /etc/network/interfaces file.&lt;/p&gt;
+&lt;figure class=&quot;highligh
       
     
     </summary>
