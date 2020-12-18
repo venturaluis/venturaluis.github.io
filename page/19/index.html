@@ -1,41 +1,94 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="site, site">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Linhost.info">
 <meta property="og:url" content="http://linhost.info/page/19/index.html">
 <meta property="og:site_name" content="Linhost.info">
 <meta property="og:description" content="site, site">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="Lven">
-<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/19/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/03/pfsense-installation-guide/">pfSense Installation Guide</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-03-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>PfSense is an open source firewall and router distribution based on FreeBSD and the result of a m0n0wall fork. PfSense is rock solid and doesn’t suffer from hardware or software limitations imposed by the vendors. Despite being based on FreeBSD, the administration of pfSense is done via a web interface that is not useless. There is no need for previous FreeBSD experience in order to administer pfSense. For those who have no previous experience in installing FreeBSD or using text based installers may find the installation process intimidating or discouraging. This tutorial aims to prove the opposite, once you are done with this tutorial you will find the text based installer to be intuitive.</p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-pfsense-installation-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/03/pfsense-installation-guide/">pfSense Installation Guide</a>
+    </h1>
+  
+
+        <a href="/2010/03/pfsense-installation-guide/" class="article-date">
+  <time datetime="2010-03-29T07:19:15.000Z" itemprop="datePublished">2010-03-29</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>PfSense is an open source firewall and router distribution based on FreeBSD and the result of a m0n0wall fork. PfSense is rock solid and doesn’t suffer from hardware or software limitations imposed by the vendors. Despite being based on FreeBSD, the administration of pfSense is done via a web interface that is not useless. There is no need for previous FreeBSD experience in order to administer pfSense. For those who have no previous experience in installing FreeBSD or using text based installers may find the installation process intimidating or discouraging. This tutorial aims to prove the opposite, once you are done with this tutorial you will find the text based installer to be intuitive.</p>
 
         <h4 id="Before-You-Can-Install"   >
           <a href="#Before-You-Can-Install" class="heading-link"><i class="fas fa-link"></i></a>Before You Can Install</h4>
@@ -61,7 +114,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h4 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h4>
       <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.pfsense.org/" >pfSense.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/03/free-namebench-dns-benchmarking-tool/">Free: Namebench DNS Benchmarking Tool</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-03-17</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>It’s common practice to use the DNS provided by whoever your ISP is to resolve names on the Internet, but in some cases the ISP’s fail optimize or maintain their DNS server(allocate resources) resulting in poor performance. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/MDcTlxdKVN3rGU-sSIqxtQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58xq_883BI/AAAAAAAACFg/ZN2WokK1mnQ/s800/namebench12.png"></a> Fortunately, a large number of alternative public DNS providers exists, the question is ‘<strong>Which one do I use ?</strong>‘. The answer to this question can be provided by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/namebench/" >Namebench</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free and open source DNS benchmarking tool.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/03/pfsense-installation-guide/" data-id="ckitzbgig00kp7nfx99f6cr6v" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freebsd/" rel="tag">freebsd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pfsense/" rel="tag">pfsense</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/text-installer/" rel="tag">text installer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-free-namebench-dns-benchmarking-tool" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/03/free-namebench-dns-benchmarking-tool/">Free: Namebench DNS Benchmarking Tool</a>
+    </h1>
+  
+
+        <a href="/2010/03/free-namebench-dns-benchmarking-tool/" class="article-date">
+  <time datetime="2010-03-17T06:34:45.000Z" itemprop="datePublished">2010-03-17</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>It’s common practice to use the DNS provided by whoever your ISP is to resolve names on the Internet, but in some cases the ISP’s fail optimize or maintain their DNS server(allocate resources) resulting in poor performance. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/MDcTlxdKVN3rGU-sSIqxtQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58xq_883BI/AAAAAAAACFg/ZN2WokK1mnQ/s800/namebench12.png"></a> Fortunately, a large number of alternative public DNS providers exists, the question is ‘<strong>Which one do I use ?</strong>‘. The answer to this question can be provided by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/namebench/" >Namebench</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free and open source DNS benchmarking tool.</p>
 <blockquote>
 <p>Namebech does not measure long term reliability.</p>
 </blockquote>
@@ -70,7 +165,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <p>Try out namebench. It hunts down the fastest DNS servers available for your computer to use. namebench runs a fair and thorough benchmark using your web browser history, tcpdump output, or standardized datasets in order to provide an individualized recommendation. namebench is completely free and does not modify your system in any way. This project began as a 20% project at Google.</p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/PGK1hpEVYCUqFyyuKf9N5Q?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58yMOqrxhI/AAAAAAAACFk/znpyUAmuDmA/s800/namebench_results.png"></a> The whole DNS benchmarking test will be done for you automatically, actually all the user has to do is <strong>Download</strong> &gt; <strong>Extract</strong> &gt; <strong>Run Namebench</strong> and click on <strong>Start Benchmark</strong> . Wait four to five minutes for the test to be completed, when done Namebench will present you with the results by opening a window on your browser. Hopefully, the results will help you make an informed decision on whether you should change DNS provider at all. Namebench Home Page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/namebench/" >http://code.google.com/p/namebench/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/03/test-for-errors-in-memory-with-memtest86/">Test for errors in memory with Memtest86+</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-03-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/" >Memtest86+</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstable, incapable of booting at all, or even worse in possible data corruption. That’s why it’s good practice to use Memtest86+ or other tools with the same purpose every time new memory is acquired, better to spend a few minutes checking for errors than encounter errors at a later time. Fortunately, Memtest86+ is an easy to use tool and the whole process happens automatically.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/03/free-namebench-dns-benchmarking-tool/" data-id="ckitzbgeq00a17nfx95xgh2mp" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/benchmark/" rel="tag">benchmark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namebench/" rel="tag">namebench</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test-for-errors-in-memory-with-memtest86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/03/test-for-errors-in-memory-with-memtest86/">Test for errors in memory with Memtest86+</a>
+    </h1>
+  
+
+        <a href="/2010/03/test-for-errors-in-memory-with-memtest86/" class="article-date">
+  <time datetime="2010-03-05T06:54:26.000Z" itemprop="datePublished">2010-03-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/" >Memtest86+</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstable, incapable of booting at all, or even worse in possible data corruption. That’s why it’s good practice to use Memtest86+ or other tools with the same purpose every time new memory is acquired, better to spend a few minutes checking for errors than encounter errors at a later time. Fortunately, Memtest86+ is an easy to use tool and the whole process happens automatically.</p>
 
         <h4 id="How-do-we-use-it"   >
           <a href="#How-do-we-use-it" class="heading-link"><i class="fas fa-link"></i></a>How do we use it ?</h4>
@@ -94,7 +231,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h4 id="How-do-we-start-Memtest86"   >
           <a href="#How-do-we-start-Memtest86" class="heading-link"><i class="fas fa-link"></i></a>How do we start Memtest86+ ?</h4>
       <p>Once the ISO has been burned in to the media you will need to restart the computer and access the BIOS to set it to boot from CD/DVD media. The steps may change depending on the manufacturer, in some you may need to press <strong>F2</strong>, <strong>F10</strong>,or <strong>F12</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UKgE5VZw3L05-tr9SbrFDw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S49Tzii2PaI/AAAAAAAACAU/YqiGtDxYCTg/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.17.47.png"></a> After you access the BIOS head over to the Boot configuration and set it to boot from <strong>CD-ROM/DVD-ROM Drive</strong>. Save the changes to the BIOS and exit, which will cause the system to restart. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/nIdpIpbfTN3Mpam4P_aDZg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S49Tznb7PXI/AAAAAAAACAY/r6dR5AHSI_g/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.15.30.png"></a> Instead of booting from the hard drive the system will start from the CD/DVD Drive, since our CD/DVD containing Memtest86+ is inside the drive it will be automatically booted from. Here is the beauty of Memtest86+, you have to do nothing else just let the diagnosis tool run. Any errors will be reported on <strong>Errors</strong> column located in the middle of the screen. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/rOQBu3RzYjYbWK4mdNQ4lw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S49Tzz0sseI/AAAAAAAACAc/05An0-X4BMo/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.18.13.png"></a> Memtest86+ is simple tool you should keep around it may come in handy at a later time or whenever you buy new memory. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.memtest.org/" >Memtest86+ Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/02/checksum-a-directory-with-md5deep/">Hash a directory with md5deep - Part 1</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-02-28</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>File integrity is no joke and system administrators know the severity of dealing corrupt files. The problem administrators face is that unlike users, administrator have to manage servers with hundreds of thousands of files in each directory that have to be hashed. This lends it self to a few problems: hashing file by file is out of the question and a waste of time, which means we are left to find a solution that can work on a recursive manner. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S4oVCn6yRtI/AAAAAAAAB_Y/g15LJ16pQzk/s800/checksums.PNG" alt="md5deep checksums"></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/03/test-for-errors-in-memory-with-memtest86/" data-id="ckitzbgjo00ox7nfxg3ra2da8" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diagnosis/" rel="tag">diagnosis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memtest86/" rel="tag">memtest86+</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-checksum-a-directory-with-md5deep" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/02/checksum-a-directory-with-md5deep/">Hash a directory with md5deep - Part 1</a>
+    </h1>
+  
+
+        <a href="/2010/02/checksum-a-directory-with-md5deep/" class="article-date">
+  <time datetime="2010-02-28T08:10:22.000Z" itemprop="datePublished">2010-02-28</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>File integrity is no joke and system administrators know the severity of dealing corrupt files. The problem administrators face is that unlike users, administrator have to manage servers with hundreds of thousands of files in each directory that have to be hashed. This lends it self to a few problems: hashing file by file is out of the question and a waste of time, which means we are left to find a solution that can work on a recursive manner. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S4oVCn6yRtI/AAAAAAAAB_Y/g15LJ16pQzk/s800/checksums.PNG" alt="md5deep checksums"></p>
 <blockquote>
 <p>Recursive operation - md5deep is able to recursively examine an entire directory tree. That is, compute the MD5 for every file in a directory and for every file in every subdirectory.</p>
 </blockquote>
@@ -130,7 +309,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h4 id="Part-2-of-this-tutorial-Compare-Hashes-With-md5deep"   >
           <a href="#Part-2-of-this-tutorial-Compare-Hashes-With-md5deep" class="heading-link"><i class="fas fa-link"></i></a>Part 2 of this tutorial: Compare Hashes With md5deep</h4>
       <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/" >md5deep Home page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/md5deep.html" >Md5deep manual</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/02/iperf-on-windows/">Iperf on Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-02-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Iperf is a neat little tool with the simple goal of helping administrators measure the performance of their network. Worthy of mention is the fact that it can measure both TCP and UDP performance on a network. Iperf is cross platform software and open source. You can download Iperf.exe from: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dl.linhost.info/iperf.exe" >Iperf.exe (locally hosted)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://nocweboldcst.ucf.edu/files/iperf.exe" >Iperf.exe Ucf.edu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <em>Link updated on 12/30/2010</em> We will be making use of the command line, do not fear the command line Iperf is a simple tool to use. Say I want to test the available bandwidth between a server(Windows Server 2008) and a client workstation(Windows 7). Iperf will try to move as much data as possible using the available link in order to conduct the test. <img src="http://dl.linhost.info/content/2013-11/iperf-client-server.png" alt="iperf-server-client-windows"></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/" data-id="ckitzbgcv004g7nfxcpw4d4vb" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/checksum/" rel="tag">checksum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5/" rel="tag">md5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5deep/" rel="tag">md5deep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iperf-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/02/iperf-on-windows/">Iperf on Windows</a>
+    </h1>
+  
+
+        <a href="/2010/02/iperf-on-windows/" class="article-date">
+  <time datetime="2010-02-15T09:51:53.000Z" itemprop="datePublished">2010-02-15</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Iperf is a neat little tool with the simple goal of helping administrators measure the performance of their network. Worthy of mention is the fact that it can measure both TCP and UDP performance on a network. Iperf is cross platform software and open source. You can download Iperf.exe from: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dl.linhost.info/iperf.exe" >Iperf.exe (locally hosted)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://nocweboldcst.ucf.edu/files/iperf.exe" >Iperf.exe Ucf.edu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <em>Link updated on 12/30/2010</em> We will be making use of the command line, do not fear the command line Iperf is a simple tool to use. Say I want to test the available bandwidth between a server(Windows Server 2008) and a client workstation(Windows 7). Iperf will try to move as much data as possible using the available link in order to conduct the test. <img src="http://dl.linhost.info/content/2013-11/iperf-client-server.png" alt="iperf-server-client-windows"></p>
 
         <h4 id="Instructions"   >
           <a href="#Instructions" class="heading-link"><i class="fas fa-link"></i></a>Instructions</h4>
@@ -149,12 +370,138 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
       <p>Imitating the steps above execute Iperf in the same manner, but this time we are going to give the Iperf client different instructions. On the Iperf client command line type</p>
 <p>iperf -c 192.168.1.51</p>
 <p>. This will be our client and we are telling Iperf the server is located at <strong>192.168.1.51</strong>. <img src="http://dl.linhost.info/content/2013-11/iperf-c.PNG" alt="iperf-c"> Give Iperf some time to test the connection, after the test is done Iperf will present the results. <img src="http://dl.linhost.info/content/2013-11/iperf-test-complete.PNG" alt="iperf-test-done"> The results are easy to understand in this case Iperf managed to transfer <strong>113 Mbytes</strong> at <strong>94.5 Mbit/s</strong>, the results will changed when used on a busy network which is where Iperf will reveal the amount of available bandwidth in the network. <strong>Also</strong> My previous <a href="http://linhost.info/2008/12/test-network-speeds-with-iperf/">Iperf on Linux</a> post</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/02/enable-ping-on-windows-server-2008/">Enable ping on Windows Server 2008</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-02-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>By default Microsoft disables Ping on the Windows platform, probably as an added security measure. However Ping maybe needed for testing or monitoring purposes. The process to allow Windows Server to respond to Pings is minimal, requiring few changes to the Windows firewall. Go to <strong>Start</strong> &gt; <strong>Administrative Tools</strong> &gt; <strong>Windows Firewall with Added Security</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T-kKwux1I/AAAAAAAAB8k/ZWWQsZXFbVM/s800/start-controlpanel.png" alt="start-control-panel"> On the sidebar look for <strong>Inbound Rules</strong> &gt; <strong>File and Print Sharing (Echo Request - ICMPv4-IN)</strong> &gt; right click on <strong>Enable Rule</strong> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/S3T-E_VUzvI/AAAAAAAAB8Y/kRy6RJf11ek/s800/enable-rule.png" alt="enable-rule"> The rule has now been enabled and the server will respond to Pings. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T9UoU8PTI/AAAAAAAAB8I/U2_57VuzdYQ/s800/rules-enabled.png" alt="rules-enabled"> If you wish to later disable ping all you have to do is right click on the rule and select &gt; <strong>Disable Rule</strong></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/02/free-microsoft-web-platform-installer/">Free: Microsoft Web Platform Installer</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-02-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/web/default.aspx" >Microsoft Web Platform Installer 2.0</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a tool design help administrator install the latest components like Microsoft Web Platform, Internet Information Services (IIS), SQL Server Express, .NET Framework, PHP and Visual Web Developer just a few clicks away. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/S2ph1hH5oAI/AAAAAAAAB6g/-mYkxkmGpJU/s400/Microsoft%20Web%20Platform%20Installer.PNG" alt="Microsoft Web Platform Installer"> Is not limited to just components you will also find the most popular free web applications for blogging (Wordpress), content management(Drupal) and more with the built-in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/web/gallery/" >Windows Web Application Gallery</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. No longer will you have to hunt down separate components, instead spend more time configuring rather than installing.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/02/iperf-on-windows/" data-id="ckitzbggk00ek7nfxbo5kdxj5" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iperf/" rel="tag">iperf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network-performance/" rel="tag">network performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-enable-ping-on-windows-server-2008" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/02/enable-ping-on-windows-server-2008/">Enable ping on Windows Server 2008</a>
+    </h1>
+  
+
+        <a href="/2010/02/enable-ping-on-windows-server-2008/" class="article-date">
+  <time datetime="2010-02-12T07:31:24.000Z" itemprop="datePublished">2010-02-12</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>By default Microsoft disables Ping on the Windows platform, probably as an added security measure. However Ping maybe needed for testing or monitoring purposes. The process to allow Windows Server to respond to Pings is minimal, requiring few changes to the Windows firewall. Go to <strong>Start</strong> &gt; <strong>Administrative Tools</strong> &gt; <strong>Windows Firewall with Added Security</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T-kKwux1I/AAAAAAAAB8k/ZWWQsZXFbVM/s800/start-controlpanel.png" alt="start-control-panel"> On the sidebar look for <strong>Inbound Rules</strong> &gt; <strong>File and Print Sharing (Echo Request - ICMPv4-IN)</strong> &gt; right click on <strong>Enable Rule</strong> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/S3T-E_VUzvI/AAAAAAAAB8Y/kRy6RJf11ek/s800/enable-rule.png" alt="enable-rule"> The rule has now been enabled and the server will respond to Pings. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T9UoU8PTI/AAAAAAAAB8I/U2_57VuzdYQ/s800/rules-enabled.png" alt="rules-enabled"> If you wish to later disable ping all you have to do is right click on the rule and select &gt; <strong>Disable Rule</strong></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/02/enable-ping-on-windows-server-2008/" data-id="ckitzbge4008g7nfx33o7fdpv" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-free-microsoft-web-platform-installer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/General/">General</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/02/free-microsoft-web-platform-installer/">Free: Microsoft Web Platform Installer</a>
+    </h1>
+  
+
+        <a href="/2010/02/free-microsoft-web-platform-installer/" class="article-date">
+  <time datetime="2010-02-04T05:58:06.000Z" itemprop="datePublished">2010-02-03</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>The <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/web/default.aspx" >Microsoft Web Platform Installer 2.0</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a tool design help administrator install the latest components like Microsoft Web Platform, Internet Information Services (IIS), SQL Server Express, .NET Framework, PHP and Visual Web Developer just a few clicks away. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/S2ph1hH5oAI/AAAAAAAAB6g/-mYkxkmGpJU/s400/Microsoft%20Web%20Platform%20Installer.PNG" alt="Microsoft Web Platform Installer"> Is not limited to just components you will also find the most popular free web applications for blogging (Wordpress), content management(Drupal) and more with the built-in <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/web/gallery/" >Windows Web Application Gallery</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. No longer will you have to hunt down separate components, instead spend more time configuring rather than installing.</p>
 <ul>
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/web/default.aspx" >Microsoft Web Platform Installer 2.0</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Home page</li>
 </ul>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/02/free-hashcheck-windows-checksum-utility/">Free: HashCheck Windows checksum utility</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-02-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you have backups or move data frequently from one place to another you should consider a checksum utility to ensure the integrity of your files. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.kliu.org/hashcheck/" >HashCheck</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a free, open source, lightweight, and windows integrated utility making it the logical choice. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S2peShluBUI/AAAAAAAAB6U/uH9wMAQefu0/s800/Hashcheck.PNG" alt="HackCheck 1"></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/02/free-microsoft-web-platform-installer/" data-id="ckitzbgep009y7nfxgsjscf2y" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installer/" rel="tag">installer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-free-hashcheck-windows-checksum-utility" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/02/free-hashcheck-windows-checksum-utility/">Free: HashCheck Windows checksum utility</a>
+    </h1>
+  
+
+        <a href="/2010/02/free-hashcheck-windows-checksum-utility/" class="article-date">
+  <time datetime="2010-02-04T05:51:45.000Z" itemprop="datePublished">2010-02-03</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you have backups or move data frequently from one place to another you should consider a checksum utility to ensure the integrity of your files. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.kliu.org/hashcheck/" >HashCheck</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is a free, open source, lightweight, and windows integrated utility making it the logical choice. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S2peShluBUI/AAAAAAAAB6U/uH9wMAQefu0/s800/Hashcheck.PNG" alt="HackCheck 1"></p>
 
         <h4 id="Features"   >
           <a href="#Features" class="heading-link"><i class="fas fa-link"></i></a>Features</h4>
@@ -169,12 +516,94 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <ul>
 <li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.kliu.org/hashcheck/" >HashCheck</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Home page</li>
 </ul>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/01/help-a-family-in-desparate-need/">Help a family in desparate need!!!</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-01-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Today 1/21/2010 at 5:00AM my friend Alexandra who was only 20 yrs old lost her life long battle against Lupus. She was admitted a coupe of days prior to her death to the hospital because of an infection, her condition only worsen ending in a fatal heart attack. The saddest part of the whole story is that she was next on the list to receive a kidney transplant. It was hard to hold my tears, after all it was a precious life with dreams and hopes for the future.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/02/free-hashcheck-windows-checksum-utility/" data-id="ckitzbgeo009u7nfxddk29h5l" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashcheck/" rel="tag">hashcheck</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-help-a-family-in-desparate-need" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/General/">General</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/01/help-a-family-in-desparate-need/">Help a family in desparate need!!!</a>
+    </h1>
+  
+
+        <a href="/2010/01/help-a-family-in-desparate-need/" class="article-date">
+  <time datetime="2010-01-22T01:18:07.000Z" itemprop="datePublished">2010-01-21</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Today 1/21/2010 at 5:00AM my friend Alexandra who was only 20 yrs old lost her life long battle against Lupus. She was admitted a coupe of days prior to her death to the hospital because of an infection, her condition only worsen ending in a fatal heart attack. The saddest part of the whole story is that she was next on the list to receive a kidney transplant. It was hard to hold my tears, after all it was a precious life with dreams and hopes for the future.</p>
 <blockquote>
 <p>SLE (lupus) is an autoimmune disease. This means there is a problem with the body’s normal immune system response. Normally, the immune system helps protect the body from harmful substances. But in patients with an autoimmune disease, the immune system can’t tell the difference between harmful substances and healthy ones. The result is an overactive immune response that attacks otherwise healthy cells and tissue. This leads to chronic (long-term) inflammation..</p>
 </blockquote>
 <p>Source <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://health.google.com/health/ref/Systemic+lupus+erythematosus" >Google Health</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> I was a witness of the struggle she and her family went through never giving up. The reason why I am writing this post is to appeal to the world and ask that if possible you help the family of my friend by lessening the financial burden. The family is of low income and they are having to hard time covering the funeral costs. Any amount will do just donate to help lessen the impact. You can donate by using the Chip In widget below. Rest assured that all the funds will go directly to the family.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2010/01/configure-ubuntu-server-with-static-ip/">Configure Ubuntu Server with static IP</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-01-13</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>It’s not recommended to assign IP address to servers using DHCP since the IP address can change after the lease expires. Just imagine having all the users or devices that need access to the server stopping because the server changed IP address. In Ubuntu/Linux the process of assigning a static IP to the server is an easy task that only requires the modification of one file and issuing a few commands. Using you favorite text editor open the file <strong>/etc/network/interfaces</strong>.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/01/help-a-family-in-desparate-need/" data-id="ckitzbgf300b77nfxggq41uuu" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-configure-ubuntu-server-with-static-ip" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/01/configure-ubuntu-server-with-static-ip/">Configure Ubuntu Server with static IP</a>
+    </h1>
+  
+
+        <a href="/2010/01/configure-ubuntu-server-with-static-ip/" class="article-date">
+  <time datetime="2010-01-13T23:12:40.000Z" itemprop="datePublished">2010-01-13</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>It’s not recommended to assign IP address to servers using DHCP since the IP address can change after the lease expires. Just imagine having all the users or devices that need access to the server stopping because the server changed IP address. In Ubuntu/Linux the process of assigning a static IP to the server is an easy task that only requires the modification of one file and issuing a few commands. Using you favorite text editor open the file <strong>/etc/network/interfaces</strong>.</p>
 <p>sudo nano /etc/network/interfaces</p>
 <p>This is how the the <strong>/etc/network/interfaces</strong> file looks like.</p>
 <p># This file describes the network interfaces available on your system</p>
@@ -193,4 +622,64 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <p>auto eth0<br>iface eth0 inet static<br>address 192.168.1.10<br>netmask 255.255.255.0<br>network 192.168.1.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
 <p>After adding the appropriate networking information you can restart the networking service for the new changes to take effect.</p>
 <p>sudo /etc/init.d/networking restart</p>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/18/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/20/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/01/configure-ubuntu-server-with-static-ip/" data-id="ckitzbgdb005r7nfx5p8qd1l3" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/18/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><a class="page-number" href="/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/20/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

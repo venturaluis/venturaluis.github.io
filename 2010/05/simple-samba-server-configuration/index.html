@@ -1,4 +1,26 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="Samba is a print and file sharing implementation of the SMB&#x2F;CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the cl">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Simple Samba Server Configuration | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Samba is a print and file sharing implementation of the SMB&#x2F;CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the cl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Simple Samba Server Configuration">
 <meta property="og:url" content="http://linhost.info/2010/05/simple-samba-server-configuration/index.html">
@@ -10,43 +32,69 @@
 <meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S_IKz7lpDUI/AAAAAAAACNw/ulXnW2n0ei4/s800/3.png">
 <meta property="article:published_time" content="2010-05-18T03:48:40.000Z">
 <meta property="article:modified_time" content="2020-08-09T09:07:53.615Z">
-<meta property="article:author" content="Lven">
 <meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="linux">
 <meta property="article:tag" content="smb">
 <meta property="article:tag" content="file share">
 <meta property="article:tag" content="samba">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S_IMIXxe-xI/AAAAAAAACN4/1T2B6I3pbZc/s800/1.png"><title>Simple Samba Server Configuration | Linhost.info</title><link ref="canonical" href="http://linhost.info/2010/05/simple-samba-server-configuration/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S_IMIXxe-xI/AAAAAAAACN4/1T2B6I3pbZc/s800/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Simple Samba Server Configuration</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2010-05-17</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>Samba is a print and file sharing implementation of the SMB/CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the clients may be Windows the file/print server will be a Linux/Unix-like system. In this tutorial I will demonstrate the necessary steps to set-up a simple Samba server on Ubuntu Server 8.04. By simple I mean the resulting share will not require and kind of authentication to access the shares.</p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-simple-samba-server-configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Simple Samba Server Configuration
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Samba is a print and file sharing implementation of the SMB/CIFS protocol that is free and open source. Samba provides seamless file and print services to Linux and Windows clients alike. While the clients may be Windows the file/print server will be a Linux/Unix-like system. In this tutorial I will demonstrate the necessary steps to set-up a simple Samba server on Ubuntu Server 8.04. By simple I mean the resulting share will not require and kind of authentication to access the shares.</p>
 
         <h4 id="Installation"   >
           <a href="#Installation" class="heading-link"><i class="fas fa-link"></i></a>Installation</h4>
@@ -84,6 +132,76 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h4 id="Windows-Client-Set-Up"   >
           <a href="#Windows-Client-Set-Up" class="heading-link"><i class="fas fa-link"></i></a>Windows Client Set-Up</h4>
       <p>After we are done setting up the server side configuration we move on to the Windows client. Go to <strong>Start</strong> &gt; <strong>My Computer</strong> &gt; and click on <strong>Map network drive</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tgoYScxRkvL2EVDlnsB0BQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S_IMIXxe-xI/AAAAAAAACN4/1T2B6I3pbZc/s800/1.png"></a> In the Map Network Drive window <strong>enter the IP address</strong> and <strong>share name</strong>, click on <strong>Finish</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/bYU31hfK8UMaSKzI4iHmsA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S_IKzwr-lvI/AAAAAAAACNs/ABjE9UjYLSg/s800/2.png"></a> Go back to My Computer and in the Network Location section you should be able to see the mounted share (name and IP address). <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/FVn6kiEBKSiHfv8J3ihePA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S_IKz7lpDUI/AAAAAAAACNw/ulXnW2n0ei4/s800/3.png"></a> Congratulations, you have just set up a simple file server on Linux and configured the Windows client. In future posts I will go into securing a share.</p>
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Lven</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2010/05/simple-samba-server-configuration/">http://linhost.info/2010/05/simple-samba-server-configuration/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/ubuntu/">ubuntu</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/linux/">linux</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/smb/">smb</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/file-share/">file share</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/samba/">samba</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2010/05/3tb-hard-drives-are-on-the-way/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">3TB Hard Drives Are On The Way</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2010/05/compare-hashes-with-md5deep-part-2/"><span class="paginator-prev__text">Compare Hashes With md5deep - Part 2</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Installation"><span class="toc-number">1.</span> <span class="toc-text">
-          Installation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows-Client-Set-Up"><span class="toc-number">2.</span> <span class="toc-text">
-          Windows Client Set-Up</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/05/simple-samba-server-configuration/" data-id="ckitzbgjb00nr7nfx061g1g8e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-share/" rel="tag">file share</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/samba/" rel="tag">samba</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smb/" rel="tag">smb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/05/3tb-hard-drives-are-on-the-way/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          3TB Hard Drives Are On The Way
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/05/compare-hashes-with-md5deep-part-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Compare Hashes With md5deep - Part 2</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

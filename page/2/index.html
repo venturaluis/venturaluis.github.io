@@ -1,41 +1,94 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="site, site">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Linhost.info">
 <meta property="og:url" content="http://linhost.info/page/2/index.html">
 <meta property="og:site_name" content="Linhost.info">
 <meta property="og:description" content="site, site">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="Lven">
-<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/2/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/04/mikrotik-routeros-ssh-public-key-authentication/">Mikrotik - RouterOS SSH Public Key Authentication</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-04-02</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-mikrotik-routeros-ssh-public-key-authentication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/mikrotik-routeros-ssh-public-key-authentication/">Mikrotik - RouterOS SSH Public Key Authentication</a>
+    </h1>
+  
+
+        <a href="/2016/04/mikrotik-routeros-ssh-public-key-authentication/" class="article-date">
+  <time datetime="2016-04-03T05:54:24.000Z" itemprop="datePublished">2016-04-02</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p>
 
         <h3 id="Key-Generation"   >
           <a href="#Key-Generation" class="heading-link"><i class="fas fa-link"></i></a>Key Generation</h3>
@@ -61,7 +114,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="New-Key-Test"   >
           <a href="#New-Key-Test" class="heading-link"><i class="fas fa-link"></i></a>New Key Test</h3>
       <p>Using an SSH client with the new private SSH key attempt to log-in to RouterOS, if successful you shouldn’t be prompted for a password. <a href="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png"><img src="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png" alt="ssh-login"></a></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/03/upgrade-routeros-from-the-command-line/">Mikrotik - Upgrade RouterOS from the Command Line</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-03-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>My Mikrotik router was running version 6.30 which I needed to update to version 6.31 in order to support RSA keys. I found updating the router from the command line to be quite easy an straight forward. it only requires a few commands and requires little user input. I know of two ways to view the current running firmware. My hAP at the time it arrived was running RouterOS version 6.30.4.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2016/04/mikrotik-routeros-ssh-public-key-authentication/" data-id="ckitzbghg00hb7nfx5mwn6xra" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-upgrade-routeros-from-the-command-line" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/upgrade-routeros-from-the-command-line/">Mikrotik - Upgrade RouterOS from the Command Line</a>
+    </h1>
+  
+
+        <a href="/2016/03/upgrade-routeros-from-the-command-line/" class="article-date">
+  <time datetime="2016-03-27T21:52:33.000Z" itemprop="datePublished">2016-03-27</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>My Mikrotik router was running version 6.30 which I needed to update to version 6.31 in order to support RSA keys. I found updating the router from the command line to be quite easy an straight forward. it only requires a few commands and requires little user input. I know of two ways to view the current running firmware. My hAP at the time it arrived was running RouterOS version 6.30.4.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system resource&gt; print</span><br><span class="line"></span><br><span class="line">                   uptime: 14h43m39s</span><br><span class="line">                  version: 6.30.4</span><br><span class="line">               build-time: Aug&#x2F;25&#x2F;2015 12:59:46</span><br><span class="line">              free-memory: 41.0MiB</span><br><span class="line">             total-memory: 64.0MiB</span><br><span class="line">                      cpu: MIPS 24Kc V7.4</span><br><span class="line">                cpu-count: 1</span><br><span class="line">            cpu-frequency: 650MHz</span><br><span class="line">                 cpu-load: 3%</span><br><span class="line">           free-hdd-space: 4.8MiB</span><br><span class="line">          total-hdd-space: 16.0MiB</span><br><span class="line">  write-sect-since-reboot: 691</span><br><span class="line">         write-sect-total: 5566</span><br><span class="line">               bad-blocks: 0%</span><br><span class="line">        architecture-name: mipsbe</span><br><span class="line">               board-name: hAP ac lite</span><br><span class="line">                 platform: MikroTik</span><br></pre></td></tr></table></div></figure>
 
 <p>Making use of the <strong>/system package update check-for-updates</strong> we can also view the running version and latest available version of RouterOS for download.</p>
@@ -80,8 +173,88 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[admin@HM-GW] &#x2F;system package update&gt; check-for-updates</span><br><span class="line"></span><br><span class="line">          channel: current</span><br><span class="line">  current-version: 6.34.3</span><br><span class="line">   latest-version: 6.34.3</span><br><span class="line">           status: System is already up to date</span><br></pre></td></tr></table></div></figure>
 
 <p>We are done and the system is now updated to the latest available firmware. Fairly easy and painless to update RouterOS. <em>4/8/2016 - Corrected grammatical error. Thank you for pointing it out.</em></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/">Xiaomi USB Type C Adapter - Convert Micro USB to Type-C</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-02-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Just a heads up if you are looking for a certified Micro USB to Type C adapter then I would recommend looking at the Xiaomi USB Type C Adapter they are a great way of converting the Micro USB cables you already have to Type C. The adapter works just fine with the Nexus 6P I have yet to see any problem after almost two months of use. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.geekbuying.com/item/Original-Xiaomi-Mi-USB-Type-C-To-Micro-USB-Adapter-Xiaomi-USB-Turn-Type-C-OTG-Adapter-Mobile-Phone-Cables-355450.html" >I bought mine from Geekbuying</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for under $2.oo USD. <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg" alt="wp-1456790651766.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg" alt="wp-1456790705443.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg" alt="wp-1456790715172.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg" alt="wp-1456790724740.jpg"></a></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2016/02/test/">Adding a Serial Port to the Raspberry Pi Zero</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2016-02-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of accessing the Pi Zero without having to plug a keyboard and HDMI connector and it frees the Micro USB port. There are many flavors of USB to RS232 adapters and one of them is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2047675.m570.l1312.R1.TR0.TRC2.A0.H0.TRS5&_nkw=ch340&_sacat=0" >CH340 eBay</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is affordable. Another adapter I like is the CP2102 you can find them on eBay. This are just recommendations in the end it’s your choice as to the one you choose.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2016/03/upgrade-routeros-from-the-command-line/" data-id="ckitzbgke00r17nfxgrgp95xk" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/">Xiaomi USB Type C Adapter - Convert Micro USB to Type-C</a>
+    </h1>
+  
+
+        <a href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/" class="article-date">
+  <time datetime="2016-03-01T03:13:14.000Z" itemprop="datePublished">2016-02-29</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Just a heads up if you are looking for a certified Micro USB to Type C adapter then I would recommend looking at the Xiaomi USB Type C Adapter they are a great way of converting the Micro USB cables you already have to Type C. The adapter works just fine with the Nexus 6P I have yet to see any problem after almost two months of use. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.geekbuying.com/item/Original-Xiaomi-Mi-USB-Type-C-To-Micro-USB-Adapter-Xiaomi-USB-Turn-Type-C-OTG-Adapter-Mobile-Phone-Cables-355450.html" >I bought mine from Geekbuying</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for under $2.oo USD. <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790651766.jpg" alt="wp-1456790651766.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790705443.jpg" alt="wp-1456790705443.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790715172.jpg" alt="wp-1456790715172.jpg"></a> <a href="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg"><img src="https://linhost.info/wp-content/uploads/2016/03/wp-1456790724740.jpg" alt="wp-1456790724740.jpg"></a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/" data-id="ckitzbgln00uy7nfx1t8jacyc" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/test/">Adding a Serial Port to the Raspberry Pi Zero</a>
+    </h1>
+  
+
+        <a href="/2016/02/test/" class="article-date">
+  <time datetime="2016-02-22T21:12:22.000Z" itemprop="datePublished">2016-02-22</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of accessing the Pi Zero without having to plug a keyboard and HDMI connector and it frees the Micro USB port. There are many flavors of USB to RS232 adapters and one of them is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2047675.m570.l1312.R1.TR0.TRC2.A0.H0.TRS5&_nkw=ch340&_sacat=0" >CH340 eBay</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is affordable. Another adapter I like is the CP2102 you can find them on eBay. This are just recommendations in the end it’s your choice as to the one you choose.</p>
 
         <h3 id="How-I-wire-my-Pi-Zero"   >
           <a href="#How-I-wire-my-Pi-Zero" class="heading-link"><i class="fas fa-link"></i></a>How I wire my Pi Zero</h3>
@@ -106,7 +279,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Troubleshooting"   >
           <a href="#Troubleshooting" class="heading-link"><i class="fas fa-link"></i></a>Troubleshooting</h3>
       <p>If you don’t see any output in the console make sure the TXD and RXD pins are in the correct position, otherwise swap them. <img src="https://linhost.info/wp-content/uploads/2016/02/COMMANDLINE-1.jpg"></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/05/update-the-firmware-on-a-raspberry-pi/">Update the Firmware on a Raspberry Pi</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-05-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Updating the Raspberry Pi firmware is easy thanks to a nice utility called rpi-update included by default in Raspbian but I’ve also included an extra step for those of us who use other distributions for the Raspberry Pi like Minibian(my favorite), Kali Linux, etc… Understand that rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. The three steps below are included because <strong>rpi-update</strong> is not included by default in other distributions. Update and upgrade the system. First update and upgrade the OS.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2016/02/test/" data-id="ckitzbgjp00p07nfxfl2rbd3y" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-pi/" rel="tag">raspberry pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-update-the-firmware-on-a-raspberry-pi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/update-the-firmware-on-a-raspberry-pi/">Update the Firmware on a Raspberry Pi</a>
+    </h1>
+  
+
+        <a href="/2015/05/update-the-firmware-on-a-raspberry-pi/" class="article-date">
+  <time datetime="2015-05-05T07:30:01.000Z" itemprop="datePublished">2015-05-05</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Updating the Raspberry Pi firmware is easy thanks to a nice utility called rpi-update included by default in Raspbian but I’ve also included an extra step for those of us who use other distributions for the Raspberry Pi like Minibian(my favorite), Kali Linux, etc… Understand that rpi-update is automated and once executed it will download and install the firmware without any user input. Upgrading the firmware takes less than a minute, however the install might take longer depending on your Internet connection. The three steps below are included because <strong>rpi-update</strong> is not included by default in other distributions. Update and upgrade the system. First update and upgrade the OS.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></div></figure>
 
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
@@ -127,7 +342,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo rpi-update</span><br><span class="line"></span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* Performing self-update</span><br><span class="line">% Total % Received % Xferd Average Speed Time Time Time Current</span><br><span class="line">Dload Upload Total Spent Left Speed</span><br><span class="line">100 9823 100 9823 0 0 54727 0 --:--:-- --:--:-- --:--:-- 79861</span><br><span class="line">\*\*\* Relaunching after update</span><br><span class="line">\*\*\* Raspberry Pi firmware updater by Hexxeh, enhanced by AndrewS and Dom</span><br><span class="line">\*\*\* Your firmware is already up to date</span><br></pre></td></tr></table></div></figure>
 
 <p>Your Raspberry Pi is now running the latest available firmware.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/">Expand the Root Partition in Kali Linux for the Raspberry Pi</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-05-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>By default when Kali Linux for the Rapsberry Pi is installed the file system will only expand to occupy 3GB of storage, in my case I have a 16GB Micro SD card in my Raspberry Pi 2 with most of its capacity unused. One can easily expand the file system by making use of a script that automatically does the job for you. File system after install.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/05/update-the-firmware-on-a-raspberry-pi/" data-id="ckitzbgkd00qx7nfx2dpo546v" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-expand-the-root-partition-in-kali-linux-for-the-raspberry-pi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/">Expand the Root Partition in Kali Linux for the Raspberry Pi</a>
+    </h1>
+  
+
+        <a href="/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/" class="article-date">
+  <time datetime="2015-05-04T07:14:06.000Z" itemprop="datePublished">2015-05-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>By default when Kali Linux for the Rapsberry Pi is installed the file system will only expand to occupy 3GB of storage, in my case I have a 16GB Micro SD card in my Raspberry Pi 2 with most of its capacity unused. One can easily expand the file system by making use of a script that automatically does the job for you. File system after install.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">df -h</span><br><span class="line"></span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">rootfs          2.9G  1.5G  1.2G  56% &#x2F;</span><br><span class="line">&#x2F;dev&#x2F;root       2.9G  1.5G  1.2G  56% &#x2F;</span><br><span class="line">devtmpfs        460M     0  460M   0% &#x2F;dev</span><br><span class="line">tmpfs            93M  468K   93M   1% &#x2F;run</span><br><span class="line">tmpfs           5.0M     0  5.0M   0% &#x2F;run&#x2F;lock</span><br><span class="line">tmpfs           186M     0  186M   0% &#x2F;run&#x2F;shm</span><br></pre></td></tr></table></div></figure>
 
 <p>I should note I did not create the script and found it at the following address <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs" >http://www.raspberryvi.org/wiki/doku.php/raspi-expand-rootfs</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> but it has proven useful. Download the script into the boot directory. Locally hosted.</p>
@@ -147,7 +402,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 
 <p>If you like you can remove the script from the <strong>/boot</strong> directory.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;boot&#x2F;raspi-expand-rootfs.sh</span><br></pre></td></tr></table></div></figure>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/auto-mount-usb-drives-in-raspbian/">Auto Mount USB Drives in Raspbian</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-28</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Update and upgrade the Raspbian installation.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/05/expand-the-root-partition-in-kali-linux-for-the-raspberry-pi/" data-id="ckitzbgea00917nfx5zx42zi7" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-auto-mount-usb-drives-in-raspbian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/auto-mount-usb-drives-in-raspbian/">Auto Mount USB Drives in Raspbian</a>
+    </h1>
+  
+
+        <a href="/2015/04/auto-mount-usb-drives-in-raspbian/" class="article-date">
+  <time datetime="2015-04-28T07:10:06.000Z" itemprop="datePublished">2015-04-28</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Update and upgrade the Raspbian installation.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update &amp;&amp; sudo apt-get upgrade</span><br></pre></td></tr></table></div></figure>
 
 <p>Install the package necessary to automatically mount USB drives.</p>
@@ -158,7 +453,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 
 <p>To un-mount a volume make use of the <strong>df</strong> command above to discover the USB drive mount point and issue the <strong>unmount</strong> command as follows.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount &#x2F;media&#x2F;usb0</span><br></pre></td></tr></table></div></figure>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/upgrade-ubuntu-14-10-to-15-04-2/">Upgrade Ubuntu 14.10 to 15.04</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-27</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>You can view your version of Ubuntu with the following command.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/04/auto-mount-usb-drives-in-raspbian/" data-id="ckitzbgc6002v7nfx2f1khg9q" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-upgrade-ubuntu-14-10-to-15-04-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/upgrade-ubuntu-14-10-to-15-04-2/">Upgrade Ubuntu 14.10 to 15.04</a>
+    </h1>
+  
+
+        <a href="/2015/04/upgrade-ubuntu-14-10-to-15-04-2/" class="article-date">
+  <time datetime="2015-04-27T19:06:02.000Z" itemprop="datePublished">2015-04-27</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>You can view your version of Ubuntu with the following command.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lsb release -a</span><br><span class="line"></span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 14.10</span><br><span class="line">Release:        14.10</span><br><span class="line">Codename:       utopic</span><br></pre></td></tr></table></div></figure>
 
 <p>Update and upgrade the system.</p>
@@ -176,7 +511,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb release -a</span><br></pre></td></tr></table></div></figure>
 
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ lsb release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 15.04</span><br><span class="line">Release:        15.04</span><br><span class="line">Codename:       vivid</span><br></pre></td></tr></table></div></figure>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/04/wget-ignore-invalid-ssl-certificates/">Wget Ignore Invalid SSL Certificates</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-04-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The added parameter below is self explanatory, it tell Wget to ignore the cert check and go ahead.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/04/upgrade-ubuntu-14-10-to-15-04-2/" data-id="ckitzbgkf00r47nfx31nmcn4t" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wget-ignore-invalid-ssl-certificates" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/wget-ignore-invalid-ssl-certificates/">Wget Ignore Invalid SSL Certificates</a>
+    </h1>
+  
+
+        <a href="/2015/04/wget-ignore-invalid-ssl-certificates/" class="article-date">
+  <time datetime="2015-04-24T01:36:42.000Z" itemprop="datePublished">2015-04-23</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The added parameter below is self explanatory, it tell Wget to ignore the cert check and go ahead.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;ididntpayforacert.ca&#x2F;file.gz</span><br></pre></td></tr></table></div></figure>
 
 <p>If you frequently work with self-signed certificates then you can make a change to the Wget config file to let you work with self-signed certificates without resulting in an error.</p>
@@ -184,7 +559,47 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 
 <p>And add the following parameter to the bottom of the config file.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check certificate&#x3D;off</span><br></pre></td></tr></table></div></figure>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2015/02/ubuntu-server-14-04-static-ip-configuration/">Ubuntu Server 14.04 Static IP configuration</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2015-02-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-11</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>In order to set up static IP configuration in Ubuntu 14.04 you need to edit the /etc/network/interfaces file.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/" data-id="ckitzbgkw00sk7nfx983aezk0" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu-server-14-04-static-ip-configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/ubuntu-server-14-04-static-ip-configuration/">Ubuntu Server 14.04 Static IP configuration</a>
+    </h1>
+  
+
+        <a href="/2015/02/ubuntu-server-14-04-static-ip-configuration/" class="article-date">
+  <time datetime="2015-02-16T06:37:57.000Z" itemprop="datePublished">2015-02-15</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>In order to set up static IP configuration in Ubuntu 14.04 you need to edit the /etc/network/interfaces file.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano &#x2F;etc&#x2F;network&#x2F;interfaces</span><br></pre></td></tr></table></div></figure>
 
 <p>You can remove the content referring to the previous DHCP configuration and add the parameters below. Change the addresses below to fit your needs.</p>
@@ -192,4 +607,62 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 
 <p>You don’t have to restart the system instead restart the networking service.</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service networking restart</span><br></pre></td></tr></table></div></figure>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2015/02/ubuntu-server-14-04-static-ip-configuration/" data-id="ckitzbgk800qh7nfx7k87fjt2" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

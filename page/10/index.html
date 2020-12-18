@@ -1,41 +1,94 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="site, site">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Linhost.info">
 <meta property="og:url" content="http://linhost.info/page/10/index.html">
 <meta property="og:site_name" content="Linhost.info">
 <meta property="og:description" content="site, site">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="Lven">
-<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/10/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/12/centos-6-has-no-network-connectivity/">CentOS 6 Has No Network Connectivity ?</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-12-01</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>This is for those of you who are new to CentOS. By default CentOS 6 will not configure network interfaces on a new installation which means the host will have no network connectivity, we can correct this inconvenience with little effort. Of course this means the user(you) is left with the decision to configure the network interface(s) with either a static or dynamically assigned IP addresses. First of all we need to see the contents of the <strong><em>ifcfg-eth0</em></strong> file.</p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-centos-6-has-no-network-connectivity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/12/centos-6-has-no-network-connectivity/">CentOS 6 Has No Network Connectivity ?</a>
+    </h1>
+  
+
+        <a href="/2011/12/centos-6-has-no-network-connectivity/" class="article-date">
+  <time datetime="2011-12-02T05:53:28.000Z" itemprop="datePublished">2011-12-01</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>This is for those of you who are new to CentOS. By default CentOS 6 will not configure network interfaces on a new installation which means the host will have no network connectivity, we can correct this inconvenience with little effort. Of course this means the user(you) is left with the decision to configure the network interface(s) with either a static or dynamically assigned IP addresses. First of all we need to see the contents of the <strong><em>ifcfg-eth0</em></strong> file.</p>
 <p>cat /etc/sysconfig/network-scripts/ifcfg-eth0</p>
 <p>DEVICE=”eth0”<br>HWADDR=”MAC Address”<br>NM_CONTROLLED=”yes”<br>ONBOOT=”no”</p>
 <p>The output above indicates <em><strong>eth0</strong></em> is disabled, this is when you either opt to set a static IP or dynamically assigned IP. With the text editor of your choice open the <strong>/etc/sysconfig/network-scripts/ifcfg-eth0</strong> and edit as indicated below.</p>
@@ -83,7 +136,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <p>or</p>
 <p>service network restart</p>
 <p>As stated by*   Cam<br>it is a good idea to have console access to the server in case you lock your self out it.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/11/split-files-with-7-zip/">Split Files With 7-Zip</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-11-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>For some reason I don’t see many people making use of the file spliting option in the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.7-zip.org/" >7-Zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> File Manager. By splitting I mean dividing a larger file into multiple smaller files, later those files can be restored to its original state. Splitting files is useful in the case where large files have to be distributed but without the risk of having a large file download fail which would mean starting all over again. <em>This post assumes 7-Zip is already installed.</em></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/12/centos-6-has-no-network-connectivity/" data-id="ckitzbgcr00427nfx6fnahphx" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IP/" rel="tag">IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-split-files-with-7-zip" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/11/split-files-with-7-zip/">Split Files With 7-Zip</a>
+    </h1>
+  
+
+        <a href="/2011/11/split-files-with-7-zip/" class="article-date">
+  <time datetime="2011-11-07T07:01:51.000Z" itemprop="datePublished">2011-11-07</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>For some reason I don’t see many people making use of the file spliting option in the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.7-zip.org/" >7-Zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> File Manager. By splitting I mean dividing a larger file into multiple smaller files, later those files can be restored to its original state. Splitting files is useful in the case where large files have to be distributed but without the risk of having a large file download fail which would mean starting all over again. <em>This post assumes 7-Zip is already installed.</em></p>
 
         <h3 id="Benefits"   >
           <a href="#Benefits" class="heading-link"><i class="fas fa-link"></i></a>Benefits:</h3>
@@ -117,8 +212,92 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="File-Restore"   >
           <a href="#File-Restore" class="heading-link"><i class="fas fa-link"></i></a>File Restore</h3>
       <p>Restoring the split files in to its original format is straight forward. Select all files and click on 7-Zip &gt; Extract files… <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-SDuyOabhuXk/Trd-PFDWDyI/AAAAAAAADQM/WNPm79Tr7Hg/s800/7-zip-split-restore-6.jpg"><img src="https://lh6.googleusercontent.com/-SDuyOabhuXk/Trd-PFDWDyI/AAAAAAAADQM/WNPm79Tr7Hg/s800/7-zip-split-restore-6.jpg" title="7 Zip Split restore"></a> You can either change the path where the resulting file will extracted to or go with the defaults, when done click on OK. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-gc_2uYDheZs/Trd-XzEZ7II/AAAAAAAADQU/pOdou6SUv68/s800/7-zip-split-restore-7.png"><img src="https://lh4.googleusercontent.com/-gc_2uYDheZs/Trd-XzEZ7II/AAAAAAAADQU/pOdou6SUv68/s800/7-zip-split-restore-7.png" title="7 Zip Split Restore"></a> Depending on the size of the file be prepared to wait for the file to be decompressed and put back together. <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-_Rj3-ePewGI/Trd-YvH9JAI/AAAAAAAADQc/0dbZ1_j2k6U/s800/7-zip-split-restore-8.png"><img src="https://lh3.googleusercontent.com/-_Rj3-ePewGI/Trd-YvH9JAI/AAAAAAAADQc/0dbZ1_j2k6U/s400/7-zip-split-restore-8.png" title="7 Zip Split Restore"></a> Hopefully, this tutorial will proved useful. Leave a comment if necessary just understand that it may take some time before I can answer.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/10/work-with-the-right-tools/">Work With The Right Tools</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-10-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><em>Breaking from the habit, I am posting about a different topic.</em> Save your self the regret and buy the right tools for the job. If you are planning to pry open an enclosure then I recommend you spend the extra money and buy your self a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Spudger" >Spudger</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Don’t be cheap and try to use a flat-head screw driver otherwise you might damage the plastic. Just in case any one wonders why would I buy a spudger for, my little sister asked me to see what was wrong with her Sony PSP(games would not load). Turns out the UMD drive is to blame, in certain situations the UMD Drive can become damaged when dropped. Now, I am just waiting the replacement UMD drive I bought from China to arrive. Despite being in hands of an 8 year old and after three years of service the PSP has no cosmetic damage and until this moment this is the only major problem. BTW: I bought the Spudger from Amazon. Added some pictures for you enjoyment. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-b5OjjNJrbnQ/TqEMcSjO3GI/AAAAAAAADOU/pw_Is2GllH8/s800/blog-posts-pictures-10-16-11%252520019.JPG"><img src="https://lh5.googleusercontent.com/-b5OjjNJrbnQ/TqEMcSjO3GI/AAAAAAAADOU/pw_Is2GllH8/s400/blog-posts-pictures-10-16-11%252520019.JPG" title="Spudger"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-b7KvtHE5jac/TqEMaFH-2bI/AAAAAAAADOI/KMJo3-1msPM/s800/blog-posts-pictures-10-16-11%252520018.JPG"><img src="https://lh4.googleusercontent.com/-b7KvtHE5jac/TqEMaFH-2bI/AAAAAAAADOI/KMJo3-1msPM/s400/blog-posts-pictures-10-16-11%252520018.JPG" title="Spudger 1"></a> <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-n-RThVRX8do/TqEMZzuKQpI/AAAAAAAADOE/wWU0JXNk0G0/s800/blog-posts-pictures-10-16-11%252520020.JPG"><img src="https://lh3.googleusercontent.com/-n-RThVRX8do/TqEMZzuKQpI/AAAAAAAADOE/wWU0JXNk0G0/s400/blog-posts-pictures-10-16-11%252520020.JPG" title="Spudger 2"></a> <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-x_lXZWj2NwU/TqEMf6pB-6I/AAAAAAAADOc/um-3qSlZCkQ/s800/blog-posts-pictures-10-16-11%252520021.JPG"><img src="https://lh6.googleusercontent.com/-x_lXZWj2NwU/TqEMf6pB-6I/AAAAAAAADOc/um-3qSlZCkQ/s400/blog-posts-pictures-10-16-11%252520021.JPG" title="Spudger 3"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-KVcwQwhvztE/TqERHqakCPI/AAAAAAAADO8/D1U5UdSOFlc/s800/blog-posts-pictures-10-16-11%252520025.JPG"><img src="https://lh4.googleusercontent.com/-KVcwQwhvztE/TqERHqakCPI/AAAAAAAADO8/D1U5UdSOFlc/s400/blog-posts-pictures-10-16-11%252520025.JPG" title="Pink PSP"></a></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/09/time-for-a-new-nas/">Time For A New NAS</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-09-25</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>I thought I wouldn’t have to say this for years to come, but I’ve reached the conclusion that after 3 years of service the time to replace my current NAS has come, for sake of reference here is what I currently have:</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/11/split-files-with-7-zip/" data-id="ckitzbgje00o57nfx9xr45m7v" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/7-zip/" rel="tag">7-zip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compression/" rel="tag">compression</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-work-with-the-right-tools" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/10/work-with-the-right-tools/">Work With The Right Tools</a>
+    </h1>
+  
+
+        <a href="/2011/10/work-with-the-right-tools/" class="article-date">
+  <time datetime="2011-10-21T06:53:44.000Z" itemprop="datePublished">2011-10-21</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><em>Breaking from the habit, I am posting about a different topic.</em> Save your self the regret and buy the right tools for the job. If you are planning to pry open an enclosure then I recommend you spend the extra money and buy your self a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Spudger" >Spudger</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Don’t be cheap and try to use a flat-head screw driver otherwise you might damage the plastic. Just in case any one wonders why would I buy a spudger for, my little sister asked me to see what was wrong with her Sony PSP(games would not load). Turns out the UMD drive is to blame, in certain situations the UMD Drive can become damaged when dropped. Now, I am just waiting the replacement UMD drive I bought from China to arrive. Despite being in hands of an 8 year old and after three years of service the PSP has no cosmetic damage and until this moment this is the only major problem. BTW: I bought the Spudger from Amazon. Added some pictures for you enjoyment. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-b5OjjNJrbnQ/TqEMcSjO3GI/AAAAAAAADOU/pw_Is2GllH8/s800/blog-posts-pictures-10-16-11%252520019.JPG"><img src="https://lh5.googleusercontent.com/-b5OjjNJrbnQ/TqEMcSjO3GI/AAAAAAAADOU/pw_Is2GllH8/s400/blog-posts-pictures-10-16-11%252520019.JPG" title="Spudger"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-b7KvtHE5jac/TqEMaFH-2bI/AAAAAAAADOI/KMJo3-1msPM/s800/blog-posts-pictures-10-16-11%252520018.JPG"><img src="https://lh4.googleusercontent.com/-b7KvtHE5jac/TqEMaFH-2bI/AAAAAAAADOI/KMJo3-1msPM/s400/blog-posts-pictures-10-16-11%252520018.JPG" title="Spudger 1"></a> <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-n-RThVRX8do/TqEMZzuKQpI/AAAAAAAADOE/wWU0JXNk0G0/s800/blog-posts-pictures-10-16-11%252520020.JPG"><img src="https://lh3.googleusercontent.com/-n-RThVRX8do/TqEMZzuKQpI/AAAAAAAADOE/wWU0JXNk0G0/s400/blog-posts-pictures-10-16-11%252520020.JPG" title="Spudger 2"></a> <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-x_lXZWj2NwU/TqEMf6pB-6I/AAAAAAAADOc/um-3qSlZCkQ/s800/blog-posts-pictures-10-16-11%252520021.JPG"><img src="https://lh6.googleusercontent.com/-x_lXZWj2NwU/TqEMf6pB-6I/AAAAAAAADOc/um-3qSlZCkQ/s400/blog-posts-pictures-10-16-11%252520021.JPG" title="Spudger 3"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-KVcwQwhvztE/TqERHqakCPI/AAAAAAAADO8/D1U5UdSOFlc/s800/blog-posts-pictures-10-16-11%252520025.JPG"><img src="https://lh4.googleusercontent.com/-KVcwQwhvztE/TqERHqakCPI/AAAAAAAADO8/D1U5UdSOFlc/s400/blog-posts-pictures-10-16-11%252520025.JPG" title="Pink PSP"></a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/10/work-with-the-right-tools/" data-id="ckitzbgll00ur7nfx0onv3fxa" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/psp/" rel="tag">psp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spudger/" rel="tag">spudger</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-time-for-a-new-nas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/09/time-for-a-new-nas/">Time For A New NAS</a>
+    </h1>
+  
+
+        <a href="/2011/09/time-for-a-new-nas/" class="article-date">
+  <time datetime="2011-09-26T04:05:48.000Z" itemprop="datePublished">2011-09-25</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>I thought I wouldn’t have to say this for years to come, but I’ve reached the conclusion that after 3 years of service the time to replace my current NAS has come, for sake of reference here is what I currently have:</p>
 <ul>
 <li>Via C3</li>
 <li>Windows Server 2003</li>
@@ -150,7 +329,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <li>PCI-E would be nice</li>
 </ul>
 <p>At the moment there are two front runners one is a semi-complete solution: QNAP TS-410 ($450.00) and the HP Micro Server ($350.00) which would require me to once again provide the OS among other things. I like the convenience of QNAP and the favorable reviews on what appears to be a solid product that comes with many useful features like iSCSI, HTTP server, SMB. But the nerd in me calls out for the HP Micro Server.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/09/how-to-backup-and-restore-the-mbr/">How To Backup And Restore The MBR</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-09-19</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in getting a blank screen. BTW: The MBR holds partition data and Operating System boot essential data. Therefore, it’s essential to know how to backup the MBR, fortunately we can backup with a few simple steps and only using free tools.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/09/time-for-a-new-nas/" data-id="ckitzbgjt00pc7nfx4a9y4rwj" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-backup-and-restore-the-mbr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/09/how-to-backup-and-restore-the-mbr/">How To Backup And Restore The MBR</a>
+    </h1>
+  
+
+        <a href="/2011/09/how-to-backup-and-restore-the-mbr/" class="article-date">
+  <time datetime="2011-09-19T09:36:26.000Z" itemprop="datePublished">2011-09-19</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in getting a blank screen. BTW: The MBR holds partition data and Operating System boot essential data. Therefore, it’s essential to know how to backup the MBR, fortunately we can backup with a few simple steps and only using free tools.</p>
 <blockquote>
 <p>MBR = Master Boot Record</p>
 </blockquote>
@@ -173,7 +394,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <p>Restoring the <strong>MBR</strong> follows similar steps, you first need to mount the drive where the MBR was backup to and use the <strong>dd</strong> command to restore the backup to the desired drive.</p>
 <p>dd if=mountusb/sda.mbr of=/dev/sda</p>
 <p>Now that you know how to backup the MBR go ahead and start playing with multiple operating system, if at a latter time you decided to remove them you can always revert to the original MBR with a single command. Thanks for reading.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/09/download-the-windows-8-developer-preview/">Download The Windows 8 Developer Preview</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-09-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you are looking for something to download then why not download the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/windows/apps/br229516" >Windows 8 Developer Preview</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and have a taste of the next desktop OS from Microsoft. Keep in mind this is a pre-beta which means you should expect bug and instability. Recommended hardware is similar to what you should already using with either Vista or Windows 7:</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/09/how-to-backup-and-restore-the-mbr/" data-id="ckitzbgf500bc7nfxh4moau92" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mbr/" rel="tag">mbr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-download-the-windows-8-developer-preview" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/09/download-the-windows-8-developer-preview/">Download The Windows 8 Developer Preview</a>
+    </h1>
+  
+
+        <a href="/2011/09/download-the-windows-8-developer-preview/" class="article-date">
+  <time datetime="2011-09-14T08:48:16.000Z" itemprop="datePublished">2011-09-14</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you are looking for something to download then why not download the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/windows/apps/br229516" >Windows 8 Developer Preview</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and have a taste of the next desktop OS from Microsoft. Keep in mind this is a pre-beta which means you should expect bug and instability. Recommended hardware is similar to what you should already using with either Vista or Windows 7:</p>
 <ol>
 <li>1 gigahertz (GHz) or faster 32-bit (x86) or 64-bit (x64) processor</li>
 <li>1 gigabyte (GB) RAM (32-bit) or 2 GB RAM (64-bit)</li>
@@ -182,8 +445,92 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
 <li>Taking advantage of touch input requires a screen that supports multi-touch</li>
 </ol>
 <p>Use the following links to download the version you find adequate: <strong>Windows Developer Preview with developer tools English, 64-bit (x64)</strong> 4.8GB <strong>SHA-1 Hash:</strong> 6FE9352FB59F6D0789AF35D1001BD4E4E81E42AF <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wdp.dlws.microsoft.com/WDPDL/9B8DFDFF736C5B1DBF956B89D8A9D4FD925DACD2/WindowsDeveloperPreview-64bit-English-Developer.iso" >Download</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <strong>Windows Developer Preview with developer tools English, 64-bit (x64)</strong> 3.6GB <strong>Sha 1 hash</strong> - 6FE9352FB59F6D0789AF35D1001BD4E4E81E42AF <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wdp.dlws.microsoft.com/WDPDL/9B8DFDFF736C5B1DBF956B89D8A9D4FD925DACD2/WindowsDeveloperPreview-64bit-English-Developer.iso" >Download</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <strong>Windows Developer Preview English, 32-bit (x86)</strong> 2.8GB <strong>SHA-1 Hash:</strong> 4E0698BBABE01ED27582C9FC16AD21C4422913CC <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wdp.dlws.microsoft.com/WDPDL/9B8DFDFF736C5B1DBF956B89D8A9D4FD925DACD2/WindowsDeveloperPreview-32bit-English.iso" >Download</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Don’t forget to watch the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.buildwindows.com/" >Microsoft preview of Windows Server 8</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> @ 9am Pacific time, Sept. 14.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/09/change-the-default-text-editor-in-winscp-2/">Change The Default Text Editor In WinSCP</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-09-05</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>I consider WinSCP to be the best free SFTP, SCP and FTP client for Windows but like other similar clients the bundled text editor is not what I would consider to be the best or adequate for the type of work I do. In this post I will describe the necessary steps to replace the default text editor WinSCP uses whenever a file is opened, instead of executing the default text editor the replacement editor will be executed. Although this tutorial uses Intype as the third party text editor of choice you can substitute for the text editor of your choice. Start WinSCP and make sure the <strong>Advanced options</strong> check box is checked. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s800/winscp-0.png"><img src="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s400/winscp-0.png" title="WinSCP 0"></a> Click on <strong>Preferences</strong>. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s800/winscp-1.png"><img src="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s400/winscp-1.png" title="WinSCP 1"></a> Once again click on the <strong>Preferences…</strong> box. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s800/winscp-2.png"><img src="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s400/winscp-2.png" title="WinSCP 2"></a> Click on <strong>Editors</strong>. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s800/winscp-3.png"><img src="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s400/winscp-3.png" title="WinSCP 3"></a> Click on the <strong>Add …</strong> box. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s800/winscp-4.png"><img src="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s400/winscp-4.png" title="WinSCP 4"></a> Select <strong>External editor:</strong> and <strong>Browse…</strong> to the path where the replecement text editor resides in the case of Intype the path is <strong>C:Program Files (x86)Intypeintype.exe</strong>. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s800/winscp-5.png"><img src="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s400/winscp-5.png" title="WinSCP 5"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s800/winscp-6.png"><img src="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s400/winscp-6.png" title="WinSCP"></a> WinSCP will format the path for you!. Click on <strong>OK</strong> to save the changes. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s800/winscp-7.png"><img src="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s400/winscp-7.png" title="WinSCP 7"></a> In my case the text editor was recognized as <strong>Intype</strong>, click on it to highlight it. Click on the <strong>Up</strong> button till the new text editor is at the top making it the default choice. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s800/winscp-8.png"><img src="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s400/winscp-8.png" title="WinSCP 8"></a> Click on the <strong>OK</strong> button to save. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s800/winscp-9.png"><img src="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s400/winscp-9.png" title="WinSCP"></a> From now on whenever you edit a file WinSCP will execute the replacement text editor instead of the bundled one. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s800/WinSCP-Intype.jpg"><img src="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s400/WinSCP-Intype.jpg" title="WinSCP and Intype"></a> Feel free to leave comments below.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/08/windows-7-network-share-trust/">Windows 7 Network Share Trust</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-08-16</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Windows 7 improved various aspects of security over previous version of the Microsoft operating system, while improvements are usually well received some of the new security aspects resulted in Windows no longer trusting my network share despite being in my LAN which is already trusted and not in the Internet where I have no control. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-JYA0V-pyVng/TkofHiohcwI/AAAAAAAADLE/NB00Or6mX3g/s800/Trusted_Untrusted_Zone.png"><img src="https://lh6.googleusercontent.com/-JYA0V-pyVng/TkofHiohcwI/AAAAAAAADLE/NB00Or6mX3g/s400/Trusted_Untrusted_Zone.png" title="Network Diagram"></a> While is not the end of the world, the changes do make it annoying if you have to download multiple files from a network share. This is what I have to put up with every time I have to download a file: <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-JklWV6jUni4/TkofaIPA1HI/AAAAAAAADLI/Te45XGKr9p8/s800/windows-security.png"><img src="https://lh3.googleusercontent.com/-JklWV6jUni4/TkofaIPA1HI/AAAAAAAADLI/Te45XGKr9p8/s800/windows-security.png" title="Windows Security"></a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/09/download-the-windows-8-developer-preview/" data-id="ckitzbgdz007y7nfx1d1dgdhr" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-change-the-default-text-editor-in-winscp-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/09/change-the-default-text-editor-in-winscp-2/">Change The Default Text Editor In WinSCP</a>
+    </h1>
+  
+
+        <a href="/2011/09/change-the-default-text-editor-in-winscp-2/" class="article-date">
+  <time datetime="2011-09-06T01:28:42.000Z" itemprop="datePublished">2011-09-05</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>I consider WinSCP to be the best free SFTP, SCP and FTP client for Windows but like other similar clients the bundled text editor is not what I would consider to be the best or adequate for the type of work I do. In this post I will describe the necessary steps to replace the default text editor WinSCP uses whenever a file is opened, instead of executing the default text editor the replacement editor will be executed. Although this tutorial uses Intype as the third party text editor of choice you can substitute for the text editor of your choice. Start WinSCP and make sure the <strong>Advanced options</strong> check box is checked. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s800/winscp-0.png"><img src="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s400/winscp-0.png" title="WinSCP 0"></a> Click on <strong>Preferences</strong>. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s800/winscp-1.png"><img src="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s400/winscp-1.png" title="WinSCP 1"></a> Once again click on the <strong>Preferences…</strong> box. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s800/winscp-2.png"><img src="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s400/winscp-2.png" title="WinSCP 2"></a> Click on <strong>Editors</strong>. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s800/winscp-3.png"><img src="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s400/winscp-3.png" title="WinSCP 3"></a> Click on the <strong>Add …</strong> box. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s800/winscp-4.png"><img src="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s400/winscp-4.png" title="WinSCP 4"></a> Select <strong>External editor:</strong> and <strong>Browse…</strong> to the path where the replecement text editor resides in the case of Intype the path is <strong>C:Program Files (x86)Intypeintype.exe</strong>. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s800/winscp-5.png"><img src="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s400/winscp-5.png" title="WinSCP 5"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s800/winscp-6.png"><img src="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s400/winscp-6.png" title="WinSCP"></a> WinSCP will format the path for you!. Click on <strong>OK</strong> to save the changes. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s800/winscp-7.png"><img src="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s400/winscp-7.png" title="WinSCP 7"></a> In my case the text editor was recognized as <strong>Intype</strong>, click on it to highlight it. Click on the <strong>Up</strong> button till the new text editor is at the top making it the default choice. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s800/winscp-8.png"><img src="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s400/winscp-8.png" title="WinSCP 8"></a> Click on the <strong>OK</strong> button to save. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s800/winscp-9.png"><img src="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s400/winscp-9.png" title="WinSCP"></a> From now on whenever you edit a file WinSCP will execute the replacement text editor instead of the bundled one. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s800/WinSCP-Intype.jpg"><img src="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s400/WinSCP-Intype.jpg" title="WinSCP and Intype"></a> Feel free to leave comments below.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/09/change-the-default-text-editor-in-winscp-2/" data-id="ckitzbgcz004n7nfx0127bvsh" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editor/" rel="tag">editor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intype/" rel="tag">intype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winscp/" rel="tag">winscp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-windows-7-network-share-trust" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/windows-7-network-share-trust/">Windows 7 Network Share Trust</a>
+    </h1>
+  
+
+        <a href="/2011/08/windows-7-network-share-trust/" class="article-date">
+  <time datetime="2011-08-16T08:27:10.000Z" itemprop="datePublished">2011-08-16</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Windows 7 improved various aspects of security over previous version of the Microsoft operating system, while improvements are usually well received some of the new security aspects resulted in Windows no longer trusting my network share despite being in my LAN which is already trusted and not in the Internet where I have no control. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-JYA0V-pyVng/TkofHiohcwI/AAAAAAAADLE/NB00Or6mX3g/s800/Trusted_Untrusted_Zone.png"><img src="https://lh6.googleusercontent.com/-JYA0V-pyVng/TkofHiohcwI/AAAAAAAADLE/NB00Or6mX3g/s400/Trusted_Untrusted_Zone.png" title="Network Diagram"></a> While is not the end of the world, the changes do make it annoying if you have to download multiple files from a network share. This is what I have to put up with every time I have to download a file: <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-JklWV6jUni4/TkofaIPA1HI/AAAAAAAADLI/Te45XGKr9p8/s800/windows-security.png"><img src="https://lh3.googleusercontent.com/-JklWV6jUni4/TkofaIPA1HI/AAAAAAAADLI/Te45XGKr9p8/s800/windows-security.png" title="Windows Security"></a></p>
 
         <h3 id="The-Solution"   >
           <a href="#The-Solution" class="heading-link"><i class="fas fa-link"></i></a>The Solution</h3>
@@ -192,12 +539,96 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links:</h3>
       <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://social.technet.microsoft.com/Forums/en-US/w7itprosecurity/thread/35ca8f9c-5e69-4b7f-a002-0d72fa0dc14b/"  title="Techent.Microsoft.com"></a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/08/vmware-changes-to-the-vram-licensing-model/">VMware: Changes To The vRAM Licensing Model</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-08-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>After <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.vmware.com/rethinkit/2011/08/changes-to-the-vram-licensing-model-introduced-on-july-12-2011.html" >stirring some emotions</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> VMware has made changes to the vSphere 5 licensing model, the new changes should dissipate the bad rep VMware received for making the unwelcome changes. I can recall conversing with other IT Pros where they expressed interest in competing virtualization platforms because they found the changes to be unfriendly to their operations and budget. The chart below should help explain the new vRAM increases to the licensing model: <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-7w7pxm0REwk/TjpPm3n93oI/AAAAAAAADKk/JUDL-Hv70d4/s800/vRAM.png"><img src="https://lh3.googleusercontent.com/-7w7pxm0REwk/TjpPm3n93oI/AAAAAAAADKk/JUDL-Hv70d4/s400/vRAM.png" title="vRAM"></a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/08/windows-7-network-share-trust/" data-id="ckitzbgl500td7nfxaj9y7slr" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/" rel="tag">storage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-7/" rel="tag">windows 7</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vmware-changes-to-the-vram-licensing-model" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/08/vmware-changes-to-the-vram-licensing-model/">VMware: Changes To The vRAM Licensing Model</a>
+    </h1>
+  
+
+        <a href="/2011/08/vmware-changes-to-the-vram-licensing-model/" class="article-date">
+  <time datetime="2011-08-04T08:13:28.000Z" itemprop="datePublished">2011-08-04</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>After <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.vmware.com/rethinkit/2011/08/changes-to-the-vram-licensing-model-introduced-on-july-12-2011.html" >stirring some emotions</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> VMware has made changes to the vSphere 5 licensing model, the new changes should dissipate the bad rep VMware received for making the unwelcome changes. I can recall conversing with other IT Pros where they expressed interest in competing virtualization platforms because they found the changes to be unfriendly to their operations and budget. The chart below should help explain the new vRAM increases to the licensing model: <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-7w7pxm0REwk/TjpPm3n93oI/AAAAAAAADKk/JUDL-Hv70d4/s800/vRAM.png"><img src="https://lh3.googleusercontent.com/-7w7pxm0REwk/TjpPm3n93oI/AAAAAAAADKk/JUDL-Hv70d4/s400/vRAM.png" title="vRAM"></a></p>
 
         <h3 id="My-Take"   >
           <a href="#My-Take" class="heading-link"><i class="fas fa-link"></i></a>My Take</h3>
       <p>It’s always great to see a company take action when customers express disapproval of their actions. Users of the free VMware free Hypervisor will be specially happy after the new changes. Now we can get back to running the Matrix on ESXi. For more information visit the link below: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.vmware.com/rethinkit/2011/08/changes-to-the-vram-licensing-model-introduced-on-july-12-2011.html" >Changes to the vRAM licensing model introduced on July 12, 2011</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2011/07/schedule-a-shutdown-in-windows/">Schedule A Shutdown In Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2011-07-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Useful tip if you need to schedule a Windows PC to shutdown after a certain amount of time. Thanks to the <strong><em>Shutdown</em></strong> command we can either shutdown or restart a Windows PC after a pre-determined amount of time. Shutdown is an easy command to understand and use, a basic yet useful example would be shutting the system after 60 minutes.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/08/vmware-changes-to-the-vram-licensing-model/" data-id="ckitzbgkn00rp7nfx2k3s5690" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/licensing/" rel="tag">licensing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-schedule-a-shutdown-in-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/07/schedule-a-shutdown-in-windows/">Schedule A Shutdown In Windows</a>
+    </h1>
+  
+
+        <a href="/2011/07/schedule-a-shutdown-in-windows/" class="article-date">
+  <time datetime="2011-07-27T05:25:50.000Z" itemprop="datePublished">2011-07-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Useful tip if you need to schedule a Windows PC to shutdown after a certain amount of time. Thanks to the <strong><em>Shutdown</em></strong> command we can either shutdown or restart a Windows PC after a pre-determined amount of time. Shutdown is an easy command to understand and use, a basic yet useful example would be shutting the system after 60 minutes.</p>
 <p>shutdown /s /t 3600</p>
 <p>Brief explanation of the command above: <strong>/s</strong> - Shutdown the computer. <strong>/t</strong> - Set the time-out before shutdown to xxx seconds. 60 seconds X 60 minutes = 3600 After the command is entered you should see an alert similar to the one below. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-XhXZ6kw6Rlo/Ti-fzXf89NI/AAAAAAAADKI/s8VPBlb3OjY/s800/shutdown-s-t-3600.png"><img src="https://lh5.googleusercontent.com/-XhXZ6kw6Rlo/Ti-fzXf89NI/AAAAAAAADKI/s8VPBlb3OjY/s800/shutdown-s-t-3600.png" title="shutdown-s-t-3600"></a> To cancel the shutdown all you have to do is enter the <strong><em>/a</em></strong> parameter after the shutdown command. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-smrjTcYXOHM/Ti-fzTrBcYI/AAAAAAAADKM/tW0QH8bJtTc/s800/logoff-is-cancelled.png"><img src="https://lh6.googleusercontent.com/-smrjTcYXOHM/Ti-fzTrBcYI/AAAAAAAADKM/tW0QH8bJtTc/s800/logoff-is-cancelled.png" title="logoff-is-cancelled"></a> Now know your way around the Shutdown command, then let me tell you about the GUI. Although the Shutdown command is easy to follow you can make use of its optional graphical user interface by using the <strong><em>/i</em></strong> parameter.</p>
 <p>shutdown /i</p>
@@ -208,4 +639,64 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links:</h3>
       <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/resources/documentation/windows/xp/all/proddocs/en-us/shutdown.mspx?mfr=true" >More info about the shutdown command</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/9/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/11/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/07/schedule-a-shutdown-in-windows/" data-id="ckitzbgj400n07nfx8z235i46" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/11/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

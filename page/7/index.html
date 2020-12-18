@@ -1,41 +1,94 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="site, site">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="site, site">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Linhost.info">
 <meta property="og:url" content="http://linhost.info/page/7/index.html">
 <meta property="og:site_name" content="Linhost.info">
 <meta property="og:description" content="site, site">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="Lven">
-<meta name="twitter:card" content="summary"><title>Linhost.info</title><link ref="canonical" href="http://linhost.info/page/7/index.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/keeping-a-vhd-mounted-in-windows-even-after-a-reboot/">Keeping a VHD Mounted in Windows, Even After A Reboot</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>While Windows 7 comes with native support for mount VHD files there is one downside , all VHDs are unmount it every the system goes through a reboot. The shortcoming can be remedied with the help of a free third party tool called <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/vhdattach/" >VHD Attach</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> created by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/about/" >Josip Medved</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. You can download VHD attach from the following page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/vhdattach/" >http://www.jmedved.com/vhdattach/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> This is a two step tutorial. First we’ll have to specify the VHD we need to be auto mounted , second the VHD will be mounted with a drive letter. <strong>Note:</strong> This post assumes you already installed the application.</p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-keeping-a-vhd-mounted-in-windows-even-after-a-reboot" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/keeping-a-vhd-mounted-in-windows-even-after-a-reboot/">Keeping a VHD Mounted in Windows, Even After A Reboot</a>
+    </h1>
+  
+
+        <a href="/2012/08/keeping-a-vhd-mounted-in-windows-even-after-a-reboot/" class="article-date">
+  <time datetime="2012-08-26T09:08:23.000Z" itemprop="datePublished">2012-08-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>While Windows 7 comes with native support for mount VHD files there is one downside , all VHDs are unmount it every the system goes through a reboot. The shortcoming can be remedied with the help of a free third party tool called <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/vhdattach/" >VHD Attach</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> created by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/about/" >Josip Medved</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. You can download VHD attach from the following page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/vhdattach/" >http://www.jmedved.com/vhdattach/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> This is a two step tutorial. First we’ll have to specify the VHD we need to be auto mounted , second the VHD will be mounted with a drive letter. <strong>Note:</strong> This post assumes you already installed the application.</p>
 
         <h2 id="Auto-Mount"   >
           <a href="#Auto-Mount" class="heading-link"><i class="fas fa-link"></i></a>Auto Mount</h2>
@@ -48,7 +101,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h2 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
       <p>VHD Attach Home page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.jmedved.com/vhdattach/" >jmedved.com/vhdattach/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/install-webmin-on-ubuntu-12-04/">Install Webmin on Ubuntu 12.04</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p><strong>Note:</strong> This post assumes a web server is already installed. <strong>Note:</strong> This post assumes you have administrative rights on the system. Like always you should update and upgrade the installation.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/keeping-a-vhd-mounted-in-windows-even-after-a-reboot/" data-id="ckitzbggr00f97nfx6qaqfdns" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/" rel="tag">storage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vhd/" rel="tag">vhd</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-install-webmin-on-ubuntu-12-04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/install-webmin-on-ubuntu-12-04/">Install Webmin on Ubuntu 12.04</a>
+    </h1>
+  
+
+        <a href="/2012/08/install-webmin-on-ubuntu-12-04/" class="article-date">
+  <time datetime="2012-08-22T08:43:32.000Z" itemprop="datePublished">2012-08-22</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><strong>Note:</strong> This post assumes a web server is already installed. <strong>Note:</strong> This post assumes you have administrative rights on the system. Like always you should update and upgrade the installation.</p>
 <p>sudo apt-get update</p>
 <p>sudo apt-get upgrade</p>
 <p><img src="http://cdn.linhost.info/static/webmin.png" alt="Webmin"></p>
@@ -72,7 +167,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h2 id="Conclusion-and-Links"   >
           <a href="#Conclusion-and-Links" class="heading-link"><i class="fas fa-link"></i></a>Conclusion and Links</h2>
       <p>Comments and corrections are always appreciated. Webmin Home Page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.webmin.com/" >http://www.webmin.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/wget-for-windows/">Wget for Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-21</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Not many things are this simple in life, but running Wget in Windows is one of them. First you will need to download wget.exe from the following address <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://users.ugent.be/~bpuype/wget/" >http://users.ugent.be/~bpuype/wget/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> . Look for <strong>wget.exe</strong> and click on it to start the download. <img src="http://cdn.linhost.info/static/wget0.png" alt="Wget for Windows 0"> Once the executable has been downloaded you can either run it from the download directory. Move into the directory where <strong>wget.exe</strong> was downloaded to and execute the file.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/install-webmin-on-ubuntu-12-04/" data-id="ckitzbgg700dt7nfx96eeckz4" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webmin/" rel="tag">webmin</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-wget-for-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/wget-for-windows/">Wget for Windows</a>
+    </h1>
+  
+
+        <a href="/2012/08/wget-for-windows/" class="article-date">
+  <time datetime="2012-08-22T02:34:37.000Z" itemprop="datePublished">2012-08-21</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Not many things are this simple in life, but running Wget in Windows is one of them. First you will need to download wget.exe from the following address <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://users.ugent.be/~bpuype/wget/" >http://users.ugent.be/~bpuype/wget/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> . Look for <strong>wget.exe</strong> and click on it to start the download. <img src="http://cdn.linhost.info/static/wget0.png" alt="Wget for Windows 0"> Once the executable has been downloaded you can either run it from the download directory. Move into the directory where <strong>wget.exe</strong> was downloaded to and execute the file.</p>
 <p>cd Downlods</p>
 <p>wget.exe</p>
 <p>Or you can move the executable over to the <strong>C:Windows</strong> directory. This is my preferred method since it allows the user to call on wget without having to specify the path where the executable resides. <img src="http://cdn.linhost.info/static/wget1.png" alt="Wget for Windows 1"> But you will need administrators rights to move any file to <strong>C:Windows</strong>. Click on <strong>Continue</strong>. <img src="http://cdn.linhost.info/static/wget2.png" alt="Wget for Windows 2"> Time to use Wget, go to <strong>Start</strong> &gt; <strong>Run</strong> &gt; and type <strong>cmd</strong>. In the command window type <strong>wget</strong>. <img src="http://cdn.linhost.info/static/wget3.png" alt="Wget for Windows 3"> Congratulations you now have Wget in your Windows box.</p>
@@ -80,7 +217,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h2 id="Links-amp-Conclusion"   >
           <a href="#Links-amp-Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Links &amp; Conclusion</h2>
       <p>Feel free to leave a comment below. Wget for Widows <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://users.ugent.be/~bpuype/wget/" >wget.exe</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/gzip-files-in-windows/">How to Gzip Files on Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-15</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>7-Zip can be used to create more than 7z compressed files, it can also create GZip compressed files and directories. GZip can compressed a single file on its own, however if you need to compress a directory an extra step is required where the directory is first archived with the help of tar and then compressed with GZip. This tutorial will cover single file compression and directory compression.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/wget-for-windows/" data-id="ckitzbgkv00sg7nfxf5mic52d" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/" rel="tag">wget</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-gzip-files-in-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/gzip-files-in-windows/">How to Gzip Files on Windows</a>
+    </h1>
+  
+
+        <a href="/2012/08/gzip-files-in-windows/" class="article-date">
+  <time datetime="2012-08-15T08:19:42.000Z" itemprop="datePublished">2012-08-15</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>7-Zip can be used to create more than 7z compressed files, it can also create GZip compressed files and directories. GZip can compressed a single file on its own, however if you need to compress a directory an extra step is required where the directory is first archived with the help of tar and then compressed with GZip. This tutorial will cover single file compression and directory compression.</p>
 
         <h2 id="First-Things-First"   >
           <a href="#First-Things-First" class="heading-link"><i class="fas fa-link"></i></a>First Things First</h2>
@@ -101,7 +280,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h2 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
       <p>Homepage: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.7-zip.org/" >http://www.7-zip.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/mount-an-image-file-on-windows/">Mount an Image File on Windows</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-13</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you created a image from a drive with a tool like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Dd_(Unix)" >dd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and are now wondering how it can be mounted on Windows, well then this post will answer that question. In my opinion one of the best tools for the job is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free application by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.passmark.com/" >PassMark</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> that can mount all sort of image files such as ISO, image files and even VMDKs. **Note:**When mounting an image file in Windows they need to be formatted with NTFS, exFAT or FAT in order to be able to view the contents. Windows is unaware of other file systems like EXT2/3/4, XFS, UFS, etc….</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/gzip-files-in-windows/" data-id="ckitzbgew00ap7nfx3l2sfelt" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compression/" rel="tag">compression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gzip/" rel="tag">gzip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mount-an-image-file-on-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/mount-an-image-file-on-windows/">Mount an Image File on Windows</a>
+    </h1>
+  
+
+        <a href="/2012/08/mount-an-image-file-on-windows/" class="article-date">
+  <time datetime="2012-08-13T07:46:28.000Z" itemprop="datePublished">2012-08-13</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you created a image from a drive with a tool like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Dd_(Unix)" >dd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and are now wondering how it can be mounted on Windows, well then this post will answer that question. In my opinion one of the best tools for the job is <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free application by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.passmark.com/" >PassMark</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> that can mount all sort of image files such as ISO, image files and even VMDKs. **Note:**When mounting an image file in Windows they need to be formatted with NTFS, exFAT or FAT in order to be able to view the contents. Windows is unaware of other file systems like EXT2/3/4, XFS, UFS, etc….</p>
 
         <h2 id="1-First-Things-First"   >
           <a href="#1-First-Things-First" class="heading-link"><i class="fas fa-link"></i></a>1. First Things First</h2>
@@ -126,8 +347,92 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h3>
       <p>Home Page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.passmark.com/" >Passmark</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Download Page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.osforensics.com/tools/mount-disk-images.html" >OSFMount</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/my-experience-with-namecheap-so-far/">My Experience with NameCheap So Far</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>This is short, real short. After four months of being a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.namecheap.com/" >NameCheap</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> customer I can say: <strong>No unnecessary communication(spam)</strong> There has no attempt at trying to sell me other services, which I probably wouldn’t need in the first place. <strong>No service interuptions</strong> DNS can’t be down and NameCheap doesn’t disappoint. Domain transfer was quick and painless. <strong>Free DDNS</strong> My previous DNS provider didn’t offer Dynamic DNS, NameCheap includes DDNS with their service at no extra cost. <strong>No longer a victim of the Godaddy interface</strong> Do I need to say more, nightmare of an interface it took a while to find what you were looking for. I am not looking back.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/open-zip-files-ubuntu-command-line/">Ubuntu: How to Create and Open Zip Files from the Command Line</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-09</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>If you have an Ubuntu/Debian server installation and need to open or create Zip file then you need to install the necessary packages to work with Zip files. Fortunately, we can easily add support for Zip to our installation by installing two packages(Zip, Unzip) both available from the repositories. <strong>Note:</strong> This post assumes you have the ability to install packages, root or sudo access.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/mount-an-image-file-on-windows/" data-id="ckitzbghj00hm7nfx25rggxjp" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-my-experience-with-namecheap-so-far" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/my-experience-with-namecheap-so-far/">My Experience with NameCheap So Far</a>
+    </h1>
+  
+
+        <a href="/2012/08/my-experience-with-namecheap-so-far/" class="article-date">
+  <time datetime="2012-08-12T07:54:39.000Z" itemprop="datePublished">2012-08-12</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>This is short, real short. After four months of being a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.namecheap.com/" >NameCheap</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> customer I can say: <strong>No unnecessary communication(spam)</strong> There has no attempt at trying to sell me other services, which I probably wouldn’t need in the first place. <strong>No service interuptions</strong> DNS can’t be down and NameCheap doesn’t disappoint. Domain transfer was quick and painless. <strong>Free DDNS</strong> My previous DNS provider didn’t offer Dynamic DNS, NameCheap includes DDNS with their service at no extra cost. <strong>No longer a victim of the Godaddy interface</strong> Do I need to say more, nightmare of an interface it took a while to find what you were looking for. I am not looking back.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/my-experience-with-namecheap-so-far/" data-id="ckitzbghr00id7nfxddrg255z" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namecheap/" rel="tag">namecheap</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-open-zip-files-ubuntu-command-line" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/open-zip-files-ubuntu-command-line/">Ubuntu: How to Create and Open Zip Files from the Command Line</a>
+    </h1>
+  
+
+        <a href="/2012/08/open-zip-files-ubuntu-command-line/" class="article-date">
+  <time datetime="2012-08-09T10:02:18.000Z" itemprop="datePublished">2012-08-09</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you have an Ubuntu/Debian server installation and need to open or create Zip file then you need to install the necessary packages to work with Zip files. Fortunately, we can easily add support for Zip to our installation by installing two packages(Zip, Unzip) both available from the repositories. <strong>Note:</strong> This post assumes you have the ability to install packages, root or sudo access.</p>
 
         <h3 id="Creating-a-Zip-Archive"   >
           <a href="#Creating-a-Zip-Archive" class="heading-link"><i class="fas fa-link"></i></a>Creating a Zip Archive</h3>
@@ -164,12 +469,96 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Conclusion"   >
           <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
       <p>All you need is two packages and your installation will be able to work with Zip archives. I know Ubuntu/Debian have support for Gzip but if you work with Windows users and need to share files with them then Zip might be the only way to go.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/new-virtual-machines-nas4free/">New Virtual Machines: NAS4Free</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-06</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>Taken from <a href="www.Nas4Free.org">Nas4Free.org</a>:</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/open-zip-files-ubuntu-command-line/" data-id="ckitzbgi900k17nfxheo06jbp" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compression/" rel="tag">compression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/zip/" rel="tag">zip</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-new-virtual-machines-nas4free" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/new-virtual-machines-nas4free/">New Virtual Machines: NAS4Free</a>
+    </h1>
+  
+
+        <a href="/2012/08/new-virtual-machines-nas4free/" class="article-date">
+  <time datetime="2012-08-06T23:17:19.000Z" itemprop="datePublished">2012-08-06</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Taken from <a href="www.Nas4Free.org">Nas4Free.org</a>:</p>
 <blockquote>
 <p><strong>NAS4Free is an embedded Open Source Storage NAS (Network-Attached Storage) distribution based on FreeBSD. This project is a continuation of FreeNAS 7 series project</strong>.</p>
 </blockquote>
 <p>As you will be able to see NAS4Free uses a web interface similar to the one that FreeNAS used to use, the previous interface was much better(my opinion). The download is quite small at around 50MB(compressed archive) you will need 7zip to decompress the archive. <a href="/downloads/nas4free-9-32-bit.7z">NAS4Free 9 32-Bit 47MB</a> <a href="/downloads/nas4free-9-32-bit.7z.md5">.MD5</a> <a href="/downloads/nas4free-9-32-bit.7z.sha1">.SHA1</a> <a href="/downloads/nas4free-9-64-bit.7z">NAS4Free 9 64-Bit 51MB</a> <a href="/downloads/nas4free-9-64-bit.7z.md5">.MD5</a> <a href="/downloads/nas4free-9-64-bit.7z.sha1">.SHA1</a></p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/08/format-a-volume-as-xfs-in-debian-and-ubuntu/">Format a Volume as XFS in Debian and Ubuntu</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-08-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>To format a drive with the XFS file system make sure xfsprogs is installed, if not you can install xfsprogs from the repositories with the help of apt-get.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/new-virtual-machines-nas4free/" data-id="ckitzbgi100jc7nfx6wscdzh2" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bsd/" rel="tag">bsd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nas4free/" rel="tag">nas4free</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-format-a-volume-as-xfs-in-debian-and-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/08/format-a-volume-as-xfs-in-debian-and-ubuntu/">Format a Volume as XFS in Debian and Ubuntu</a>
+    </h1>
+  
+
+        <a href="/2012/08/format-a-volume-as-xfs-in-debian-and-ubuntu/" class="article-date">
+  <time datetime="2012-08-04T05:19:11.000Z" itemprop="datePublished">2012-08-03</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>To format a drive with the XFS file system make sure xfsprogs is installed, if not you can install xfsprogs from the repositories with the help of apt-get.</p>
 <p>root@ubuntu:~# apt-get install xfsprogs</p>
 <p>Before you start partitioning and formatting drives make sure you have the right drive. We can list all available drives in the system with the help of the <em>ls</em> command.</p>
 <p>root@ubuntu:~# ls /dev/sd*</p>
@@ -196,7 +585,49 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Conclusion"   >
           <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
       <p>XFS is a good file system for those of us working with large files. If you have any questions leave a comment below.</p>
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2012/07/windows-how-to-recover-deleted-files/">Windows: How to Recover Deleted Files</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2012-07-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><div class="post-excerpt"><p>I hope you are reading this post as a preventive measure in the event the worst occurs, otherwise I’ll ask you to be realistic and patient file recovery takes time. When a file is removed from the Recycle Bin isn’t actually deleted right away, instead the space it occupies is marked as available only to be overwritten in the event more files are created.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/08/format-a-volume-as-xfs-in-debian-and-ubuntu/" data-id="ckitzbgek009k7nfxf7pu5ss0" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xfs/" rel="tag">xfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-windows-how-to-recover-deleted-files" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/07/windows-how-to-recover-deleted-files/">Windows: How to Recover Deleted Files</a>
+    </h1>
+  
+
+        <a href="/2012/07/windows-how-to-recover-deleted-files/" class="article-date">
+  <time datetime="2012-07-24T02:56:14.000Z" itemprop="datePublished">2012-07-23</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>I hope you are reading this post as a preventive measure in the event the worst occurs, otherwise I’ll ask you to be realistic and patient file recovery takes time. When a file is removed from the Recycle Bin isn’t actually deleted right away, instead the space it occupies is marked as available only to be overwritten in the event more files are created.</p>
 
         <h3 id="I-Don’t-Have-a-Backup-What-Do-I-Do-Now"   >
           <a href="#I-Don’t-Have-a-Backup-What-Do-I-Do-Now" class="heading-link"><i class="fas fa-link"></i></a>I Don’t Have a Backup, What Do I Do Now</h3>
@@ -209,4 +640,64 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><lin
         <h3 id="Links"   >
           <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h3>
       <p>Recuva Home Page <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.piriform.com/recuva" >http://www.piriform.com/recuva</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-</div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/page/6/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/8/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2012/07/windows-how-to-recover-deleted-files/" data-id="ckitzbgld00u17nfxbe7ogjad" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-recovery/" rel="tag">data recovery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recuva/" rel="tag">recuva</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/6/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/8/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

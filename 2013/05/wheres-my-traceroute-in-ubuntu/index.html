@@ -1,4 +1,26 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.1.1" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.1.1" type="image/png" sizes="32x32"><meta name="description" content="By default if you try to use the traceroute command in Ubuntu it will suggest installing the application since there is no application by such name installed. user@bicerin:~$ traceroute The program &amp;#">
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Where&#39;s My Traceroute in Ubuntu | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="By default if you try to use the traceroute command in Ubuntu it will suggest installing the application since there is no application by such name installed. user@bicerin:~$ traceroute The program &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Where&#39;s My Traceroute in Ubuntu">
 <meta property="og:url" content="http://linhost.info/2013/05/wheres-my-traceroute-in-ubuntu/index.html">
@@ -7,42 +29,140 @@
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2013-05-17T07:44:10.000Z">
 <meta property="article:modified_time" content="2020-08-09T09:07:53.929Z">
-<meta property="article:author" content="Lven">
 <meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="networking">
 <meta property="article:tag" content="mtr">
-<meta name="twitter:card" content="summary"><title>Where's My Traceroute in Ubuntu | Linhost.info</title><link ref="canonical" href="http://linhost.info/2013/05/wheres-my-traceroute-in-ubuntu/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.1.1"><link rel="dns-prefetch" href="https://www.googletagmanager.com"><script src="https://www.googletagmanager.com/gtag/js?id=UA-3282416-1" async=""></script><script>if (window.location.hostname !== 'localhost') {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){ dataLayer.push(arguments); }
-  gtag('js', new Date());
-  gtag('config', 'UA-3282416-1');
-}</script><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
-  postWidget: {"endText":true},
-  nightMode: undefined,
-  back2top: {"enable":true},
-  codeblock: {"style":"default","highlight":"light","wordWrap":false},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: undefined,
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Linhost.info</div><div class="header-banner-info__subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Where's My Traceroute in Ubuntu</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2013-05-17</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2020-08-09</span></span></div></header><div class="post-body"><p>By default if you try to use the traceroute command in Ubuntu it will suggest installing the application since there is no application by such name installed. <code>user@bicerin:~$ traceroute The program &#39;traceroute&#39; can be found in the following packages: * inetutils-traceroute * traceroute Try: sudo apt-get install</code> While you could <strong>apt-get install traceroute</strong> your way out of it, you could instead use the included <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html" >mtr</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> application. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html" >http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-wheres-my-traceroute-in-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Where&#39;s My Traceroute in Ubuntu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>By default if you try to use the traceroute command in Ubuntu it will suggest installing the application since there is no application by such name installed. <code>user@bicerin:~$ traceroute The program &#39;traceroute&#39; can be found in the following packages: * inetutils-traceroute * traceroute Try: sudo apt-get install</code> While you could <strong>apt-get install traceroute</strong> your way out of it, you could instead use the included <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html" >mtr</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> application. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html" >http://manpages.ubuntu.com/manpages/gutsy/man8/mtr.8.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <blockquote>
 <p>mtr combines the functionality of the traceroute and ping programs in a single network diagnostic tool.</p>
 </blockquote>
 <p>I like the way mtr presents the output instead of the normal traceroute applications, <strong>mtr</strong> constantly pings the address in a live manner and watch the output update according to network conditions. <code>user@bicerin:~$ mtr linhost.info Host Loss% Snt Last Avg Best Wrst StDev 1. OpenWrt.lan 0.0% 3 0.5 0.5 0.4 0.5 0.0 2. ??? 3. te-9-2-ur01.fourhills.nm.albuq.comcast.net 0.0% 2 9.3 8.9 8.5 9.3 0.5 4. te-4-2-ar01.albuquerque.nm.albuq.comcast.net 0.0% 2 8.8 9.2 8.8 9.6 0.5 5. te-0-0-0-8-cr01.denverqwest.co.ibone.comcast.net 0.0% 2 18.0 23.1 18.0 28.3 7.2 6. he-3-12-0-0-cr01.denver.co.ibone.comcast.net 0.0% 2 21.2 21.0 20.9 21.2 0.2 7. xe-0-0-0.bbr01.cf01.den01.networklayer.com 0.0% 2 17.3 17.2 17.0 17.3 0.2 8. ae12.bbr02.eq01.dal03.networklayer.com 0.0% 2 31.8 33.0 31.8 34.2 1.7 9. po32.dsr01.dllstx3.networklayer.com 0.0% 2 31.6 31.6 31.6 31.7 0.1 10. po31.dsr01.dllstx2.networklayer.com 0.0% 2 31.9 32.4 31.9 33.0 0.8 11. po1.car14.dllstx6.networklayer.com 0.0% 2 34.8 35.1 34.8 35.3 0.4 12. gator524.hostgator.com 0.0% 2 31.9 32.8 31.9 33.7 1.3</code> I didn’t know about mtr which is why I decided to create this post as a reminder.</p>
-</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://linhost.info">Lven</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://linhost.info/2013/05/wheres-my-traceroute-in-ubuntu/">http://linhost.info/2013/05/wheres-my-traceroute-in-ubuntu/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/ubuntu/">ubuntu</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/networking/">networking</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://linhost.info/tags/mtr/">mtr</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2013/05/update-samsung-scx-3405w-printer-firmware/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">Update Samsung SCX 3405W Printer Firmware</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2013/04/note-to-self-copy-files-between-two-systems-with-rsync/"><span class="paginator-prev__text">Note To Self: Copy Files Between Two Systems with Rsync</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">hello world</p></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2020</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Lven</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.1.1"></script><script src="/js/stun-boot.js?v=2.1.1"></script><script src="/js/scroll.js?v=2.1.1"></script><script src="/js/header.js?v=2.1.1"></script><script src="/js/sidebar.js?v=2.1.1"></script></body></html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2013/05/wheres-my-traceroute-in-ubuntu/" data-id="ckitzbgl300t67nfx89s44wou" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtr/" rel="tag">mtr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/05/update-samsung-scx-3405w-printer-firmware/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Update Samsung SCX 3405W Printer Firmware
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/04/note-to-self-copy-files-between-two-systems-with-rsync/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Note To Self: Copy Files Between Two Systems with Rsync</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
