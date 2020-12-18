@@ -90,27 +90,21 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This is one way you can wipe or overwrite multiple drives simultaneously it requires a little tool called <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/" >Dcfldd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is available for all distributions. If you are an Ubuntu user you can install Dcfldd from the repositories:  </p>
+        <p>This is one way you can wipe or overwrite multiple drives simultaneously it requires a little tool called <a target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/">Dcfldd</a> which is available for all distributions. If you are an Ubuntu user you can install Dcfldd from the repositories:  </p>
 <p># apt-get install dcfldd</p>
-<p>CentOS and Scientific Linux can install Dcfldd from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://repoforge.org/use/" >RepoForge repositories</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>:</p>
+<p>CentOS and Scientific Linux can install Dcfldd from the <a target="_blank" rel="noopener" href="http://repoforge.org/use/">RepoForge repositories</a>:</p>
 <p># yum install dcfldd</p>
-
-        <h2 id="Dcfldd-Wipe"   >
-          <a href="#Dcfldd-Wipe" class="heading-link"><i class="fas fa-link"></i></a>Dcfldd Wipe</h2>
-      <p>Dcfldd will overwrite drive <strong>sdb</strong> and <strong>sdc</strong> with zeroes. You can also increase the block size if you want.</p>
+<h2 id="Dcfldd-Wipe"><a href="#Dcfldd-Wipe" class="headerlink" title="Dcfldd Wipe"></a>Dcfldd Wipe</h2><p>Dcfldd will overwrite drive <strong>sdb</strong> and <strong>sdc</strong> with zeroes. You can also increase the block size if you want.</p>
 <p># dcfldd if=/dev/zero of=/dev/sdb of=/dev/sdc bs=4M</p>
 <p>If the operation completes successfully you should receive the message <strong>No space left on device</strong> meaning there is nothing left to overwrite on the drive(s).</p>
 <p>5120 blocks (20480Mb) written.dcfldd:: No space left on device</p>
 <p>If you don’t beliieve me here is a screenshot displaying the activity taking place on both <strong>sdb</strong> and <strong>sdc</strong>. <img src="/content/2012-09/nmon.png" alt="nmon"></p>
-
-        <h2 id="Conlusion"   >
-          <a href="#Conlusion" class="heading-link"><i class="fas fa-link"></i></a>Conlusion</h2>
-      <p>Dcfldd can become useful for when you have get rid of several drives at once, as you saw the command is quite easy to remember. If you have any questions feel free to leave a comment below and I will do my best to reply as soon as possible. Home page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/" >Dcfldd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Conlusion"><a href="#Conlusion" class="headerlink" title="Conlusion"></a>Conlusion</h2><p>Dcfldd can become useful for when you have get rid of several drives at once, as you saw the command is quite easy to remember. If you have any questions feel free to leave a comment below and I will do my best to reply as soon as possible. Home page: <a target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/">Dcfldd</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2012/09/wipe-multiple-drives-simultaneously/" data-id="ckitzbgli00ui7nfx0osidv2i" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2012/09/wipe-multiple-drives-simultaneously/" data-id="ckitzu6ty00zdepfx4anaemk4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dcfldd/" rel="tag">dcfldd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>

@@ -90,39 +90,24 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>A fellow administrator had the task of re-allocating precious space on a server, that meant partitions would be moved around. Apparently during the process the swap partition was resized which resulted on the system loosing all of the available swap, despite the fact that the partition was never actually deleted. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SekmNh2a4bI/AAAAAAAAAjs/6ThjKR2hNyU/s800/001.png"> After noticing the problem I decided to check <strong>/etc/fstab</strong>, I could see an entry for swap at boot. However the partition was not being mount it during boot up, leading me to believe that the <strong>UUID</strong> might have changed. <strong>UUID</strong> - <em>Universally Unique Identifier</em></p>
-
-        <h2 id="blkid"   >
-          <a href="#blkid" class="heading-link"><i class="fas fa-link"></i></a>blkid</h2>
-      <p>First use the <strong>blkid</strong> program to determine the new <strong>UUID</strong> of the swap partition. Look for the entry with the <strong>TYPE=”swap”</strong> and copy the <strong>UUID</strong>.</p>
+<h2 id="blkid"><a href="#blkid" class="headerlink" title="blkid"></a>blkid</h2><p>First use the <strong>blkid</strong> program to determine the new <strong>UUID</strong> of the swap partition. Look for the entry with the <strong>TYPE=”swap”</strong> and copy the <strong>UUID</strong>.</p>
 <p>$ blkid<br>/dev/ramzswap0: TYPE=”swap”<br>/dev/sda1: UUID=”8192a29b-e191-4347-a65c-3be8546a5c5c” TYPE=”ext3”<br>/dev/sda5: TYPE=”swap” UUID=”b6a5fce4-9938-4518-809a-2cd0f5e194e8”<br>/dev/loop0: TYPE=”squashfs”</p>
 <p>Now open <strong>/etc/fstab</strong> and visually compare the swap <strong>UUID</strong> output from <strong>blkid</strong> with the current entry on <strong>fstab</strong> which should be different.</p>
 <p>nano /etc/fstab</p>
 <p>My swap partition is located in <strong>/dev/sda5</strong>.</p>
 <p># /dev/sda5<br>UUID=55a68fbd-2f25-447b-99fd-02e972937a3c none            swap    sw              0       0</p>
 <p>Because they are different the problem is evident the <strong>UUID</strong> changed, meaning the system no longer has the correct swap <strong>UUID</strong> to call on boot up.</p>
-
-        <h2 id="Solution"   >
-          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
-      <p>The solution is simple just remove the old swap <strong>UUID</strong> entry found on <strong>/etc/fstab</strong> and paste the new <strong>UUID</strong> you got from <strong>blkid</strong>.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The solution is simple just remove the old swap <strong>UUID</strong> entry found on <strong>/etc/fstab</strong> and paste the new <strong>UUID</strong> you got from <strong>blkid</strong>.</p>
 <p>nano /etc/fstab</p>
 <p># /etc/fstab: static file system information.<br>#</p>
-
-        <h1 id="proc-proc-proc-defaults-0-0"   >
-          <a href="#proc-proc-proc-defaults-0-0" class="heading-link"><i class="fas fa-link"></i></a>proc            /proc           proc    defaults        0       0</h1>
-      
-        <h1 id="dev-sda1"   >
-          <a href="#dev-sda1" class="heading-link"><i class="fas fa-link"></i></a>/dev/sda1</h1>
-      <p>UUID=8192a29b-e191-4347-a65c-3be8546a5c5c /               ext3    relatime,errors=remount-ro 0       1</p>
-
-        <h1 id="dev-sda5"   >
-          <a href="#dev-sda5" class="heading-link"><i class="fas fa-link"></i></a>/dev/sda5</h1>
-      <p>UUID=b6a5fce4-9938-4518-809a-2cd0f5e194e8 none            swap    sw              0       0<br>/dev/scd0       /media/cdrom0   udf,iso9660 user,noauto,exec,utf8 0       0 </p>
+<h1 id="proc-proc-proc-defaults-0-0"><a href="#proc-proc-proc-defaults-0-0" class="headerlink" title="proc            /proc           proc    defaults        0       0"></a>proc            /proc           proc    defaults        0       0</h1><h1 id="dev-sda1"><a href="#dev-sda1" class="headerlink" title="/dev/sda1"></a>/dev/sda1</h1><p>UUID=8192a29b-e191-4347-a65c-3be8546a5c5c /               ext3    relatime,errors=remount-ro 0       1</p>
+<h1 id="dev-sda5"><a href="#dev-sda5" class="headerlink" title="/dev/sda5"></a>/dev/sda5</h1><p>UUID=b6a5fce4-9938-4518-809a-2cd0f5e194e8 none            swap    sw              0       0<br>/dev/scd0       /media/cdrom0   udf,iso9660 user,noauto,exec,utf8 0       0 </p>
 <p>The last thing to do is reboot the system and check the available swap.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/04/restore-missing-swap-on-linux-system/" data-id="ckitzbgix00mf7nfx7tby6jl0" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/04/restore-missing-swap-on-linux-system/" data-id="ckitzu6r700r0epfx7gxm7phm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swap/" rel="tag">swap</a></li></ul>

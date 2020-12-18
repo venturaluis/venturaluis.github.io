@@ -90,20 +90,14 @@ ga('send', 'pageview');
       
         <!--<p>If you ping an address from a Cisco router the ping will be repeated five times, to increase the amount of repeated pings all you need to do is make use of the <em><strong>repeat</strong></em> parameter. The command below will ping 10.10.10.1 1000 times.</p>
 <p>R1# ping 10.10.10.1 repeat 1000</p>
-
-        <h4 id="Breakdown"   >
-          <a href="#Breakdown" class="heading-link"><i class="fas fa-link"></i></a>Breakdown</h4>
-      <p><strong>ping:</strong> Execute ping <strong>10.10.10.1:</strong> Address of the host we weill be pinging <strong>repeat:</strong> Ping should be repeated <strong>1000:</strong> Repeat ping 1000 times</p>
-
-        <h4 id="Repeat-In-Action"   >
-          <a href="#Repeat-In-Action" class="heading-link"><i class="fas fa-link"></i></a>Repeat In Action</h4>
-      <p>R2# ping 10.10.10.1 repeat 1000</p>
+<h4 id="Breakdown"><a href="#Breakdown" class="headerlink" title="Breakdown"></a>Breakdown</h4><p><strong>ping:</strong> Execute ping <strong>10.10.10.1:</strong> Address of the host we weill be pinging <strong>repeat:</strong> Ping should be repeated <strong>1000:</strong> Repeat ping 1000 times</p>
+<h4 id="Repeat-In-Action"><a href="#Repeat-In-Action" class="headerlink" title="Repeat In Action"></a>Repeat In Action</h4><p>R2# ping 10.10.10.1 repeat 1000</p>
 <p>Type escape sequence to abort.<br>Sending 1000, 100-byte ICMP Echos to 10.10.10.1, timeout is 2 seconds:<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!<br>Success rate is 100 percent (1000/1000), round-trip min/avg/max = 1/5/8 ms</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/11/cisco-continuous-ping/" data-id="ckitzbgd0004q7nfx6n28gjgy" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/11/cisco-continuous-ping/" data-id="ckitzu6ku007lepfxdbmhfgnc" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cisco/" rel="tag">cisco</a></li></ul>
@@ -141,19 +135,19 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Simple <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://nmap.org/" >Nmap</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> combination useful if you need to scan an entire subnet for active hosts and the IP addresses used by the same. I am not an expert on Nmap if you have a better method let me know. <strong>1.</strong> From a command line window issue the command below.</p>
+        <!--<p>Simple <a target="_blank" rel="noopener" href="http://nmap.org/">Nmap</a> combination useful if you need to scan an entire subnet for active hosts and the IP addresses used by the same. I am not an expert on Nmap if you have a better method let me know. <strong>1.</strong> From a command line window issue the command below.</p>
 <p>nmap -v -sn 192.168.1.0/24</p>
 <ul>
 <li><strong>-v</strong><br>Vervose*   <strong>-sn</strong><br>Ping scan - disable port scan</li>
 </ul>
 <p><strong>2.</strong> Nmap outputs its findings along with the IP address and MAC address of the clients on the subnet.</p>
 <p># nmap -v -sn 192.168.1.0/24</p>
-<p>Starting Nmap 5.51 ( <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://nmap.org/" >http://nmap.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> ) at 2012-11-05 00:10 Mountain Standard Time<br>Initiating ARP Ping Scan at 00:10<br>Scanning 11 hosts [1 port/host]<br>Completed ARP Ping Scan at 00:10, 0.53s elapsed (11 total hosts)<br>Initiating Parallel DNS resolution of 11 hosts. at 00:10<br>Completed Parallel DNS resolution of 11 hosts. at 00:10, 16.50s elapsed<br>Nmap scan report for 192.168.1.0 [host down]<br>Nmap scan report for 192.168.1.1<br>Host is up (0.0010s latency).<br>MAC Address: 00:90:7F:26:3E:13 (WatchGuard Technologies)<br>Nmap scan report for 192.168.1.2 [host down]<br>Nmap scan report for 192.168.1.10 [host down]<br>Initiating Parallel DNS resolution of 1 host. at 00:10<br>Completed Parallel DNS resolution of 1 host. at 00:11, 16.50s elapsed<br>Nmap scan report for 192.168.1.11<br>Host is up.<br>Initiating ARP Ping Scan at 00:11<br>Scanning 244 hosts [1 port/host]<br>Completed ARP Ping Scan at 00:11, 1.96s elapsed (244 total hosts)<br>Initiating Parallel DNS resolution of 244 hosts. at 00:11<br>Completed Parallel DNS resolution of 244 hosts. at 00:11, 16.50s elapsed<br>Nmap scan report for 192.168.1.12 [host down]<br>Nmap scan report for 192.168.1.17 [host down]<br>Nmap scan report for 192.168.1.18<br>Host is up (0.0019s latency).<br>MAC Address: 00:0C:29:97:30:0A (VMware)<br>Nmap scan report for 192.168.1.19 [host down]<br>Nmap scan report for 192.168.1.255 [host down]<br>Read data files from: C:Program Files (x86)Nmap<br>Nmap done: 256 IP addresses (3 hosts up) scanned in 52.16 seconds<br>           Raw packets sent: 509 (14.252KB) | Rcvd: 3 (84B)</p>
+<p>Starting Nmap 5.51 ( <a target="_blank" rel="noopener" href="http://nmap.org/">http://nmap.org</a> ) at 2012-11-05 00:10 Mountain Standard Time<br>Initiating ARP Ping Scan at 00:10<br>Scanning 11 hosts [1 port/host]<br>Completed ARP Ping Scan at 00:10, 0.53s elapsed (11 total hosts)<br>Initiating Parallel DNS resolution of 11 hosts. at 00:10<br>Completed Parallel DNS resolution of 11 hosts. at 00:10, 16.50s elapsed<br>Nmap scan report for 192.168.1.0 [host down]<br>Nmap scan report for 192.168.1.1<br>Host is up (0.0010s latency).<br>MAC Address: 00:90:7F:26:3E:13 (WatchGuard Technologies)<br>Nmap scan report for 192.168.1.2 [host down]<br>Nmap scan report for 192.168.1.10 [host down]<br>Initiating Parallel DNS resolution of 1 host. at 00:10<br>Completed Parallel DNS resolution of 1 host. at 00:11, 16.50s elapsed<br>Nmap scan report for 192.168.1.11<br>Host is up.<br>Initiating ARP Ping Scan at 00:11<br>Scanning 244 hosts [1 port/host]<br>Completed ARP Ping Scan at 00:11, 1.96s elapsed (244 total hosts)<br>Initiating Parallel DNS resolution of 244 hosts. at 00:11<br>Completed Parallel DNS resolution of 244 hosts. at 00:11, 16.50s elapsed<br>Nmap scan report for 192.168.1.12 [host down]<br>Nmap scan report for 192.168.1.17 [host down]<br>Nmap scan report for 192.168.1.18<br>Host is up (0.0019s latency).<br>MAC Address: 00:0C:29:97:30:0A (VMware)<br>Nmap scan report for 192.168.1.19 [host down]<br>Nmap scan report for 192.168.1.255 [host down]<br>Read data files from: C:Program Files (x86)Nmap<br>Nmap done: 256 IP addresses (3 hosts up) scanned in 52.16 seconds<br>           Raw packets sent: 509 (14.252KB) | Rcvd: 3 (84B)</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/11/scan-a-subnet-with-nmap/" data-id="ckitzbgj300my7nfx9yww8i8d" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/11/scan-a-subnet-with-nmap/" data-id="ckitzu6rb00rdepfx2a495uqk" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nmap/" rel="tag">nmap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
@@ -194,15 +188,12 @@ ga('send', 'pageview');
         <!--<p>Not the end of the world but I did come across an annoying problem on one of my workstations, for some unexplained reason the Windows Resource Manager would not display any the drives connected to the system. <img src="http://cdn.linhost.info/static/disk-resource-a.png" alt="Disk resource"> <strong>1.</strong> To solve this problem we’ll need a command line window. Go to <strong>Start &gt; All Programs &gt; Accessories &gt; Command Prompt</strong> <img src="http://cdn.linhost.info/static/command-prompt.png"> <strong>2.</strong> Restore counter setting by issuing the for following command in the Windows command line.</p>
 <p>lodctr /r</p>
 <p><strong>3.</strong> Just to be sure restart the system. Now the values should be back to normal. <a target="_blank" rel="noopener" href="http://cdn.linhost.info/static/disk-resource-b.png"><img src="/content/2012-10/disk-resource-b.png"></a></p>
-
-        <h3 id="Resources"   >
-          <a href="#Resources" class="heading-link"><i class="fas fa-link"></i></a>Resources:</h3>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/bb490926.aspx"  title="Microsoft Technet">http://technet.microsoft.com/en-us/library/bb490926.aspx</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources:"></a>Resources:</h3><p><a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/bb490926.aspx" title="Microsoft Technet">http://technet.microsoft.com/en-us/library/bb490926.aspx</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/11/windows-missing-performance-counter-value/" data-id="ckitzbglb00tu7nfxgnknc44r" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/11/windows-missing-performance-counter-value/" data-id="ckitzu6tp00ysepfxau122w9k" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -240,7 +231,7 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Router#<br>%Error opening t<span class="exturl"><a class="exturl__link"   href="ftp://255.255.255.255/network-confg" >ftp://255.255.255.255/network-confg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (Timed out)<br>%Error opening t<span class="exturl"><a class="exturl__link"   href="ftp://255.255.255.255/cisconet.cfg" >ftp://255.255.255.255/cisconet.cfg</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> (Timed out)</p>
+        <!--<p>Router#<br>%Error opening t<a href="ftp://255.255.255.255/network-confg">ftp://255.255.255.255/network-confg</a> (Timed out)<br>%Error opening t<a href="ftp://255.255.255.255/cisconet.cfg">ftp://255.255.255.255/cisconet.cfg</a> (Timed out)</p>
 <p>The error above is the result of the Cisco IOS attempting to retrieve config files from a TFTP server. Let’s turn this annoying feature off… Change over to <strong>Global Config</strong>.</p>
 <p>R1# config t</p>
 <p>Turn off the service.</p>
@@ -253,7 +244,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/error-opening-tftp/" data-id="ckitzbge9008y7nfxg2z02hhj" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/error-opening-tftp/" data-id="ckitzu6mg00c5epfxhsycbg83" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cisco/" rel="tag">cisco</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tftp/" rel="tag">tftp</a></li></ul>
@@ -302,7 +293,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/change-the-keyboard-layout-for-centos-scientific-linux/" data-id="ckitzbgcu004b7nfx01ml900a" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/change-the-keyboard-layout-for-centos-scientific-linux/" data-id="ckitzu6ks007eepfx5976bxig" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
@@ -343,28 +334,19 @@ ga('send', 'pageview');
         <!--<p>Could not open virtual machine: [vm name]</p>
 <p>Taking ownership of the virtual machine is failed</p>
 <p>This is an error that occurs mostly as the result of an unclean shutdown either because the host or guest didn’t have the time to properly stop operations. Fortunately this error can be solved with a few easy to follow steps.</p>
-
-        <h2 id="VM-Path"   >
-          <a href="#VM-Path" class="heading-link"><i class="fas fa-link"></i></a>VM Path</h2>
-      <p>This is the type of error you will be presented with every time you try to start the virtual machine. Take note of the <strong>virtual machine path</strong>, you will need to navigate to where the virtual machine is located. Click on <strong>OK</strong> to dismiss. <img src="https://lh4.googleusercontent.com/-VgHQ9r_UaKo/UGK2g6bitpI/AAAAAAAADdU/lnLVmD57Wf0/s800/vmware-locked-1.png" alt="VM Locked"> In my case all virtual machines are stored in <strong>E:Virtualization</strong>(yours will be different). The VM I am looking for is <strong>Ubuntu 12.04 Server 64-bit</strong>. <img src="https://lh6.googleusercontent.com/-lfP5JlPGn_A/UGK2iA93q2I/AAAAAAAADdc/7BWXIut2tUs/s800/vmware-locked-2.png" alt="VM Locked"></p>
-
-        <h2 id="Solution"   >
-          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
-      <p>With the VM directory open now search for all files with the extension <strong>.lck</strong> this are the files are responsible for the error. You have two options in order to solve the problem:</p>
+<h2 id="VM-Path"><a href="#VM-Path" class="headerlink" title="VM Path"></a>VM Path</h2><p>This is the type of error you will be presented with every time you try to start the virtual machine. Take note of the <strong>virtual machine path</strong>, you will need to navigate to where the virtual machine is located. Click on <strong>OK</strong> to dismiss. <img src="https://lh4.googleusercontent.com/-VgHQ9r_UaKo/UGK2g6bitpI/AAAAAAAADdU/lnLVmD57Wf0/s800/vmware-locked-1.png" alt="VM Locked"> In my case all virtual machines are stored in <strong>E:Virtualization</strong>(yours will be different). The VM I am looking for is <strong>Ubuntu 12.04 Server 64-bit</strong>. <img src="https://lh6.googleusercontent.com/-lfP5JlPGn_A/UGK2iA93q2I/AAAAAAAADdc/7BWXIut2tUs/s800/vmware-locked-2.png" alt="VM Locked"></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>With the VM directory open now search for all files with the extension <strong>.lck</strong> this are the files are responsible for the error. You have two options in order to solve the problem:</p>
 <ol>
 <li>You can move all files with the extension <strong>.lck</strong> to another directory that isn’t the same as the current one.</li>
 <li>Or you can do what I do and erase all <strong>.lck</strong> files. Only erase those ending with <strong>.lck</strong>.</li>
 </ol>
 <p><img src="https://lh4.googleusercontent.com/-4C0UrKCQpX0/UGK2kRHYemI/AAAAAAAADdk/ncz84BmHRCM/s800/vmware-locked-3.png" alt="VM Locked"></p>
-
-        <h2 id="Results"   >
-          <a href="#Results" class="heading-link"><i class="fas fa-link"></i></a>Results</h2>
-      <p>Now go back and try to start the virtual machine. This time the VM should start like usual. <img src="https://lh5.googleusercontent.com/-W2dpHNKhXjQ/UGLL_OyantI/AAAAAAAADd8/ObpYPeWud3c/s800/vmware-locked-4.png" alt="VMware Locked "></p>
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>Now go back and try to start the virtual machine. This time the VM should start like usual. <img src="https://lh5.googleusercontent.com/-W2dpHNKhXjQ/UGLL_OyantI/AAAAAAAADd8/ObpYPeWud3c/s800/vmware-locked-4.png" alt="VMware Locked "></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/vmware-taking-ownership-of-this-virtual-machine-failed/" data-id="ckitzbgkt00s97nfxdux82xyv" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/vmware-taking-ownership-of-this-virtual-machine-failed/" data-id="ckitzu6t500x2epfxaqgjh6r2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -402,11 +384,8 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p><img src="http://cdn.linhost.info/static/wd250gb.jpg">Like many other times I had to retrieve the serial number of a faulty SATA drive on a Linux box. You should retrieve and compare the serial number before replacing to reduce the chance of replacing a working drive instead of a faulty drive. Hdparm is a utility that allows for the retrieval of the serial number, if I remember correctly hdparm is included by default on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ubuntu.com/" >Ubuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.scientificlinux.org/" >Scientific Linux</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> users can install hdparm from the repositories by using <strong>yum install hdparm</strong>. <strong>Note:</strong> hdparm requires access to the root account or similar.</p>
-
-        <h2 id="Retrieve-The-Info"   >
-          <a href="#Retrieve-The-Info" class="heading-link"><i class="fas fa-link"></i></a>Retrieve The Info</h2>
-      <p>The hdparm output will be rather long, but all you need to look for is <strong>Serial Number: xx-xxxxxxxxx</strong>, this is where the serial number for the drive is contained.</p>
+        <!--<p><img src="http://cdn.linhost.info/static/wd250gb.jpg">Like many other times I had to retrieve the serial number of a faulty SATA drive on a Linux box. You should retrieve and compare the serial number before replacing to reduce the chance of replacing a working drive instead of a faulty drive. Hdparm is a utility that allows for the retrieval of the serial number, if I remember correctly hdparm is included by default on <a target="_blank" rel="noopener" href="http://ubuntu.com/">Ubuntu</a>, <a target="_blank" rel="noopener" href="https://www.scientificlinux.org/">Scientific Linux</a> users can install hdparm from the repositories by using <strong>yum install hdparm</strong>. <strong>Note:</strong> hdparm requires access to the root account or similar.</p>
+<h2 id="Retrieve-The-Info"><a href="#Retrieve-The-Info" class="headerlink" title="Retrieve The Info"></a>Retrieve The Info</h2><p>The hdparm output will be rather long, but all you need to look for is <strong>Serial Number: xx-xxxxxxxxx</strong>, this is where the serial number for the drive is contained.</p>
 <p># hdparm -I /dev/sdf</p>
 <p>/dev/sda:</p>
 <p>ATA device, with non-removable media<br>    Model Number:       WDC WD5001AALS-00L3B2<br>    Serial Number:      WD-WMASZ0044725<br>    Firmware Revision:  01.03B01<br>    Transport:          Serial, SATA 1.0a, SATA II Extensions, SATA Rev 2.5<br>Standards:<br>    Supported: 8 7 6 5<br>    Likely used: 8</p>
@@ -415,7 +394,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/linux-how-to-find-a-hard-drive-serial-number/" data-id="ckitzbggw00fm7nfx4h0c52ez" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/linux-how-to-find-a-hard-drive-serial-number/" data-id="ckitzu6os00jjepfx8nzc2has" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdparm/" rel="tag">hdparm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
@@ -453,27 +432,21 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>This is one way you can wipe or overwrite multiple drives simultaneously it requires a little tool called <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/" >Dcfldd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is available for all distributions. If you are an Ubuntu user you can install Dcfldd from the repositories:  </p>
+        <!--<p>This is one way you can wipe or overwrite multiple drives simultaneously it requires a little tool called <a target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/">Dcfldd</a> which is available for all distributions. If you are an Ubuntu user you can install Dcfldd from the repositories:  </p>
 <p># apt-get install dcfldd</p>
-<p>CentOS and Scientific Linux can install Dcfldd from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://repoforge.org/use/" >RepoForge repositories</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>:</p>
+<p>CentOS and Scientific Linux can install Dcfldd from the <a target="_blank" rel="noopener" href="http://repoforge.org/use/">RepoForge repositories</a>:</p>
 <p># yum install dcfldd</p>
-
-        <h2 id="Dcfldd-Wipe"   >
-          <a href="#Dcfldd-Wipe" class="heading-link"><i class="fas fa-link"></i></a>Dcfldd Wipe</h2>
-      <p>Dcfldd will overwrite drive <strong>sdb</strong> and <strong>sdc</strong> with zeroes. You can also increase the block size if you want.</p>
+<h2 id="Dcfldd-Wipe"><a href="#Dcfldd-Wipe" class="headerlink" title="Dcfldd Wipe"></a>Dcfldd Wipe</h2><p>Dcfldd will overwrite drive <strong>sdb</strong> and <strong>sdc</strong> with zeroes. You can also increase the block size if you want.</p>
 <p># dcfldd if=/dev/zero of=/dev/sdb of=/dev/sdc bs=4M</p>
 <p>If the operation completes successfully you should receive the message <strong>No space left on device</strong> meaning there is nothing left to overwrite on the drive(s).</p>
 <p>5120 blocks (20480Mb) written.dcfldd:: No space left on device</p>
 <p>If you don’t beliieve me here is a screenshot displaying the activity taking place on both <strong>sdb</strong> and <strong>sdc</strong>. <img src="/content/2012-09/nmon.png" alt="nmon"></p>
-
-        <h2 id="Conlusion"   >
-          <a href="#Conlusion" class="heading-link"><i class="fas fa-link"></i></a>Conlusion</h2>
-      <p>Dcfldd can become useful for when you have get rid of several drives at once, as you saw the command is quite easy to remember. If you have any questions feel free to leave a comment below and I will do my best to reply as soon as possible. Home page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/" >Dcfldd</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Conlusion"><a href="#Conlusion" class="headerlink" title="Conlusion"></a>Conlusion</h2><p>Dcfldd can become useful for when you have get rid of several drives at once, as you saw the command is quite easy to remember. If you have any questions feel free to leave a comment below and I will do my best to reply as soon as possible. Home page: <a target="_blank" rel="noopener" href="http://dcfldd.sourceforge.net/">Dcfldd</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/wipe-multiple-drives-simultaneously/" data-id="ckitzbgli00ui7nfx0osidv2i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/wipe-multiple-drives-simultaneously/" data-id="ckitzu6ty00zdepfx4anaemk4" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dcfldd/" rel="tag">dcfldd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
@@ -511,25 +484,19 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>This post will cover the required steps to configure a working SSHFS client set-up in Windows. With SSHFS you can mount a remote directory via SSH as if it were a local drive, while SSHFS is common on Linux/Nix* Windows is a different story. To make use of SSHFS in Windows you will need to download <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/" >win sshfs</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a free SSHFS application. You will need to download the following files to have a working SSHFS setup:</p>
+        <!--<p>This post will cover the required steps to configure a working SSHFS client set-up in Windows. With SSHFS you can mount a remote directory via SSH as if it were a local drive, while SSHFS is common on Linux/Nix* Windows is a different story. To make use of SSHFS in Windows you will need to download <a target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/">win sshfs</a> a free SSHFS application. You will need to download the following files to have a working SSHFS setup:</p>
 <ul>
-<li>Dokan library 0.6.0 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dokan-dev.net/en/download/" >dokan-dev.net/en/download/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, search for and download <strong>DokanInstall_0.6.0.exe</strong>.</li>
-<li>win sshfs <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/downloads/list/" >code.google.com/p/win-sshfs/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, download <strong>win-sshfs-0.0.1.5-setup.exe</strong>.</li>
-<li>.NET Framework 4.0 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851" >microsoft.com/en-us/download/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, you probably already have it.</li>
+<li>Dokan library 0.6.0 <a target="_blank" rel="noopener" href="http://dokan-dev.net/en/download/">dokan-dev.net/en/download/</a>, search for and download <strong>DokanInstall_0.6.0.exe</strong>.</li>
+<li>win sshfs <a target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/downloads/list/">code.google.com/p/win-sshfs/</a>, download <strong>win-sshfs-0.0.1.5-setup.exe</strong>.</li>
+<li>.NET Framework 4.0 <a target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851">microsoft.com/en-us/download/</a>, you probably already have it.</li>
 </ul>
-
-        <h2 id="Let’s-Start"   >
-          <a href="#Let’s-Start" class="heading-link"><i class="fas fa-link"></i></a>Let’s Start</h2>
-      <p>Note:I’ve only used password for authentication, I have not tried key files yet… You will need to download win sshfs from the following link <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/" >code.google.com/p/win-sshfs/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> , once the download completes install the application. <img src="http://cdn.linhost.info/static/windows_sshfs_1.png" alt="Windows SSHFS"> Click on <strong>Next</strong> to continue. <img src="http://cdn.linhost.info/static/windows_sshfs_2.png" alt="Windows SSHFS"> <strong>Accept</strong> the license agreement and click on <strong>Next</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_3.png" alt="Windows SSHFS"> Hopefully you already installed the pre-requisites I mentioned above, otherwise the application will refuse to install. Otherwise, go back an install them. Click on <strong>Next</strong> to continue. <img src="http://cdn.linhost.info/static/windows_sshfs_4.png" alt="Windows SSHFS"> Accept the default path and click on <strong>Next</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_5.png" alt="Windows SSHFS"> Click on <strong>Finish</strong> to launch the application. <img src="http://cdn.linhost.info/static/windows_sshfs_6.png" alt="Windows SSHFS"> Now in SSHFS Manager click on <strong>Add</strong>, we need to add a new connection. <img src="http://cdn.linhost.info/static/windows_sshfs_7.png" alt="Windows SSHFS"> This is where we connect to the SSH server, in my case the server runs Ubuntu 12.04. Enter a name, server IP address, user credentials and for the rest go with the defaults if you like. <img src="http://cdn.linhost.info/static/windows_sshfs_8.png" alt="Windows SSHFS"> First click on <strong>Save</strong> and then click on <strong>Mount</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_9.png" alt="Windows SSHFS"> If you provided the correct server information your SSHFS connection should now be mounted. <img src="http://cdn.linhost.info/static/windows_sshfs_10.png" alt="Windows SSHFS"> You can verify this by going to <strong>My Computer</strong>, the new SSHFS drive will be mounted as a removable drive. <img src="http://cdn.linhost.info/static/windows_sshfs_11.png" alt="Windows SSHFS"> By default the application will start at start-up, you can change this behavior by going to Taskbar, right clicking on the application icon and un-checking <strong>Run at startup</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_12.png" alt="Windows SSHFS"> Win SSHFS so far as worked quite well for me, I like the idea of having access to SSHFS from my Windows 7 computer. If you find any mistakes of have suggestions don’t to leave a comment.</p>
-
-        <h2 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
-      <p>Dokan library 0.6.0 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://dokan-dev.net/en/download/" >dokan-dev.net/en/download/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> win sshfs <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/downloads/list/" >code.google.com/p/win-sshfs/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> .NET Framework 4.0 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851" >microsoft.com/en-us/download/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Let’s-Start"><a href="#Let’s-Start" class="headerlink" title="Let’s Start"></a>Let’s Start</h2><p>Note:I’ve only used password for authentication, I have not tried key files yet… You will need to download win sshfs from the following link <a target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/">code.google.com/p/win-sshfs/</a> , once the download completes install the application. <img src="http://cdn.linhost.info/static/windows_sshfs_1.png" alt="Windows SSHFS"> Click on <strong>Next</strong> to continue. <img src="http://cdn.linhost.info/static/windows_sshfs_2.png" alt="Windows SSHFS"> <strong>Accept</strong> the license agreement and click on <strong>Next</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_3.png" alt="Windows SSHFS"> Hopefully you already installed the pre-requisites I mentioned above, otherwise the application will refuse to install. Otherwise, go back an install them. Click on <strong>Next</strong> to continue. <img src="http://cdn.linhost.info/static/windows_sshfs_4.png" alt="Windows SSHFS"> Accept the default path and click on <strong>Next</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_5.png" alt="Windows SSHFS"> Click on <strong>Finish</strong> to launch the application. <img src="http://cdn.linhost.info/static/windows_sshfs_6.png" alt="Windows SSHFS"> Now in SSHFS Manager click on <strong>Add</strong>, we need to add a new connection. <img src="http://cdn.linhost.info/static/windows_sshfs_7.png" alt="Windows SSHFS"> This is where we connect to the SSH server, in my case the server runs Ubuntu 12.04. Enter a name, server IP address, user credentials and for the rest go with the defaults if you like. <img src="http://cdn.linhost.info/static/windows_sshfs_8.png" alt="Windows SSHFS"> First click on <strong>Save</strong> and then click on <strong>Mount</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_9.png" alt="Windows SSHFS"> If you provided the correct server information your SSHFS connection should now be mounted. <img src="http://cdn.linhost.info/static/windows_sshfs_10.png" alt="Windows SSHFS"> You can verify this by going to <strong>My Computer</strong>, the new SSHFS drive will be mounted as a removable drive. <img src="http://cdn.linhost.info/static/windows_sshfs_11.png" alt="Windows SSHFS"> By default the application will start at start-up, you can change this behavior by going to Taskbar, right clicking on the application icon and un-checking <strong>Run at startup</strong>. <img src="http://cdn.linhost.info/static/windows_sshfs_12.png" alt="Windows SSHFS"> Win SSHFS so far as worked quite well for me, I like the idea of having access to SSHFS from my Windows 7 computer. If you find any mistakes of have suggestions don’t to leave a comment.</p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p>Dokan library 0.6.0 <a target="_blank" rel="noopener" href="http://dokan-dev.net/en/download/">dokan-dev.net/en/download/</a> win sshfs <a target="_blank" rel="noopener" href="http://code.google.com/p/win-sshfs/downloads/list/">code.google.com/p/win-sshfs/</a> .NET Framework 4.0 <a target="_blank" rel="noopener" href="http://www.microsoft.com/en-us/download/details.aspx?id=17851">microsoft.com/en-us/download/</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/sshfs-in-windows/" data-id="ckitzbgjg00ob7nfx3z2aatwr" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/sshfs-in-windows/" data-id="ckitzu6rs00sqepfxdc342cmf" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sshfs/" rel="tag">sshfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -568,35 +535,23 @@ ga('send', 'pageview');
     <div class="article-entry-abstract" itemprop="articleBody">
       
         <!--<p>NAS4Free is a continuation of the FreeNAS 7 project, while FreeNAS 8 is based on nanoBSD NAS4Free is based on FreeBSD 9. You will notice that NAS4Free retains the FreeNAS 7 web interface and general feel.</p>
-
-        <h2 id="Requirements"   >
-          <a href="#Requirements" class="heading-link"><i class="fas fa-link"></i></a>Requirements:</h2>
-      <ul>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/" >NAS4Free embedded image</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.7-zip.org/" >7-Zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> to decompress the NAS4Free image</li>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download" >Win32 Disk Imager</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> to write the NAS4Free image over to a USB drive</li>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements:"></a>Requirements:</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/">NAS4Free embedded image</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.7-zip.org/">7-Zip</a> to decompress the NAS4Free image</li>
+<li><a target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download">Win32 Disk Imager</a> to write the NAS4Free image over to a USB drive</li>
 </ul>
-
-        <h2 id="Take-Note"   >
-          <a href="#Take-Note" class="heading-link"><i class="fas fa-link"></i></a>Take Note:</h2>
-      <ul>
+<h2 id="Take-Note"><a href="#Take-Note" class="headerlink" title="Take Note:"></a>Take Note:</h2><ul>
 <li>USB boot can be slight slower, compared to a hard drive</li>
 <li>You will need at least a 512MB USB drive</li>
 <li>NAS4Free is available in x86 and x64 architectures, pick according to what is supported by your hardware</li>
 </ul>
-
-        <h2 id="Download-NAS4Free"   >
-          <a href="#Download-NAS4Free" class="heading-link"><i class="fas fa-link"></i></a>Download NAS4Free</h2>
-      <p>Download the .img version if you want to boot NAS4Free from a USB drive or any other flash media. <em>NAS4Free-x86-embedded-9.1.0.1.262.img</em>, as the name suggest this is the embedded version. Visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/" >http://sourceforge.net/projects/nas4free/files/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and browse until you find the latest version. <img src="http://cdn.linhost.info/static/nas4free-1.png" alt="NAS4Free"> Now that we have the file we first need to decompress it, otherwise we won’t be able to create a bootable drive. To decompress the file you will need a third party utility like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.7-zip.org/" >7-Zip</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. <img src="http://cdn.linhost.info/static/nas4free-2.png" alt="NAS4Free"> This is the resulting file, now rename the file by adding the .img extension. <img src="http://cdn.linhost.info/static/nas4free-3.png" alt="NAS4Free"> Start <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download" >Win32 Disk Imager</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and click on the folder icon, now browse to the location where the file we just renamed resides. <img src="http://cdn.linhost.info/static/nas4free-4.png" alt="NAS4Free"> From the device list select the USB drive you wish to write the image to and click on the <strong>Write</strong> button to start the operation. <img src="http://cdn.linhost.info/static/nas4free-5.png" alt="NAS4Free"> Make sure you selected the right drive since this operation will overwrite the contents of the selected drive. Click on <strong>Yes</strong> to continue. <img src="http://cdn.linhost.info/static/nas4free-6.png" alt="NAS4Free"> Progress. <img src="http://cdn.linhost.info/static/nas4free-7.png" alt="NAS4Free"> The operation encountered no problems, this means the USB drive is now bootable. <img src="http://cdn.linhost.info/static/nas4free-8.png" alt="NAS4Free"> You can now exit the application. <img src="http://cdn.linhost.info/static/nas4free-9.png" alt="NAS4Free"> Now you have to make sure the BIOS supports booting from removable media <img src="http://cdn.linhost.info/static/nas4free-13.png" alt="NAS4Free"> The installation will be loaded into RAM. <img src="http://cdn.linhost.info/static/nas4free-10.png" alt="NAS4Free"> This the NAS4Free console and the default IP address for the web interface is 192.168.1.250. <img src="http://cdn.linhost.info/static/nas4free-11.png" alt="NAS4Free"> From a web browser try to access <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://192.168.1.250/" >http://192.168.1.250</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, you should see an interface similar to the one in the picture below. Congratulations on your NAS4Free installation. <img src="http://cdn.linhost.info/static/nas4free-12.png" alt="NAS4Free"></p>
-
-        <h2 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h2>
-      <p>There could not be a better continuation of the FreeNAS 7 project, I am sure NAS4Free will find its place. Home page: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.nas4free.org/" >www.nas4free.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Download-NAS4Free"><a href="#Download-NAS4Free" class="headerlink" title="Download NAS4Free"></a>Download NAS4Free</h2><p>Download the .img version if you want to boot NAS4Free from a USB drive or any other flash media. <em>NAS4Free-x86-embedded-9.1.0.1.262.img</em>, as the name suggest this is the embedded version. Visit <a target="_blank" rel="noopener" href="http://sourceforge.net/projects/nas4free/files/">http://sourceforge.net/projects/nas4free/files/</a> and browse until you find the latest version. <img src="http://cdn.linhost.info/static/nas4free-1.png" alt="NAS4Free"> Now that we have the file we first need to decompress it, otherwise we won’t be able to create a bootable drive. To decompress the file you will need a third party utility like <a target="_blank" rel="noopener" href="http://www.7-zip.org/">7-Zip</a>. <img src="http://cdn.linhost.info/static/nas4free-2.png" alt="NAS4Free"> This is the resulting file, now rename the file by adding the .img extension. <img src="http://cdn.linhost.info/static/nas4free-3.png" alt="NAS4Free"> Start <a target="_blank" rel="noopener" href="https://launchpad.net/win32-image-writer/+download">Win32 Disk Imager</a> and click on the folder icon, now browse to the location where the file we just renamed resides. <img src="http://cdn.linhost.info/static/nas4free-4.png" alt="NAS4Free"> From the device list select the USB drive you wish to write the image to and click on the <strong>Write</strong> button to start the operation. <img src="http://cdn.linhost.info/static/nas4free-5.png" alt="NAS4Free"> Make sure you selected the right drive since this operation will overwrite the contents of the selected drive. Click on <strong>Yes</strong> to continue. <img src="http://cdn.linhost.info/static/nas4free-6.png" alt="NAS4Free"> Progress. <img src="http://cdn.linhost.info/static/nas4free-7.png" alt="NAS4Free"> The operation encountered no problems, this means the USB drive is now bootable. <img src="http://cdn.linhost.info/static/nas4free-8.png" alt="NAS4Free"> You can now exit the application. <img src="http://cdn.linhost.info/static/nas4free-9.png" alt="NAS4Free"> Now you have to make sure the BIOS supports booting from removable media <img src="http://cdn.linhost.info/static/nas4free-13.png" alt="NAS4Free"> The installation will be loaded into RAM. <img src="http://cdn.linhost.info/static/nas4free-10.png" alt="NAS4Free"> This the NAS4Free console and the default IP address for the web interface is 192.168.1.250. <img src="http://cdn.linhost.info/static/nas4free-11.png" alt="NAS4Free"> From a web browser try to access <a target="_blank" rel="noopener" href="http://192.168.1.250/">http://192.168.1.250</a>, you should see an interface similar to the one in the picture below. Congratulations on your NAS4Free installation. <img src="http://cdn.linhost.info/static/nas4free-12.png" alt="NAS4Free"></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>There could not be a better continuation of the FreeNAS 7 project, I am sure NAS4Free will find its place. Home page: <a target="_blank" rel="noopener" href="http://www.nas4free.org/">www.nas4free.org</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/09/create-a-nas4free-bootable-usb-drive-in-windows/" data-id="ckitzbgdj006h7nfxf844eun3" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/09/create-a-nas4free-bootable-usb-drive-in-windows/" data-id="ckitzu6lh009gepfx2i6u2bd9" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freebsd/" rel="tag">freebsd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nas4free/" rel="tag">nas4free</a></li></ul>

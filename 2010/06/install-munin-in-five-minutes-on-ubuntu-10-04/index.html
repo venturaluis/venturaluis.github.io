@@ -91,24 +91,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Not knowing what is going on a server can be a recipe for disaster. That’s why I use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://munin-monitoring.org/" >Munin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a networked resource monitoring tool that is both simple to install and understand. Munin graphs server performance over time, administrators can later use this information to make an informed decision about when to add more resources. <strong>From The Munin Site:</strong></p>
+        <p>Not knowing what is going on a server can be a recipe for disaster. That’s why I use <a target="_blank" rel="noopener" href="http://munin-monitoring.org/">Munin</a> a networked resource monitoring tool that is both simple to install and understand. Munin graphs server performance over time, administrators can later use this information to make an informed decision about when to add more resources. <strong>From The Munin Site:</strong></p>
 <blockquote>
 <p>Munin is a networked resource monitoring tool that can help analyze resource trends and “what just happened to kill our performance?” problems. It is designed to be very plug and play. A default installation provides a lot of graphs with almost no work.</p>
 </blockquote>
 <p><strong>Note:</strong> You will need Root privileges Why guess when the right tools are available.</p>
-
-        <h2 id="Install"   >
-          <a href="#Install" class="heading-link"><i class="fas fa-link"></i></a>Install</h2>
-      <p>To start this tutorial you will need a web server, both Lighttpd and Apache will do the job. For this tutorial I will use Lighttpd which is available from the Ubuntu Repositories.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>To start this tutorial you will need a web server, both Lighttpd and Apache will do the job. For this tutorial I will use Lighttpd which is available from the Ubuntu Repositories.</p>
 <p>sudo aptitude install lighttpd</p>
 <p>You will also need PHP installed on the system.</p>
 <p>sudo aptitude install php5-cgi</p>
 <p>Since Munin will be running on only one system we will need the master and client installed on the same system.</p>
 <p>sudo aptitude install munin munin-node</p>
-
-        <h2 id="Configure"   >
-          <a href="#Configure" class="heading-link"><i class="fas fa-link"></i></a>Configure</h2>
-      <p>When the installation in complete, open the Munin configuration file with your text editor of choice. Change the <strong>htmldir</strong> path from <strong>/var/cache/munin/www</strong> to <strong>/var/www/munin</strong>.</p>
+<h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><p>When the installation in complete, open the Munin configuration file with your text editor of choice. Change the <strong>htmldir</strong> path from <strong>/var/cache/munin/www</strong> to <strong>/var/www/munin</strong>.</p>
 <p>sudo nano /etc/munin/munin.conf</p>
 <p>dbdir   /var/lib/munin<br>htmldir /var/cache/munin/www<br>logdir /var/log/munin<br>rundir  /var/run/munin</p>
 <p>New Path.</p>
@@ -120,20 +114,17 @@ ga('send', 'pageview');
 <p>And now you can start Munin.</p>
 <p>sudo /etc/init.d/munin-node start</p>
 <p>Munin can be accessed by pointing the web browser to:</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://your-ip.com/munin" >http://your-ip.com/munin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://your-ip.com/munin">http://your-ip.com/munin</a></p>
 <p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/2b-Z6qfrA7qIpeozvgyKSw?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TBhSNzru_EI/AAAAAAAACXA/4AQKmQWZjK8/s800/munin.png"></a></p>
 <blockquote>
 <p>Remember that it will take a long time for Munin to display any meaningful information, be patient.</p>
 </blockquote>
-
-        <h2 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://munin-monitoring.org/" >Munin Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a target="_blank" rel="noopener" href="http://munin-monitoring.org/">Munin Home Page</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2010/06/install-munin-in-five-minutes-on-ubuntu-10-04/" data-id="ckitzbgfz00dk7nfx0s6fcj0b" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2010/06/install-munin-in-five-minutes-on-ubuntu-10-04/" data-id="ckitzu6o100hbepfxalbw8tj7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/munin/" rel="tag">munin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network-monitoring/" rel="tag">network monitoring</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>

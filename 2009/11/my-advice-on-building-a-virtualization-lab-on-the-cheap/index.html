@@ -88,39 +88,18 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>But wait there’s more. In a perfect world every virtualization lab would be done on server grade hardware. Reality is different for personal purposes some of us use desktop hardware which is cheaper but also limited in some ways. Consider this post to be simple advice from a simple man, ahoy!.</p>
-
-        <h4 id="Dual-core-and-above"   >
-          <a href="#Dual-core-and-above" class="heading-link"><i class="fas fa-link"></i></a>Dual core and above</h4>
-      <p>Dual core is the standard by now, so why not try to go for a tree or four core CPU if you can. Anyway two cores will work in most situations.</p>
-
-        <h4 id="AMD-cost-less"   >
-          <a href="#AMD-cost-less" class="heading-link"><i class="fas fa-link"></i></a>AMD cost less</h4>
-      <p>Along with others I believe Intel has segmented part of the CPU market by not making some of the cheaper CPUs VT capable. AMD offers a capable and affordable line of two, three, and four core CPUs, time to go cherry picking. <em>Note:</em> I don’t dislike Intel, it’s just that I wanted to save some money.</p>
-
-        <h4 id="Start-with-4GB-of-memory-on-the-host"   >
-          <a href="#Start-with-4GB-of-memory-on-the-host" class="heading-link"><i class="fas fa-link"></i></a>Start with 4GB of memory on the host</h4>
-      <p>32bit guest will run on limited memory. Try to do the same with multiple 64bit guests and you will have a different story. RAM is cheap.</p>
-
-        <h4 id="Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines"   >
-          <a href="#Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines" class="heading-link"><i class="fas fa-link"></i></a>Install the Host OS in a separate drive from the virtual machines</h4>
-      <p>In a perfect world the system would make use of a RAID controller capable of RAID10, due to high cost that’s not the case. That’s why it’s recommended you separate the host OS from the virtual machines, the load may become unbearable on a single disk that has to do the job of two.</p>
-
-        <h4 id="64bit-OS"   >
-          <a href="#64bit-OS" class="heading-link"><i class="fas fa-link"></i></a>64bit OS</h4>
-      <p>This may depend on whether you are planning to run a desktop OS or server OS, remember if you go with 32bit OS you will find your self limited to 4 GB of physical memory. With that in mind if want to run multiple 64bit virtual machines you will find your self limited. Anyway 64bit is the future, get use to it.</p>
-
-        <h4 id="Choose-your-motherboard-wisely"   >
-          <a href="#Choose-your-motherboard-wisely" class="heading-link"><i class="fas fa-link"></i></a>Choose your motherboard wisely</h4>
-      <p>The correct motherboard means: 4 memory slots and above. Buying 4 x 2GB memory modules is cheaper than buying 2 x 4GB memory modules. Multiple SATA ports means more hard drives to store virtual machines or store backups.</p>
-
-        <h4 id="Don’t-assign-more-resources-than-you-really-have"   >
-          <a href="#Don’t-assign-more-resources-than-you-really-have" class="heading-link"><i class="fas fa-link"></i></a>Don’t assign more resources than you really have</h4>
-      <p>It’s a good idea to know or guess the expected load each virtual machine will bring to the system. All too often people assign as much as they can to a virtual machine without realising it might impact the host. Don’t assign multiple CPUs just because you can and go crazy with storage you might need it later. Feel free to provide more recommendations.</p>
+<h4 id="Dual-core-and-above"><a href="#Dual-core-and-above" class="headerlink" title="Dual core and above"></a>Dual core and above</h4><p>Dual core is the standard by now, so why not try to go for a tree or four core CPU if you can. Anyway two cores will work in most situations.</p>
+<h4 id="AMD-cost-less"><a href="#AMD-cost-less" class="headerlink" title="AMD cost less"></a>AMD cost less</h4><p>Along with others I believe Intel has segmented part of the CPU market by not making some of the cheaper CPUs VT capable. AMD offers a capable and affordable line of two, three, and four core CPUs, time to go cherry picking. <em>Note:</em> I don’t dislike Intel, it’s just that I wanted to save some money.</p>
+<h4 id="Start-with-4GB-of-memory-on-the-host"><a href="#Start-with-4GB-of-memory-on-the-host" class="headerlink" title="Start with 4GB of memory on the host"></a>Start with 4GB of memory on the host</h4><p>32bit guest will run on limited memory. Try to do the same with multiple 64bit guests and you will have a different story. RAM is cheap.</p>
+<h4 id="Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines"><a href="#Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines" class="headerlink" title="Install the Host OS in a separate drive from the virtual machines"></a>Install the Host OS in a separate drive from the virtual machines</h4><p>In a perfect world the system would make use of a RAID controller capable of RAID10, due to high cost that’s not the case. That’s why it’s recommended you separate the host OS from the virtual machines, the load may become unbearable on a single disk that has to do the job of two.</p>
+<h4 id="64bit-OS"><a href="#64bit-OS" class="headerlink" title="64bit OS"></a>64bit OS</h4><p>This may depend on whether you are planning to run a desktop OS or server OS, remember if you go with 32bit OS you will find your self limited to 4 GB of physical memory. With that in mind if want to run multiple 64bit virtual machines you will find your self limited. Anyway 64bit is the future, get use to it.</p>
+<h4 id="Choose-your-motherboard-wisely"><a href="#Choose-your-motherboard-wisely" class="headerlink" title="Choose your motherboard wisely"></a>Choose your motherboard wisely</h4><p>The correct motherboard means: 4 memory slots and above. Buying 4 x 2GB memory modules is cheaper than buying 2 x 4GB memory modules. Multiple SATA ports means more hard drives to store virtual machines or store backups.</p>
+<h4 id="Don’t-assign-more-resources-than-you-really-have"><a href="#Don’t-assign-more-resources-than-you-really-have" class="headerlink" title="Don’t assign more resources than you really have"></a>Don’t assign more resources than you really have</h4><p>It’s a good idea to know or guess the expected load each virtual machine will bring to the system. All too often people assign as much as they can to a virtual machine without realising it might impact the host. Don’t assign multiple CPUs just because you can and go crazy with storage you might need it later. Feel free to provide more recommendations.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/11/my-advice-on-building-a-virtualization-lab-on-the-cheap/" data-id="ckitzbghp00i67nfx8r4s0577" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/11/my-advice-on-building-a-virtualization-lab-on-the-cheap/" data-id="ckitzu6pu00mtepfxcvwc7tkt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lab/" rel="tag">lab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualisation/" rel="tag">virtualisation</a></li></ul>

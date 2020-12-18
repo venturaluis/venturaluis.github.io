@@ -91,36 +91,24 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>I tend to do a lot of video encoding which stresses my workstation a bit, also not long ago I changed motherboards. Well that meant I had to remove the CPU and add a new layer of thermal compound. I did measure the temperature with built-in BIOS utility but I still had question regarding the actual CPU temperature while under normal use. Essentially all I had to do was install <strong>lm-sensors</strong> and the <strong>GNOME sensor applet</strong>. Keep in mind for this article I used a DG31GL Intel Motherboard and a Q6600 Intel processor, all sensors were detected without a problem. Results may vary depending on the hardware.</p>
-
-        <h3 id="Installation"   >
-          <a href="#Installation" class="heading-link"><i class="fas fa-link"></i></a>Installation</h3>
-      <p>First we need to install the vital lm-sensors and the GNOME applets that will later present the information on the desktop.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>First we need to install the vital lm-sensors and the GNOME applets that will later present the information on the desktop.</p>
 <p>sudo apt-get install lm-sensors sensors-applet hddtemp</p>
 <p>Next we do a sensor detection (results will vary based on hardware support).</p>
 <p>sudo sensors-detect</p>
 <p>After the sensor detection is done you will have to answer a series of questions, accept the defaults by pressing <strong>Enter</strong>, except on the last question you have to type <strong>yes</strong> to automatically add the output to <strong>/etc/modules</strong>. Output.</p>
 <p>#—-cut here—-</p>
-
-        <h1 id="Chip-drivers"   >
-          <a href="#Chip-drivers" class="heading-link"><i class="fas fa-link"></i></a>Chip drivers</h1>
-      <p>w83627ehf<br>coretemp<br>#—-cut here—-</p>
+<h1 id="Chip-drivers"><a href="#Chip-drivers" class="headerlink" title="Chip drivers"></a>Chip drivers</h1><p>w83627ehf<br>coretemp<br>#—-cut here—-</p>
 <p>Do you want to add these lines automatically? (yes/NO)yes</p>
-
-        <h3 id="Add-the-GNOME-applet"   >
-          <a href="#Add-the-GNOME-applet" class="heading-link"><i class="fas fa-link"></i></a>Add the GNOME applet</h3>
-      <p>To add the applet responsible for displaying the data go to. Right click on the top panel &gt; click on <strong>Add to Panel.</strong> Search for <strong>Hardware Sensors Monitor</strong> &gt; click on <strong>Add.</strong> The applet will display the temperature data on the system, processor, hard drive and AUX Temp. Not all of the data is necessary or useful, if you like to change what’s displayed. Right click on the applet and select <strong>Preferences</strong>. Move on to the <strong>Sensors tab</strong> and check or unchecked what you don’t like. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SVRcPYAQI4I/AAAAAAAAASY/WylDHJXcYPM/s800/sensor%2520applet.jpg"> The end result. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SVRg_C44d2I/AAAAAAAAAS4/NqZsjpocKpM/s800/panel%2520applet.jpg"></p>
-
-        <h3 id="References"   >
-          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h3>
-      <ul>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://sensors-applet.sourceforge.net/index.php?content=screenshots" >http://sensors-applet.sourceforge.net</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.lm-sensors.org/" >http://www.lm-sensors.org/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<h3 id="Add-the-GNOME-applet"><a href="#Add-the-GNOME-applet" class="headerlink" title="Add the GNOME applet"></a>Add the GNOME applet</h3><p>To add the applet responsible for displaying the data go to. Right click on the top panel &gt; click on <strong>Add to Panel.</strong> Search for <strong>Hardware Sensors Monitor</strong> &gt; click on <strong>Add.</strong> The applet will display the temperature data on the system, processor, hard drive and AUX Temp. Not all of the data is necessary or useful, if you like to change what’s displayed. Right click on the applet and select <strong>Preferences</strong>. Move on to the <strong>Sensors tab</strong> and check or unchecked what you don’t like. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SVRcPYAQI4I/AAAAAAAAASY/WylDHJXcYPM/s800/sensor%2520applet.jpg"> The end result. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SVRg_C44d2I/AAAAAAAAAS4/NqZsjpocKpM/s800/panel%2520applet.jpg"></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://sensors-applet.sourceforge.net/index.php?content=screenshots">http://sensors-applet.sourceforge.net</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.lm-sensors.org/">http://www.lm-sensors.org/</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2008/12/temperature-monitoring-with-lm-sensors-on-ubuntu/" data-id="ckitzbgjl00or7nfx535u5c34" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2008/12/temperature-monitoring-with-lm-sensors-on-ubuntu/" data-id="ckitzu6s100tlepfx63ajbm2o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lm-sensors/" rel="tag">lm-sensors</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>

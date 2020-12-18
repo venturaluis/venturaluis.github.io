@@ -87,7 +87,7 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>In this tutorial I will walk you through the installation of Subversion on Ubuntu, if you have never used Subversion before then you will find this tutorial easy to follow. Perhaps you should read the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Subversion_(software)" >Subversion entry at Wikipedia</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> to find out more. Like any good system administrator our first priority should be to update and upgrade before installing SVN.</p>
+        <p>In this tutorial I will walk you through the installation of Subversion on Ubuntu, if you have never used Subversion before then you will find this tutorial easy to follow. Perhaps you should read the <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Subversion_(software)">Subversion entry at Wikipedia</a> to find out more. Like any good system administrator our first priority should be to update and upgrade before installing SVN.</p>
 <blockquote>
 <p>sudo apt-get update sudo apt-get upgrade</p>
 </blockquote>
@@ -112,10 +112,7 @@ ga('send', 'pageview');
 <p>sudo chgrp -R svn /home/svn sudo chmod -R g+rws /home/svn</p>
 </blockquote>
 <p>If you want to display information about the repository use the following command svn info file:///home/svn Well done, the reposity can be located at. <strong>file:///home/svn</strong> and <strong>file://localhost/home/svn</strong> For this tutorial all I need is local access.</p>
-
-        <h3 id="Install-Wordpress-via-SVN"   >
-          <a href="#Install-Wordpress-via-SVN" class="heading-link"><i class="fas fa-link"></i></a>Install Wordpress via SVN</h3>
-      <p>I find that installing Wordpress via SVN is far easier in the long run, this becomes evident when upgrading the installation at a later time. <strong>Overview of what we want to accomplish with SVN</strong> We want to install the current version for WordPress, create a directory “blog” for your blog install and then check out (Subversion command “co”), or extract from the repository, the version of WordPress you have requested. Here are the commands. First create a directory named “blog”.</p>
+<h3 id="Install-Wordpress-via-SVN"><a href="#Install-Wordpress-via-SVN" class="headerlink" title="Install Wordpress via SVN"></a>Install Wordpress via SVN</h3><p>I find that installing Wordpress via SVN is far easier in the long run, this becomes evident when upgrading the installation at a later time. <strong>Overview of what we want to accomplish with SVN</strong> We want to install the current version for WordPress, create a directory “blog” for your blog install and then check out (Subversion command “co”), or extract from the repository, the version of WordPress you have requested. Here are the commands. First create a directory named “blog”.</p>
 <blockquote>
 <p>mkdir blog</p>
 </blockquote>
@@ -125,26 +122,20 @@ ga('send', 'pageview');
 </blockquote>
 <p>Have SVN get the current Wordpress release and create the installation directories.</p>
 <blockquote>
-<p>$ svn co <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1" >http://svn.automattic.com/wordpress/tags/2.5.1</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> .</p>
+<p>$ svn co <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1">http://svn.automattic.com/wordpress/tags/2.5.1</a> .</p>
 </blockquote>
 <p>Do not forget the period at the end of the SVN command it makes sure the downloaded files end in the current directory, not including the dot will result in a new installation directory. After the download is complete, edit the wp-config.php with the required changes to complete the installation.</p>
-
-        <h3 id="Update-to-a-new-release-version"   >
-          <a href="#Update-to-a-new-release-version" class="heading-link"><i class="fas fa-link"></i></a>Update to a new release version</h3>
-      <p>When the Wordpress team releases a new version an upgrade will be required. Because we now use SVN all we need to do is log in to the server and use the “Switch” command to switch to the new version.</p>
+<h3 id="Update-to-a-new-release-version"><a href="#Update-to-a-new-release-version" class="headerlink" title="Update to a new release version"></a>Update to a new release version</h3><p>When the Wordpress team releases a new version an upgrade will be required. Because we now use SVN all we need to do is log in to the server and use the “Switch” command to switch to the new version.</p>
 <blockquote>
-<p>cd blog svn sw <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1/" >http://svn.automattic.com/wordpress/tags/2.5.1/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>cd blog svn sw <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1/">http://svn.automattic.com/wordpress/tags/2.5.1/</a></p>
 </blockquote>
 <p>The beautiful part of this process is that all custom and privately owned files will be left intact (example themes, plugins). Run the usual wp-admin/upgrade.php to finish the upgrade.</p>
-
-        <h3 id="TIP"   >
-          <a href="#TIP" class="heading-link"><i class="fas fa-link"></i></a>TIP</h3>
-      <p>Browse <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags" >http://svn.automattic.com/wordpress/tags</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> , to find all the versions of WordPress. Issuing two commands in order to set the automated upgrade process cuts down the amount of time and effort put into maintaining Wordpress. I hope you find SVN to be efficient and easy for Wordpress installations and upgrades than downloading, extracting, and uploading.</p>
+<h3 id="TIP"><a href="#TIP" class="headerlink" title="TIP"></a>TIP</h3><p>Browse <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags">http://svn.automattic.com/wordpress/tags</a> , to find all the versions of WordPress. Issuing two commands in order to set the automated upgrade process cuts down the amount of time and effort put into maintaining Wordpress. I hope you find SVN to be efficient and easy for Wordpress installations and upgrades than downloading, extracting, and uploading.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2008/07/install-and-upgrade-wordpress-using-subversion/" data-id="ckitzbgfy00dh7nfx6i78abll" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2008/07/install-and-upgrade-wordpress-using-subversion/" data-id="ckitzu6o000h7epfxhjp77qn2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/" rel="tag">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>

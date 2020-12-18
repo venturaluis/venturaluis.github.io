@@ -90,18 +90,15 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Running Netcat in Windows is easier than I tough, the entire process consists of downloading a single .zip file named <strong>nc111nt.zip</strong> from <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip" >here</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> or from the local mirror <a href="http://linhost.info/downloads/apps/nc111nt.zip">here</a>. Wikipedia has a nice entry with examples on <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat" >Netcat</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
-
-        <h2 id="How-To"   >
-          <a href="#How-To" class="heading-link"><i class="fas fa-link"></i></a>How To</h2>
-      <p>Unzip the file and move the resulting folder to a location where you can access it, for example.</p>
+        <p>Running Netcat in Windows is easier than I tough, the entire process consists of downloading a single .zip file named <strong>nc111nt.zip</strong> from <a target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip">here</a> or from the local mirror <a href="http://linhost.info/downloads/apps/nc111nt.zip">here</a>. Wikipedia has a nice entry with examples on <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat">Netcat</a>.</p>
+<h2 id="How-To"><a href="#How-To" class="headerlink" title="How To"></a>How To</h2><p>Unzip the file and move the resulting folder to a location where you can access it, for example.</p>
 <p>C:Windowsnc111nt</p>
 <p>Open a command line window and move to the location where <strong>nc111nt</strong> is located by using the command <strong>cd</strong>.</p>
 <p>cd C:Windowsnc111nt</p>
 <p>To run Netcat you need to type.</p>
 <p>C:Windowsnc111ntnc.exe [parameter]</p>
 <p>To view a list of available parameters type.</p>
-<p>C:UsersLuisDownloadsnc111nt&gt;nc.exe -help<br>[v1.11 NT <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.vulnwatch.org/netcat//]" >www.vulnwatch.org/netcat/\]</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><br>connect to somewhere:   nc [-options] hostname port[s] [ports] …<br>listen for inbound:     nc -l -p port [options] [hostname] [port]<br>options:<br>        -d              detach from console, background mode</p>
+<p>C:UsersLuisDownloadsnc111nt&gt;nc.exe -help<br>[v1.11 NT <a target="_blank" rel="noopener" href="http://www.vulnwatch.org/netcat//]">www.vulnwatch.org/netcat/\]</a><br>connect to somewhere:   nc [-options] hostname port[s] [ports] …<br>listen for inbound:     nc -l -p port [options] [hostname] [port]<br>options:<br>        -d              detach from console, background mode</p>
 <pre><code>    -e prog         inbound program to exec \[dangerous!!\]
     -g gateway      source-routing hop point\[s\], up to 8
     -G num          source-routing pointer: 4, 8, 12, ...
@@ -120,27 +117,21 @@ ga('send', 'pageview');
     -w secs         timeout for connects and final net reads
     -z              zero-I/O mode \[used for scanning\]</code></pre>
 <p>port numbers can be individual or ranges: m-n [inclusive]</p>
-
-        <h2 id="Real-Worl-Example"   >
-          <a href="#Real-Worl-Example" class="heading-link"><i class="fas fa-link"></i></a>Real Worl Example:</h2>
-      <p><img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TdCTuHIYI6I/AAAAAAAADF4/zpO4EkduvgI/s800/netcat-overview.png" title="Netcat Overview"> Netcat is possible of many things, but my favorite use is to transfer disk images created with dd over the network. As an example I am going to image a 4GB CF card over a gigabit network(no compression). The concept of sender and receiver will be used. System where the image will be stored:</p>
+<h2 id="Real-Worl-Example"><a href="#Real-Worl-Example" class="headerlink" title="Real Worl Example:"></a>Real Worl Example:</h2><p><img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TdCTuHIYI6I/AAAAAAAADF4/zpO4EkduvgI/s800/netcat-overview.png" title="Netcat Overview"> Netcat is possible of many things, but my favorite use is to transfer disk images created with dd over the network. As an example I am going to image a 4GB CF card over a gigabit network(no compression). The concept of sender and receiver will be used. System where the image will be stored:</p>
 <p>nc –l –p 7000 | dd of=/dev/hda</p>
 <p>Source system:</p>
 <p>dd if=/dev/hda | nc 192.168.1.10 4000</p>
 <p>Not many things are this easy to run and use, but the nice thing about Netcat is that it works regardless of the operating system being used. Like said I mostly use it to transfer the images I create with the help of dd (Parted Magic) over to my Windows server.</p>
-
-        <h2 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links:</h2>
-      <ul>
-<li>Wikipedia entry <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat" >Netcat</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip" >Download from hackosis.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links:"></a>Links:</h2><ul>
+<li>Wikipedia entry <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat">Netcat</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip">Download from hackosis.com</a></li>
 <li><a href="http://linhost.info/downloads/apps/nc111nt.zip">Download from local mirror</a></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2011/05/netcat-for-windows/" data-id="ckitzbghu00io7nfxdqoncdaq" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2011/05/netcat-for-windows/" data-id="ckitzu6pw00n0epfx37q71npt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netcat/" rel="tag">netcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>

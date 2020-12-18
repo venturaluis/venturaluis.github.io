@@ -90,10 +90,7 @@ ga('send', 'pageview');
       
         <p><img src="/download/images/logo/vmware.png"></p>
 <p>If you clone or move a Linux virtual machine created on a VMWare product the network adaptor will just disappear with no explanation. The usual solution is to delete the <strong>“xx-persistent-net.rules”</strong> file for Linux hosts, which makes the network adapter reaper after rebooting the system. However, I had a virtual machine with two network adapters (eth0, eth1) and only one of them worked (eth0). After digging for information I discovered that the interface configuration file only had one entry for eth0 and none for eth1. The solution was an easy one, just add the configuration for eth1. <strong>Note</strong>: the virtual machines was Ubuntu Server.</p>
-
-        <h2 id="Configuration"   >
-          <a href="#Configuration" class="heading-link"><i class="fas fa-link"></i></a>Configuration</h2>
-      <p>Open the interface configuration file.</p>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Open the interface configuration file.</p>
 <p>nano /etc/network/interfaces</p>
 <p>And add the remaining network interface configuration.</p>
 <p># The secondary network interface<br>auto eth1<br>iface eth1 inet dhcp</p>
@@ -102,7 +99,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2008/12/missing-vmware-network-adapter/" data-id="ckitzbghf00h87nfx4yq8dyw4" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2008/12/missing-vmware-network-adapter/" data-id="ckitzu6pb00laepfx3t5b0k1i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>

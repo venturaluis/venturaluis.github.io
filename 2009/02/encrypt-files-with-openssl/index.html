@@ -88,10 +88,7 @@ ga('send', 'pageview');
       
         <p>You may be familiar with OpenSSL and how it’s used to encrypt web pages across the internet, however it can also be used to encrypt files on systems. Lucky you OpenSSL is available on pretty much any operating system you can think of, meaning that if you need quick encryption there is no better option. An alternative to OpenSSL is GPG however it’s not included by default on all distributions. I find that encrypting files with GPG requires less manual input. If you are interested in encrypting files with GPG instead of OpenSSL then read this article <a href="http://linhost.info/2009/02/encrypt-files-with-gpg-on-linux/">Encrypt files with GPG</a>. To view the a list of the available ciphers issue the following command.</p>
 <p>openssl -h</p>
-
-        <h4 id="OpenSSL-encryption-basics"   >
-          <a href="#OpenSSL-encryption-basics" class="heading-link"><i class="fas fa-link"></i></a>OpenSSL encryption basics</h4>
-      <p>The process to encrypt a file is not complex, all you need to remember is to specify the cipher to be used, indicate salt, the input file and output file. Here is the anatomy of the command.</p>
+<h4 id="OpenSSL-encryption-basics"><a href="#OpenSSL-encryption-basics" class="headerlink" title="OpenSSL encryption basics"></a>OpenSSL encryption basics</h4><p>The process to encrypt a file is not complex, all you need to remember is to specify the cipher to be used, indicate salt, the input file and output file. Here is the anatomy of the command.</p>
 <p>openssl  cipher  -a  -in  -out</p>
 <p>Explanation.</p>
 <ul>
@@ -101,15 +98,9 @@ ga('send', 'pageview');
 <li><strong>-in</strong> input file, the file you want to encrypt.</li>
 <li><strong>-out</strong> output, the encrypted file.</li>
 </ul>
-
-        <h4 id="File-encryption"   >
-          <a href="#File-encryption" class="heading-link"><i class="fas fa-link"></i></a>File encryption</h4>
-      <p>In the following example <strong>filename.pdf</strong> will encrypted using <strong>triple DES cipher</strong>. Because I want to remember the cipher used to encrypt the file the result was <strong>filename.des3</strong> indicating that triple DES was used on the file.</p>
+<h4 id="File-encryption"><a href="#File-encryption" class="headerlink" title="File encryption"></a>File encryption</h4><p>In the following example <strong>filename.pdf</strong> will encrypted using <strong>triple DES cipher</strong>. Because I want to remember the cipher used to encrypt the file the result was <strong>filename.des3</strong> indicating that triple DES was used on the file.</p>
 <p>openssl des3 -a -salt -in filename.txt -out filename.des3</p>
-
-        <h4 id="File-decryption"   >
-          <a href="#File-decryption" class="heading-link"><i class="fas fa-link"></i></a>File decryption</h4>
-      <p>To decrypt the file the process is similar. Indicate the cipher, file was base64 encoded, decrypt the file, input the file name and output the file name.</p>
+<h4 id="File-decryption"><a href="#File-decryption" class="headerlink" title="File decryption"></a>File decryption</h4><p>To decrypt the file the process is similar. Indicate the cipher, file was base64 encoded, decrypt the file, input the file name and output the file name.</p>
 <p>openssl des3 -a -d -salt -in file.des3 -out file.txt</p>
 <p>Explanation</p>
 <ul>
@@ -120,19 +111,16 @@ ga('send', 'pageview');
 <li><strong>-in</strong> specyfile the encrypted file to be decrypted</li>
 <li><strong>-out</strong> output file</li>
 </ul>
-
-        <h4 id="Experiment"   >
-          <a href="#Experiment" class="heading-link"><i class="fas fa-link"></i></a>Experiment</h4>
-      <p>You don’t have to use triple DES to encrypt your files. Switching ciphers is very easy, in this case I decided to use Advanced Encryption Standard (AES). Encryption of the file.</p>
+<h4 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h4><p>You don’t have to use triple DES to encrypt your files. Switching ciphers is very easy, in this case I decided to use Advanced Encryption Standard (AES). Encryption of the file.</p>
 <p>openssl aes-256-cbc -a -salt -in vim.pdf -out output.aes</p>
 <p>Decryption of the file.</p>
 <p>openssl aes-256-cbc -d -a -in input.aes -out output.pdf</p>
-<p>Hopefully this article will help you secure your files from the unknown. <strong>Interesting sources</strong> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.openssl.org/docs/apps/enc.html" >OpenSSL docs</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Hopefully this article will help you secure your files from the unknown. <strong>Interesting sources</strong> <a target="_blank" rel="noopener" href="http://www.openssl.org/docs/apps/enc.html">OpenSSL docs</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/02/encrypt-files-with-openssl/" data-id="ckitzbge7008o7nfx8g3w07ws" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/02/encrypt-files-with-openssl/" data-id="ckitzu6md00buepfxh5kp03qc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssl/" rel="tag">openssl</a></li></ul>

@@ -88,11 +88,8 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Known network manager bug <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298" >https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
-
-        <h4 id="First-Solution"   >
-          <a href="#First-Solution" class="heading-link"><i class="fas fa-link"></i></a>First Solution</h4>
-      <p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
+        <!--<p>Known network manager bug <a target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298">https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
+<h4 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h4><p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
 <p>sudo nano /etc/network/interfaces</p>
 <p># The primary network interface<br>auto eth0<br>iface eth0 inet static<br>address 192.168.1.3<br>network 192.168.1.0<br>netmask 255.255.255.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
 <p>And save it. Now move on to edit the <strong>/etc/resolv.conf</strong>. And add the name server.</p>
@@ -100,10 +97,7 @@ ga('send', 'pageview');
 <p>nameserver 192.168.1.1</p>
 <p>If you don’t want to reboot the system restart the networking service instead.</p>
 <p>sudo /etc/init.d/networking restart</p>
-
-        <h4 id="Second-Solution"   >
-          <a href="#Second-Solution" class="heading-link"><i class="fas fa-link"></i></a>Second Solution</h4>
-      <ol>
+<h4 id="Second-Solution"><a href="#Second-Solution" class="headerlink" title="Second Solution"></a>Second Solution</h4><ol>
 <li>Right click on the <strong>network icon</strong> located in the top panel. Select <strong>Edit Connections…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UJC-A_ZzunNA7hvp1lLUjw"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SRti9dpKvqI/AAAAAAAAAJA/yrR_9qQpXSc/s800/1.jpg"></a></li>
 <li>Right click on <strong>Add</strong>. This is when we add the new configuration. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/8EIZ90PQVtjWl1O-wcFDQA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjqMQcf_I/AAAAAAAAAJ0/Dp28qp2VE5o/s800/2.jpg"></a></li>
 <li>Now you are presented with empty fields. Check <strong>Connect automatically</strong> at the top, otherwise the older configuration will take over. For the configuration to work you need to provide the <strong>MAC address</strong> of your network interface card in my case it’s <strong>eth0</strong>.<em>Tip : Issue <strong>ifconfig</strong> in the command line and copy and paste the resulting MAC address.</em><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tAI8vTNu1soXAbkN90JihQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjnkrEHGI/AAAAAAAAAJw/ERpTOAIqa30/s800/3.jpg"></a></li>
@@ -118,7 +112,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" data-id="ckitzbgfi00cj7nfxacfdc1nv" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" data-id="ckitzu6nk00g2epfxfk016r27" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -157,26 +151,23 @@ ga('send', 'pageview');
     <div class="article-entry-abstract" itemprop="articleBody">
       
         <!--<p>I like the new release of Transmission the Bittorrent client because it’s web interface requires no additional installation of a web server or the entire LAMP stack to do something very simple. My headless server runs Ubuntu 8.04 LTS which till now only had the job of being a file server, not long ago I decided to expand it’s functions and make it grab torrents for me. Remember I have a headless server and only manage it via SSH. The main requirement was for a BT client that was light and also manageable via HTTP. In my case I decided for Transmission 1.34 because it bring everything I need under one name, except it’s not officially supported or included in the Ubuntu 8.04 repositories. The solution is to simply add an extra repository to the <strong>/etc/apt/sources.list</strong> and then execute a simple apt-get install.</p>
-
-        <h4 id="Transmission-installation"   >
-          <a href="#Transmission-installation" class="heading-link"><i class="fas fa-link"></i></a>Transmission installation</h4>
-      <p>To install Transmission 1.34 or newer versions in Ubuntu 8.04 LTS we first need to add an entry to the sources.list.</p>
+<h4 id="Transmission-installation"><a href="#Transmission-installation" class="headerlink" title="Transmission installation"></a>Transmission installation</h4><p>To install Transmission 1.34 or newer versions in Ubuntu 8.04 LTS we first need to add an entry to the sources.list.</p>
 <p>sudo nano /etc/apt/sources.list</p>
 <p>And add the following.</p>
-<p>## Transmission repository not officially supported by the Ubuntu team<br>deb <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu" >http://ppa.launchpad.net/bortis/ubuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> hardy main<br>deb-src <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu" >http://ppa.launchpad.net/bortis/ubuntu</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> hardy main</p>
+<p>## Transmission repository not officially supported by the Ubuntu team<br>deb <a target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu">http://ppa.launchpad.net/bortis/ubuntu</a> hardy main<br>deb-src <a target="_blank" rel="noopener" href="http://ppa.launchpad.net/bortis/ubuntu">http://ppa.launchpad.net/bortis/ubuntu</a> hardy main</p>
 <p>Now that we have the new repository in the sources list let’s install the new package.</p>
 <p>sudo apt-get install transmission-cli</p>
 <p>Check to see if Transmission starts.</p>
 <p>transmission-daemon</p>
 <p>Now we have Transmission running, let’s log in to the web interface.</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://192.168.15.1:9091/" >http://192.168.15.1:9091</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-<p>This is by far the easiest way of installing a Bittorrent client that by default includes a web interface and has no need for a web server to be installed in order to work. Information compiled from: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://forum.transmissionbt.com/viewtopic.php?f=13&t=5604" >http://forum.transmissionbt.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Verify the installed version.</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.15.1:9091/">http://192.168.15.1:9091</a></p>
+<p>This is by far the easiest way of installing a Bittorrent client that by default includes a web interface and has no need for a web server to be installed in order to work. Information compiled from: <a target="_blank" rel="noopener" href="http://forum.transmissionbt.com/viewtopic.php?f=13&t=5604">http://forum.transmissionbt.com/</a> Verify the installed version.</p>
 <p>transmissioncli -v</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/transmission-on-ubuntu-804-server-the-best-bt-client-with-a-web-interface/" data-id="ckitzbgju00pi7nfx41bvef96" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/transmission-on-ubuntu-804-server-the-best-bt-client-with-a-web-interface/" data-id="ckitzu6s700u6epfx8m7d8p2f" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bittorrent/" rel="tag">bittorrent</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/p2p/" rel="tag">p2p</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transmission/" rel="tag">transmission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -219,7 +210,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/when-is-bittorrent-becoming-an-option/" data-id="ckitzbgl000sx7nfx7emt4ddw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/when-is-bittorrent-becoming-an-option/" data-id="ckitzu6td00xrepfx8g1b1lq5" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -276,12 +267,12 @@ ga('send', 'pageview');
 <p>xkeymap.keycode.133 = 0x15b # Meta_L</p>
 <p>xkeymap.keycode.134 = 0x15c # Meta_R</p>
 <p>xkeymap.keycode.135 = 0x15d # Menu</p>
-<p>Close the file and test the changes by starting VMware Player. Enjoy. All credit goes to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://communities.vmware.com/thread/177321" >communities.vmware.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Close the file and test the changes by starting VMware Player. Enjoy. All credit goes to <a target="_blank" rel="noopener" href="http://communities.vmware.com/thread/177321">communities.vmware.com</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/" data-id="ckitzbghe00h67nfx0ogb3w3s" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/" data-id="ckitzu6pf00lkepfx72u6dg9c" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -319,12 +310,12 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>People are ready to curse an open source company that for one reason or another decides not to make some of it’s software open source, yet praise a proprietary software company that all of a sudden makes it’s smiley creator open source. Canonical sponsors Ubuntu but that does not equal an obligation to release every line of code under an open source license . Canonical has a business model , <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.canonical.com/projects/landscape" >Landscape</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is the clear example. The intentions are to continue the support for Ubuntu and make it the best option in the server market, while at the same time sell services based on the platform at a price. Yes, it would be great if <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.canonical.com/projects/landscape" >Landscape</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> was available with out the purchase of a license but that’s what open source is all about if you don’t like it move on or create / find another solution. Any administrator worth his or her pay will find a no cost solution. Business client now have the opportunity to buy a solution direct from the source simplifying the process. On another note ill informed IT managers who claim open source companies are everything but serious have lost one of their many arguments. We have options in the software world, some refuse to adopt Ubuntu because it’s not open enough instead they use Debian. Freedom of choice. If you still have a problem understanding this concept think of it this way, the operating system is downloaded from this site <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.ubuntu.com/" >http://www.ubuntu.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and support is bought from this site <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.canonical.com/" >http://www.canonical.com/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> . By the way have you look at the cost of buying support from Canonical?, it’s everything but expensive.</p>
+        <!--<p>People are ready to curse an open source company that for one reason or another decides not to make some of it’s software open source, yet praise a proprietary software company that all of a sudden makes it’s smiley creator open source. Canonical sponsors Ubuntu but that does not equal an obligation to release every line of code under an open source license . Canonical has a business model , <a target="_blank" rel="noopener" href="http://www.canonical.com/projects/landscape">Landscape</a> is the clear example. The intentions are to continue the support for Ubuntu and make it the best option in the server market, while at the same time sell services based on the platform at a price. Yes, it would be great if <a target="_blank" rel="noopener" href="http://www.canonical.com/projects/landscape">Landscape</a> was available with out the purchase of a license but that’s what open source is all about if you don’t like it move on or create / find another solution. Any administrator worth his or her pay will find a no cost solution. Business client now have the opportunity to buy a solution direct from the source simplifying the process. On another note ill informed IT managers who claim open source companies are everything but serious have lost one of their many arguments. We have options in the software world, some refuse to adopt Ubuntu because it’s not open enough instead they use Debian. Freedom of choice. If you still have a problem understanding this concept think of it this way, the operating system is downloaded from this site <a target="_blank" rel="noopener" href="http://www.ubuntu.com/">http://www.ubuntu.com/</a> and support is bought from this site <a target="_blank" rel="noopener" href="http://www.canonical.com/">http://www.canonical.com/</a> . By the way have you look at the cost of buying support from Canonical?, it’s everything but expensive.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/canonical-landscape-part-of-the-business-model/" data-id="ckitzbgcn003m7nfx9ymwbbk5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/canonical-landscape-part-of-the-business-model/" data-id="ckitzu6kk006tepfx7ovk9ylh" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canonical/" rel="tag">canonical</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/landscape/" rel="tag">landscape</a></li></ul>
@@ -367,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/new-virtual-machine-ubuntu-810-server/" data-id="ckitzbghy00j17nfxaclner2d" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/new-virtual-machine-ubuntu-810-server/" data-id="ckitzu6py00naepfxfz4j7078" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -407,12 +398,12 @@ ga('send', 'pageview');
 <p># rm /etc/udev/rules.d/z25_persistent-net.rules</p>
 <p>On Ubuntu the file name changes to :</p>
 <p># rm /etc/udev/rules.d/70-persistent-net.rules</p>
-<p>In either case remove the file and reboot the virtual machine. The secret is to look for “persistent-net.rules” and delete it. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.linuxquestions.org/questions/slackware-14/why-does-eth0-disappear-on-vmware-578617/" >Source Linuxquestions.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>In either case remove the file and reboot the virtual machine. The secret is to look for “persistent-net.rules” and delete it. <a target="_blank" rel="noopener" href="http://www.linuxquestions.org/questions/slackware-14/why-does-eth0-disappear-on-vmware-578617/">Source Linuxquestions.org</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/recover-lost-interface-in-vmware-vm/" data-id="ckitzbgiv00m77nfxcvxjgsgf" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/recover-lost-interface-in-vmware-vm/" data-id="ckitzu6r300qmepfx58psctlz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -460,7 +451,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/peek-constructive-critique/" data-id="ckitzbgif00km7nfx9xdb7fiu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/peek-constructive-critique/" data-id="ckitzu6qk00ozepfxfeb70z98" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -505,7 +496,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/" data-id="ckitzbgc3002p7nfxdzhy8nuy" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/" data-id="ckitzu6ii002nepfxcu3v6ekv" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li></ul>
@@ -560,7 +551,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/configure-selinux-to-be-permissive/" data-id="ckitzbgde00607nfxhb5g4vzm" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/configure-selinux-to-be-permissive/" data-id="ckitzu6l8008oepfxbfro06s2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selinux/" rel="tag">selinux</a></li></ul>

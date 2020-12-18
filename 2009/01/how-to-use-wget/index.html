@@ -88,53 +88,29 @@ ga('send', 'pageview');
       
         <p>Consider this to be a crash course on <strong>How To</strong> use Wget. <strong>Wget</strong> is by far the best (intelligent) download manager ever created for the common client server protocols on the web (HTTP, HTTPS, FTP). The amount of configuration options offered by Wget is so immense that the use of the command line may be necessary in some cases. Here is a list of useful Wget commands. Ports of Wget for other platforms exist, if you want to see more configuration option open the terminal and use.</p>
 <p>wget -help</p>
-
-        <h4 id="Basic-use"   >
-          <a href="#Basic-use" class="heading-link"><i class="fas fa-link"></i></a>Basic use</h4>
-      <p>The simplest command Wget can offer. This will download the the file movie.mp4 from domain.com, notice how the the protocol HTTP had to specified can be changed for FTP.</p>
-<p>wget <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/movie.mp4" >http://domain.com/movie.mp4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Resume-interrupted-download"   >
-          <a href="#Resume-interrupted-download" class="heading-link"><i class="fas fa-link"></i></a>Resume interrupted download</h4>
-      <p>Let’s say you are downloading a 2 GB file then Internet connection dies for some reason Wget only managed to download 1.5 GB out of the 2 GB. The <strong>-c</strong> option can be used to tell Wget to resume the partially downloaded file, no need to download again.</p>
-<p>wget -c <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/bigfile.iso" >http://domain.com/bigfile.iso</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Mirror-a-site"   >
-          <a href="#Mirror-a-site" class="heading-link"><i class="fas fa-link"></i></a>Mirror a site</h4>
-      <p>Mirror or make a copy of a web site with the <strong>-m</strong> option. Self explanatory.</p>
-<p>wget -m <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/" >http://domain.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Bandwidth-throttling"   >
-          <a href="#Bandwidth-throttling" class="heading-link"><i class="fas fa-link"></i></a>Bandwidth throttling</h4>
-      <p>Not everybody has FIOS (not me) for those who for example share a DSL or ISDN line are some what limited in the amount of bandwidth they can spare. Wget provides a way to limit the amount of bandwidth used, basically you can limit how much bandwidth it can use.</p>
-<p>wget –limit-rate=20k <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/movie.mp4" >http://domain.com/movie.mp4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Increase-re-tries"   >
-          <a href="#Increase-re-tries" class="heading-link"><i class="fas fa-link"></i></a>Increase re-tries</h4>
-      <p>When dealing with an Internet connection that suffers from high latency resulting in long download times the downloads will likely fail to complete. Instead of letting the unknown happen raise the default amount of retries (20) to say 30. Hopefully this will give you a higher margin to complete the download.</p>
-<p>wget –tries=45 <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/movie.mp4" >http://domain.com/movie.mp4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Disguised-as-a-web-browser"   >
-          <a href="#Disguised-as-a-web-browser" class="heading-link"><i class="fas fa-link"></i></a>Disguised as a web browser</h4>
-      <p>Some sites will not allow download managers alone to retrieve the files stored on their server, instead they expect to see a web browser like Mozilla or IE. Well this minor obstacle can be overcome by telling Wget to disguised it self as Mozilla to retrieve the file.</p>
-<p>wget -c -U Mozilla <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://domain.com/movie.mp4" >http://domain.com/movie.mp4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Download-files-from-FTP-server"   >
-          <a href="#Download-files-from-FTP-server" class="heading-link"><i class="fas fa-link"></i></a>Download files from FTP server</h4>
-      <p>To download the same file from a FTP server just change the protocol when issuing the Wget command.</p>
-<p>wget <span class="exturl"><a class="exturl__link"   href="ftp://domain.com/movie.mp4" >ftp://domain.com/movie.mp4</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="Basic-use"><a href="#Basic-use" class="headerlink" title="Basic use"></a>Basic use</h4><p>The simplest command Wget can offer. This will download the the file movie.mp4 from domain.com, notice how the the protocol HTTP had to specified can be changed for FTP.</p>
+<p>wget <a target="_blank" rel="noopener" href="http://domain.com/movie.mp4">http://domain.com/movie.mp4</a></p>
+<h4 id="Resume-interrupted-download"><a href="#Resume-interrupted-download" class="headerlink" title="Resume interrupted download"></a>Resume interrupted download</h4><p>Let’s say you are downloading a 2 GB file then Internet connection dies for some reason Wget only managed to download 1.5 GB out of the 2 GB. The <strong>-c</strong> option can be used to tell Wget to resume the partially downloaded file, no need to download again.</p>
+<p>wget -c <a target="_blank" rel="noopener" href="http://domain.com/bigfile.iso">http://domain.com/bigfile.iso</a></p>
+<h4 id="Mirror-a-site"><a href="#Mirror-a-site" class="headerlink" title="Mirror a site"></a>Mirror a site</h4><p>Mirror or make a copy of a web site with the <strong>-m</strong> option. Self explanatory.</p>
+<p>wget -m <a target="_blank" rel="noopener" href="http://domain.com/">http://domain.com</a></p>
+<h4 id="Bandwidth-throttling"><a href="#Bandwidth-throttling" class="headerlink" title="Bandwidth throttling"></a>Bandwidth throttling</h4><p>Not everybody has FIOS (not me) for those who for example share a DSL or ISDN line are some what limited in the amount of bandwidth they can spare. Wget provides a way to limit the amount of bandwidth used, basically you can limit how much bandwidth it can use.</p>
+<p>wget –limit-rate=20k <a target="_blank" rel="noopener" href="http://domain.com/movie.mp4">http://domain.com/movie.mp4</a></p>
+<h4 id="Increase-re-tries"><a href="#Increase-re-tries" class="headerlink" title="Increase re-tries"></a>Increase re-tries</h4><p>When dealing with an Internet connection that suffers from high latency resulting in long download times the downloads will likely fail to complete. Instead of letting the unknown happen raise the default amount of retries (20) to say 30. Hopefully this will give you a higher margin to complete the download.</p>
+<p>wget –tries=45 <a target="_blank" rel="noopener" href="http://domain.com/movie.mp4">http://domain.com/movie.mp4</a></p>
+<h4 id="Disguised-as-a-web-browser"><a href="#Disguised-as-a-web-browser" class="headerlink" title="Disguised as a web browser"></a>Disguised as a web browser</h4><p>Some sites will not allow download managers alone to retrieve the files stored on their server, instead they expect to see a web browser like Mozilla or IE. Well this minor obstacle can be overcome by telling Wget to disguised it self as Mozilla to retrieve the file.</p>
+<p>wget -c -U Mozilla <a target="_blank" rel="noopener" href="http://domain.com/movie.mp4">http://domain.com/movie.mp4</a></p>
+<h4 id="Download-files-from-FTP-server"><a href="#Download-files-from-FTP-server" class="headerlink" title="Download files from FTP server"></a>Download files from FTP server</h4><p>To download the same file from a FTP server just change the protocol when issuing the Wget command.</p>
+<p>wget <a href="ftp://domain.com/movie.mp4">ftp://domain.com/movie.mp4</a></p>
 <p>Let’s say the site happens to be password protected, Wget allows the user to login with credentials.</p>
-<p>wget <span class="exturl"><a class="exturl__link"   href="ftp://username:password@domain.com/path/to/file" >ftp://username:password@domain.com/path/to/file</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>wget <a href="ftp://username:password@domain.com/path/to/file">ftp://username:password@domain.com/path/to/file</a></p>
 <p>Feel free to mix and match the options above nobody got any where by refusing to experiment.</p>
-
-        <h4 id="References"   >
-          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h4>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Wget" >http://en.wikipedia.org/wiki/Wget</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Wget">http://en.wikipedia.org/wiki/Wget</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/01/how-to-use-wget/" data-id="ckitzbgfo00cq7nfx2wukduun" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/01/how-to-use-wget/" data-id="ckitzu6no00gmepfx811o6ymi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wget/" rel="tag">wget</a></li></ul>

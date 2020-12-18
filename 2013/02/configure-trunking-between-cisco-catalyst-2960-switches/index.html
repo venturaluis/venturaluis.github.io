@@ -89,31 +89,19 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>This tutorial also applies to other Cisco switches. The Cisco Catalyst 2960 is a layer 2 switch, perhaps one of the most commonly used switches I see in the field. Trunking is a solution for connecting two switches at layer 2, trunking even allows for VLANs in both switches to communicate. <img src="http://cdn.linhost.info/static/simple-2960-topology.png" alt="2960 Topology"> For this tutorial I will create a trunk between two Cisco Catalyst 2960 switches. My Catalyst 2960 come with two gigabit uplink ports, I will use one port on each switch to establish the trunk. By default all VLANs will be able to traverse the trunk(this includes VLAN 1).</p>
-
-        <h3 id="SWITCH-A-Trunk-Configuration"   >
-          <a href="#SWITCH-A-Trunk-Configuration" class="heading-link"><i class="fas fa-link"></i></a>SWITCH-A Trunk Configuration</h3>
-      <p>SWITCH-A# configure terminal<br>SWITCH-A(config)# interface gigabitEthernet 1/1<br>SWITCH-A(config-if)# description trunk link<br>SWITCH-A(config-if)# switchport mode trunk<br>SWITCH-A(config-if)# switchport nonegotiate</p>
-
-        <h3 id="Command-explanation"   >
-          <a href="#Command-explanation" class="heading-link"><i class="fas fa-link"></i></a>Command explanation:</h3>
-      <ul>
+<h3 id="SWITCH-A-Trunk-Configuration"><a href="#SWITCH-A-Trunk-Configuration" class="headerlink" title="SWITCH-A Trunk Configuration"></a>SWITCH-A Trunk Configuration</h3><p>SWITCH-A# configure terminal<br>SWITCH-A(config)# interface gigabitEthernet 1/1<br>SWITCH-A(config-if)# description trunk link<br>SWITCH-A(config-if)# switchport mode trunk<br>SWITCH-A(config-if)# switchport nonegotiate</p>
+<h3 id="Command-explanation"><a href="#Command-explanation" class="headerlink" title="Command explanation:"></a>Command explanation:</h3><ul>
 <li><strong>switchport mode trunk -</strong> Configure interface for trunking mode</li>
 <li><strong>switchport nonegotiate -</strong> Since the interface was manually configure for trunking there is no need to negotiate</li>
 </ul>
-
-        <h3 id="SWITCH-B-Trunk-Configuration"   >
-          <a href="#SWITCH-B-Trunk-Configuration" class="heading-link"><i class="fas fa-link"></i></a>SWITCH-B Trunk Configuration</h3>
-      <p>SWITCH-B configuration steps are identical to SWITCH-A.</p>
+<h3 id="SWITCH-B-Trunk-Configuration"><a href="#SWITCH-B-Trunk-Configuration" class="headerlink" title="SWITCH-B Trunk Configuration"></a>SWITCH-B Trunk Configuration</h3><p>SWITCH-B configuration steps are identical to SWITCH-A.</p>
 <p>SWITCH-B# configure terminal<br>SWITCH-B(config)# interface gigabitEthernet 1/1<br>SWITCH-B(config-if)# description trunk link<br>SWITCH-B(config-if)# switchport mode trunk<br>SWITCH-B(config-if)# switchport nonegotiate</p>
-
-        <h3 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
-      <p>By trunking two switches together the amount of available ports can be increased. The interfaces linking the two switches may be come bottle necks if the switches send more traffic than either the Fast Ethernet or Gigabit Ethernet port used for the trunk can handle, to increase bandwidth between the switches consider adding EtherChannel to the trunk link. Feel free to leave a comment below, who knows I maybe able to provide some extra assistance.</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>By trunking two switches together the amount of available ports can be increased. The interfaces linking the two switches may be come bottle necks if the switches send more traffic than either the Fast Ethernet or Gigabit Ethernet port used for the trunk can handle, to increase bandwidth between the switches consider adding EtherChannel to the trunk link. Feel free to leave a comment below, who knows I maybe able to provide some extra assistance.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2013/02/configure-trunking-between-cisco-catalyst-2960-switches/" data-id="ckitzbgda005n7nfxds6s0bsh" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2013/02/configure-trunking-between-cisco-catalyst-2960-switches/" data-id="ckitzu6la008repfxeuqmgqns" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cisco/" rel="tag">cisco</a></li></ul>

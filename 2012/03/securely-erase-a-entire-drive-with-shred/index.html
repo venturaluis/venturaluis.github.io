@@ -90,18 +90,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>The reason why tools like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.gnu.org/software/coreutils/manual/html_node/shred-invocation.html" >Shred</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> exist is because we don’t like the tough of our files ending in the hands of the wrong people and if it’s within our reach to prevent such an occurrence then why not take the steps. Shred accomplishes its goal by repeatedly overwriting the target with specific data patterns in order to make recovery of the data contained within the drive impossible. As long as the system can see the drive <strong>Shred</strong> should have no problem erasing the contents. Keep in mind that erasing a drive will take a considerable amount of time. The simple version of shred would be.</p>
+        <p>The reason why tools like <a target="_blank" rel="noopener" href="http://www.gnu.org/software/coreutils/manual/html_node/shred-invocation.html">Shred</a> exist is because we don’t like the tough of our files ending in the hands of the wrong people and if it’s within our reach to prevent such an occurrence then why not take the steps. Shred accomplishes its goal by repeatedly overwriting the target with specific data patterns in order to make recovery of the data contained within the drive impossible. As long as the system can see the drive <strong>Shred</strong> should have no problem erasing the contents. Keep in mind that erasing a drive will take a considerable amount of time. The simple version of shred would be.</p>
 <p>shred /dev/sda2</p>
 <p>This would erase the second partition in /sda using default options. But we are geeks and the defaults just wont do, if you like you can opt to use different parameters as explained below.</p>
 <p>shred -fzv /dev/sdb</p>
 <p>f = If necessary override file permission and overwrite z = final overwrite with zeros to hide shredding process, you don’t want the drive to stand out v = Display operation progress By default Shred will overwrite the target three times if you think the default is too much or too little you can change the default by adding the <strong>-n #</strong> parameter to change the overwrite amount.</p>
 <p>shred -fzv -n 1 /dev/sdb</p>
-<p>Shred will not save you from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://xkcd.com/538/" >XKCD five dollar wrench</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> recovery method. <img src="http://imgs.xkcd.com/comics/security.png" alt="XKCD Five Dollar Wrench"></p>
+<p>Shred will not save you from the <a target="_blank" rel="noopener" href="http://xkcd.com/538/">XKCD five dollar wrench</a> recovery method. <img src="http://imgs.xkcd.com/comics/security.png" alt="XKCD Five Dollar Wrench"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2012/03/securely-erase-a-entire-drive-with-shred/" data-id="ckitzbgj500n67nfx5b950g3y" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2012/03/securely-erase-a-entire-drive-with-shred/" data-id="ckitzu6re00roepfx1nb4cqhl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shred/" rel="tag">shred</a></li></ul>

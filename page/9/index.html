@@ -89,53 +89,32 @@ ga('send', 'pageview');
     <div class="article-entry-abstract" itemprop="articleBody">
       
         <!--<p>This tutorial will cover the required steps to configure a basic iSCSI Target on Ubuntu. The installation for this tutorial was performed on an Ubuntu 12.04 64-bit system, but the same configuration applies to Ubuntu 12.04-32bit.</p>
-
-        <h3 id="Before-We-Install"   >
-          <a href="#Before-We-Install" class="heading-link"><i class="fas fa-link"></i></a>Before We Install</h3>
-      <p>Before the target can be installed check to see of the system you are planning to run the target from is up to date.</p>
+<h3 id="Before-We-Install"><a href="#Before-We-Install" class="headerlink" title="Before We Install"></a>Before We Install</h3><p>Before the target can be installed check to see of the system you are planning to run the target from is up to date.</p>
 <p>sudo apt-get update<br>sudo apt-get upgrade</p>
-
-        <h3 id="Target-Installation-Minimal-Changes"   >
-          <a href="#Target-Installation-Minimal-Changes" class="heading-link"><i class="fas fa-link"></i></a>Target Installation, Minimal Changes</h3>
-      <p>Proceed to install the iSCSI target(<em>iscsitarget</em>) along with <em>iscsitarget-source</em> and <em>iscsitarget-dkms</em>.</p>
+<h3 id="Target-Installation-Minimal-Changes"><a href="#Target-Installation-Minimal-Changes" class="headerlink" title="Target Installation, Minimal Changes"></a>Target Installation, Minimal Changes</h3><p>Proceed to install the iSCSI target(<em>iscsitarget</em>) along with <em>iscsitarget-source</em> and <em>iscsitarget-dkms</em>.</p>
 <p>sudo apt-get install iscsitarget iscsitarget-source iscsitarget-dkms</p>
 <p>If you don’t install the extra two packages you will be greeted with the following error every time you attempt to restart the target.</p>
 <p>user@ubuntu:~$ sudo service iscsitarget restart<br> * Removing iSCSI enterprise target devices:           [ OK ]<br> * Starting iSCSI enterprise target service            FATAL: Module iscsi_trgt not found.</p>
 <p>Next edit <em>/etc/default/iscsitarget</em>. Change the default value of <em>ISCSITARGET_ENABLE=false</em> over to <em>ISCSITARGET_ENABLE=true</em>. Not doing so will not allow the target to start.</p>
 <p>sudo nano /etc/default/iscsitarget</p>
 <p>ISCSITARGET_ENABLE=true</p>
-
-        <h3 id="Storage-Creation"   >
-          <a href="#Storage-Creation" class="heading-link"><i class="fas fa-link"></i></a>Storage Creation</h3>
-      <p>When working with iSCSI you have to also think of LUN’s. This when you decide whether you want to use files or partitions when offering the targets storage to the iSCSI clients. For the tutorial I will be using files. To create a file we can use dd to create and empty file that will grow once the users start storing file in it. The file weights 50GB.</p>
+<h3 id="Storage-Creation"><a href="#Storage-Creation" class="headerlink" title="Storage Creation"></a>Storage Creation</h3><p>When working with iSCSI you have to also think of LUN’s. This when you decide whether you want to use files or partitions when offering the targets storage to the iSCSI clients. For the tutorial I will be using files. To create a file we can use dd to create and empty file that will grow once the users start storing file in it. The file weights 50GB.</p>
 <p>dd if=/dev/zero of=/media/volume0/storlun0.bin count=0 obs=1 seek=50G</p>
 <p>I want to store the resulting files in a different path than my home directory which is why I specified that the file be deposited at /media/volume0.</p>
-
-        <h3 id="Target-Creation"   >
-          <a href="#Target-Creation" class="heading-link"><i class="fas fa-link"></i></a>Target Creation</h3>
-      <p>Configurations and targets we create can be found in the <em>/etc/iet/ietd.conf</em> configuration file.</p>
+<h3 id="Target-Creation"><a href="#Target-Creation" class="headerlink" title="Target Creation"></a>Target Creation</h3><p>Configurations and targets we create can be found in the <em>/etc/iet/ietd.conf</em> configuration file.</p>
 <p>sudo nano /etc/iet/ietd.conf</p>
 <p>Scroll to the bottom of the configuration file and add:</p>
 <p>Target iqn.2012-05.local.mynet:storage.sys0<br>        Lun 0 Path=/media/volume0/storlun0.bin,Type=fileio,ScsiId=lun0,ScsiSN=lun0</p>
 <p>If you don’t want to use files you can also use partitions, just use <strong>Lun 0 Path=/dev/sdb1,Type=fileio</strong> instead. The first line can be changed, but the second line specifies where the LUN actually is. If you want, you could create a second LUN using <strong>LUN 1 Path=/XXXX XXXX XXXX</strong> and expose a second iSCSI drive withing the same target, this assumes you have created a second storage file.</p>
-
-        <h3 id="Restart-Target"   >
-          <a href="#Restart-Target" class="heading-link"><i class="fas fa-link"></i></a>Restart Target</h3>
-      <p>All that is left to do is restart the target with our changes.</p>
+<h3 id="Restart-Target"><a href="#Restart-Target" class="headerlink" title="Restart Target"></a>Restart Target</h3><p>All that is left to do is restart the target with our changes.</p>
 <p>sudo service iscsitarget restart</p>
-
-        <h3 id="Test-The-Target"   >
-          <a href="#Test-The-Target" class="heading-link"><i class="fas fa-link"></i></a>Test The Target</h3>
-      <p>To test the target I will be using built-in Windows 7 iSCSI client(initiator) <img src="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png"> Enter the IP address of the Ubuntu server and click on <strong>Quick Connect…</strong> <img src="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png"> You are now connected, click on <strong>Done</strong>. <img src="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png"> Go over to <strong>Administrative Tools &gt; Computer Management</strong>. <img src="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png"> On the left sidebar you should notice the <strong>Disk Management</strong> option. <img src="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png"> Look for the iSCSI drive, for this tutorial we made a 50GB drive which is listed at the bottom. Here you can choose to format the drive if you like. <img src="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png"></p>
-
-        <h3 id="Conclusion"   >
-          <a href="#Conclusion" class="heading-link"><i class="fas fa-link"></i></a>Conclusion</h3>
-      <p>As you can see configuring an iSCSI target in Ubuntu doesn’t have to be complex. Keep in mind the above was just a basic installation, deploying iSCSI also brings other variables in to consideration such as security since the above configuration will allow just about any one to connect to the target. Perhaps I should make another post about iSCSI best practices, thank you for reading. If you have any questions or comments use the form below.</p>
+<h3 id="Test-The-Target"><a href="#Test-The-Target" class="headerlink" title="Test The Target"></a>Test The Target</h3><p>To test the target I will be using built-in Windows 7 iSCSI client(initiator) <img src="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png"> Enter the IP address of the Ubuntu server and click on <strong>Quick Connect…</strong> <img src="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png"> You are now connected, click on <strong>Done</strong>. <img src="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png"> Go over to <strong>Administrative Tools &gt; Computer Management</strong>. <img src="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png"> On the left sidebar you should notice the <strong>Disk Management</strong> option. <img src="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png"> Look for the iSCSI drive, for this tutorial we made a 50GB drive which is listed at the bottom. Here you can choose to format the drive if you like. <img src="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png"></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>As you can see configuring an iSCSI target in Ubuntu doesn’t have to be complex. Keep in mind the above was just a basic installation, deploying iSCSI also brings other variables in to consideration such as security since the above configuration will allow just about any one to connect to the target. Perhaps I should make another post about iSCSI best practices, thank you for reading. If you have any questions or comments use the form below.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/05/configure-ubuntu-to-serve-as-an-iscsi-target/" data-id="ckitzbgdb005u7nfx1b7s3djy" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/05/configure-ubuntu-to-serve-as-an-iscsi-target/" data-id="ckitzu6lf0098epfx8xyxdqll" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/" rel="tag">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -178,34 +157,22 @@ ga('send', 'pageview');
 <li>First - System were MDADM will be running is up to date</li>
 <li>Second - Every step below will be performed with Root privileges or similar.</li>
 </ul>
-
-        <h3 id="How-Many-Drives-Are-Available"   >
-          <a href="#How-Many-Drives-Are-Available" class="heading-link"><i class="fas fa-link"></i></a>How Many Drives Are Available ?</h3>
-      <p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
+<h3 id="How-Many-Drives-Are-Available"><a href="#How-Many-Drives-Are-Available" class="headerlink" title="How Many Drives Are Available ?"></a>How Many Drives Are Available ?</h3><p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
 <p>ls /dev/sd*</p>
 <p>user@ubuntu:~$ ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdc  /dev/sdd</p>
 <p>Listed are five drives, <strong>/sda /1 /2</strong> contain the Operating System, <strong>/sdb</strong> and <strong>/sdc</strong> are empty and will be used to create the RAID1 array, <strong>/sdd</strong> can be left alone or used as a hot-spare.</p>
-
-        <h3 id="Drive-Prepartions"   >
-          <a href="#Drive-Prepartions" class="heading-link"><i class="fas fa-link"></i></a>Drive Prepartions</h3>
-      <p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
+<h3 id="Drive-Prepartions"><a href="#Drive-Prepartions" class="headerlink" title="Drive Prepartions"></a>Drive Prepartions</h3><p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
 <p>root@ubuntu:~# fdisk /dev/sdb</p>
 <p>Command (m for help): n<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): p<br>Partition number (1-4, default 1): 1<br>First sector (2048-251658239, default 2048):<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-251658239, default 251658239):<br>Using default value 251658239</p>
 <p>Command (m for help): t<br>Selected partition 1<br>Hex code (type L to list codes): fd<br>Changed system type of partition 1 to fd (Linux raid autodetect)</p>
 <p>Command (m for help): w<br>The partition table has been altered!</p>
 <p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
 <p><em>If you prefer a graphical interface, GParted is a good alternative to fdisk.</em></p>
-
-        <h3 id="Is-MDADM-Installed-In-The-System"   >
-          <a href="#Is-MDADM-Installed-In-The-System" class="heading-link"><i class="fas fa-link"></i></a>Is MDADM Installed In The System?</h3>
-      <p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
+<h3 id="Is-MDADM-Installed-In-The-System"><a href="#Is-MDADM-Installed-In-The-System" class="headerlink" title="Is MDADM Installed In The System?"></a>Is MDADM Installed In The System?</h3><p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
 <p>yum install mdadm</p>
 <p>Debian and derivatives you can use.</p>
 <p>apt-get install mdadm</p>
-
-        <h3 id="Array-Creation"   >
-          <a href="#Array-Creation" class="heading-link"><i class="fas fa-link"></i></a>Array Creation</h3>
-      <p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
+<h3 id="Array-Creation"><a href="#Array-Creation" class="headerlink" title="Array Creation"></a>Array Creation</h3><p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
 <p>mdadm –create /dev/md0 –level=1 –raid-devices=2 /dev/sdb1 /dev/sdc1</p>
 <ul>
 <li><p>/dev/md0</p>
@@ -237,15 +204,9 @@ Number   Major   Minor   RaidDevice State
 <p>root@ubuntu:~# cat /proc/mdstat<br>Personalities : [raid1]<br>md0 : active raid1 sdc1[1] sdb1[0]<br>      125827000 blocks super 1.2 [2/2] [UU]<br>      [&gt;………………..]  resync =  3.8% (4838272/125827000) finish=30.7min speed=65591K/sec</p>
 <p>unused devices: </p>
 <p>Grab a cup of coffee or a beer it might take a while before the operation completes.</p>
-
-        <h3 id="Format-The-Array"   >
-          <a href="#Format-The-Array" class="heading-link"><i class="fas fa-link"></i></a>Format The Array</h3>
-      <p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
+<h3 id="Format-The-Array"><a href="#Format-The-Array" class="headerlink" title="Format The Array"></a>Format The Array</h3><p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
 <p>mkfs -t ext3 /dev/md0</p>
-
-        <h3 id="Mount-The-New-Array"   >
-          <a href="#Mount-The-New-Array" class="heading-link"><i class="fas fa-link"></i></a>Mount The New Array</h3>
-      <p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
+<h3 id="Mount-The-New-Array"><a href="#Mount-The-New-Array" class="headerlink" title="Mount The New Array"></a>Mount The New Array</h3><p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
 <p>mkdir /media/volume0</p>
 <p>Now provide the path to the array and path to the directory we create in the previous step.</p>
 <p>mount /dev/md0 /media/volume0</p>
@@ -257,27 +218,15 @@ Number   Major   Minor   RaidDevice State
 <p>echo ‘/dev/md0 /media/volume0 ext3 noatime,rw 0 0’ &gt;&gt; /etc/fstab</p>
 <p>Let’s see if our new entry is in the <strong>/etc/fstab</strong> file.</p>
 <p>[root@iou ~]# cat /etc/fstab<br>#</p>
-
-        <h1 id="etc-fstab"   >
-          <a href="#etc-fstab" class="heading-link"><i class="fas fa-link"></i></a>/etc/fstab</h1>
-      
-        <h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"   >
-          <a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="heading-link"><i class="fas fa-link"></i></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1>
-      <p>#</p>
-
-        <h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"   >
-          <a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="heading-link"><i class="fas fa-link"></i></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1>
-      
-        <h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"   >
-          <a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="heading-link"><i class="fas fa-link"></i></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1>
-      <p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
+<h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="headerlink" title="Created by anaconda on Thu Mar 22 20:41:14 2012"></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1><p>#</p>
+<h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"><a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="headerlink" title="Accessible filesystems, by reference, are maintained under ‘/dev/disk’"></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1><h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="headerlink" title="See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info"></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1><p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
 <p>/dev/md0 /media/volume0 ext3 noatime,rw 0 0</p>
 <p>There it is, now our array should be mount it every time we start the system. If you have questions or suggestion on how this tutorial could be improved leave a comment below, thank you.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/" data-id="ckitzbgd8005k7nfxcu93e1da" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/" data-id="ckitzu6l7008kepfxas3r9zgt" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mdadm/" rel="tag">mdadm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raid-1/" rel="tag">raid 1</a></li></ul>
@@ -315,12 +264,12 @@ Number   Major   Minor   RaidDevice State
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Just a heads up. I will be changing the domain registrar for Linhost.info from <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.godaddy.com/" >Go Daddy</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.namecheap.com/" >Namecheap</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>, if you notice any weird behavior then now you know the reason. One thing is clear, I won’t miss Go Daddy’s torturous interface.</p>
+        <!--<p>Just a heads up. I will be changing the domain registrar for Linhost.info from <a target="_blank" rel="noopener" href="http://www.godaddy.com/">Go Daddy</a> to <a target="_blank" rel="noopener" href="http://www.namecheap.com/">Namecheap</a>, if you notice any weird behavior then now you know the reason. One thing is clear, I won’t miss Go Daddy’s torturous interface.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/05/site-update-domain-migration/" data-id="ckitzbgja00no7nfx2losca3v" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/05/site-update-domain-migration/" data-id="ckitzu6rl00scepfx53rk4uiz" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/domain/" rel="tag">domain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/site/" rel="tag">site</a></li></ul>
@@ -358,17 +307,14 @@ Number   Major   Minor   RaidDevice State
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/aa914353.aspx" >ExFAT</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is an abbreviation for <strong>Extended File Allocation Table</strong> a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT/FAT32 file system is that it can store a file larger than 4GB. With the increase in flash drive capacity FAT/FAT32 can be limiting. While exFAT sounds like the right solution it comes with inherit problems for users of Free Software such as Linux, you see exFAT is a file system created and patented by Microsoft meaning due to patents support for exFAT in Free Software is bound to be flaky. ExFAT adoption is not a problem for the Windows platform: by Windows XP (SP2), Vista, and 7 are already support exFAT. While not the best solution it is possible to mount exFAT formatted drives by using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace" >FUSE</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> which is also an abbreviation for <strong>File system in Userspace</strong>, :( . <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG"></p>
-
-        <h3 id="Installation-and-Configuration"   >
-          <a href="#Installation-and-Configuration" class="heading-link"><i class="fas fa-link"></i></a>Installation and Configuration</h3>
-      <p>Before you can make use of <strong>Fuse-exFAT</strong> you need to first install <strong>python-software-properties</strong> which includes <strong>add-apt-repository</strong>.</p>
+        <!--<p><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/aa914353.aspx">ExFAT</a> is an abbreviation for <strong>Extended File Allocation Table</strong> a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT/FAT32 file system is that it can store a file larger than 4GB. With the increase in flash drive capacity FAT/FAT32 can be limiting. While exFAT sounds like the right solution it comes with inherit problems for users of Free Software such as Linux, you see exFAT is a file system created and patented by Microsoft meaning due to patents support for exFAT in Free Software is bound to be flaky. ExFAT adoption is not a problem for the Windows platform: by Windows XP (SP2), Vista, and 7 are already support exFAT. While not the best solution it is possible to mount exFAT formatted drives by using <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> which is also an abbreviation for <strong>File system in Userspace</strong>, :( . <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG"></p>
+<h3 id="Installation-and-Configuration"><a href="#Installation-and-Configuration" class="headerlink" title="Installation and Configuration"></a>Installation and Configuration</h3><p>Before you can make use of <strong>Fuse-exFAT</strong> you need to first install <strong>python-software-properties</strong> which includes <strong>add-apt-repository</strong>.</p>
 <ul>
 <li>This is required of you wish to continue with this tutorial, this package includes the tool needed to add the repository.</li>
 </ul>
 <p>sudo apt-get install python-software-properties</p>
 <ul>
-<li>Add the new PPA (<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://pre.google.com/p/exfat/" >http://pre.google.com/p/exfat/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>).</li>
+<li>Add the new PPA (<a target="_blank" rel="noopener" href="http://pre.google.com/p/exfat/">http://pre.google.com/p/exfat/</a>).</li>
 </ul>
 <p>sudo add-apt-repository ppa:relan/exfat</p>
 <ul>
@@ -396,7 +342,7 @@ Number   Major   Minor   RaidDevice State
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/04/mount-exfat-formatted-drives-in-ubuntu/" data-id="ckitzbghk00hp7nfxfjg5bua9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/04/mount-exfat-formatted-drives-in-ubuntu/" data-id="ckitzu6pl00m1epfxh2an6iqe" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exfat/" rel="tag">exfat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fat/" rel="tag">fat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -447,7 +393,7 @@ Number   Major   Minor   RaidDevice State
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/04/new-virtual-machines-available-ubuntu-12-04-32-bit-and-64-bit/" data-id="ckitzbghy00j57nfxh61x5byu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/04/new-virtual-machines-available-ubuntu-12-04-32-bit-and-64-bit/" data-id="ckitzu6py00n7epfx9hsz12c3" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vm/" rel="tag">vm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -485,16 +431,13 @@ Number   Major   Minor   RaidDevice State
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Device driver or software driver are a must if you want to get the most out of what ever hardware you are using and in my case it happens to be a graphics card but this time updating to the latest driver released by NVIDIA resulted in an annoying problem. Whenever I play <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.battlefieldbadcompany2.com/agegate" >Battlefield 2 Bad Company</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> I sometimes get a black screen right when I am about to shoot some punk. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.nvidia.com/content/global/global.php" >NVIDIA</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> drivers now support Braille ?. In Windows rolling back to a previous driver version is surprisingly easy all you have to use is the <strong>Windows Device Manager</strong>. As of this writing the latest driver for my NVIDIA 8800GTS graphics card is 296.10.</p>
-
-        <h3 id="Device-Manager"   >
-          <a href="#Device-Manager" class="heading-link"><i class="fas fa-link"></i></a>Device Manager</h3>
-      <p>From Windows go to <strong>Start</strong> &gt; <strong>Administrative Tools</strong> &gt; <strong>Computer Management</strong> or go to <strong>Run</strong> and type <strong>compmgmt.msc</strong>. <img src="https://lh5.googleusercontent.com/-X0cVGjZodO4/T5TaXaUDjQI/AAAAAAAADVE/YI_bgA23YF8/s720/windows-device-manager.png"> On the left sidebar search for and click on <strong>Device Manager</strong>. <img src="https://lh4.googleusercontent.com/-GuxE_QQlm_o/T5TWWlbxbQI/AAAAAAAADT8/uuOqoT6v76Y/s502/roll-back-nvidia1.png"> Search for <strong>Display Adapters</strong> and <strong>right click</strong> on yours, click on <strong>Properties</strong>. <img src="https://lh6.googleusercontent.com/-3rLZnVh_tJw/T5TWX0cCYpI/AAAAAAAADUE/FiolyILjjOA/s620/roll-back-nvidia-2.png"> Select the <strong>Driver</strong> tab. <img src="https://lh6.googleusercontent.com/-HY0mOG8LU4w/T5TWaS_gEII/AAAAAAAADUM/9zQzJqzZb-o/s481/roll-back-nvidia-3.png"> Click on <strong>Roll Back Driver</strong>. <img src="https://lh6.googleusercontent.com/-fDrFEFfJCJM/T5TWb0C2FqI/AAAAAAAADUU/54hBMEingw0/s461/roll-back-nvidia4.png"> In order to revert back to the old drive you have to click on <strong>Yes</strong>. Wait for the changes to take effect you might get a temporary black screen. <img src="https://lh5.googleusercontent.com/-eYqdNi2xtQU/T5TWcv1SlbI/AAAAAAAADUc/NIh4wjDJgWg/s366/roll-back-5.png"> To see if the changes were successful check in the <strong>NVIDIA Control Panel</strong>. <img src="https://lh5.googleusercontent.com/-yijIn9muHtg/T5TfdbUbpEI/AAAAAAAADVQ/1PdqnGC6k2Q/s572/nvidia-system-information.png"></p>
+        <!--<p>Device driver or software driver are a must if you want to get the most out of what ever hardware you are using and in my case it happens to be a graphics card but this time updating to the latest driver released by NVIDIA resulted in an annoying problem. Whenever I play <a target="_blank" rel="noopener" href="http://www.battlefieldbadcompany2.com/agegate">Battlefield 2 Bad Company</a> I sometimes get a black screen right when I am about to shoot some punk. <a target="_blank" rel="noopener" href="http://www.nvidia.com/content/global/global.php">NVIDIA</a> drivers now support Braille ?. In Windows rolling back to a previous driver version is surprisingly easy all you have to use is the <strong>Windows Device Manager</strong>. As of this writing the latest driver for my NVIDIA 8800GTS graphics card is 296.10.</p>
+<h3 id="Device-Manager"><a href="#Device-Manager" class="headerlink" title="Device Manager"></a>Device Manager</h3><p>From Windows go to <strong>Start</strong> &gt; <strong>Administrative Tools</strong> &gt; <strong>Computer Management</strong> or go to <strong>Run</strong> and type <strong>compmgmt.msc</strong>. <img src="https://lh5.googleusercontent.com/-X0cVGjZodO4/T5TaXaUDjQI/AAAAAAAADVE/YI_bgA23YF8/s720/windows-device-manager.png"> On the left sidebar search for and click on <strong>Device Manager</strong>. <img src="https://lh4.googleusercontent.com/-GuxE_QQlm_o/T5TWWlbxbQI/AAAAAAAADT8/uuOqoT6v76Y/s502/roll-back-nvidia1.png"> Search for <strong>Display Adapters</strong> and <strong>right click</strong> on yours, click on <strong>Properties</strong>. <img src="https://lh6.googleusercontent.com/-3rLZnVh_tJw/T5TWX0cCYpI/AAAAAAAADUE/FiolyILjjOA/s620/roll-back-nvidia-2.png"> Select the <strong>Driver</strong> tab. <img src="https://lh6.googleusercontent.com/-HY0mOG8LU4w/T5TWaS_gEII/AAAAAAAADUM/9zQzJqzZb-o/s481/roll-back-nvidia-3.png"> Click on <strong>Roll Back Driver</strong>. <img src="https://lh6.googleusercontent.com/-fDrFEFfJCJM/T5TWb0C2FqI/AAAAAAAADUU/54hBMEingw0/s461/roll-back-nvidia4.png"> In order to revert back to the old drive you have to click on <strong>Yes</strong>. Wait for the changes to take effect you might get a temporary black screen. <img src="https://lh5.googleusercontent.com/-eYqdNi2xtQU/T5TWcv1SlbI/AAAAAAAADUc/NIh4wjDJgWg/s366/roll-back-5.png"> To see if the changes were successful check in the <strong>NVIDIA Control Panel</strong>. <img src="https://lh5.googleusercontent.com/-yijIn9muHtg/T5TfdbUbpEI/AAAAAAAADVQ/1PdqnGC6k2Q/s572/nvidia-system-information.png"></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/04/roll-back-a-problematic-nvidia-driver/" data-id="ckitzbgj100mt7nfxcb7j3td0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/04/roll-back-a-problematic-nvidia-driver/" data-id="ckitzu6r800r3epfx824hapri" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nvidia/" rel="tag">nvidia</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -537,7 +480,7 @@ Number   Major   Minor   RaidDevice State
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/04/holy-batman/" data-id="ckitzbgfc00c17nfx29z5h7ik" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/04/holy-batman/" data-id="ckitzu6n600epepfx7jcwcotn" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -573,18 +516,18 @@ Number   Major   Minor   RaidDevice State
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>The reason why tools like <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.gnu.org/software/coreutils/manual/html_node/shred-invocation.html" >Shred</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> exist is because we don’t like the tough of our files ending in the hands of the wrong people and if it’s within our reach to prevent such an occurrence then why not take the steps. Shred accomplishes its goal by repeatedly overwriting the target with specific data patterns in order to make recovery of the data contained within the drive impossible. As long as the system can see the drive <strong>Shred</strong> should have no problem erasing the contents. Keep in mind that erasing a drive will take a considerable amount of time. The simple version of shred would be.</p>
+        <!--<p>The reason why tools like <a target="_blank" rel="noopener" href="http://www.gnu.org/software/coreutils/manual/html_node/shred-invocation.html">Shred</a> exist is because we don’t like the tough of our files ending in the hands of the wrong people and if it’s within our reach to prevent such an occurrence then why not take the steps. Shred accomplishes its goal by repeatedly overwriting the target with specific data patterns in order to make recovery of the data contained within the drive impossible. As long as the system can see the drive <strong>Shred</strong> should have no problem erasing the contents. Keep in mind that erasing a drive will take a considerable amount of time. The simple version of shred would be.</p>
 <p>shred /dev/sda2</p>
 <p>This would erase the second partition in /sda using default options. But we are geeks and the defaults just wont do, if you like you can opt to use different parameters as explained below.</p>
 <p>shred -fzv /dev/sdb</p>
 <p>f = If necessary override file permission and overwrite z = final overwrite with zeros to hide shredding process, you don’t want the drive to stand out v = Display operation progress By default Shred will overwrite the target three times if you think the default is too much or too little you can change the default by adding the <strong>-n #</strong> parameter to change the overwrite amount.</p>
 <p>shred -fzv -n 1 /dev/sdb</p>
-<p>Shred will not save you from the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://xkcd.com/538/" >XKCD five dollar wrench</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> recovery method. <img src="http://imgs.xkcd.com/comics/security.png" alt="XKCD Five Dollar Wrench"></p>
+<p>Shred will not save you from the <a target="_blank" rel="noopener" href="http://xkcd.com/538/">XKCD five dollar wrench</a> recovery method. <img src="http://imgs.xkcd.com/comics/security.png" alt="XKCD Five Dollar Wrench"></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/03/securely-erase-a-entire-drive-with-shred/" data-id="ckitzbgj500n67nfx5b950g3y" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/03/securely-erase-a-entire-drive-with-shred/" data-id="ckitzu6re00roepfx1nb4cqhl" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shred/" rel="tag">shred</a></li></ul>
@@ -639,7 +582,7 @@ Number   Major   Minor   RaidDevice State
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/03/hash-the-contents-of-an-entire-drive-with-md5deep/" data-id="ckitzbgf100b07nfxbu766s10" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/03/hash-the-contents-of-an-entire-drive-with-md5deep/" data-id="ckitzu6n200edepfx7sj72534" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/" rel="tag">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5deep/" rel="tag">md5deep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -678,10 +621,7 @@ Number   Major   Minor   RaidDevice State
     <div class="article-entry-abstract" itemprop="articleBody">
       
         <!--<p>OpenMediaVault is a Linux based network-attached storage server or NAS distribution started by a Volker a FreeNAS developer. At the moment OpenMediaVault is a work in progress so take that into consideration before entrusting it with your data. So far OpenMediaVault supports: SSH, (S)FTP, SMB/CIFS, FTP, rsync, NFS, DAAP media server, RSync, BitTorrent client, iSCSI, and software RAID to name a few.</p>
-
-        <h3 id="Virtual-Machine-Specs"   >
-          <a href="#Virtual-Machine-Specs" class="heading-link"><i class="fas fa-link"></i></a>Virtual Machine Specs:</h3>
-      <ul>
+<h3 id="Virtual-Machine-Specs"><a href="#Virtual-Machine-Specs" class="headerlink" title="Virtual Machine Specs:"></a>Virtual Machine Specs:</h3><ul>
 <li>Dual CPUs</li>
 <li>512MB RAM</li>
 <li>1 x 10GB hard drive</li>
@@ -691,15 +631,12 @@ Number   Major   Minor   RaidDevice State
 <blockquote>
 <p>OpenMediaVault is a work in progress meaning that version number will change from the time the virtual machines were uploaded, in order to keep the virtual machines up to date use the built-in update feature found in OpenMediaVault.</p>
 </blockquote>
-
-        <h4 id="Downloads"   >
-          <a href="#Downloads" class="heading-link"><i class="fas fa-link"></i></a>Downloads:</h4>
-      <p>[OpenMediaVault 0.2.x Virtual Machine 32-bit](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z) [MD5 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.md5) [SHA1 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.sha1) [OpenMediavault 0.2.x Virtual Machine 64-bit](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 64-bit.7z) [MD5 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.md5) [SHA1 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.sha1) You can learn more about OpenMediaVault by visiting <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.openmediavault.org/" >OpenMediaVault.org</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="Downloads"><a href="#Downloads" class="headerlink" title="Downloads:"></a>Downloads:</h4><p>[OpenMediaVault 0.2.x Virtual Machine 32-bit](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z) [MD5 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.md5) [SHA1 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.sha1) [OpenMediavault 0.2.x Virtual Machine 64-bit](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 64-bit.7z) [MD5 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.md5) [SHA1 hash](<a href="http://linhost.info/downloads/OpenMediaVault">http://linhost.info/downloads/OpenMediaVault</a> 0.2.x 32-bit.7z.sha1) You can learn more about OpenMediaVault by visiting <a target="_blank" rel="noopener" href="http://www.openmediavault.org/">OpenMediaVault.org</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2012/02/openmediavault-virtual-machine-is-now-available/" data-id="ckitzbgia00k57nfxee0t2e3j" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2012/02/openmediavault-virtual-machine-is-now-available/" data-id="ckitzu6qd00oiepfxeg0j5cw2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenMediaVault/" rel="tag">OpenMediaVault</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>

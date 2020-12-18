@@ -87,23 +87,17 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>In order to back up the IOS you need a TFTP server, <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.solarwinds.com/products/freetools/" >SolarWinds offers a Free TFTP Server</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. If you have no idea what version of the IOS you are using use the <strong>show flash</strong> command.</p>
+        <p>In order to back up the IOS you need a TFTP server, <a target="_blank" rel="noopener" href="http://www.solarwinds.com/products/freetools/">SolarWinds offers a Free TFTP Server</a>. If you have no idea what version of the IOS you are using use the <strong>show flash</strong> command.</p>
 <p>Router#show flash<br>System flash directory:<br>File Length Name/status<br>1 3289170 d1206.bin<br>[3289236 bytes used, 905068 available, 4194304 total]<br>4096K bytes of processor board System flash (Read/Write)</p>
-
-        <h2 id="Backup"   >
-          <a href="#Backup" class="heading-link"><i class="fas fa-link"></i></a>Backup</h2>
-      <p>From the console in privileged EXEC mode enter the <strong>copy flash tftp</strong> command. When requested enter the IP address of the TFTP server.</p>
+<h2 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h2><p>From the console in privileged EXEC mode enter the <strong>copy flash tftp</strong> command. When requested enter the IP address of the TFTP server.</p>
 <p>Router#copy flash tftp<br>Source filename []? d1205.bin<br>Address or name of remote host []? 192.168.1.21<br>Destination filename [d1205.bin]? y<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>3289170 bytes copied in 47.668 secs (69982 bytes/sec)</p>
-
-        <h2 id="Restore"   >
-          <a href="#Restore" class="heading-link"><i class="fas fa-link"></i></a>Restore</h2>
-      <p>To copy the IOS from a TFTP server use the <strong>copy tftp command</strong>. When requested enter the IP address of the TFTP server containing the IOS.</p>
-<p>Router#copy tftp flash<br>Address or name of remote host []? 192.168.1.21<br>Source filename []? d1206.bin<br>Destination filename [d1206.bin]?<br>Accessing t<span class="exturl"><a class="exturl__link"   href="ftp://192.168.1.21/d1206.bin" >ftp://192.168.1.21/d1206.bin</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>…<br>Erase flash: before copying? [confirm]<br>Erasing the flash filesystem will remove all files! Continue? [confirm]<br>Erasing device… eeeeeeeeeeeeeeee …erased<br>Erase of flash: complete<br>Loading d1206.bin from 192.168.1.21 (via Ethernet0): !!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>[OK - 3289170/6578176 bytes]<br>Verifying checksum… OK (0xB6BD)<br>3289170 bytes copied in 89.272 secs (36956 bytes/sec)</p>
+<h2 id="Restore"><a href="#Restore" class="headerlink" title="Restore"></a>Restore</h2><p>To copy the IOS from a TFTP server use the <strong>copy tftp command</strong>. When requested enter the IP address of the TFTP server containing the IOS.</p>
+<p>Router#copy tftp flash<br>Address or name of remote host []? 192.168.1.21<br>Source filename []? d1206.bin<br>Destination filename [d1206.bin]?<br>Accessing t<a href="ftp://192.168.1.21/d1206.bin">ftp://192.168.1.21/d1206.bin</a>…<br>Erase flash: before copying? [confirm]<br>Erasing the flash filesystem will remove all files! Continue? [confirm]<br>Erasing device… eeeeeeeeeeeeeeee …erased<br>Erase of flash: complete<br>Loading d1206.bin from 192.168.1.21 (via Ethernet0): !!!!!!!!!!!!!!!!!!<br>!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!<br>[OK - 3289170/6578176 bytes]<br>Verifying checksum… OK (0xB6BD)<br>3289170 bytes copied in 89.272 secs (36956 bytes/sec)</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2007/07/back-up-and-install-the-cisco-ios-image/" data-id="ckitzbgch00367nfxgno65tss" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2007/07/back-up-and-install-the-cisco-ios-image/" data-id="ckitzu6ip0031epfx8ev1ffgt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cisco/" rel="tag">cisco</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/" rel="tag">ios</a></li></ul>

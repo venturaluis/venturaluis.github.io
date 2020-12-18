@@ -87,18 +87,12 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>If you ever find your self in need of changing or setting different parameters on a network interface then you need to install <strong>Ethtool</strong>. Basically you can set the duplex on a network interface and link speed among many other things. Do not dismiss Ethtool, I have found it to be useful for configuring Linux devices that need to be linked to legacy networking devices or some network related funkiness that results in auto-negotiation not working. In order to use Ethtool you need to have root. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://gd.tuwien.ac.at/linuxcommand.org/man_pages/ethtool8.html" >Ethtool man page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Basic-use"   >
-          <a href="#Basic-use" class="heading-link"><i class="fas fa-link"></i></a>Basic use</h4>
-      <p>Ethtool can output detailed information about the NIC. Here you can see all the supported link modes and current settings.</p>
+        <p>If you ever find your self in need of changing or setting different parameters on a network interface then you need to install <strong>Ethtool</strong>. Basically you can set the duplex on a network interface and link speed among many other things. Do not dismiss Ethtool, I have found it to be useful for configuring Linux devices that need to be linked to legacy networking devices or some network related funkiness that results in auto-negotiation not working. In order to use Ethtool you need to have root. <a target="_blank" rel="noopener" href="http://gd.tuwien.ac.at/linuxcommand.org/man_pages/ethtool8.html">Ethtool man page</a></p>
+<h4 id="Basic-use"><a href="#Basic-use" class="headerlink" title="Basic use"></a>Basic use</h4><p>Ethtool can output detailed information about the NIC. Here you can see all the supported link modes and current settings.</p>
 <p>ethtool eth0</p>
 <p>Output.</p>
 <p>Settings for eth0:<br>    Supported ports: [ TP MII ]<br>    Supported link modes:   10baseT/Half 10baseT/Full<br>                            100baseT/Half 100baseT/Full<br>    Supports auto-negotiation: Yes<br>    Advertised link modes:  10baseT/Half 10baseT/Full<br>                            100baseT/Half 100baseT/Full<br>    Advertised auto-negotiation: Yes<br>    Speed: 100Mb/s<br>    Duplex: Full<br>    Port: MII<br>    PHYAD: 1<br>    Transceiver: internal<br>    Auto-negotiation: on<br>    Supports Wake-on: g<br>    Wake-on: g<br>    Current message level: 0x00000007 (7)<br>    Link detected: yes</p>
-
-        <h4 id="Tip"   >
-          <a href="#Tip" class="heading-link"><i class="fas fa-link"></i></a>Tip</h4>
-      <p>To display the available options use.</p>
+<h4 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h4><p>To display the available options use.</p>
 <p>ethtool -h</p>
 <p>Ethtool is by no means limited, but this are some of the common options I use.</p>
 <ul>
@@ -106,10 +100,7 @@ ga('send', 'pageview');
 <li>duplex <strong>half</strong> | <strong>full</strong></li>
 <li>autoneg <strong>on</strong> | <strong>off</strong></li>
 </ul>
-
-        <h4 id="Working-examples"   >
-          <a href="#Working-examples" class="heading-link"><i class="fas fa-link"></i></a>Working examples</h4>
-      <p>Some networking devices have a difficult time auto-negotiating with other network devices, mostly legacy devices that only support half duplex like hubs. On this example eth0 is configured to work at <strong>half duplex</strong> and turn <strong>auto-negotiation off</strong>.</p>
+<h4 id="Working-examples"><a href="#Working-examples" class="headerlink" title="Working examples"></a>Working examples</h4><p>Some networking devices have a difficult time auto-negotiating with other network devices, mostly legacy devices that only support half duplex like hubs. On this example eth0 is configured to work at <strong>half duplex</strong> and turn <strong>auto-negotiation off</strong>.</p>
 <p>ethtool -s eth0 duplex half autoneg off</p>
 <p>In this example the interface is force to work at <strong>full duplex</strong>, turn <strong>auto-negotiation</strong> off and set the <strong>speed</strong> to 1000 Mb/s.</p>
 <p>ethtool -s eth0 duplex full speed 1000 autoneg off</p>
@@ -118,7 +109,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/01/change-nic-setting-in-linux/" data-id="ckitzbgcv004e7nfxg54330rd" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/01/change-nic-setting-in-linux/" data-id="ckitzu6ko0071epfx5dta3uyn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>

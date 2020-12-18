@@ -87,10 +87,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>Running a headless server presents several challenges, networking is not one of them. In this case I have a headless server with a USB wireless adapter and I wish to connect to the nearest access point. The wireless interface has to be activated, in this case I am using Ubuntu and the interface name is <strong>wlan0</strong>, keep in mind that the name may change on Backtrack the same wireless adapter appears under a different name <strong>rusb0</strong>.</p>
-
-        <h2 id="Activate-the-wireless-interface"   >
-          <a href="#Activate-the-wireless-interface" class="heading-link"><i class="fas fa-link"></i></a>Activate the wireless interface</h2>
-      <p>Let’s bring the interface wlan0 up.</p>
+<h2 id="Activate-the-wireless-interface"><a href="#Activate-the-wireless-interface" class="headerlink" title="Activate the wireless interface"></a>Activate the wireless interface</h2><p>Let’s bring the interface wlan0 up.</p>
 <p>ifconfig wlan0 up</p>
 <p>Scan for the wireless network you wish to connect.</p>
 <p>sudo iwlist wlan0 scan</p>
@@ -99,7 +96,7 @@ ga('send', 'pageview');
 <p>iwconfig wlan0 essid “wireless”</p>
 <p>Last but no least we need to request an IP address from the server, if using static IP ignored this command.</p>
 <p>sudo dhclient wlan0</p>
-<p>There is already a pid file /var/run/dhclient.pid with pid 9738<br>killed old client process, removed PID file<br>Internet Systems Consortium DHCP Client V3.1.1<br>Copyright 2004-2008 Internet Systems Consortium.<br>All rights reserved.<br>For info, please visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.isc.org/sw/dhcp/" >http://www.isc.org/sw/dhcp/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>There is already a pid file /var/run/dhclient.pid with pid 9738<br>killed old client process, removed PID file<br>Internet Systems Consortium DHCP Client V3.1.1<br>Copyright 2004-2008 Internet Systems Consortium.<br>All rights reserved.<br>For info, please visit <a target="_blank" rel="noopener" href="http://www.isc.org/sw/dhcp/">http://www.isc.org/sw/dhcp/</a></p>
 <p>wmaster0: unknown hardware address type 801<br>wmaster0: unknown hardware address type 801<br>Listening on LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   LPF/wlan0/00:1f:c6:18:66:fd<br>Sending on   Socket/fallback<br>DHCPREQUEST of 192.168.1.104 on wlan0 to 255.255.255.255 port 67<br>DHCPACK of 192.168.1.104 from 192.168.1.1<br>bound to 192.168.1.104 – renewal in 40459 seconds.</p>
 <p>In case the AP requires a key, issue the following.</p>
 <p>iwconfig wlan0 key ABCD-ABCD-ABCD-ABCD</p>
@@ -109,7 +106,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/" data-id="ckitzbgk900ql7nfx2odtggn3" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/" data-id="ckitzu6sk00vbepfx2jdo4cjg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireless/" rel="tag">wireless</a></li></ul>

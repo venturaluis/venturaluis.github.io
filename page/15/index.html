@@ -92,33 +92,21 @@ ga('send', 'pageview');
 <blockquote>
 <p>Remember to un-mount the drive you wish to clone. Not doing so may result in possible data corruption.</p>
 </blockquote>
-
-        <h2 id="Locate-The-Drive-You-Wish-To-Backup"   >
-          <a href="#Locate-The-Drive-You-Wish-To-Backup" class="heading-link"><i class="fas fa-link"></i></a>Locate The Drive You Wish To Backup</h2>
-      <p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
+<h2 id="Locate-The-Drive-You-Wish-To-Backup"><a href="#Locate-The-Drive-You-Wish-To-Backup" class="headerlink" title="Locate The Drive You Wish To Backup"></a>Locate The Drive You Wish To Backup</h2><p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
 <p>[root@system7]# lshw -C disk</p>
 <p>*-cdrom<br>       description: DVD-RAM writer<br>       product: CDDVDW SH-S203N<br>       vendor: TSSTcorp<br>       physical id: 0.0.0<br>       bus info: scsi@1:0.0.0<br>       logical name: /dev/cdrom<br>       logical name: /dev/dvd<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       version: SB01<br>       serial: NECVMWarVMware IDE CDR101.00<br>       capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram<br>       configuration: ansiversion=5 status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       size: 50GiB (53GB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=000e4a4e</p>
-
-        <h2 id="Backup-To-Remote-Server"   >
-          <a href="#Backup-To-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Backup To Remote Server</h2>
-      <p>This command will copy, compress and send the image to the remote server.</p>
+<h2 id="Backup-To-Remote-Server"><a href="#Backup-To-Remote-Server" class="headerlink" title="Backup To Remote Server"></a>Backup To Remote Server</h2><p>This command will copy, compress and send the image to the remote server.</p>
 <p>dd if=/dev/sdb | gzip -c –fast | ssh user@ip ‘dd of=/home/user/sdb.img.gz’</p>
 <p>Explanation: DD has been instructed to copy the drive /dev/sdb. Gzip will be used for compression, <strong>- c</strong> means Write on standard output, keep original files unchanged, <strong>- -fast</strong> mean Compress faster at the expense of high compression ration. The image will then be transferred via OpenSSH using the provided user credentials to the user directory <em>/home/user</em>. Note: the backup image makes use of the <strong>.gz</strong> extension to indicate compression is being used.</p>
-
-        <h2 id="Restore-From-Remote-Server"   >
-          <a href="#Restore-From-Remote-Server" class="heading-link"><i class="fas fa-link"></i></a>Restore From Remote Server</h2>
-      <p>Restoring the image is not that different from the command used to backup the image.</p>
+<h2 id="Restore-From-Remote-Server"><a href="#Restore-From-Remote-Server" class="headerlink" title="Restore From Remote Server"></a>Restore From Remote Server</h2><p>Restoring the image is not that different from the command used to backup the image.</p>
 <p>ssh user@ip ‘dd if=/home/user/sdb.img.gz’ | gunzip -1 - | dd of=/dev/sdb</p>
 <p>Explanation: Using OpenSSH log in to the remote system where the image is stored and with DD pull the image. <strong>Gunzip</strong> will be used to decompress the image crated by Gzip. Once again DD will be in charged of writing the image to /dev/sdb.</p>
-
-        <h2 id="Keep-In-Mind"   >
-          <a href="#Keep-In-Mind" class="heading-link"><i class="fas fa-link"></i></a>Keep In Mind</h2>
-      <p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
+<h2 id="Keep-In-Mind"><a href="#Keep-In-Mind" class="headerlink" title="Keep In Mind"></a>Keep In Mind</h2><p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" data-id="ckitzbgd400567nfx99zv5gh3" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" data-id="ckitzu6l0007yepfxfl6od1av" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gzip/" rel="tag">gzip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li></ul>
@@ -156,33 +144,21 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--
-        <h4 id="Steady-State-for-Windows-7"   >
-          <a href="#Steady-State-for-Windows-7" class="heading-link"><i class="fas fa-link"></i></a>Steady State for Windows 7</h4>
-      <p>Microsoft knows that admins like what Steady State has to offer for Widows XP and Vista, its also clear there will be no official support for Windows 7. Instead Microsoft opted to release a white paper and a reference document on how Windows 7 and group policy can be used to achieve the same results on Windows 7. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/S3E2" >http://goo.gl/S3E2</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Ubuntu-10-10-Release-candidate"   >
-          <a href="#Ubuntu-10-10-Release-candidate" class="heading-link"><i class="fas fa-link"></i></a>Ubuntu 10.10 Release candidate</h4>
-      <p>Canonical released the official release candidate for the upcoming Ubuntu 10.10 (Maverick Meerkat), if everything goes like expected the stable release will occur on October 10. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/McJY" >http://goo.gl/McJY</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="Google-URL-shortner-avaible-to-the-public"   >
-          <a href="#Google-URL-shortner-avaible-to-the-public" class="heading-link"><i class="fas fa-link"></i></a>Google URL shortner avaible to the public</h4>
-      <blockquote>
+        <!--<h4 id="Steady-State-for-Windows-7"><a href="#Steady-State-for-Windows-7" class="headerlink" title="Steady State for Windows 7"></a>Steady State for Windows 7</h4><p>Microsoft knows that admins like what Steady State has to offer for Widows XP and Vista, its also clear there will be no official support for Windows 7. Instead Microsoft opted to release a white paper and a reference document on how Windows 7 and group policy can be used to achieve the same results on Windows 7. <a target="_blank" rel="noopener" href="http://goo.gl/S3E2">http://goo.gl/S3E2</a></p>
+<h4 id="Ubuntu-10-10-Release-candidate"><a href="#Ubuntu-10-10-Release-candidate" class="headerlink" title="Ubuntu 10.10 Release candidate"></a>Ubuntu 10.10 Release candidate</h4><p>Canonical released the official release candidate for the upcoming Ubuntu 10.10 (Maverick Meerkat), if everything goes like expected the stable release will occur on October 10. <a target="_blank" rel="noopener" href="http://goo.gl/McJY">http://goo.gl/McJY</a></p>
+<h4 id="Google-URL-shortner-avaible-to-the-public"><a href="#Google-URL-shortner-avaible-to-the-public" class="headerlink" title="Google URL shortner avaible to the public"></a>Google URL shortner avaible to the public</h4><blockquote>
 <p>There are many shorteners out there with great features, so some people may wonder whether the world really needs yet another. As we said late last year, we built goo.gl with a focus on quality. With goo.gl, every time you shorten a URL, you know it will work, it will work fast, and it will keep working. You also know that when you click a goo.gl shortened URL, you’re protected against malware, phishing and spam using the same industry-leading technology we use in search and other products.</p>
 </blockquote>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/5av9" >http://goo.gl/5av9</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="BlackBerry-Tablet-or-Playbook-is-in-the-horizon"   >
-          <a href="#BlackBerry-Tablet-or-Playbook-is-in-the-horizon" class="heading-link"><i class="fas fa-link"></i></a>BlackBerry Tablet or Playbook is in the horizon</h4>
-      <blockquote>
+<p><a target="_blank" rel="noopener" href="http://goo.gl/5av9">http://goo.gl/5av9</a></p>
+<h4 id="BlackBerry-Tablet-or-Playbook-is-in-the-horizon"><a href="#BlackBerry-Tablet-or-Playbook-is-in-the-horizon" class="headerlink" title="BlackBerry Tablet or Playbook is in the horizon"></a>BlackBerry Tablet or Playbook is in the horizon</h4><blockquote>
 <p>Called the BlackBerry Playbook. the device is a a “Flash-loving,” “device-pairing,” “enterprise-ready” tablet with an “uncompromised browsing experience” on a 7-inch screen. It is 9.7 millimeters thick and features a high-res wide screen display that supports 1080p with HDMI and USB ports.</p>
 </blockquote>
-<p>BlackBerry wants a piece of the cake and they are serious about it. iPad for hipsters , BB Tablet for bean counters. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://goo.gl/Dx0c" >http://goo.gl/Dx0c</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>BlackBerry wants a piece of the cake and they are serious about it. iPad for hipsters , BB Tablet for bean counters. <a target="_blank" rel="noopener" href="http://goo.gl/Dx0c">http://goo.gl/Dx0c</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/" data-id="ckitzbgcl003j7nfx053a53aq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/" data-id="ckitzu6ix003oepfx6yw4cjej" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -218,27 +194,18 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>If you didn’t read “<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx" >The Microsoft Partner SMB Community Blog</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>” then you might have missed the announcement that small business as soon as early October 2010 will be able to legally install and use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> on up to 10 (commercial) PCs at no cost. In case you didn’t know the current EULA included with Microsoft Security Essentials does not allow for commercial use, Microsoft will adjust the EULA to reflect the announcement. <a target="_blank" rel="noopener" href="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s800/Microsoft_Security_Essentials-2010-10-13_15.37.10.png" title="Graphic"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s400/Microsoft_Security_Essentials-2010-10-13_15.37.10.png"></a> <em>Click on image to enlarge</em> Microsoft Security Essentials lacks centralized administration, If you need to secure more than 10 PCs you need to use <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx" >Forefront</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
-
-        <h4 id="About-Microsoft-Security-Essentials"   >
-          <a href="#About-Microsoft-Security-Essentials" class="heading-link"><i class="fas fa-link"></i></a>About Microsoft Security Essentials</h4>
-      <blockquote>
+        <!--<p>If you didn’t read “<a target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx">The Microsoft Partner SMB Community Blog</a>” then you might have missed the announcement that small business as soon as early October 2010 will be able to legally install and use <a target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/">Microsoft Security Essentials</a> on up to 10 (commercial) PCs at no cost. In case you didn’t know the current EULA included with Microsoft Security Essentials does not allow for commercial use, Microsoft will adjust the EULA to reflect the announcement. <a target="_blank" rel="noopener" href="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s800/Microsoft_Security_Essentials-2010-10-13_15.37.10.png" title="Graphic"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TLYmzSDRVMI/AAAAAAAAChk/xpJpZ-TYawI/s400/Microsoft_Security_Essentials-2010-10-13_15.37.10.png"></a> <em>Click on image to enlarge</em> Microsoft Security Essentials lacks centralized administration, If you need to secure more than 10 PCs you need to use <a target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx">Forefront</a>.</p>
+<h4 id="About-Microsoft-Security-Essentials"><a href="#About-Microsoft-Security-Essentials" class="headerlink" title="About Microsoft Security Essentials"></a>About Microsoft Security Essentials</h4><blockquote>
 <p>Microsoft Security Essentials provides real-time protection for your home PC that guards against viruses, spyware, and other malicious software. Microsoft Security Essentials is a free* download from Microsoft that is simple to install, easy to use, and always kept up to date so you can be assured your PC is protected by the latest technology. It’s easy to tell if your PC is secure — when you’re green, you’re good. It’s that simple.</p>
 </blockquote>
-<p>Source: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h4 id="My-Take"   >
-          <a href="#My-Take" class="heading-link"><i class="fas fa-link"></i></a>My Take</h4>
-      <p>For a free product Microsoft Security Essentials does an excellent job as an AV product that gets out of the users way and consumes little resources. With this in mind, Small Business usually do not employ on site staff and due to the low amount of users centralized administration may be an overkill. Also, it would not be far-off to consider Microsoft Security Essentials a stepping stone in to Microsoft business oriented AV solution <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx" >Forefront</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> for those businesses that want more control.</p>
-
-        <h4 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h4>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/" >Microsoft Security Essentials Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx" >Microsoft Partner SMB Community Blog</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Source: <a target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/">Microsoft Security Essentials Home Page</a></p>
+<h4 id="My-Take"><a href="#My-Take" class="headerlink" title="My Take"></a>My Take</h4><p>For a free product Microsoft Security Essentials does an excellent job as an AV product that gets out of the users way and consumes little resources. With this in mind, Small Business usually do not employ on site staff and due to the low amount of users centralized administration may be an overkill. Also, it would not be far-off to consider Microsoft Security Essentials a stepping stone in to Microsoft business oriented AV solution <a target="_blank" rel="noopener" href="http://www.microsoft.com/forefront/en/us/default.aspx">Forefront</a> for those businesses that want more control.</p>
+<h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><p><a target="_blank" rel="noopener" href="http://www.microsoft.com/security_essentials/">Microsoft Security Essentials Home Page</a> <a target="_blank" rel="noopener" href="http://blogs.msdn.com/b/mssmallbiz/archive/2010/09/22/announcing-microsoft-security-essentials-available-free-to-small-businesses-in-october.aspx">Microsoft Partner SMB Community Blog</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/microsoft-security-essentials-now-free-for-small-businesses/" data-id="ckitzbgh900gq7nfxdopl5rm9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/microsoft-security-essentials-now-free-for-small-businesses/" data-id="ckitzu6p800kwepfxehmga79j" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/anti-virus/" rel="tag">anti virus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft-security-essentials/" rel="tag">microsoft security essentials</a></li></ul>
@@ -286,36 +253,21 @@ ga('send', 'pageview');
 <blockquote>
 <p>Flash Cell Endurance: For Multi-Level Cell (MLC) Flash, up to 10,000 write cycles per physical sector. For Single-Level Cell (SLC) Flash, up to 100,000 write cycles per physical sector.</p>
 </blockquote>
-<p>Source: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.kingston.com/flash_memory_guide/" >Kingston Flash Memory Guide</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Because, I have 512MB of RAM in my Firewall which is more than enough, I did not remove the swap partition. Still, I worry about the finite number of writes on Flash memory, which prompted me to use badblocks. Badblocks is a tool capable of scanning a drive and report back on any damaged sectors it encounters. Modern drives can handle damaged sectors by seamlessly ignoring damaged sectors and only working with the remaining good sectors. This may sound great at first, but the truth is that the card is in the process of deteriorating(more to come) and the drive may need to be replaced.</p>
-
-        <h2 id="Tools-of-the-trade"   >
-          <a href="#Tools-of-the-trade" class="heading-link"><i class="fas fa-link"></i></a>Tools of the trade</h2>
-      <p>For this tutorial I will be using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://partedmagic.com/" >Parted Magic</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> a Live distribution which includes badblocks. However, you will find badblocks on any Linux distributions. Also, make sure the target drive is unmounted before running badblocks. First you need the name of the drive you wish to scan, for this we can use <strong>lshw</strong> or Hardware Lister. The command is <strong>lshw -C disk</strong>.</p>
+<p>Source: <a target="_blank" rel="noopener" href="http://www.kingston.com/flash_memory_guide/">Kingston Flash Memory Guide</a> Because, I have 512MB of RAM in my Firewall which is more than enough, I did not remove the swap partition. Still, I worry about the finite number of writes on Flash memory, which prompted me to use badblocks. Badblocks is a tool capable of scanning a drive and report back on any damaged sectors it encounters. Modern drives can handle damaged sectors by seamlessly ignoring damaged sectors and only working with the remaining good sectors. This may sound great at first, but the truth is that the card is in the process of deteriorating(more to come) and the drive may need to be replaced.</p>
+<h2 id="Tools-of-the-trade"><a href="#Tools-of-the-trade" class="headerlink" title="Tools of the trade"></a>Tools of the trade</h2><p>For this tutorial I will be using <a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic</a> a Live distribution which includes badblocks. However, you will find badblocks on any Linux distributions. Also, make sure the target drive is unmounted before running badblocks. First you need the name of the drive you wish to scan, for this we can use <strong>lshw</strong> or Hardware Lister. The command is <strong>lshw -C disk</strong>.</p>
 <p>root@PartedMagic:~# lshw -C disk<br>  *-disk<br>       description: ATA Disk<br>       product: ELITE PRO CF CAR<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       version: Ver3<br>       serial: 5B021A040<br>       size: 3639MiB (3816MB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: ansiversion=5 signature=8f800000<br>  *-cdrom<br>       description: DVD reader<br>       physical id: 0.1.0<br>       bus info: scsi@3:0.1.0<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       capabilities: audio dvd<br>       configuration: status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@4:0.0.0<br>       logical name: /dev/sdb<br>       size: 492MiB (515MB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=795b8ead</p>
 <p>Fortunately, the Compact Flash card I am using provides more than enough information about its location <strong>/dev/sda</strong>. With that information in mind we can continue to the second step of this tutorial.</p>
-
-        <h2 id="Let’s-search-for-bad-blocks"   >
-          <a href="#Let’s-search-for-bad-blocks" class="heading-link"><i class="fas fa-link"></i></a>Let’s search for bad blocks</h2>
-      <p>The command is very simple to understand <strong>badblocks -options /target_drive</strong>. The graphic below should help explain the meaning of the parameters. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/vWirLxtJ6mH2DrMIOJ3cRA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TJVgkV3hR7I/AAAAAAAACgQ/ksAx-RunEnk/s800/badblocks_parameter.png"></a></p>
-
-        <h2 id="Result"   >
-          <a href="#Result" class="heading-link"><i class="fas fa-link"></i></a>Result</h2>
-      <p>From the output below you can see that badblocks checks every block from 0 all the way to 3727079.</p>
+<h2 id="Let’s-search-for-bad-blocks"><a href="#Let’s-search-for-bad-blocks" class="headerlink" title="Let’s search for bad blocks"></a>Let’s search for bad blocks</h2><p>The command is very simple to understand <strong>badblocks -options /target_drive</strong>. The graphic below should help explain the meaning of the parameters. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/vWirLxtJ6mH2DrMIOJ3cRA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TJVgkV3hR7I/AAAAAAAACgQ/ksAx-RunEnk/s800/badblocks_parameter.png"></a></p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>From the output below you can see that badblocks checks every block from 0 all the way to 3727079.</p>
 <p>root@PartedMagic:~# badblocks -nvs /dev/sda<br>Checking for bad blocks in non-destructive read-write mode<br>From block 0 to 3727079<br>Checking for bad blocks (non-destructive read-write test)<br>Testing with random pattern: done<br>Pass completed, 0 bad blocks found.</p>
 <p>After three months of use my 4GB Kingston Compact Flash card is performing like expected with zero bad blocks. If you plan on doing a full installation on a Compact Flash then you should use badblocks to monitor the health of the Compact Flash over time. Remember to unmount the drive you wish to scan with badblocks.</p>
-
-        <h2 id="Video"   >
-          <a href="#Video" class="heading-link"><i class="fas fa-link"></i></a>Video</h2>
-      <p>I also made a video of the process. </p>
-
-        <h2 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h2>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://partedmagic.com/" >Parted Magic Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://smartmontools.sourceforge.net/badblockhowto.html" >Badblocks</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://ezix.org/project/wiki/HardwareLiSter" >lshw</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>I also made a video of the process. </p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic Home Page</a> <a target="_blank" rel="noopener" href="http://smartmontools.sourceforge.net/badblockhowto.html">Badblocks</a> <a target="_blank" rel="noopener" href="http://ezix.org/project/wiki/HardwareLiSter">lshw</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/check-a-drive-for-bad-sectors-with-badblocks/" data-id="ckitzbgcx004j7nfx8jka7obw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/check-a-drive-for-bad-sectors-with-badblocks/" data-id="ckitzu6kw007oepfxd5o9ggo0" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/badblocks/" rel="tag">badblocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compact-flash/" rel="tag">compact flash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flash-memory/" rel="tag">flash memory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hard-drives/" rel="tag">hard drives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parted-magic/" rel="tag">parted magic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sectors/" rel="tag">sectors</a></li></ul>
@@ -353,7 +305,7 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>Windows Explorer does a great job of moving small files, however the same cannot be said about large file transfers. The process of copying takes longer than it should. When moving or transferring files you run the risk of corrupting them, combined with the fact that Windows Explorer may not alert you of a mismatch you may be looking at trouble. Also, in the case of terminated transfer you may have to transfer the entire file all over again and waste valuable time, problems like this can be painful on files ranging in the tens of Gigabytes or even higher. To overcome this limitations you should consider using <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.php" >TeraCopy</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Think of TeraCopy as a smart way of transferring files, by using TeraCopy you can expect to: <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TJMdq3bi73I/AAAAAAAACf4/HrNBkKjgc8E/s800/teracopy_main.png"></p>
+        <!--<p>Windows Explorer does a great job of moving small files, however the same cannot be said about large file transfers. The process of copying takes longer than it should. When moving or transferring files you run the risk of corrupting them, combined with the fact that Windows Explorer may not alert you of a mismatch you may be looking at trouble. Also, in the case of terminated transfer you may have to transfer the entire file all over again and waste valuable time, problems like this can be painful on files ranging in the tens of Gigabytes or even higher. To overcome this limitations you should consider using <a target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.php">TeraCopy</a>. Think of TeraCopy as a smart way of transferring files, by using TeraCopy you can expect to: <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TJMdq3bi73I/AAAAAAAACf4/HrNBkKjgc8E/s800/teracopy_main.png"></p>
 <ul>
 <li>Copy files faster. TeraCopy uses dynamically adjusted buffers to reduce seek times. Asynchronous copy speeds up file transfer between two physical hard drives.</li>
 <li>Pause and resume file transfers. Pause copy process at any time to free up system resources and continue with a single click.</li>
@@ -367,15 +319,12 @@ ga('send', 'pageview');
 <p>In my not-so scientific test TeraCopy transferred a total of 9.28GB in a total time 2:53.59 minutes, while Windows Explorer took 3:41.49 to move the same amount of data.</p>
 </blockquote>
 <p>And it doesn’t hurt to have TeraCopy verify the checksum of the transferred files. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TJMdrp74YLI/AAAAAAAACf8/xfEVd9HY5ZE/s800/teracopy_verify.png"> Integrates nicely with Windows for convenience. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TJMclooTRRI/AAAAAAAACfo/ru4J0DqxNbk/s800/teracopy_windows_intergration.png"> While my test was minimal the value of TeraCopy becomes evident when moving large amounts of data between drives, not using a smart solution like TeraCopy can be a painful and wasteful experience. TeraCopy is available at no cost for home use and is also available in the form of a paid version that includes other features like support.</p>
-
-        <h4 id="Links"   >
-          <a href="#Links" class="heading-link"><i class="fas fa-link"></i></a>Links</h4>
-      <p>To download TeraCopy visit <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.ph" >Codesector.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><p>To download TeraCopy visit <a target="_blank" rel="noopener" href="http://www.codesector.com/teracopy.ph">Codesector.com</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/teracopy-improve-file-copying-speeds/" data-id="ckitzbgjk00op7nfxecye5ze1" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/teracopy-improve-file-copying-speeds/" data-id="ckitzu6rw00t4epfx23ljd35r" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/teracopy/" rel="tag">teracopy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-explorer/" rel="tag">windows explorer</a></li></ul>
@@ -421,20 +370,17 @@ ga('send', 'pageview');
 <li>No limits on how much or what you print, privacy is in your hands</li>
 <li>Free for commercial and non-commercial use</li>
 </ul>
-<p>To start using the subsystem first you need to go over to <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp" >cutepdf.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> and download CutePDF Writer <em>CuteWriter.exe</em> and optionally the free PDF coverter <em>coverter.exe</em>. I say optionally because CuteWriter.exe alone has the capability of downloading converter.exe over the Internet and install it for you. However, if you do not expect to be near an Internet connection you should download both files. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TG3UrslGnrI/AAAAAAAACds/9b33pHlkqfg/s800/cute_screen.png"></p>
+<p>To start using the subsystem first you need to go over to <a target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp">cutepdf.com</a> and download CutePDF Writer <em>CuteWriter.exe</em> and optionally the free PDF coverter <em>coverter.exe</em>. I say optionally because CuteWriter.exe alone has the capability of downloading converter.exe over the Internet and install it for you. However, if you do not expect to be near an Internet connection you should download both files. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TG3UrslGnrI/AAAAAAAACds/9b33pHlkqfg/s800/cute_screen.png"></p>
 <blockquote>
 <p>Ghostscript is an example of a PS2PDF, its a must if you wish to output file in to PDF</p>
 </blockquote>
 <p>Once the download in complete, double click on <strong>CuteWriter.exe</strong> to start the installer. Begin the installation by clicking on the <strong>Install</strong> button. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TGudds9rknI/AAAAAAAACck/UHdKqyLTI-Q/s800/1.png"> Since the CutePDF Writer installer did not find any sings of a PS2PDF on the system you are being given the option to automatically download and install <em>coverter.exe</em> for you. Click on <strong>Yes</strong> to install coverter.exe on the system. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TGuddjTasFI/AAAAAAAACco/RDjfx3rshZI/s800/2.png"> Internet connection required, allow some time for the download to complete. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGudd7JjGzI/AAAAAAAACcs/eFA0vbIyR14/s800/3.png"> When CutePDF Writer and all of the components are installed you will be presented with a page in your browser explaining how to use it. We will use this page to print out first PDF. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TGufeoerC3I/AAAAAAAACdQ/rkdHFq52psA/s800/4.png"> Let’s try it for the first time, depending on the browser you are using try to print a page or use <strong>Ctrl + P</strong>. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGudnUtpG5I/AAAAAAAACc4/bnJv9XOpzxI/s800/6.png"> To print to a PDF select <strong>CutePDF Writer</strong> and hit the <strong>Print</strong> button. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/TGudngw14EI/AAAAAAAACc8/ldo-TTXbMLI/s800/7.png"> Name the document and select the location where the file will be saved. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/THYU9yztE4I/AAAAAAAACeo/r2WABavLpDQ/s800/save.png"> Go to the location where the file was stored and open it, as you can see the result is a PDF file. Saving documents to PDF could not be easier and might even help you save on the cost of printer ink. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TGufe6o3UXI/AAAAAAAACdU/AerwOfPR6F4/s800/5-2.png"></p>
-
-        <h4 id="For-More-Information-Visit"   >
-          <a href="#For-More-Information-Visit" class="heading-link"><i class="fas fa-link"></i></a>For More Information Visit:</h4>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp" >CutePDF Home Page</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Portable_Document_Format" >Wikipedia Entry On PDF</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="For-More-Information-Visit"><a href="#For-More-Information-Visit" class="headerlink" title="For More Information Visit:"></a>For More Information Visit:</h4><p><a target="_blank" rel="noopener" href="http://www.cutepdf.com/products/cutepdf/writer.asp">CutePDF Home Page</a> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Portable_Document_Format">Wikipedia Entry On PDF</a></p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/cutepdf-writer-print-to-pdf-on-windows/" data-id="ckitzbgdk006k7nfx7h2a54i5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/cutepdf-writer-print-to-pdf-on-windows/" data-id="ckitzu6lk009qepfx1e90115i" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cutepdf-writer/" rel="tag">cutepdf writer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pdf/" rel="tag">pdf</a></li></ul>
@@ -472,16 +418,16 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p>In a <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://googleblog.blogspot.com/2010/08/call-phones-from-gmail.html" >blog post Google announced</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> that Gmail will now integrate support for VOIP, the service will continue to provide free calling to countries like the United States and Canada, calling rates for other countries will vary (U.K., France, Germany, China, Japan pay $0.02 a minute). <img src="http://lh4.ggpht.com/_fF0LO28FGYY/THXraaTxmbI/AAAAAAAACeA/pPYq_E7k0EA/s800/screenshot2.jpeg" title="Google Voice"> However, Google Apps users and non-US users will have to wait longer.</p>
+        <!--<p>In a <a target="_blank" rel="noopener" href="http://googleblog.blogspot.com/2010/08/call-phones-from-gmail.html">blog post Google announced</a> that Gmail will now integrate support for VOIP, the service will continue to provide free calling to countries like the United States and Canada, calling rates for other countries will vary (U.K., France, Germany, China, Japan pay $0.02 a minute). <img src="http://lh4.ggpht.com/_fF0LO28FGYY/THXraaTxmbI/AAAAAAAACeA/pPYq_E7k0EA/s800/screenshot2.jpeg" title="Google Voice"> However, Google Apps users and non-US users will have to wait longer.</p>
 <blockquote>
 <p>Given that most of us don’t spend all day in front of our computers, we thought, “wouldn’t it be nice if you could call people directly on their phones?”</p>
 </blockquote>
-<p>In order to be able to use the new service users will need to install the <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.gmail.com/call" >Voice and video plug-in</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> before using it. The service is expected to become functional over the next few days. The most important aspect of this announcement is the convenient user experience, while raising questions on how much of your personal information Google now manages.</p>
+<p>In order to be able to use the new service users will need to install the <a target="_blank" rel="noopener" href="http://www.gmail.com/call">Voice and video plug-in</a> before using it. The service is expected to become functional over the next few days. The most important aspect of this announcement is the convenient user experience, while raising questions on how much of your personal information Google now manages.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/google-integrates-voice-into-gmail/" data-id="ckitzbgew00al7nfxdbab8tul" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/google-integrates-voice-into-gmail/" data-id="ckitzu6mz00e0epfx79qceny6" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/voip/" rel="tag">voip</a></li></ul>
@@ -519,27 +465,24 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://mail.opensolaris.org/pipermail/opensolaris-discuss/2010-August/059310.html" >[osol-discuss] OpenSolaris cancelled, to be replaced with Solaris 11 Express</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+        <!--<p><a target="_blank" rel="noopener" href="http://mail.opensolaris.org/pipermail/opensolaris-discuss/2010-August/059310.html">[osol-discuss] OpenSolaris cancelled, to be replaced with Solaris 11 Express</a></p>
 <blockquote>
 <p>This memo was circulated internally within Oracle (and subsequently leaked). Basically, the open source development model has now been axed and OpenSolaris is officially now dead. A very sad day indeed.</p>
 </blockquote>
-<p>It seems that Oracle has no room for OpenSolaris in its new strategy to get Sun out of the whole its in. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180492/Toshiba_touts_drives_that_wipe_data_when_turned_off" >Toshiba touts drives that wipe data when turned off</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>It seems that Oracle has no room for OpenSolaris in its new strategy to get Sun out of the whole its in. <a target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180492/Toshiba_touts_drives_that_wipe_data_when_turned_off">Toshiba touts drives that wipe data when turned off</a></p>
 <blockquote>
 <p>The Wipe feature in Toshiba’s SED (Self-Encrypting Drives) will allow for deletion of secure data prior to disposing or repurposing hard drives, Toshiba said in a statement. This feature prevents secure data from getting lost or stolen.</p>
 </blockquote>
-<p>Think of the possibilities, seriously you think of them!. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blog.gridcentriclabs.com/2010/08/virtualization-and-over-subscription.html" >Virtualization and over-subscription: breaking the 100% utilization barrier</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>Think of the possibilities, seriously you think of them!. <a target="_blank" rel="noopener" href="http://blog.gridcentriclabs.com/2010/08/virtualization-and-over-subscription.html">Virtualization and over-subscription: breaking the 100% utilization barrier</a></p>
 <blockquote>
 <p>Our developers are hard at work on our next generation of products, which in addition to allowing instantaneous scaling and solving configuration nightmares, allows you to over-commit your physical resources (both processors and memory). This quick demo provides a great example of over-subscription, showing a development version of our platform cramming 16 gigabytes worth of clones onto a single host with 8 gigabytes of memory. Awesome.</p>
 </blockquote>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180493/Browsers_private_modes_leak_info_say_researchers" >Browsers’ private modes leak info, say researchers</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> kind of obvious, Private Mode is “like a candle in the wind… unreliable” <em>Garth Marenghi</em> , too many variables with room for leaks. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://technologizer.com/2010/08/12/ipad-alternatives/" >iPadversaries! 32 Tablets, Slates, Pads, and More</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Most of them wont even survive the first round.</p>
-
-        <h3 id="Moving-On…"   >
-          <a href="#Moving-On…" class="heading-link"><i class="fas fa-link"></i></a>Moving On…</h3>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://storageadvisors.adaptec.com/2010/08/13/is-sas-dead-yet/" >Is SAS dead yet?</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://www.computerworld.com/s/article/9180493/Browsers_private_modes_leak_info_say_researchers">Browsers’ private modes leak info, say researchers</a> kind of obvious, Private Mode is “like a candle in the wind… unreliable” <em>Garth Marenghi</em> , too many variables with room for leaks. <a target="_blank" rel="noopener" href="http://technologizer.com/2010/08/12/ipad-alternatives/">iPadversaries! 32 Tablets, Slates, Pads, and More</a> Most of them wont even survive the first round.</p>
+<h3 id="Moving-On…"><a href="#Moving-On…" class="headerlink" title="Moving On…"></a>Moving On…</h3><p><a target="_blank" rel="noopener" href="http://storageadvisors.adaptec.com/2010/08/13/is-sas-dead-yet/">Is SAS dead yet?</a></p>
 <blockquote>
 <p>Just hold the horses … what about the writes.</p>
 </blockquote>
-<p>This one never gets old. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blog.fosketts.net/2010/08/11/320-gb-hard-disk-drive-reliability/" >Are 320 GB Drives Doomed?</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>This one never gets old. <a target="_blank" rel="noopener" href="http://blog.fosketts.net/2010/08/11/320-gb-hard-disk-drive-reliability/">Are 320 GB Drives Doomed?</a></p>
 <blockquote>
 <p>Industry numbers suggest that one would have to fill a 320 GB SATA drive 37 times before encountering an unrecoverable read error, potentially losing data.</p>
 </blockquote>
@@ -548,7 +491,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/" data-id="ckitzbgib00k87nfx347k1i9i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/" data-id="ckitzu6qc00oeepfxfhi489z8" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blackberry/" rel="tag">blackberry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opensolaris/" rel="tag">opensolaris</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualization/" rel="tag">virtualization</a></li></ul>
@@ -587,10 +530,7 @@ ga('send', 'pageview');
     <div class="article-entry-abstract" itemprop="articleBody">
       
         <!--<p><strong>Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What file and parameter do I need to change in order to start logging failed attempts?.</strong> <strong>A)</strong> by default OpenSSH on Ubuntu is not set to log failed log-in attempts, I guess the logic behind this decision is to reduce the amount of logs being generated. The risk associated with not logging failed attempts is that you will never know if your server is being targeted by the bad guys, pretty much anything exposed to the Internet is bound to be a target of some sort.</p>
-
-        <h2 id="Solution"   >
-          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
-      <p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
 <p>nano /etc/ssh/sshd_config</p>
 <p>And look for the line starting with <em>#Logging</em> and change the parameter from <em>LogLevel INFO</em> to <em>LogLevel VERBOSE</em>.</p>
 <p># Logging<br>SyslogFacility AUTH<br>LogLevel INFO</p>
@@ -601,7 +541,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckitzbgiq00lo7nfxhxiofdya" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckitzu6qv00pyepfx04ule7kh" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -639,28 +579,25 @@ ga('send', 'pageview');
     
     <div class="article-entry-abstract" itemprop="articleBody">
       
-        <!--<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://blogs.msdn.com/b/windowsazure/archive/2010/08/05/try-windows-azure-for-one-month-for-free.aspx" >Windows Azure No Cost Test Drive for Devs</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+        <!--<p><a target="_blank" rel="noopener" href="http://blogs.msdn.com/b/windowsazure/archive/2010/08/05/try-windows-azure-for-one-month-for-free.aspx">Windows Azure No Cost Test Drive for Devs</a></p>
 <blockquote>
 <p>Limited to US developers, the first 500 to sign up each month will get a full month’s pass good for the one calendar month. In addition, you’ll get free phone, chat and email support through the Front Runner for Windows Azure program.</p>
 </blockquote>
-<p>Looks like a good option to test drive Microsoft offering, if you happen to be one of the lucky 500 and happen to the in the US of A. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://googleblog.blogspot.com/2010/08/update-on-google-wave.html" >Time To Say Good Bye To Google Wave</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Google Wave did turn out to be what Google expected in the long run, rather than change the light bulb one more time the big G is giving up. Nobody got anywhere by not experimeting. <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.neowin.net/news/new-hotmail-rollout-complete-now-available-to-all-350-million-users" >Hotmail Gets A Face Lift, 350 Millions Users Notice</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> Microsoft has declared success after successfully shaking the floor for all 350 million Hotmail users. Users can expect:</p>
+<p>Looks like a good option to test drive Microsoft offering, if you happen to be one of the lucky 500 and happen to the in the US of A. <a target="_blank" rel="noopener" href="http://googleblog.blogspot.com/2010/08/update-on-google-wave.html">Time To Say Good Bye To Google Wave</a> Google Wave did turn out to be what Google expected in the long run, rather than change the light bulb one more time the big G is giving up. Nobody got anywhere by not experimeting. <a target="_blank" rel="noopener" href="http://www.neowin.net/news/new-hotmail-rollout-complete-now-available-to-all-350-million-users">Hotmail Gets A Face Lift, 350 Millions Users Notice</a> Microsoft has declared success after successfully shaking the floor for all 350 million Hotmail users. Users can expect:</p>
 <blockquote>
 <p>enhanced security, better filtering of emails to de-clutter the inbox, support for conversation views and a number of other key visual and feature additions.</p>
 </blockquote>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.datacenterknowledge.com/archives/2010/08/05/softlayer-the-planet-outline-merger-plans/" >Softlayer And The Planet Outline Merger</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://www.datacenterknowledge.com/archives/2010/08/05/softlayer-the-planet-outline-merger-plans/">Softlayer And The Planet Outline Merger</a></p>
 <blockquote>
 <p>SoftLayer Technologies and The Planet are discussing a blockbuster merger that will make the combined entity one of the world’s largest providers of web hosting and cloud computing services. The new company will have more than 25,000 customers and manage more than 78,000 servers.</p>
 </blockquote>
 <p>Blockbuster is such an insignificant word for the size of the merger. [Hopefully] only good will come out of the merger.</p>
-
-        <h3 id="Moving-On"   >
-          <a href="#Moving-On" class="heading-link"><i class="fas fa-link"></i></a>Moving On..</h3>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.neowin.net/news/did-you-know-microsoft-office-is-licensed-for-two-pcs" >Office Licensed for two systems</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> : one desktop and a portable system aka a laptop.</p>
+<h3 id="Moving-On"><a href="#Moving-On" class="headerlink" title="Moving On.."></a>Moving On..</h3><p><a target="_blank" rel="noopener" href="http://www.neowin.net/news/did-you-know-microsoft-office-is-licensed-for-two-pcs">Office Licensed for two systems</a> : one desktop and a portable system aka a laptop.</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/azure-test-drive-bye-google-wave-hotmail-face-lift-softlayer-the-planet-merger/" data-id="ckitzbgch00347nfx9tsx296p" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/azure-test-drive-bye-google-wave-hotmail-face-lift-softlayer-the-planet-merger/" data-id="ckitzu6iq0034epfx1ovh9odj" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/azure/" rel="tag">azure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google-wave/" rel="tag">google wave</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hosting/" rel="tag">hosting</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hotmail/" rel="tag">hotmail</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/" rel="tag">office</a></li></ul>

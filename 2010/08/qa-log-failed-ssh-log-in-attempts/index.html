@@ -89,10 +89,7 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What file and parameter do I need to change in order to start logging failed attempts?.</strong> <strong>A)</strong> by default OpenSSH on Ubuntu is not set to log failed log-in attempts, I guess the logic behind this decision is to reduce the amount of logs being generated. The risk associated with not logging failed attempts is that you will never know if your server is being targeted by the bad guys, pretty much anything exposed to the Internet is bound to be a target of some sort.</p>
-
-        <h2 id="Solution"   >
-          <a href="#Solution" class="heading-link"><i class="fas fa-link"></i></a>Solution</h2>
-      <p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
 <p>nano /etc/ssh/sshd_config</p>
 <p>And look for the line starting with <em>#Logging</em> and change the parameter from <em>LogLevel INFO</em> to <em>LogLevel VERBOSE</em>.</p>
 <p># Logging<br>SyslogFacility AUTH<br>LogLevel INFO</p>
@@ -103,7 +100,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckitzbgiq00lo7nfxhxiofdya" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckitzu6qv00pyepfx04ule7kh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>

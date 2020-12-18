@@ -93,27 +93,15 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>If you have ever manage network devices over long distance or even in a local area network you might want to keep an eye on the health of the network and the links they operate on. That’s a very good reason for using <strong>SmokePing</strong> on the network, SmokePing can graph over time the latency experienced by the probe. In the long run network monitoring can help identify trouble points or areas of interest. If you are paying for a T1 then you should get your moneys worth. There is nothing worse than having little or no data to troubleshoot network problems.</p>
-
-        <h4 id="SmokePing-overview"   >
-          <a href="#SmokePing-overview" class="heading-link"><i class="fas fa-link"></i></a>SmokePing overview</h4>
-      <p>SmokePing generates graphs over time that show vital network information about the quality of the selected link being monitored by the probe. SmokePing can be easily configured to monitor multiple sites at the same time and show the specific time in which the link experienced unusual activity. It’s common knowledge that high latency will result on poor network performance. Prior to the installation you should have a full functional web server installed.</p>
-
-        <h4 id="Examples"   >
-          <a href="#Examples" class="heading-link"><i class="fas fa-link"></i></a>Examples</h4>
-      <ul>
+<h4 id="SmokePing-overview"><a href="#SmokePing-overview" class="headerlink" title="SmokePing overview"></a>SmokePing overview</h4><p>SmokePing generates graphs over time that show vital network information about the quality of the selected link being monitored by the probe. SmokePing can be easily configured to monitor multiple sites at the same time and show the specific time in which the link experienced unusual activity. It’s common knowledge that high latency will result on poor network performance. Prior to the installation you should have a full functional web server installed.</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><ul>
 <li>Monitor the latency of the OpenDNS servers and make an informed decision on whether they are or not in your best interest.</li>
 <li>Monitor links from the central office to the remote office. Constant and unusual high levels of latency may indicate a problem with the ISP.</li>
 <li>Servers become unreachable during certain periods of the day. With the data log by the probe you can pin point the time of failure (disconnection).</li>
 </ul>
-
-        <h4 id="SmokePing-installation-on-Ubuntu"   >
-          <a href="#SmokePing-installation-on-Ubuntu" class="heading-link"><i class="fas fa-link"></i></a>SmokePing installation on Ubuntu</h4>
-      <p>SmokePing is available in the Ubuntu repositories. For Debian based Distributions you can use Apt-Get, installation may depend on you distribution.</p>
+<h4 id="SmokePing-installation-on-Ubuntu"><a href="#SmokePing-installation-on-Ubuntu" class="headerlink" title="SmokePing installation on Ubuntu"></a>SmokePing installation on Ubuntu</h4><p>SmokePing is available in the Ubuntu repositories. For Debian based Distributions you can use Apt-Get, installation may depend on you distribution.</p>
 <p>sudo apt-get install smokeping</p>
-
-        <h4 id="SmokePing-configuration"   >
-          <a href="#SmokePing-configuration" class="heading-link"><i class="fas fa-link"></i></a>SmokePing configuration</h4>
-      <p>The configuration file is located at <strong>/etc/smokeping/config</strong>. The configuration file I am using is organised to monitor two separate sites with multiple hosts. In real life this examples would represent the local site and the remote site. Copy of <a href="/download/code/config">SmokePing configuration file</a>. Open and edit.</p>
+<h4 id="SmokePing-configuration"><a href="#SmokePing-configuration" class="headerlink" title="SmokePing configuration"></a>SmokePing configuration</h4><p>The configuration file is located at <strong>/etc/smokeping/config</strong>. The configuration file I am using is organised to monitor two separate sites with multiple hosts. In real life this examples would represent the local site and the remote site. Copy of <a href="/download/code/config">SmokePing configuration file</a>. Open and edit.</p>
 <p>sudo nano /etc/smokeping/config</p>
 <p>To get SmokePing started let’s edit some of the basic options. I hope this is somewhat self explanatory, change the following values to match your server values.</p>
 <ul>
@@ -131,17 +119,14 @@ ga('send', 'pageview');
 <p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SYPWFDbRhKI/AAAAAAAAAbE/pYiG4lGdXX0/s800/loc_site.png"> Same can be said about the second example (NETWORK2), again three network devices are being monitored. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SYPWFDCTYrI/AAAAAAAAAbM/RrCtGVs8bto/s800/rem_site.png"> After you are done with the changes save and restart SmokePing.</p>
 <p>/etc/init.d/smokeping restart</p>
 <p>Open your browser and go to the following address.</p>
-<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.domain.com/cgi-bin/smokeping.cgi" >http://www.domain.com/cgi-bin/smokeping.cgi</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="http://www.domain.com/cgi-bin/smokeping.cgi">http://www.domain.com/cgi-bin/smokeping.cgi</a></p>
 <p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SYdrDwDT-sI/AAAAAAAAAbs/nAJhYn7rQA0/s800/smokeping_resize.png"> Give SmokePing some time to log the data. Try to experiment with the configuration file, but all try to keep the target host’s organized.</p>
-
-        <h4 id="References"   >
-          <a href="#References" class="heading-link"><i class="fas fa-link"></i></a>References</h4>
-      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/doc/smokeping_examples.en.html" >SmokePing examples.en.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/" >SmokePing web site</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><a target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/doc/smokeping_examples.en.html">SmokePing examples.en.html</a> <a target="_blank" rel="noopener" href="http://oss.oetiker.ch/smokeping/">SmokePing web site</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/02/monitor-network-latency-with-smokeping/" data-id="ckitzbghg00hd7nfx7tbhemz7" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2009/02/monitor-network-latency-with-smokeping/" data-id="ckitzu6ph00lnepfx3g3bc4wh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/smokeping/" rel="tag">smokeping</a></li></ul>

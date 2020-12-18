@@ -86,18 +86,18 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>This is more of a note to my self since I tend to easily forget how to tell Wget to skip certificate checks on self signed addresses. The added parameter below is self explanatory, it tell Wget to ignore the cert check and go ahead.</p>
-<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;ididntpayforacert.ca&#x2F;file.gz</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;ididntpayforacert.ca&#x2F;file.gz</span><br></pre></td></tr></table></figure>
 
 <p>If you frequently work with self-signed certificates then you can make a change to the Wget config file to let you work with self-signed certificates without resulting in an error.</p>
-<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano $HOME&#x2F;.wgetrc</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano $HOME&#x2F;.wgetrc</span><br></pre></td></tr></table></figure>
 
 <p>And add the following parameter to the bottom of the config file.</p>
-<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check certificate&#x3D;off</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">check certificate&#x3D;off</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/" data-id="ckitzbgkw00sk7nfx983aezk0" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2015/04/wget-ignore-invalid-ssl-certificates/" data-id="ckitzu6t900xdepfx89xn6uiz" class="article-share-link">Share</a>
       
       
     </footer>

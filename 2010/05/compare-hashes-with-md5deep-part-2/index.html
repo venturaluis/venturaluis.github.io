@@ -20,12 +20,12 @@ ga('send', 'pageview');
   
   <title>Compare Hashes With md5deep - Part 2 | Linhost.info</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Previous Post: Hash a directory with md5deep.       On a previous post I discussed how md5deep can be used to hash an entire directory recursively and output the results to a singl">
+  <meta name="description" content="Previous Post: Hash a directory with md5deep.On a previous post I discussed how md5deep can be used to hash an entire directory recursively and output the results to a single file for later verificati">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Compare Hashes With md5deep - Part 2">
 <meta property="og:url" content="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/index.html">
 <meta property="og:site_name" content="Linhost.info">
-<meta property="og:description" content="Previous Post: Hash a directory with md5deep.       On a previous post I discussed how md5deep can be used to hash an entire directory recursively and output the results to a singl">
+<meta property="og:description" content="Previous Post: Hash a directory with md5deep.On a previous post I discussed how md5deep can be used to hash an entire directory recursively and output the results to a single file for later verificati">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2010-05-11T06:08:57.000Z">
 <meta property="article:modified_time" content="2020-08-09T09:07:53.613Z">
@@ -89,18 +89,9 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-        <h4 id="Previous-Post-Hash-a-directory-with-md5deep"   >
-          <a href="#Previous-Post-Hash-a-directory-with-md5deep" class="heading-link"><i class="fas fa-link"></i></a>Previous Post: Hash a directory with md5deep.</h4>
-      <p><a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">On a previous post I discussed how</a> <a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">md5deep can be used to hash an entire directory recursively</a> and output the results to a single file for later verification. Now I will demonstrate how to verify the integrity of an entire directory using the output file, md5deep will only output those file(s) that failed the integrity check/hash matching process.</p>
-
-        <h4 id="Explain…"   >
-          <a href="#Explain…" class="heading-link"><i class="fas fa-link"></i></a>Explain…</h4>
-      <p>In this example I have a directory by the name of <strong>Pictures</strong> with 40 items and a list containing hashes for all 40 items(list.txt). I have deliberately modified three of the items in the directory(img_0597.jpg, img_0605.jpg, img_0616.jpg), this will cause the hashes to change and no longer match against the list. In the real world this would be a reason to be alert.</p>
-
-        <h4 id="The-Command"   >
-          <a href="#The-Command" class="heading-link"><i class="fas fa-link"></i></a>The Command</h4>
-      <p>This is the command I will run against the directory to check for any changes.</p>
+        <h4 id="Previous-Post-Hash-a-directory-with-md5deep"><a href="#Previous-Post-Hash-a-directory-with-md5deep" class="headerlink" title="Previous Post: Hash a directory with md5deep."></a>Previous Post: <a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">Hash a directory with md5deep.</a></h4><p><a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">On a previous post I discussed how</a> <a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">md5deep can be used to hash an entire directory recursively</a> and output the results to a single file for later verification. Now I will demonstrate how to verify the integrity of an entire directory using the output file, md5deep will only output those file(s) that failed the integrity check/hash matching process.</p>
+<h4 id="Explain…"><a href="#Explain…" class="headerlink" title="Explain…"></a>Explain…</h4><p>In this example I have a directory by the name of <strong>Pictures</strong> with 40 items and a list containing hashes for all 40 items(list.txt). I have deliberately modified three of the items in the directory(img_0597.jpg, img_0605.jpg, img_0616.jpg), this will cause the hashes to change and no longer match against the list. In the real world this would be a reason to be alert.</p>
+<h4 id="The-Command"><a href="#The-Command" class="headerlink" title="The Command"></a>The Command</h4><p>This is the command I will run against the directory to check for any changes.</p>
 <p>md5deep -X list.txt -r Pictures/</p>
 <ul>
 <li><strong>-X</strong> Display failed hashes</li>
@@ -112,7 +103,7 @@ ga('send', 'pageview');
 <p>You can output the failed results to a text file for later review by adding <strong>&gt; failed_hashes.txt</strong> to the command.</p>
 <p>md5deep -X list.txt -r Pictures/ &gt; failed_hashes.txt</p>
 <ul>
-<li><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/" >md5deep Homepage</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></li>
+<li><a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/">md5deep Homepage</a></li>
 <li><a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">Hash a directory with md5deep</a></li>
 </ul>
 <p>Md5deep is a powerful tool that administrators can take advantage of to ensure data integrity, hopefully this tutorial highlighted its value.</p>
@@ -120,7 +111,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/" data-id="ckitzbgd7005g7nfxd88656ze" class="article-share-link">Share</a>
+      <a data-url="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/" data-id="ckitzu6l5008gepfx024920ji" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/" rel="tag">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5deep/" rel="tag">md5deep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
