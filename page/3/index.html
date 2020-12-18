@@ -62,68 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-ubiquiti-edgerouter-firmware-upgrade" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/ubiquiti-edgerouter-firmware-upgrade/">Ubiquiti EdgeRouter Firmware Upgrade</a>
-    </h1>
-  
-
-        <a href="/2015/01/ubiquiti-edgerouter-firmware-upgrade/" class="article-date">
-  <time datetime="2015-01-12T08:30:48.000Z" itemprop="datePublished">2015-01-12</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>EdgeOS firmware can be downloaded from the <a target="_blank" rel="noopener" href="http://www.ubnt.com/download/">Ubiquity download page</a>. First we need to see the installed version.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">show version</span><br><span class="line"></span><br><span class="line">Version:      v1.2.0</span><br><span class="line">Build ID:     4574253</span><br><span class="line">Build on:     06&#x2F;26&#x2F;13 12:48</span><br><span class="line">Copyright:    2012-2013 Ubiquiti Networks, Inc.</span><br><span class="line">HW model:     EdgeRouter Lite 3-Port</span><br><span class="line">HW S&#x2F;N:       -------------</span><br><span class="line">Uptime:       14:53:51 up  4:00,  2 users,  load average: 0.00, 0.02, 0.00</span><br></pre></td></tr></table></figure>
-
-<p>I like EdgeOS because you can pull the image directly into the router via HTTP. Alternatively you can download the image into a local webserver(like I did) and install from there. After the download is complete installation will begin.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">add system image http:&#x2F;&#x2F;192.168.1.5&#x2F;ER-e100.v1.5.0.4677648.tar</span><br><span class="line"></span><br><span class="line">Trying to get upgrade file from http:&#x2F;&#x2F;192.168.1.5&#x2F;ER-e100.v1.5.0.4677648.tar</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">100 68.9M  100 68.9M    0     0  7837k      0  0:00:09  0:00:09 --:--:-- 6334k</span><br><span class="line">Download suceeded</span><br><span class="line">Checking upgrade image... Done</span><br><span class="line">Preparing to upgrade... Done</span><br><span class="line">Copying upgrade image... Done</span><br><span class="line">Removing old image... Done</span><br><span class="line">Checking upgrade image... Done</span><br><span class="line">Finishing upgrade... Done</span><br><span class="line">Upgrade completed</span><br></pre></td></tr></table></figure>
-
-<p>The image has been installed but its not running yet, we need to reboot the router for the new image to become the default.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show system image</span><br><span class="line"></span><br><span class="line">The system currently has the following image(s) installed:</span><br><span class="line"></span><br><span class="line">v1.5.0.4677648.140620.1301     (default boot)</span><br><span class="line">v1.2.0.4574253.130626.1248     (running image)</span><br></pre></td></tr></table></figure>
-
-<p>A reboot is needed to boot default image</p>
-<p>Simply reboot and the new image will become the default boot.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br><span class="line"></span><br><span class="line">Proceed with reboot? \[confirm\]</span><br><span class="line"></span><br><span class="line">Verify the router is running the recently installed image.</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">show version</span><br><span class="line"></span><br><span class="line">Version:      v1.5.0</span><br><span class="line">Build ID:     4677648</span><br><span class="line">Build on:     06&#x2F;20&#x2F;14 13:01</span><br><span class="line">Copyright:    2012-2014 Ubiquiti Networks, Inc.</span><br><span class="line">HW model:     EdgeRouter Lite 3-Port</span><br><span class="line">HW S&#x2F;N:       -------------</span><br><span class="line">Uptime:       15:01:36 up 1 min,  1 user,  load average: 0.78, 0.30, 0.11</span><br></pre></td></tr></table></figure>
-
-<h3 id="Optional-commands"><a href="#Optional-commands" class="headerlink" title="Optional commands"></a>Optional commands</h3><p>EdgeOS can store two images in the event you need to revert to a previous version.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show system image</span><br><span class="line"></span><br><span class="line">The system currently has the following image(s) installed:</span><br><span class="line"></span><br><span class="line">v1.5.0.4677648.140620.1301     (running image) (default boot)</span><br><span class="line">v1.2.0.4574253.130626.1248</span><br></pre></td></tr></table></figure>
-
-<p>You can also delete one of the image.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delete system image</span><br></pre></td></tr></table></figure>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2015/01/ubiquiti-edgerouter-firmware-upgrade/" data-id="ckitzx0ez00q3h3fx5qdh7dy8" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EdgeOS/" rel="tag">EdgeOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Routing/" rel="tag">Routing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VyOS/" rel="tag">VyOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-feb-13-2014-downtime" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -155,7 +93,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2014/02/feb-13-2014-downtime/" data-id="ckitzx08i0096h3fxhi0se249" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2014/02/feb-13-2014-downtime/" data-id="ckiu07mz000ern6fxfxsg51co" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -215,7 +153,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/10/download-test-files/" data-id="ckitzx084007yh3fx65cogt8i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/10/download-test-files/" data-id="ckiu07myn00dfn6fxaur998rh" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/download/" rel="tag">download</a></li></ul>
@@ -271,7 +209,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/09/automatically-mount-a-usb-drive-in-ubuntu-server/" data-id="ckitzx067002yh3fxbhzvdib5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/09/automatically-mount-a-usb-drive-in-ubuntu-server/" data-id="ckiu07muf002vn6fx8h6pca7w" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -328,7 +266,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/09/502-bad-gateway-nginx-and-php-fpm/" data-id="ckitzx05n001kh3fxcifk5a68" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/09/502-bad-gateway-nginx-and-php-fpm/" data-id="ckiu07mu0001pn6fx19b25evd" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/" rel="tag">nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -384,7 +322,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/09/mount-a-usb-drive-in-ubuntu-server/" data-id="ckitzx0bv00hsh3fx5nwr48pp" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/09/mount-a-usb-drive-in-ubuntu-server/" data-id="ckiu07n2d00o8n6fxea4s6rkq" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usb/" rel="tag">usb</a></li></ul>
@@ -428,7 +366,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/09/disable-emergency-alerts-in-the-htc-one-v/" data-id="ckitzx07v0078h3fxf2ec02z5" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/09/disable-emergency-alerts-in-the-htc-one-v/" data-id="ckiu07myh00crn6fxelad5gxf" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/" rel="tag">android</a></li></ul>
@@ -484,7 +422,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/09/increase-console-resolution-in-ubuntu/" data-id="ckitzx0a400dfh3fx3bm784nv" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/09/increase-console-resolution-in-ubuntu/" data-id="ckiu07n0q00j9n6fxcria58j4" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/debian/" rel="tag">debian</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grub/" rel="tag">grub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -534,7 +472,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/08/passwd-authentication-token-manipulation-error-ubuntu/" data-id="ckitzx0ct00khh3fxcz40c7ff" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/08/passwd-authentication-token-manipulation-error-ubuntu/" data-id="ckiu07n3d00r6n6fx41i49gel" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/root/" rel="tag">root</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -594,10 +532,60 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2013/08/can-not-add-ssh-key-to-ubuntu/" data-id="ckitzx06m003sh3fxgq213roq" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2013/08/can-not-add-ssh-key-to-ubuntu/" data-id="ckiu07muv003sn6fx14pw8tfi" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh/" rel="tag">ssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-print-on-an-envelope-with-libreoffice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/08/how-to-print-on-an-envelope-with-libreoffice/">How to Print on an Envelope with LibreOffice</a>
+    </h1>
+  
+
+        <a href="/2013/08/how-to-print-on-an-envelope-with-libreoffice/" class="article-date">
+  <time datetime="2013-08-07T08:03:29.000Z" itemprop="datePublished">2013-08-07</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Printing on an envelope with LibreOffice is actually easy, the hardest part being handling the envelope after printing is done. Here’s what you will need:</p>
+<ul>
+<li>LibreOffice Writer</li>
+<li>Regular envelop(mine is a type #10)</li>
+<li>Printer(Mine is a Samsung laser printer)</li>
+</ul>
+<p>Obviously before starting the the tutorial insert the envelope on your printer paper tray, the position may vary depending on your printer. In my printer the envelopes are loaded sideways. Also keep in mind that laser printers will warm the envelope glue which will become somewhat sticky, just make sure that once the envelope is out of the printer you separate the flap to prevent it from sticking to the envelope permanently.</p>
+<h2 id="Printing-on-Envelopes"><a href="#Printing-on-Envelopes" class="headerlink" title="Printing on Envelopes"></a>Printing on Envelopes</h2><p>Open LibreOffice Writer and click on <strong>Insert &gt; Envelope</strong> <img src="http://cdn.linhost.info/static/libreoffice_envelope_1.png"> A new window opens. There are two boxes where you will input the typical information that goes into an envelope. The Addressee information goes on the top and the sender information on the bottom. <img src="http://cdn.linhost.info/static/libreoffice_envelope_2.png"> On the top of the window click on the <strong>Format</strong> tab, this tab allows you to select the envelope type. Note: In my case I use envelope type #10 commonly received in the mail. <img src="http://cdn.linhost.info/static/libreoffice_envelope_3.png"> Change any field you consider necessary. When done click on <strong>Insert</strong>. This will insert the envelope information into a document. Now you can once again review the information(again), if you spot any mistakes you can still make changes. If everything is accurate click on the <strong>Printer icon</strong> to print the information in the envelope. <img src="http://cdn.linhost.info/static/libreoffice_envelope_4.png"> And here is the result. <img src="http://cdn.linhost.info/static/libreoffice_envelope_5.png"> If you have any comments use the section below to leave one. Thank you.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2013/08/how-to-print-on-an-envelope-with-libreoffice/" data-id="ckiu07n0c00i4n6fxhtr42ovb" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/libreoffice/" rel="tag">libreoffice</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openoffice/" rel="tag">openoffice</a></li></ul>
 
     </footer>
   </div>

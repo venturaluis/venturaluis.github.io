@@ -62,68 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-how-to-set-a-static-ip-on-ubuntu-810" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/11/how-to-set-a-static-ip-on-ubuntu-810/">How To Set A Static IP On Ubuntu 8.10</a>
-    </h1>
-  
-
-        <a href="/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" class="article-date">
-  <time datetime="2008-11-12T23:54:19.000Z" itemprop="datePublished">2008-11-12</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>Known network manager bug <a target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298">https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
-<h4 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h4><p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
-<p>sudo nano /etc/network/interfaces</p>
-<p># The primary network interface<br>auto eth0<br>iface eth0 inet static<br>address 192.168.1.3<br>network 192.168.1.0<br>netmask 255.255.255.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
-<p>And save it. Now move on to edit the <strong>/etc/resolv.conf</strong>. And add the name server.</p>
-<p>sudo nano /etc/resolv.conf</p>
-<p>nameserver 192.168.1.1</p>
-<p>If you don’t want to reboot the system restart the networking service instead.</p>
-<p>sudo /etc/init.d/networking restart</p>
-<h4 id="Second-Solution"><a href="#Second-Solution" class="headerlink" title="Second Solution"></a>Second Solution</h4><ol>
-<li>Right click on the <strong>network icon</strong> located in the top panel. Select <strong>Edit Connections…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UJC-A_ZzunNA7hvp1lLUjw"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SRti9dpKvqI/AAAAAAAAAJA/yrR_9qQpXSc/s800/1.jpg"></a></li>
-<li>Right click on <strong>Add</strong>. This is when we add the new configuration. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/8EIZ90PQVtjWl1O-wcFDQA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjqMQcf_I/AAAAAAAAAJ0/Dp28qp2VE5o/s800/2.jpg"></a></li>
-<li>Now you are presented with empty fields. Check <strong>Connect automatically</strong> at the top, otherwise the older configuration will take over. For the configuration to work you need to provide the <strong>MAC address</strong> of your network interface card in my case it’s <strong>eth0</strong>.<em>Tip : Issue <strong>ifconfig</strong> in the command line and copy and paste the resulting MAC address.</em><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tAI8vTNu1soXAbkN90JihQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjnkrEHGI/AAAAAAAAAJw/ERpTOAIqa30/s800/3.jpg"></a></li>
-<li>In the same windows select the <strong>IPv4 Setting</strong> tab, the drop down menu will offer various option select <strong>Manual</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/5vrZYLJAPygQfSIQHU0Etw"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SRtjj9b2p3I/AAAAAAAAAJs/qgBteaYEsoY/s800/4.jpg"></a></li>
-<li>After selecting <strong>Manual</strong> you have to provide the <strong>IP Address, Netmask, Gateway and DNS Server</strong>. Now click <strong>OK</strong> to save the settings. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/vKmW9PYLO69d12SaCU4oaQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjfsfA_AI/AAAAAAAAAJk/kYMgKRziKk4/s800/5.jpg"></a></li>
-<li>Now the new connection named <strong>“Wired connection 1”</strong> is available. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/DpBLgzeLtN9-oXFUVMknmQ"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjhCQoD0I/AAAAAAAAAJo/idiJkDgNxFc/s800/6.jpg"></a></li>
-<li>Go back to the <strong>network icon</strong> located in the top panel and right click on it. <strong>Wired Connection 1</strong> is now an option right click on it. The system will now change from the previous interface configuration the the new one.<em>Tip :  To verify the changes issue the <strong>ifconfig</strong> command.</em> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/0vepe7MTNN8shIVATzv4wQ"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjZm5ew6I/AAAAAAAAAJg/u9oSTAiSj1o/s800/7.jpg"></a></li>
-<li>The last and perhaps most important step is to go back in to <strong>Edit Connections…</strong> and unchecked the <strong>Connect automatically</strong> option on <strong>Auto eth0</strong> which is the previous faulty Ubuntu configuration. Failure to do so will result in the <strong>Auto eth0</strong> taking over the new configuration on the next reboot. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/yONkVU80CuDnsa-u4CtZ9w"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtm6NQWlcI/AAAAAAAAAKI/LVoSoY3CftA/s800/Screenshot-Editing%2520Auto%2520eth0.jpg"></a></li>
-</ol>
-<p>Drop me a line if this was of any help to you.</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" data-id="ckitzx09r00cih3fxcqqs5kfo" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-transmission-on-ubuntu-804-server-the-best-bt-client-with-a-web-interface" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -167,7 +105,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/transmission-on-ubuntu-804-server-the-best-bt-client-with-a-web-interface/" data-id="ckitzx0ep00pih3fx0iqth2o9" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/transmission-on-ubuntu-804-server-the-best-bt-client-with-a-web-interface/" data-id="ckiu07n5800wkn6fxca7ocjf4" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bittorrent/" rel="tag">bittorrent</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/p2p/" rel="tag">p2p</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/transmission/" rel="tag">transmission</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -210,7 +148,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/when-is-bittorrent-becoming-an-option/" data-id="ckitzx0ko01bsh3fx9ss005qx" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/when-is-bittorrent-becoming-an-option/" data-id="ckiu07n6n0103n6fx0vc8332u" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -272,7 +210,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/" data-id="ckitzx0bq00hch3fx8ql868ig" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/" data-id="ckiu07n2900nrn6fxd85x0pb3" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -315,7 +253,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/canonical-landscape-part-of-the-business-model/" data-id="ckitzx06n003uh3fxgf3s6eft" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/canonical-landscape-part-of-the-business-model/" data-id="ckiu07mux003un6fxepcrftdb" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/canonical/" rel="tag">canonical</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/landscape/" rel="tag">landscape</a></li></ul>
@@ -358,7 +296,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/new-virtual-machine-ubuntu-810-server/" data-id="ckitzx0cb00j3h3fxftd65hl2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/new-virtual-machine-ubuntu-810-server/" data-id="ckiu07n2u00pon6fx5mcgcjmt" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -403,7 +341,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/recover-lost-interface-in-vmware-vm/" data-id="ckitzx0dg00m6h3fxhwym228i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/recover-lost-interface-in-vmware-vm/" data-id="ckiu07n4000t3n6fx1apgbx9n" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -451,7 +389,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/peek-constructive-critique/" data-id="ckitzx0cv00kmh3fx5dsyb8dn" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/peek-constructive-critique/" data-id="ckiu07n3f00rdn6fx3hlbbtkl" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -496,7 +434,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/" data-id="ckitzx066002vh3fxcofz341p" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/" data-id="ckiu07mud002qn6fxcndqh9r1" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li></ul>
@@ -551,11 +489,52 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/10/configure-selinux-to-be-permissive/" data-id="ckitzx07c005nh3fxfgvy8pvr" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/10/configure-selinux-to-be-permissive/" data-id="ckiu07mvo005jn6fxegjibuvm" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selinux/" rel="tag">selinux</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-apple-cut-me-short-on-voip" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/10/apple-cut-me-short-on-voip/">Apple Cut Me Short On VOIP</a>
+    </h1>
+  
+
+        <a href="/2008/10/apple-cut-me-short-on-voip/" class="article-date">
+  <time datetime="2008-10-08T02:25:35.000Z" itemprop="datePublished">2008-10-07</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Apple shot it self intentionally on the foot, they had created the perfect WIFI phone. All other stand alone VOIP Wifi phones either fall short of delivering what’s promised or are incompetent products that cost too much to justify the purchase in the first place. Apple had the perfect solution along with all the ingredients stable software, brand name, innovative hardware, and low acquisition cost. The Touch is a remarkable internet device capable of many functions surely VOIP would be nothing on the device. However, Apple decided to make a crippled internet oriented device by not including a microphone or Bluetooth. I can actually image this cool device on my home network on a Skype unlimited subscription or a pay per minute SIP provider replacing my home line. This was the chance for VOIP to become a real solution for the home network. not only would it serve for making calls but also bring the internet and the various services like mail into a true unified device. VOIP providers like SIP and Skype would have no problems creating and distributing applications for the platform. Have no doubt that VOIP shinning star Skype would be among the first to distribute it’s application for it’s large customer base in a matter of weeks. Yet, all can do is dream and live without a stand alone VOIP solution. Why would Apple miss this great opportunity, the had it.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2008/10/apple-cut-me-short-on-voip/" data-id="ckiu07mu8002fn6fxhljv8ey4" class="article-share-link">Share</a>-->
+      
+      
     </footer>
   </div>
   

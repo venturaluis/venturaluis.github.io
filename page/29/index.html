@@ -62,55 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-missing-vmware-network-adapter" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2008/12/missing-vmware-network-adapter/">Missing VMWare network Adapter</a>
-    </h1>
-  
-
-        <a href="/2008/12/missing-vmware-network-adapter/" class="article-date">
-  <time datetime="2008-12-23T02:30:27.000Z" itemprop="datePublished">2008-12-22</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p><img src="/download/images/logo/vmware.png"></p>
-<p>If you clone or move a Linux virtual machine created on a VMWare product the network adaptor will just disappear with no explanation. The usual solution is to delete the <strong>“xx-persistent-net.rules”</strong> file for Linux hosts, which makes the network adapter reaper after rebooting the system. However, I had a virtual machine with two network adapters (eth0, eth1) and only one of them worked (eth0). After digging for information I discovered that the interface configuration file only had one entry for eth0 and none for eth1. The solution was an easy one, just add the configuration for eth1. <strong>Note</strong>: the virtual machines was Ubuntu Server.</p>
-<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>Open the interface configuration file.</p>
-<p>nano /etc/network/interfaces</p>
-<p>And add the remaining network interface configuration.</p>
-<p># The secondary network interface<br>auto eth1<br>iface eth1 inet dhcp</p>
-<p>Save and restart the system or networking service. Now issue the <strong>ifconfig</strong> command to see all available interfaces.</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/missing-vmware-network-adapter/" data-id="ckitzx0br00hfh3fx44omc5yc" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-view-printer-ink-levels-on-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -144,7 +95,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/view-printer-ink-levels-on-ubuntu/" data-id="ckitzx0fh00rmh3fxb3sz1kut" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/view-printer-ink-levels-on-ubuntu/" data-id="ckiu07n6500yvn6fx2a4acnpv" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hplip/" rel="tag">hplip</a></li></ul>
@@ -190,7 +141,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/force-fsck-on-the-next-reboot/" data-id="ckitzx08o009jh3fx9jzpc0dt" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/force-fsck-on-the-next-reboot/" data-id="ckiu07mz500f3n6fxagrr1xxl" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fsck/" rel="tag">fsck</a></li></ul>
@@ -233,14 +184,14 @@ ga('send', 'pageview');
 <p>sudo apt-get install postfix telnet mailx</p>
 <p>Before configuring Postfix you should read the available configuration options. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/TysYp819ZSovc8iTI4pkCw?authkey=KLiniNSoMOA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SUWZ7n3IB5I/AAAAAAAAARc/MiMxFZG2g2A/s800/001.jpg"></a> You will be asked to provide a general Postfix configuration, in this case choose <strong>Internet Site</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ZgGHYEF-wkFmQYGdKH37hQ?authkey=KLiniNSoMOA"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SUWZ-786S-I/AAAAAAAAARg/FXc6GypCKMk/s800/002.jpg"></a> Now you are required to provide a domain name, for example purposes I typed <strong>mail.domain.com</strong>. And press <strong>OK</strong> to finalize the installation. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/7sPllt_E0FV22f03K4xaYw?authkey=KLiniNSoMOA"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SUWaB49ONkI/AAAAAAAAARk/qCxaZsEv4TI/s800/003.jpg"></a></p>
 <h2 id="Verify-the-installation-and-configuration"><a href="#Verify-the-installation-and-configuration" class="headerlink" title="Verify the installation and configuration"></a>Verify the installation and configuration</h2><p>Let’s test the new Postfix installation by sending an email to a working address.</p>
-<p>mail <a href="mailto:&#x61;&#x64;&#109;&#x69;&#110;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#109;">&#x61;&#x64;&#109;&#x69;&#110;&#x40;&#100;&#x6f;&#109;&#x61;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>mail <a href="mailto:&#97;&#x64;&#109;&#105;&#x6e;&#x40;&#100;&#x6f;&#109;&#97;&#105;&#110;&#46;&#x63;&#111;&#109;">&#97;&#x64;&#109;&#105;&#x6e;&#x40;&#100;&#x6f;&#109;&#97;&#105;&#110;&#46;&#x63;&#111;&#109;</a></p>
 <p>Provide a subject and press enter. Write the message and press enter followed by a period, then press enter again. To skip the ‘CC:’ press enter twice. And now check your invoice, congratulations. If you want to reconfigure the installation at a later time type the following command.</p>
 <p>sudo dpkg-reconfigure postfix</p>
 -->
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/postfix-installation/" data-id="ckitzx0d300lah3fxcynm517q" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/postfix-installation/" data-id="ckiu07n3m00s1n6fx1nxfdxw2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/postfix/" rel="tag">postfix</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -308,7 +259,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/how-to-install-webmin-on-ubuntu/" data-id="ckitzx09m00c7h3fxbf01484c" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/how-to-install-webmin-on-ubuntu/" data-id="ckiu07n0a00hxn6fx34u267kr" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/webmin/" rel="tag">webmin</a></li></ul>
@@ -362,7 +313,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/useful-dd-commands/" data-id="ckitzx0ff00rgh3fxdjgb5zk3" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/useful-dd-commands/" data-id="ckiu07n6300yon6fxbkag5vka" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-recovery/" rel="tag">file recovery</a></li></ul>
@@ -428,7 +379,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/ddclient-set-up-for-ubuntu/" data-id="ckitzx07o006qh3fxg8cjdnu4" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/ddclient-set-up-for-ubuntu/" data-id="ckiu07my800c0n6fx2pgkh9ll" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DynDNS/" rel="tag">DynDNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ddclient/" rel="tag">ddclient</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -486,7 +437,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/" data-id="ckitzx0f500qmh3fxcjyfedi2" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/ubuntuconnect-to-an-access-point-from-the-command-line/" data-id="ckiu07n5p00xpn6fx2ws93t0h" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wireless/" rel="tag">wireless</a></li></ul>
@@ -529,7 +480,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/12/centos-52-is-now-available-for-download/" data-id="ckitzx06r0042h3fx3smye49a" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/12/centos-52-is-now-available-for-download/" data-id="ckiu07mv0003zn6fx6m0tabfp" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -570,10 +521,72 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2008/11/disable-the-shutdown-event-tracker-in-windows-server/" data-id="ckitzx080007ih3fxcquybn91" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2008/11/disable-the-shutdown-event-tracker-in-windows-server/" data-id="ckiu07myi00cyn6fx4jize7v4" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-set-a-static-ip-on-ubuntu-810" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2008/11/how-to-set-a-static-ip-on-ubuntu-810/">How To Set A Static IP On Ubuntu 8.10</a>
+    </h1>
+  
+
+        <a href="/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" class="article-date">
+  <time datetime="2008-11-12T23:54:19.000Z" itemprop="datePublished">2008-11-12</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Known network manager bug <a target="_blank" rel="noopener" href="https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298">https://bugs.edge.launchpad.net/ubuntu/+source/network-manager/+bug/284298</a> Due to a bug if you want to assign a static IP on Ubuntu 8.10 Desktop your setting will be overwritten after the next reboot because of a bug that escaped the Ubuntu team. The bug is annoying and silly that something so basic would escape the development team. Any way there are two solutions one uses the command line and the second one the GUI.</p>
+<h4 id="First-Solution"><a href="#First-Solution" class="headerlink" title="First Solution"></a>First Solution</h4><p>First solution is to get down and dirty with the command line, it takes less than 2 minutes. Edit <strong>/etc/network/interfaces</strong> and enter the following values.</p>
+<p>sudo nano /etc/network/interfaces</p>
+<p># The primary network interface<br>auto eth0<br>iface eth0 inet static<br>address 192.168.1.3<br>network 192.168.1.0<br>netmask 255.255.255.0<br>broadcast 192.168.1.255<br>gateway 192.168.1.1</p>
+<p>And save it. Now move on to edit the <strong>/etc/resolv.conf</strong>. And add the name server.</p>
+<p>sudo nano /etc/resolv.conf</p>
+<p>nameserver 192.168.1.1</p>
+<p>If you don’t want to reboot the system restart the networking service instead.</p>
+<p>sudo /etc/init.d/networking restart</p>
+<h4 id="Second-Solution"><a href="#Second-Solution" class="headerlink" title="Second Solution"></a>Second Solution</h4><ol>
+<li>Right click on the <strong>network icon</strong> located in the top panel. Select <strong>Edit Connections…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UJC-A_ZzunNA7hvp1lLUjw"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/SRti9dpKvqI/AAAAAAAAAJA/yrR_9qQpXSc/s800/1.jpg"></a></li>
+<li>Right click on <strong>Add</strong>. This is when we add the new configuration. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/8EIZ90PQVtjWl1O-wcFDQA"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjqMQcf_I/AAAAAAAAAJ0/Dp28qp2VE5o/s800/2.jpg"></a></li>
+<li>Now you are presented with empty fields. Check <strong>Connect automatically</strong> at the top, otherwise the older configuration will take over. For the configuration to work you need to provide the <strong>MAC address</strong> of your network interface card in my case it’s <strong>eth0</strong>.<em>Tip : Issue <strong>ifconfig</strong> in the command line and copy and paste the resulting MAC address.</em><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tAI8vTNu1soXAbkN90JihQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjnkrEHGI/AAAAAAAAAJw/ERpTOAIqa30/s800/3.jpg"></a></li>
+<li>In the same windows select the <strong>IPv4 Setting</strong> tab, the drop down menu will offer various option select <strong>Manual</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/5vrZYLJAPygQfSIQHU0Etw"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SRtjj9b2p3I/AAAAAAAAAJs/qgBteaYEsoY/s800/4.jpg"></a></li>
+<li>After selecting <strong>Manual</strong> you have to provide the <strong>IP Address, Netmask, Gateway and DNS Server</strong>. Now click <strong>OK</strong> to save the settings. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/vKmW9PYLO69d12SaCU4oaQ"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtjfsfA_AI/AAAAAAAAAJk/kYMgKRziKk4/s800/5.jpg"></a></li>
+<li>Now the new connection named <strong>“Wired connection 1”</strong> is available. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/DpBLgzeLtN9-oXFUVMknmQ"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjhCQoD0I/AAAAAAAAAJo/idiJkDgNxFc/s800/6.jpg"></a></li>
+<li>Go back to the <strong>network icon</strong> located in the top panel and right click on it. <strong>Wired Connection 1</strong> is now an option right click on it. The system will now change from the previous interface configuration the the new one.<em>Tip :  To verify the changes issue the <strong>ifconfig</strong> command.</em> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/0vepe7MTNN8shIVATzv4wQ"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SRtjZm5ew6I/AAAAAAAAAJg/u9oSTAiSj1o/s800/7.jpg"></a></li>
+<li>The last and perhaps most important step is to go back in to <strong>Edit Connections…</strong> and unchecked the <strong>Connect automatically</strong> option on <strong>Auto eth0</strong> which is the previous faulty Ubuntu configuration. Failure to do so will result in the <strong>Auto eth0</strong> taking over the new configuration on the next reboot. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/yONkVU80CuDnsa-u4CtZ9w"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SRtm6NQWlcI/AAAAAAAAAKI/LVoSoY3CftA/s800/Screenshot-Editing%2520Auto%2520eth0.jpg"></a></li>
+</ol>
+<p>Drop me a line if this was of any help to you.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2008/11/how-to-set-a-static-ip-on-ubuntu-810/" data-id="ckiu07n0e00ien6fx25ii0nej" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
 
     </footer>
   </div>

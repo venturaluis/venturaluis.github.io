@@ -62,62 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/">Clone a Hard Drive over the Network with DD</a>
-    </h1>
-  
-
-        <a href="/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" class="article-date">
-  <time datetime="2010-10-06T07:39:57.000Z" itemprop="datePublished">2010-10-06</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of three different tools available in UNIX-like operating systems. Thanks to DD, Gzip, and OpenSSH I am able to make an exact copy of a drive, compress the resulting drive image while sending the resulting data to another remote system. The case for making use of this method is for when you either lack the local space to store the image or want to keep a backup in a remote system. It doesn’t hurt to backup valuable data, accidents happen. Also, it would be wise to compress the resulting image, I rather have the system spend the extra effort compressing the image using Gzip than to thave the uncompressed image taking more space than it should. What is great about this combination is that you can backup and restore the image using the same tools.</p>
-<blockquote>
-<p>Remember to un-mount the drive you wish to clone. Not doing so may result in possible data corruption.</p>
-</blockquote>
-<h2 id="Locate-The-Drive-You-Wish-To-Backup"><a href="#Locate-The-Drive-You-Wish-To-Backup" class="headerlink" title="Locate The Drive You Wish To Backup"></a>Locate The Drive You Wish To Backup</h2><p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
-<p>[root@system7]# lshw -C disk</p>
-<p>*-cdrom<br>       description: DVD-RAM writer<br>       product: CDDVDW SH-S203N<br>       vendor: TSSTcorp<br>       physical id: 0.0.0<br>       bus info: scsi@1:0.0.0<br>       logical name: /dev/cdrom<br>       logical name: /dev/dvd<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       version: SB01<br>       serial: NECVMWarVMware IDE CDR101.00<br>       capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram<br>       configuration: ansiversion=5 status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       size: 50GiB (53GB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=000e4a4e</p>
-<h2 id="Backup-To-Remote-Server"><a href="#Backup-To-Remote-Server" class="headerlink" title="Backup To Remote Server"></a>Backup To Remote Server</h2><p>This command will copy, compress and send the image to the remote server.</p>
-<p>dd if=/dev/sdb | gzip -c –fast | ssh user@ip ‘dd of=/home/user/sdb.img.gz’</p>
-<p>Explanation: DD has been instructed to copy the drive /dev/sdb. Gzip will be used for compression, <strong>- c</strong> means Write on standard output, keep original files unchanged, <strong>- -fast</strong> mean Compress faster at the expense of high compression ration. The image will then be transferred via OpenSSH using the provided user credentials to the user directory <em>/home/user</em>. Note: the backup image makes use of the <strong>.gz</strong> extension to indicate compression is being used.</p>
-<h2 id="Restore-From-Remote-Server"><a href="#Restore-From-Remote-Server" class="headerlink" title="Restore From Remote Server"></a>Restore From Remote Server</h2><p>Restoring the image is not that different from the command used to backup the image.</p>
-<p>ssh user@ip ‘dd if=/home/user/sdb.img.gz’ | gunzip -1 - | dd of=/dev/sdb</p>
-<p>Explanation: Using OpenSSH log in to the remote system where the image is stored and with DD pull the image. <strong>Gunzip</strong> will be used to decompress the image crated by Gzip. Once again DD will be in charged of writing the image to /dev/sdb.</p>
-<h2 id="Keep-In-Mind"><a href="#Keep-In-Mind" class="headerlink" title="Keep In Mind"></a>Keep In Mind</h2><p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" data-id="ckitzx0760057h3fx8ynf001y" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gzip/" rel="tag">gzip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -158,7 +102,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/" data-id="ckitzx06l003ph3fx137598zy" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/" data-id="ckiu07muu003pn6fx91db6dfr" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -205,7 +149,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/microsoft-security-essentials-now-free-for-small-businesses/" data-id="ckitzx0bl00gzh3fx30xb5mf0" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/microsoft-security-essentials-now-free-for-small-businesses/" data-id="ckiu07n2400nan6fx8f24bkt0" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/anti-virus/" rel="tag">anti virus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft-security-essentials/" rel="tag">microsoft security essentials</a></li></ul>
@@ -267,7 +211,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/check-a-drive-for-bad-sectors-with-badblocks/" data-id="ckitzx070004oh3fx8bcjf9pt" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/check-a-drive-for-bad-sectors-with-badblocks/" data-id="ckiu07mvb004rn6fxcoqbdqxg" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/badblocks/" rel="tag">badblocks</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compact-flash/" rel="tag">compact flash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flash-memory/" rel="tag">flash memory</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hard-drives/" rel="tag">hard drives</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parted-magic/" rel="tag">parted magic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sectors/" rel="tag">sectors</a></li></ul>
@@ -324,7 +268,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/09/teracopy-improve-file-copying-speeds/" data-id="ckitzx0ed00osh3fx2yzterhu" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/09/teracopy-improve-file-copying-speeds/" data-id="ckiu07n4z00vpn6fxf5527qfs" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/teracopy/" rel="tag">teracopy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-explorer/" rel="tag">windows explorer</a></li></ul>
@@ -380,7 +324,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/cutepdf-writer-print-to-pdf-on-windows/" data-id="ckitzx07n006jh3fx8zpw8zug" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/cutepdf-writer-print-to-pdf-on-windows/" data-id="ckiu07my700byn6fx4u3b9xp2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cutepdf-writer/" rel="tag">cutepdf writer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pdf/" rel="tag">pdf</a></li></ul>
@@ -427,7 +371,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/google-integrates-voice-into-gmail/" data-id="ckitzx09400anh3fxhts621ww" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/google-integrates-voice-into-gmail/" data-id="ckiu07mzk00g7n6fxbdp250f8" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google/" rel="tag">google</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/voip/" rel="tag">voip</a></li></ul>
@@ -491,7 +435,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/" data-id="ckitzx0cq00k7h3fx5qeje6df" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/" data-id="ckiu07n3a00qwn6fxd9j89bqh" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/blackberry/" rel="tag">blackberry</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/opensolaris/" rel="tag">opensolaris</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualization/" rel="tag">virtualization</a></li></ul>
@@ -541,7 +485,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckitzx0d600ljh3fx0t2x1f47" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckiu07n3p00scn6fxb39q97p5" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -597,10 +541,54 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/08/azure-test-drive-bye-google-wave-hotmail-face-lift-softlayer-the-planet-merger/" data-id="ckitzx0690035h3fxh7k2hhb8" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/08/azure-test-drive-bye-google-wave-hotmail-face-lift-softlayer-the-planet-merger/" data-id="ckiu07muj0031n6fx2lo401ip" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/azure/" rel="tag">azure</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/google-wave/" rel="tag">google wave</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hosting/" rel="tag">hosting</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hotmail/" rel="tag">hotmail</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/office/" rel="tag">office</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-free-amazon-prime-membership-for-college-students" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/08/free-amazon-prime-membership-for-college-students/">Free Amazon Prime Membership For College Students</a>
+    </h1>
+  
+
+        <a href="/2010/08/free-amazon-prime-membership-for-college-students/" class="article-date">
+  <time datetime="2010-08-08T07:28:02.000Z" itemprop="datePublished">2010-08-08</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>If you are a college student with an email address ending in .edu then you may qualify for a free membership program offered by Amazon called <a target="_blank" rel="noopener" href="http://www.amazon.com/gp/student/signup/info">Amazon Student</a>. The membership is basically a free year membership of Amazon prime (cost of $79), all qualifying Amazon purchases will be sent via two day shipping (UPS) or you can pay $3.99 to upgrade to one day shipping. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TE6Udi-QaJI/AAAAAAAACcQ/MIFCcJj8OvA/s800/prime_edu%20-%20Copy.png"> Of course Amazon will verify the email address by sending you a confirmation email to the provided address, you will then be sent to a page at Amazon.com where you will also need to provide the name of the school you are attending and indicate you major. Hopefully, you will take advantage of this great offer available only to college students.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://www.amazon.com/gp/student/signup/info">Amazon Student</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/08/free-amazon-prime-membership-for-college-students/" data-id="ckiu07mz700fan6fxbbcr39gq" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/amazon/" rel="tag">amazon</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/edu/" rel="tag">edu</a></li></ul>
 
     </footer>
   </div>

@@ -62,62 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-pfsense-installation-guide" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2010/03/pfsense-installation-guide/">pfSense Installation Guide</a>
-    </h1>
-  
-
-        <a href="/2010/03/pfsense-installation-guide/" class="article-date">
-  <time datetime="2010-03-29T07:19:15.000Z" itemprop="datePublished">2010-03-29</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>PfSense is an open source firewall and router distribution based on FreeBSD and the result of a m0n0wall fork. PfSense is rock solid and doesn’t suffer from hardware or software limitations imposed by the vendors. Despite being based on FreeBSD, the administration of pfSense is done via a web interface that is not useless. There is no need for previous FreeBSD experience in order to administer pfSense. For those who have no previous experience in installing FreeBSD or using text based installers may find the installation process intimidating or discouraging. This tutorial aims to prove the opposite, once you are done with this tutorial you will find the text based installer to be intuitive.</p>
-<h4 id="Before-You-Can-Install"><a href="#Before-You-Can-Install" class="headerlink" title="Before You Can Install"></a>Before You Can Install</h4><p>You will need to download the <a target="_blank" rel="noopener" href="http://www.pfsense.org/mirror.php?section=downloads">pfSense ISO</a> which is also a live CD or the embbeded image if you wish.</p>
-<ul>
-<li>The live CD can be used for installations on a hard drive.</li>
-<li>The embedded can used for installations on embbed hardware that makes use of storage media like compact flash cards.</li>
-</ul>
-<p>For this tutorial, I will use the live cd ISO <strong>pfSense-1.2.3-RELEASE-LiveCD-Installer.iso.gz</strong>(at the time of this writing). The ISO needs to be burned in a CD/DVD.</p>
-<blockquote>
-<p>Note: If you download the iso.gz on Windows you will need a tool that can open .gz, I recommend you download <a target="_blank" rel="noopener" href="http://www.7-zip.org/">7Zip</a> .</p>
-</blockquote>
-<p>Remember to set your motherboard BIOS to boot from CD/DVD media.</p>
-<h4 id="Let’s-Start"><a href="#Let’s-Start" class="headerlink" title="Let’s Start"></a>Let’s Start</h4><p>After booting pfSense will present you with a series of options, you can use the default by pressing the <strong>Enter</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/S11IPIJP-I_XTdkYdHc_Wg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S58NyCD-ezI/AAAAAAAACEU/RI430fZteZc/s800/1.png"></a> Now allow pfSense some time to do many things like mount the file file system, etc…. After it’s done you have <strong>10 seconds</strong> to press <strong>I</strong> on your keyboard to launch the installer, otherwise pfSense will auto boot (we don’t want auto boot). <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ufbvWANxCTlivifdCDVlsg?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58NyX1qXXI/AAAAAAAACEY/EJEZikASEB8/s800/2.png"></a> On this screen the installer will allow you to change some aspects like: console font and keymap. Since I don’t wish to change any of the defaults select <strong>Accept these settings</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/6lkUPAocpzwWE7yPnXvpcA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S58Nyfu4_aI/AAAAAAAACEc/okJJGLBIoz4/s800/3.png"></a> On this screen we can choose between installing using the defaults, do a custom install, or rescue an existing install. The defaults will work, select <strong>Quick/Easy Install</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/DtiORUSvzEt-VhPgzaWQVg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S58NymjjMDI/AAAAAAAACEg/q0EjOs9Igt4/s800/4.png"></a> This installation will occupy the entire hard drive which is why I select <strong>OK</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/HQ30KgQpY16ZYRmFcd7Y9w?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58NyqadtnI/AAAAAAAACEk/KfczYLP_V5M/s800/5.png"></a> Installation starts……………….. [<img src="http://lh4.ggpht.com/_fF0LO28FGYY/S58N7r22pzI/AAAAAAAACEo/Ab20nMESsx8/s800/6.png">](<a target="_blank" rel="noopener" href="http://picasaweb.google.co/">http://picasaweb.google.co</a><br>m/lh/photo/c5okwZL-jNbNNxjDyU-qdQ?feat=embedwebsite) Choose carefully, in order to select the right option on this screen you have to be fully aware of the hardware you are using. Since the system I am using to install pfSense on has one processor I select <strong>Uniprocessor Kernel(one processor)</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/rA89P7_Nsf481-VQ3oggYg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S58N7vlcRDI/AAAAAAAACEs/CVuYMJGRoCY/s800/7.png"></a> Reboot and remove the CD/DVD from the drive tray. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/1eLrEJPduvOx8zwdtUZrWQ?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S58N7xbmVQI/AAAAAAAACEw/WSmonBQ_kR0/s800/8.png"></a> One the first things pfSense will do is attempt to label the network interfaces(remember their names). You will also be presented with the question <strong>‘Do you want to set up VLANs now ?’</strong>, since I rather set up VLANs via the web interface I typed <strong>N</strong> and press on the <strong>Enter</strong> key. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/a0SJ2t_R8QY995GYz2zBrg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S58N8Kn1aiI/AAAAAAAACE0/NpCyRcmJRvU/s800/9.png"></a> Move on to the network interfaces, auto detection never works for me instead I typed the name of the network interface and press <strong>Enter</strong>. Both of the interfaces were detected and given the names of <strong>em0</strong> and <strong>em1</strong>. Pfsense will try assign one interface to the LAN interface and the second one to the WAN interface, type <strong>Y</strong> to proceed. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/_mdXRDmriDN1gGmWll0kvQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S58N-vpFB5I/AAAAAAAACE8/DWjIK2HFAD8/s800/11.png"></a> Let me break the news, you have just installed pfSense to a hard drive and assigned both of the network interfaces to their proper duties. In the screenshot below you can see the IP addresses for both the LAN and WAN interfaces. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/a8y2u1kjhpmblTrpHEgQZA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S58N-0-Rt7I/AAAAAAAACFA/XC2lFTM1m8Y/s800/12.png"></a></p>
-<h4 id="Web-Interface"><a href="#Web-Interface" class="headerlink" title="Web Interface"></a>Web Interface</h4><p>You can make further changes by login-in to the web interface by using the LAN IP address. The default username is <strong>admin</strong> and default password is <strong>pfsense</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/cYcHTWEXlMgKaoT6WSDsKA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S7BS40stHCI/AAAAAAAACHE/7ZU1X1RGA-E/s800/pfsense-webgui.png"></a> The text based installer is easy to understand, if you still don’t like it remember you won’t have to make use of it often.</p>
-<h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><p><a target="_blank" rel="noopener" href="http://www.pfsense.org/">pfSense.org</a></p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/03/pfsense-installation-guide/" data-id="ckitzx0cw00kph3fxg46ahess" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/freebsd/" rel="tag">freebsd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pfsense/" rel="tag">pfsense</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/text-installer/" rel="tag">text installer</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-free-namebench-dns-benchmarking-tool" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -157,7 +101,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/03/free-namebench-dns-benchmarking-tool/" data-id="ckitzx08y00a5h3fxdo9k9o0q" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/03/free-namebench-dns-benchmarking-tool/" data-id="ckiu07mzd00fpn6fx3wgudfde" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/benchmark/" rel="tag">benchmark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/namebench/" rel="tag">namebench</a></li></ul>
@@ -211,7 +155,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/03/test-for-errors-in-memory-with-memtest86/" data-id="ckitzx0ee00ouh3fx92o1b640" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/03/test-for-errors-in-memory-with-memtest86/" data-id="ckiu07n5000vsn6fxevkzb9yp" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diagnosis/" rel="tag">diagnosis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memtest86/" rel="tag">memtest86+</a></li></ul>
@@ -280,7 +224,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/" data-id="ckitzx071004rh3fx2mh3fmyi" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/" data-id="ckiu07mva004on6fx5r34acv2" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/checksum/" rel="tag">checksum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5/" rel="tag">md5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5deep/" rel="tag">md5deep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
@@ -332,7 +276,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/02/iperf-on-windows/" data-id="ckitzx0ao00ekh3fxf5ccfb2v" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/02/iperf-on-windows/" data-id="ckiu07n1900kln6fx3mnb73zj" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iperf/" rel="tag">iperf</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network-performance/" rel="tag">network performance</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -375,7 +319,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/02/enable-ping-on-windows-server-2008/" data-id="ckitzx089008gh3fx2f1mbvmh" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/02/enable-ping-on-windows-server-2008/" data-id="ckiu07myr00dtn6fx8755h44d" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
@@ -421,7 +365,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/02/free-microsoft-web-platform-installer/" data-id="ckitzx08x00a1h3fx61fkaz4i" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/02/free-microsoft-web-platform-installer/" data-id="ckiu07mzc00fln6fx5s68hf6m" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/installer/" rel="tag">installer</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/microsoft/" rel="tag">microsoft</a></li></ul>
@@ -475,7 +419,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/02/free-hashcheck-windows-checksum-utility/" data-id="ckitzx08v009yh3fx987vcp36" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/02/free-hashcheck-windows-checksum-utility/" data-id="ckiu07mzb00fin6fx8lzn98bo" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashcheck/" rel="tag">hashcheck</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -522,7 +466,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/01/help-a-family-in-desparate-need/" data-id="ckitzx09b00b6h3fxa3vt13w7" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/01/help-a-family-in-desparate-need/" data-id="ckiu07mzq00gsn6fx5b4f26ow" class="article-share-link">Share</a>-->
       
       
     </footer>
@@ -572,10 +516,76 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2010/01/configure-ubuntu-server-with-static-ip/" data-id="ckitzx07e005uh3fx9p6jebpw" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2010/01/configure-ubuntu-server-with-static-ip/" data-id="ckiu07mvs005sn6fx18utfhef" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu-installation-on-a-usb-flash-drive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/01/ubuntu-installation-on-a-usb-flash-drive/">Ubuntu installation on a USB flash drive</a>
+    </h1>
+  
+
+        <a href="/2010/01/ubuntu-installation-on-a-usb-flash-drive/" class="article-date">
+  <time datetime="2010-01-13T22:34:34.000Z" itemprop="datePublished">2010-01-13</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Installing Linux on a USB flash drive is no longer complex process thanks to a tool called UNetbooting which is free of cost. UNetbootin takes care of mostly everything for the user, it can use ISOs already in the system or download them over the Internet for the user. It can’t get any easier than that.</p>
+<h4 id="Get-UNetbootin"><a href="#Get-UNetbootin" class="headerlink" title="Get UNetbootin"></a>Get UNetbootin</h4><p>You can download <a target="_blank" rel="noopener" href="http://unetbootin.sourceforge.net/">UNetbooting</a> from <a target="_blank" rel="noopener" href="http://unetbootin.sourceforge.net/">http://unetbootin.sourceforge.net/</a> , you have the option of choosing between Windows and Linux. For the purpose of this tutorial I will be using the Windows download. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/5qpWrPXkT5FsYIDR0Z2LUg?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S04_70QZoQI/AAAAAAAAB38/yU2XMsrngAA/s400/unet_1.png"></a></p>
+<h4 id="How-To"><a href="#How-To" class="headerlink" title="How To"></a>How To</h4><p>After clicking on the executable you will be presented with several options. You can either download the distribution of your choice over the Internet and have UNetbooting install it. Or use an ISO file you already have.</p>
+<ul>
+<li>Click on <strong>Diskimage</strong> to select and then <strong>browse</strong> for the ISO you wish to install on the USB drive.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/wQr27i2X_vCJf-aEe353pA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S05CRIzjv5I/AAAAAAAAB4s/htPpN2ciYL8/s800/unet_3.png"></a></p>
+<ul>
+<li>With the ISO selected you can move on to select the drive letter you wish to use. By default UNetbootin will only show the drive letter for removable devices and not permanent storage devices. This is meant to prevent accidental damage to internal drives.</li>
+<li>My USB drive uses the drive letter <strong>G</strong>, with that in mind I can click on <strong>OK</strong> to start the installation process.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/oP2vWW2Qpi13q7bY_z0mEQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S05CRXYWPdI/AAAAAAAAB4w/xQ5Go6kIUdA/s800/unet_4.png"></a></p>
+<ul>
+<li>Give the process some time to complete.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/KhfbkioqJXqBIifoVe-tMQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S05CRrRfR7I/AAAAAAAAB40/p-kdp8V0RHI/s800/unet_5.png"></a></p>
+<ul>
+<li>After the installation is done you can safely reboot the system and boot from the USB drive. Remember to set the BIOS to USB boot.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/MX-HQHm6SG0f8x9utwB7pg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S05CR828IWI/AAAAAAAAB44/OTL9O5uI6pI/s800/unet_6.png"></a></p>
+<ul>
+<li>System booting from USB flash drive.</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/uEN3S8BIoCD3NxJY9NPrJw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S05AtU1oa3I/AAAAAAAAB4U/5BYdjBmtWik/s400/motonir_unet.JPG"></a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/01/ubuntu-installation-on-a-usb-flash-drive/" data-id="ckiu07n5i00xbn6fx5zn9hqzu" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/uentbootin/" rel="tag">uentbootin</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usb-install/" rel="tag">usb install</a></li></ul>
 
     </footer>
   </div>

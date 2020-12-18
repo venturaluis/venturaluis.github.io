@@ -62,84 +62,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-centos-6-has-no-network-connectivity" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2011/12/centos-6-has-no-network-connectivity/">CentOS 6 Has No Network Connectivity ?</a>
-    </h1>
-  
-
-        <a href="/2011/12/centos-6-has-no-network-connectivity/" class="article-date">
-  <time datetime="2011-12-02T05:53:28.000Z" itemprop="datePublished">2011-12-01</time>
-</a>
-      </header>
-    
-    <div class="article-entry-abstract" itemprop="articleBody">
-      
-        <!--<p>This is for those of you who are new to CentOS. By default CentOS 6 will not configure network interfaces on a new installation which means the host will have no network connectivity, we can correct this inconvenience with little effort. Of course this means the user(you) is left with the decision to configure the network interface(s) with either a static or dynamically assigned IP addresses. First of all we need to see the contents of the <strong><em>ifcfg-eth0</em></strong> file.</p>
-<p>cat /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<p>DEVICE=”eth0”<br>HWADDR=”MAC Address”<br>NM_CONTROLLED=”yes”<br>ONBOOT=”no”</p>
-<p>The output above indicates <em><strong>eth0</strong></em> is disabled, this is when you either opt to set a static IP or dynamically assigned IP. With the text editor of your choice open the <strong>/etc/sysconfig/network-scripts/ifcfg-eth0</strong> and edit as indicated below.</p>
-<p>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<h3 id="DHCP-Configuration"><a href="#DHCP-Configuration" class="headerlink" title="DHCP Configuration"></a>DHCP Configuration</h3><p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”dhcp”</p>
-<ul>
-<li><em><strong>DEVICE=”eth0”</strong></em> - Name of Network Interface.</li>
-<li><strong>HWADDR=MAC Address*System MAC*</strong> - MAC address of Network Interface.</li>
-<li><em><strong>NM_CONTROLLED=”no”</strong></em> - Network Manager should disable since it’s unnecessary in this configuration.</li>
-<li><em><strong>ONBOOT=”yes” -</strong></em> - Means the NIC will be started during boot.</li>
-<li><strong><em>BOOTPROTO=”dhcp”</em></strong> - Instructions the OS to find a DHCP server from which to obtain an IP address. The DHCP server will assign all necessary network information including IP address, Netmask, Gateway and DNS server.</li>
-</ul>
-<p>Restart the network service.</p>
-<p>/etc/init.d/network restart</p>
-<p>or</p>
-<p>service network restart</p>
-<h3 id="Static-Configuration"><a href="#Static-Configuration" class="headerlink" title="Static Configuration"></a>Static Configuration</h3><p>DEVICE=”eth0”<br>HWADDR=MAC Address*System MAC*<br>NM_CONTROLLED=”no”<br>ONBOOT=”yes”<br>BOOTPROTO=”static”<br>IPADDR=192.168.x.x.<br>NETMASK=255.255.255.0.</p>
-<ul>
-<li><strong><em>DEVICE=”eth0″</em></strong> - Name of Network Interface.</li>
-<li><strong><em>HWADDR=MAC Address*System MAC*</em></strong> - MAC address of Network Interface.</li>
-<li><strong><em>NM_CONTROLLED=”no”</em></strong> - Network Manager shoudl be disable since it’s unnecessary in this configuration.</li>
-<li><strong><em>ONBOOT=”yes”</em></strong> - Means the NIC will be started during boot.</li>
-<li><strong><em>BOOTPROTO=”static”</em></strong> - IP configuration will be static.</li>
-<li><strong><em>IPADDR=192.168.x.x</em></strong> - System IP address.</li>
-<li><strong><em>NETMASK=255.255.255.0</em></strong> - Network Mask.</li>
-</ul>
-<h3 id="Gateway-Configuration"><a href="#Gateway-Configuration" class="headerlink" title="Gateway Configuration"></a>Gateway Configuration</h3><p><em>*DHCP Users should ignore this step.</em> In order to add a Gateway to our system we need to edit <strong><em>/etc/sysconfig/network</em></strong>. In order to add the network gateway edit <strong><em>/etc/sysconfig/network</em></strong> and add <strong><em>GATEWAY=192.168.x.x</em></strong>.</p>
-<p>NETWORKING=yes<br>HOSTNAME=localhost.localdomain<br>GATEWAY=192.168.111.1</p>
-<h3 id="DNS-Configuration"><a href="#DNS-Configuration" class="headerlink" title="DNS Configuration"></a>DNS Configuration</h3><p><em>*DHCP Users should ignore this step.</em> Now we add the DNS server(s) for our host. Edit <strong>/etc/resolv.conf</strong> and add <strong>nameserver 192.168.x.x</strong>.</p>
-<p>nameserver 192.168.111.1</p>
-<p>Restart the network service. This will make sure the changes take effect.</p>
-<p>/etc/init.d/network restart</p>
-<p>or</p>
-<p>service network restart</p>
-<p>As stated by*   Cam<br>it is a good idea to have console access to the server in case you lock your self out it.</p>
--->
-      
-    </div>
-    <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/12/centos-6-has-no-network-connectivity/" data-id="ckitzx06t0047h3fx3awo9v6m" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IP/" rel="tag">IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-split-files-with-7-zip" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     
@@ -192,7 +114,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/11/split-files-with-7-zip/" data-id="ckitzx0e400o7h3fx0wl58k42" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/11/split-files-with-7-zip/" data-id="ckiu07n4r00v1n6fx6ixzgcy6" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/7-zip/" rel="tag">7-zip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compression/" rel="tag">compression</a></li></ul>
@@ -235,7 +157,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/10/work-with-the-right-tools/" data-id="ckitzx0lk01djh3fx77bp5wkr" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/10/work-with-the-right-tools/" data-id="ckiu07n7f0127n6fx93ts1gvj" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/psp/" rel="tag">psp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spudger/" rel="tag">spudger</a></li></ul>
@@ -297,7 +219,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/09/time-for-a-new-nas/" data-id="ckitzx0el00pch3fx94mlal9k" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/09/time-for-a-new-nas/" data-id="ckiu07n5600wdn6fx2b7e3nuw" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
@@ -362,7 +284,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/09/how-to-backup-and-restore-the-mbr/" data-id="ckitzx09e00bfh3fxc0f29lp3" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/09/how-to-backup-and-restore-the-mbr/" data-id="ckiu07mzu00h2n6fx64159u85" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mbr/" rel="tag">mbr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -413,7 +335,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/09/download-the-windows-8-developer-preview/" data-id="ckitzx0850082h3fxcg08c8vz" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/09/download-the-windows-8-developer-preview/" data-id="ckiu07myp00djn6fx7o6d7zes" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
@@ -456,7 +378,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/09/change-the-default-text-editor-in-winscp-2/" data-id="ckitzx06v004eh3fxc74i9b20" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/09/change-the-default-text-editor-in-winscp-2/" data-id="ckiu07mv6004an6fx5iht1bo4" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editor/" rel="tag">editor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intype/" rel="tag">intype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winscp/" rel="tag">winscp</a></li></ul>
@@ -501,7 +423,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/08/windows-7-network-share-trust/" data-id="ckitzx0ku01c1h3fxgdyi847l" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/08/windows-7-network-share-trust/" data-id="ckiu07n6s010hn6fx5ds9gbf8" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/" rel="tag">storage</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-7/" rel="tag">windows 7</a></li></ul>
@@ -545,7 +467,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/08/vmware-changes-to-the-vram-licensing-model/" data-id="ckitzx0fl00rvh3fxf5gg80qg" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/08/vmware-changes-to-the-vram-licensing-model/" data-id="ckiu07n6700z1n6fx1owsd1im" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/licensing/" rel="tag">licensing</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
@@ -595,10 +517,55 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <!--<a data-url="http://linhost.info/2011/07/schedule-a-shutdown-in-windows/" data-id="ckitzx0dq00n2h3fxdb39a5en" class="article-share-link">Share</a>-->
+      <!--<a data-url="http://linhost.info/2011/07/schedule-a-shutdown-in-windows/" data-id="ckiu07n4f00tyn6fx7a2fc7iv" class="article-share-link">Share</a>-->
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-securely-erase-a-drive-with-ccleaner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2011/07/securely-erase-a-drive-with-ccleaner/">Securely Erase A Drive With CCleaner</a>
+    </h1>
+  
+
+        <a href="/2011/07/securely-erase-a-drive-with-ccleaner/" class="article-date">
+  <time datetime="2011-07-20T07:26:51.000Z" itemprop="datePublished">2011-07-20</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>By know you probably already know of <a target="_blank" rel="noopener" href="http://www.piriform.com/CCLEANER">CCleaner</a> and how its commonly used to remove unwanted files from a system make registry changes and other system related tasks. Another great feature is the included ability to securely wipe drives called <strong>Drive Wiper</strong>. Drive Wiper supports both hard drives and USB drives and can be instructed to either erase <strong>Free Space only</strong> or erase the <strong>Entire Drive (all data will be erased)</strong>. Compared with other applications you can have CCleaner wiping a drive in a matter of minutes. You can choose from four sanitation methods: <em>Simple Overwrite (1 pass)</em>, <em>DOD 552.22-M (3 passes)</em>, <em>NSA (7 passes)</em>, <em>Gutmann (35 passes)</em>. For demonstration purposes I will be using a 512MB Flash Drive as the target drive, always make sure you are wiping the intended drive.</p>
+<h3 id="Let’s-Start"><a href="#Let’s-Start" class="headerlink" title="Let’s Start"></a>Let’s Start</h3><p>Start <strong>CCleaner</strong> and on the sidebar located on the left and click on <strong>Tools</strong> <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/--aEZpCe5W7Y/TiZtTDxG0aI/AAAAAAAADJc/lgILzSQedJY/s800/ccleaner1.png"><img src="https://lh5.googleusercontent.com/--aEZpCe5W7Y/TiZtTDxG0aI/AAAAAAAADJc/lgILzSQedJY/s400/ccleaner1.png" title="CCleaner Main"></a> Click on the <strong>Drive Wiper</strong> button. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-XhAhvVKehN4/TiZxS1SvElI/AAAAAAAADJ8/VtYU6mT15R8/s800/ccleaner2.png"><img src="https://lh5.googleusercontent.com/-XhAhvVKehN4/TiZxS1SvElI/AAAAAAAADJ8/VtYU6mT15R8/s800/ccleaner2.png" title="Drive Wiper"></a> Here you can select what what parts of the drive will be erased, your options are <strong>Free Space only</strong> and <strong>Entire Drive (all data will be erased)</strong>. I want all the data in the drive gone, therefore I am going with <strong>Entire drive</strong> option. You also have to choose the sanitation method, or how the data will be erased. You can choose between <em>Simple Overwrite (1 pass)</em>, <em>DOD 552.22-M (3 passes)</em>, <em>NSA (7 passes)</em>, <em>Gutmann (35 passes)</em>, the more passes the longer it will take but also the more secure it is(depends on who you ask). For my purpose <strong>Overwrite (1 pass)</strong> will be enough for my Flash Drive. And click on <strong>Wipe</strong>, we are almost there. <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-gKDiCNkHqcM/TiZxSjeq7YI/AAAAAAAADJ4/o3YKjqsrIpU/s800/ccleaner3.png"><img src="https://lh3.googleusercontent.com/-gKDiCNkHqcM/TiZxSjeq7YI/AAAAAAAADJ4/o3YKjqsrIpU/s800/ccleaner3.png" title="Drive Wiper 2"></a> Because humans can’t be trusted you will be asked to type the following text exactly as it is and then click on <strong>OK</strong>. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-yPIEdLdVStA/TiZtWHKFKSI/AAAAAAAADJk/TmfV_t5rqhs/s800/ccleaner4.png"><img src="https://lh4.googleusercontent.com/-yPIEdLdVStA/TiZtWHKFKSI/AAAAAAAADJk/TmfV_t5rqhs/s800/ccleaner4.png" title="CCleaner Options"></a> My 512MB Flash Drive took a total time of three minutes and twenty seconds to complete, the larger the drive the longer it will take to erase the contents. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-V61IC1Wn7hI/TiZtXLANYnI/AAAAAAAADJo/w5rMdESR_Wc/s800/ccleaner5.png"><img src="https://lh4.googleusercontent.com/-V61IC1Wn7hI/TiZtXLANYnI/AAAAAAAADJo/w5rMdESR_Wc/s800/ccleaner5.png" title="Erase"></a> After the process is done you will be taken back to Drive Wiper Menu. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-0STLxcj2RR4/TiZtY67CVEI/AAAAAAAADJs/iOhVBNMXg14/s800/ccleaner6.png"><img src="https://lh4.googleusercontent.com/-0STLxcj2RR4/TiZtY67CVEI/AAAAAAAADJs/iOhVBNMXg14/s400/ccleaner6.png" title="Back to main menu"></a> With CCleaner and Drive Wiper securely erasing the contents of a drive could not be easier. Users will appreciate the clean interface that removes unnecessary options that only serve to take space and confuse the user. It doesn’t get any better for a tool that is freely available. If you have any questions leave a comment below and I will try to respond as soon as possible.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links:"></a>Links:</h3><p><a target="_blank" rel="noopener" href="http://www.piriform.com/CCLEANER">CCleaner Home Page</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2011/07/securely-erase-a-drive-with-ccleaner/" data-id="ckiu07n4g00u2n6fxdn1h9gid" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ccleaner/" rel="tag">ccleaner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
 
     </footer>
   </div>
