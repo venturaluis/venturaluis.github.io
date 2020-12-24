@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Change NIC setting in Linux | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="If you ever find your self in need of changing or setting different parameters on a network interface then you need to install Ethtool. Basically you can set the duplex on a network interface and link">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Change NIC setting in Linux">
+<meta property="og:url" content="http://linhost.info/2009/01/change-nic-setting-in-linux/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="If you ever find your self in need of changing or setting different parameters on a network interface then you need to install Ethtool. Basically you can set the duplex on a network interface and link">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2009-01-30T04:38:30.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.391Z">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="network">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-change-nic-setting-in-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Change NIC setting in Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you ever find your self in need of changing or setting different parameters on a network interface then you need to install <strong>Ethtool</strong>. Basically you can set the duplex on a network interface and link speed among many other things. Do not dismiss Ethtool, I have found it to be useful for configuring Linux devices that need to be linked to legacy networking devices or some network related funkiness that results in auto-negotiation not working. In order to use Ethtool you need to have root. <a target="_blank" rel="noopener" href="http://gd.tuwien.ac.at/linuxcommand.org/man_pages/ethtool8.html">Ethtool man page</a></p>
+<h4 id="Basic-use"><a href="#Basic-use" class="headerlink" title="Basic use"></a>Basic use</h4><p>Ethtool can output detailed information about the NIC. Here you can see all the supported link modes and current settings.</p>
+<p>ethtool eth0</p>
+<p>Output.</p>
+<p>Settings for eth0:<br>    Supported ports: [ TP MII ]<br>    Supported link modes:   10baseT/Half 10baseT/Full<br>                            100baseT/Half 100baseT/Full<br>    Supports auto-negotiation: Yes<br>    Advertised link modes:  10baseT/Half 10baseT/Full<br>                            100baseT/Half 100baseT/Full<br>    Advertised auto-negotiation: Yes<br>    Speed: 100Mb/s<br>    Duplex: Full<br>    Port: MII<br>    PHYAD: 1<br>    Transceiver: internal<br>    Auto-negotiation: on<br>    Supports Wake-on: g<br>    Wake-on: g<br>    Current message level: 0x00000007 (7)<br>    Link detected: yes</p>
+<h4 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h4><p>To display the available options use.</p>
+<p>ethtool -h</p>
+<p>Ethtool is by no means limited, but this are some of the common options I use.</p>
+<ul>
+<li>full speed <strong>10</strong> | <strong>100</strong> | <strong>1000</strong></li>
+<li>duplex <strong>half</strong> | <strong>full</strong></li>
+<li>autoneg <strong>on</strong> | <strong>off</strong></li>
+</ul>
+<h4 id="Working-examples"><a href="#Working-examples" class="headerlink" title="Working examples"></a>Working examples</h4><p>Some networking devices have a difficult time auto-negotiating with other network devices, mostly legacy devices that only support half duplex like hubs. On this example eth0 is configured to work at <strong>half duplex</strong> and turn <strong>auto-negotiation off</strong>.</p>
+<p>ethtool -s eth0 duplex half autoneg off</p>
+<p>In this example the interface is force to work at <strong>full duplex</strong>, turn <strong>auto-negotiation</strong> off and set the <strong>speed</strong> to 1000 Mb/s.</p>
+<p>ethtool -s eth0 duplex full speed 1000 autoneg off</p>
+<p>Ethtool is by no means difficult to use, it’s mostly about matching the desired settings. I recommend you click the link located at the top of the article to to learn more about Ethtool.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/01/change-nic-setting-in-linux/" data-id="ckj2hnjm6004ay6fx9d8o57wm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/02/encrypt-files-with-gpg-on-linux/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Encrypt files with GPG on Linux
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/01/drm-flawed-technology-only-works-on-the-executives-minds/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">DRM flawed technology, only works on the executives minds</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

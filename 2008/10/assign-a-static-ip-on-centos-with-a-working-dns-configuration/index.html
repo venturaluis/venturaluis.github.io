@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Assign A Static IP On CentOS With A Working DNS Configuration | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="First we need to become in order to issue the “setup” command. [root@localhost ~]# setup A text configuration page will appear, choose “Network configuration”.  Choose the intended interface that will">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Assign A Static IP On CentOS With A Working DNS Configuration">
+<meta property="og:url" content="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="First we need to become in order to issue the “setup” command. [root@localhost ~]# setup A text configuration page will appear, choose “Network configuration”.  Choose the intended interface that will">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/m5it.luis/SO5kCA4cJDI/AAAAAAAAAG0/j4lxr60L9yY/s800/init001.jpg">
+<meta property="og:image" content="http://lh5.ggpht.com/m5it.luis/SO5kGo-EnLI/AAAAAAAAAG4/CeCMLKGid9I/s800/init002.jpg">
+<meta property="og:image" content="http://lh3.ggpht.com/m5it.luis/SO5kJuvmSrI/AAAAAAAAAG8/93eO-iaryao/s800/init003.jpg">
+<meta property="article:published_time" content="2008-10-09T20:21:52.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.249Z">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="dns">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/m5it.luis/SO5kCA4cJDI/AAAAAAAAAG0/j4lxr60L9yY/s800/init001.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-assign-a-static-ip-on-centos-with-a-working-dns-configuration" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Assign A Static IP On CentOS With A Working DNS Configuration
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>First we need to become in order to issue the “setup” command.</p>
+<p>[root@localhost ~]# setup</p>
+<p>A text configuration page will appear, choose “Network configuration”. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/w2LFECyBsTM8SG4ra60Zgw"><img src="http://lh3.ggpht.com/m5it.luis/SO5kCA4cJDI/AAAAAAAAAG0/j4lxr60L9yY/s800/init001.jpg"></a> Choose the intended interface that will be assigned the static IP. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/TNHWWeqQe0QgPk_z6sVRkw"><img src="http://lh5.ggpht.com/m5it.luis/SO5kGo-EnLI/AAAAAAAAAG4/CeCMLKGid9I/s800/init002.jpg"></a> Remove the star in “Use DHCP” option and start assigning the IP address, Netmask and Gateway address. After you are done choose “OK”. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/HItnWMMMApN-DaQSSWCzTw"><img src="http://lh3.ggpht.com/m5it.luis/SO5kJuvmSrI/AAAAAAAAAG8/93eO-iaryao/s800/init003.jpg"></a> After making the changes don’t forget to choose <strong>Quit</strong> instead of <strong>Cancel</strong> otherwise the changes will not be implemented. The previous instruction should give you a working machine with a static IP, the only problem is that there is no working DNS to reach other domains in the Internet. If you try to ping Google.com you will get an error, however if you Ping one of the many IP’s Google owns like 72.14.207.99 you will have successful packer transmission. To solve this issue we need to add DNS entry’s to the <strong>/etc/resolv.conf</strong> file. Open <strong>/etc/resolv.conf</strong> with your favorite text editor and add the IP addresses for your DNS servers. In this example I added the IP addresses that belong to the OpenDNS service.</p>
+<p>nameserver  208.67.222.222<br>nameserver 208.67.220.220</p>
+<p>Another option is to add the IP address of your gateway (Router) and have it act as the intermediate for your ISP DNS servers. Do not forget to restart your network service or just reboot the entire machine.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/10/assign-a-static-ip-on-centos-with-a-working-dns-configuration/" data-id="ckj2hnjlo002sy6fxawmbbc0b" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dns/" rel="tag">dns</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/10/peek-constructive-critique/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Peek Constructive Critique
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/10/configure-selinux-to-be-permissive/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Configure SELINUX To Be Permissive</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

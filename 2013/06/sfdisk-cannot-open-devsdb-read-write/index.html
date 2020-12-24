@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Sfdisk: cannot open /dev/sdb read-write | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The following command which worked on a Scientific Linux server did not work on a Ubuntu server. sfdisk -d &#x2F;dev&#x2F;sda | sfdisk –force &#x2F;dev&#x2F;sdb Here is the error I received. sudo sfdisk -d &#x2F;dev&#x2F;sdb | sfd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sfdisk: cannot open &#x2F;dev&#x2F;sdb read-write">
+<meta property="og:url" content="http://linhost.info/2013/06/sfdisk-cannot-open-devsdb-read-write/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="The following command which worked on a Scientific Linux server did not work on a Ubuntu server. sfdisk -d &#x2F;dev&#x2F;sda | sfdisk –force &#x2F;dev&#x2F;sdb Here is the error I received. sudo sfdisk -d &#x2F;dev&#x2F;sdb | sfd">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2013-06-17T06:56:34.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.933Z">
+<meta property="article:tag" content="storage">
+<meta property="article:tag" content="raid">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-sfdisk-cannot-open-devsdb-read-write" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Sfdisk: cannot open /dev/sdb read-write
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The following command which worked on a Scientific Linux server did not work on a Ubuntu server.</p>
+<p>sfdisk -d /dev/sda | sfdisk –force /dev/sdb</p>
+<p>Here is the error I received.</p>
+<p>sudo sfdisk -d /dev/sdb | sfdisk –force /dev/sdc<br>         /dev/sdc: Permission denied</p>
+<pre><code>sfdisk: cannot open /dev/sdc read-write</code></pre>
+<p>Even with Sudo the command refused to do what I expected. After a <a target="_blank" rel="noopener" href="http://askubuntu.com/questions/225472/i-would-like-to-have-a-copy-of-all-the-partitions-of-primary-drive-to-a-secondar">quick Google search</a> I found the following which simply suggested to double the Sudo command which if you think about it makes sense.</p>
+<p>sudo sfdisk -d /dev/sdb | sudo sfdisk –force /dev/sdc</p>
+<p>Now I feel stupid, BTW I was creating a RAID 10 array.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2013/06/sfdisk-cannot-open-devsdb-read-write/" data-id="ckj2hnjs900ngy6fx4r174rov" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raid/" rel="tag">raid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/storage/" rel="tag">storage</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/06/6-24-2013-site-migration/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          6-24-2013 Site migration
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/05/how-to-create-avg-bootable-usb-drive/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">How To Create AVG Bootable USB Drive</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

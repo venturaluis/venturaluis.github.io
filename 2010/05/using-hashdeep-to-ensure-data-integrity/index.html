@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Using Hashdeep To Ensure Data Integrity | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of hashdeep. As expected with hashdeep you can: recurse entire directories, perform matching, a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Using Hashdeep To Ensure Data Integrity">
+<meta property="og:url" content="http://linhost.info/2010/05/using-hashdeep-to-ensure-data-integrity/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of hashdeep. As expected with hashdeep you can: recurse entire directories, perform matching, a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-05-31T11:24:16.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.617Z">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="md5">
+<meta property="article:tag" content="data integrity">
+<meta property="article:tag" content="hashdeep">
+<meta property="article:tag" content="sha256">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-using-hashdeep-to-ensure-data-integrity" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Using Hashdeep To Ensure Data Integrity
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>On a previous post I discussed the value of md5deep, now I am going to show you another tool by the name of <a target="_blank" rel="noopener" href="http://md5deep.sourceforge.net/">hashdeep</a>. As expected with hashdeep you can: recurse entire directories, perform matching, audit known hashes. Hashdeep grants auditing capabilities to the administrator. <strong>Official Hashdeep description</strong></p>
+<blockquote>
+<p>Computes multiple hashes, or message digests, for any number of files while optionally recursively digging through the directory structure. By default the program computes MD5 and SHA-256 hashes, equivalent to -c md5,sha256. Can also take a list of known hashes and display the filenames of input files whose hashes either do or do not match any of the known hashes. Can also use a list of known hashes to audit a set of FILES. Errors are reported to standard error. If no FILES are specified, reads from standard input.</p>
+</blockquote>
+<p>Hashdeep is the indicated tool if you need to recurse entire directories, I have personally hashed directories as large as 300GB without any problems.</p>
+<h2 id="Recursive-directory-hashing"><a href="#Recursive-directory-hashing" class="headerlink" title="Recursive directory hashing"></a>Recursive directory hashing</h2><p>The most common use, hashdeep can recurse a directory and output the results to a text file(<em>you can change the extension</em>). The <strong>-e</strong> parameter is optional.</p>
+<p>hashdeep -e -r directory_name/ &gt; output.txt</p>
+<ul>
+<li><strong>-r</strong> Recursive mode</li>
+<li><strong>-e</strong> Estimate time</li>
+</ul>
+<h2 id="Recursive-drive-hashing"><a href="#Recursive-drive-hashing" class="headerlink" title="Recursive drive hashing"></a>Recursive drive hashing</h2><p>Or if you wish you can hash an entire drive.</p>
+<p>hashdeep -r G:</p>
+<ul>
+<li><strong>-r</strong> Recursive mode</li>
+<li><strong>G:</strong> Name of the drive</li>
+</ul>
+<h2 id="Perform-an-audit-using-a-list-of-known-hashes-simple-form"><a href="#Perform-an-audit-using-a-list-of-known-hashes-simple-form" class="headerlink" title="Perform an audit using a list of known hashes (simple form)"></a>Perform an audit using a list of known hashes (simple form)</h2><p>Once you have a list of known hashes you can perform an audit of a directory to see if any changes where made.</p>
+<p>hashdeep -r -a -k output.txt dir</p>
+<ul>
+<li><strong>-r</strong> Recursive mode</li>
+<li><strong>-a</strong> Audit mode</li>
+<li><strong>-k</strong> Load list of known hashes</li>
+<li><strong>output.txt</strong> File containing hashes</li>
+<li><strong>dir</strong> Name of the directory in question</li>
+</ul>
+<p>For this example some files where changed, which resulted in a failed audit.</p>
+<p>hashdeep: Audit failed</p>
+<h2 id="Perform-an-audit-using-a-list-of-known-hashes-advanced-form"><a href="#Perform-an-audit-using-a-list-of-known-hashes-advanced-form" class="headerlink" title="Perform an audit using a list of known hashes (advanced form)"></a>Perform an audit using a list of known hashes (advanced form)</h2><p>This option will give detailed information about the audit.</p>
+<p>hashdeep -v -r -a -k output.txt dir</p>
+<ul>
+<li><strong>-v</strong> Verobose mode</li>
+<li><strong>-r</strong> Recursive mode</li>
+<li><strong>-a</strong> Audit mode</li>
+<li><strong>-k</strong> Load listof known hashes</li>
+<li><strong>output.txt</strong> File containing hashes</li>
+<li><strong>dir</strong> Name of the directory in question</li>
+</ul>
+<p>hashdeep: Audit failed<br>          Files matched: 41<br>Files paritally matched: 0<br>            Files moved: 0<br>        New files found: 1<br>  Known files not found: 1</p>
+<h2 id="Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list"><a href="#Audit-a-list-of-known-hashes-and-display-the-hash-and-location-of-those-that-failed-to-math-against-the-list" class="headerlink" title="Audit a list of known hashes and display the hash and location of those that failed to math against the list"></a>Audit a list of known hashes and display the hash and location of those that failed to math against the list</h2><p>This option will give you the name name, location, and hash of those files that failed to pass the audit.</p>
+<p>hashdeep -r -X -v -k output.txt dir</p>
+<ul>
+<li><strong>-r</strong> Recursive mode</li>
+<li><strong>-X</strong> Display each failed hash that does not match the list of known hashes</li>
+<li><strong>-v</strong> Verbose mode</li>
+<li><strong>-k</strong> Load list of known hashes</li>
+<li><strong>output.txt</strong> File containing hashes</li>
+<li><strong>dir</strong> Name of the directory in question</li>
+</ul>
+<p>%%%% HASHDEEP-1.0<br>%%%% size,md5,sha256,filename</p>
+<h2 id="Invoked-from-C-UsersLuisDesktop"><a href="#Invoked-from-C-UsersLuisDesktop" class="headerlink" title="Invoked from: C:UsersLuisDesktop"></a>Invoked from: C:UsersLuisDesktop</h2><h2 id="C-gt-hashdeep-r-X-v-k-output-txt-dir"><a href="#C-gt-hashdeep-r-X-v-k-output-txt-dir" class="headerlink" title="C:&gt; hashdeep -r -X -v -k output.txt dir"></a>C:&gt; hashdeep -r -X -v -k output.txt dir</h2><p>##<br>6,dcd989387b401ac29bf44755f31c0952,5a3edf2142ffde0b2d9803d845c795c24bfdd610d2b9d68408f5207d47e11b4a,C:UsersLuisDesktopdirNew Text Document - Copy (10).txt</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/05/using-hashdeep-to-ensure-data-integrity/" data-id="ckj2hnjti00rey6fxffe15m2k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/data-integrity/" rel="tag">data integrity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hashdeep/" rel="tag">hashdeep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5/" rel="tag">md5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sha256/" rel="tag">sha256</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/06/where-is-my-vmware-workstation-license-key-stored/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Where Is My VMware Workstation License Key Stored ?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/05/recuva-file-recovery-made-easy/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Recuva: File Recovery Made Easy</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

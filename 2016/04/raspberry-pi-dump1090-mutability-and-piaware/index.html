@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Raspberry Pi - Dump1090-Mutability and PiAware | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I’ve been running a PiAware installation for the last couple of months but after a reinstall I notice some problems specifically with dump1090 provided by the PiAware installation instructions. After">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Pi - Dump1090-Mutability and PiAware">
+<meta property="og:url" content="http://linhost.info/2016/04/raspberry-pi-dump1090-mutability-and-piaware/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I’ve been running a PiAware installation for the last couple of months but after a reinstall I notice some problems specifically with dump1090 provided by the PiAware installation instructions. After">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg">
+<meta property="article:published_time" content="2016-04-11T02:31:14.000Z">
+<meta property="article:modified_time" content="2020-08-12T00:55:54.031Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-raspberry-pi-dump1090-mutability-and-piaware" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Raspberry Pi - Dump1090-Mutability and PiAware
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I’ve been running a <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware</a> installation for the last couple of months but after a reinstall I notice some problems specifically with dump1090 provided by the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">PiAware installation instructions</a>. After searching on various forums I decided to give <a target="_blank" rel="noopener" href="https://github.com/mutability/dump1090">dump1090-mutability</a> a fork of dump1090 a try and can report great success which is why I decided to list the steps needed to configure dump1090-mutability in a Raspbian install. <strong>Current set-up:</strong> Raspbian Jessie Lite on a Raspberry Pi 2 + RTL2832U.</p>
+<h3 id="Prepare-Raspbian"><a href="#Prepare-Raspbian" class="headerlink" title="Prepare Raspbian"></a>Prepare Raspbian</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h3 id="Dump1090-Mutability-Install"><a href="#Dump1090-Mutability-Install" class="headerlink" title="Dump1090 Mutability Install"></a>Dump1090 Mutability Install</h3><p>Download the necessary .deb from GitHub.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;github.com&#x2F;mutability&#x2F;mutability-repo&#x2F;releases&#x2F;download&#x2F;v0.1.0&#x2F;mutability-repo\_0.1.0\_armhf.deb</span><br></pre></td></tr></table></figure>
+
+<p>Install the downloaded .deb. Notice the version number.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i mutability-repo\_0.1.0\_armhf.deb</span><br></pre></td></tr></table></figure>
+
+<p>Once again update the installation.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>The GPG key provided with mutability-repo_0.1.0_armhf.deb expired which will result in an error every time you run apt-get we can fix the source for the error.</p>
+<p>W: GPG error: <a target="_blank" rel="noopener" href="http://repo.mutability.co.uk/">http://repo.mutability.co.uk</a> wheezy InRelease: The following signatures were invalid: KEYEXPIRED 1451307476 KEYEXPIRED 1451307476 KEYEXPIRED 1451307476</p>
+<p>Now re-install <strong>mutability-repo</strong> this will pull the latest version with a valid signature.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mutability-repo</span><br></pre></td></tr></table></figure>
+
+<p>Install <strong>dump1090-mutability</strong> the version from the repository at the time of this writing was <strong>dump1090-mutability v1.14</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install dump1090-mutability</span><br></pre></td></tr></table></figure>
+
+<p>Install the web server.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install lighttpd</span><br></pre></td></tr></table></figure>
+
+<p>Enable module.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lighty-enable-mod dump1090</span><br></pre></td></tr></table></figure>
+
+<p>Reload web server for changes to take effect.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service lighttpd force-reload</span><br></pre></td></tr></table></figure>
+
+<p>Or you can reboot the entire installation which is why I recommend.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+<p>On a web browser and enter the IP address for your Raspberry Pi followed by <strong>/dump1090</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;your\_ip\_address&#x2F;dump1090&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<p><a href="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg"><img src="https://linhost.info/wp-content/uploads/2016/04/dump1090.jpg" alt="dump1090"></a></p>
+<h3 id="PiAware-Install"><a href="#PiAware-Install" class="headerlink" title="PiAware Install"></a>PiAware Install</h3><p>For the latest version of PiAware check the <a target="_blank" rel="noopener" href="http://flightaware.com/adsb/piaware/install">FlightAware page</a>. At the time of this writing the current version was <strong>piaware_2.1-5</strong>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http:&#x2F;&#x2F;flightaware.com&#x2F;adsb&#x2F;piaware&#x2F;files&#x2F;piaware\_2.1-5\_armhf.deb</span><br></pre></td></tr></table></figure>
+
+
+<p>Install the downloaded package.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i piaware\_2.1-5\_armhf.deb</span><br></pre></td></tr></table></figure>
+
+<p>You will receive multiple errors regarding missing dependencies let apt-get install the missing dependencies.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -fy</span><br></pre></td></tr></table></figure>
+
+<p>Auto-update the PiAware Software.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo piaware-config -autoUpdate 1 -manualUpdate 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="Connect-To-FlightAware"><a href="#Connect-To-FlightAware" class="headerlink" title="Connect To FlightAware"></a>Connect To FlightAware</h3><p>Connect the PiAware install to flightAware by providing user credentials.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo piaware-config -user your\_username -password</span><br></pre></td></tr></table></figure>
+
+<p>Restart PiAware.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo &#x2F;etc&#x2F;init.d&#x2F;piaware restart</span><br></pre></td></tr></table></figure>
+
+<p>View the status of the install.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo piaware-status</span><br><span class="line"></span><br><span class="line">dump1090 is not running.</span><br><span class="line">faup1090 is running.</span><br><span class="line">piaware is running.</span><br><span class="line">dump1090-mutabi is listening for connections on port 30005.</span><br><span class="line">faup1090 is connected to port 30005.</span><br><span class="line">piaware is connected to FlightAware.</span><br><span class="line">dump1090-mutabi is producing data on port 30005.</span><br></pre></td></tr></table></figure>
+
+<p>The new install should start feeding data back to FlightAware.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2016/04/raspberry-pi-dump1090-mutability-and-piaware/" data-id="ckj2hnjru00lyy6fx2ji2ds39" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/mikrotik-routeros-change-ssh-default-port-number/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Mikrotik RouterOS - Change SSH Default Port Number
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/raspbian-dump1090-not-running/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Raspbian - Dump1090 Not Running</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

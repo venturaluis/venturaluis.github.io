@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Keyboard Not Working Propertly on VMware | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Yesterday, I made the upgrade to Ubuntu 8.10 and minutes later installed my number one application WMware Player only to notice moments later that my keyboard was not working property, the arrow keys">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keyboard Not Working Propertly on VMware">
+<meta property="og:url" content="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Yesterday, I made the upgrade to Ubuntu 8.10 and minutes later installed my number one application WMware Player only to notice moments later that my keyboard was not working property, the arrow keys">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-11-02T06:31:23.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.257Z">
+<meta property="article:tag" content="vmware">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-missing-keyboard-functions-vmware-player" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Keyboard Not Working Propertly on VMware
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Yesterday, I made the upgrade to Ubuntu 8.10 and minutes later installed my number one application WMware Player only to notice moments later that my keyboard was not working property, the arrow keys were disabled for some reason. Thanks to a problem with the evdev input driver my keyboard was partially functional. The solution is actually very simple. Create a new file and place the following values in the new file.</p>
+<p>sudo nano /etc/vmware/config</p>
+<p>xkeymap.keycode.108 = 0x138 # Alt_R</p>
+<p>xkeymap.keycode.106 = 0x135 # KP_Divide</p>
+<p>xkeymap.keycode.104 = 0x11c # KP_Enter</p>
+<p>xkeymap.keycode.111 = 0x148 # Up</p>
+<p>xkeymap.keycode.116 = 0x150 # Down</p>
+<p>xkeymap.keycode.113 = 0x14b # Left</p>
+<p>xkeymap.keycode.114 = 0x14d # Right</p>
+<p>xkeymap.keycode.105 = 0x11d # Control_R</p>
+<p>xkeymap.keycode.118 = 0x152 # Insert</p>
+<p>xkeymap.keycode.119 = 0x153 # Delete</p>
+<p>xkeymap.keycode.110 = 0x147 # Home</p>
+<p>xkeymap.keycode.115 = 0x14f # End</p>
+<p>xkeymap.keycode.112 = 0x149 # Prior</p>
+<p>xkeymap.keycode.117 = 0x151 # Next</p>
+<p>xkeymap.keycode.78 = 0x46 # Scroll_Lock</p>
+<p>xkeymap.keycode.127 = 0x100 # Pause</p>
+<p>xkeymap.keycode.133 = 0x15b # Meta_L</p>
+<p>xkeymap.keycode.134 = 0x15c # Meta_R</p>
+<p>xkeymap.keycode.135 = 0x15d # Menu</p>
+<p>Close the file and test the changes by starting VMware Player. Enjoy. All credit goes to <a target="_blank" rel="noopener" href="http://communities.vmware.com/thread/177321">communities.vmware.com</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/11/missing-keyboard-functions-vmware-player/" data-id="ckj2hnjq800hcy6fx0h4ccjd2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/11/when-is-bittorrent-becoming-an-option/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          When is BitTorrent Becoming an Option?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/11/canonical-landscape-part-of-the-business-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Canonical Landscape Part Of The Business Model</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

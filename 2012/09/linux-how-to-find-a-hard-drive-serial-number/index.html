@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linux: How to Find a Hard Drive Serial Number | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Like many other times I had to retrieve the serial number of a faulty SATA drive on a Linux box. You should retrieve and compare the serial number before replacing to reduce the chance of replacing a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux: How to Find a Hard Drive Serial Number">
+<meta property="og:url" content="http://linhost.info/2012/09/linux-how-to-find-a-hard-drive-serial-number/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Like many other times I had to retrieve the serial number of a faulty SATA drive on a Linux box. You should retrieve and compare the serial number before replacing to reduce the chance of replacing a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://cdn.linhost.info/static/wd250gb.jpg">
+<meta property="article:published_time" content="2012-09-22T07:50:01.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.882Z">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="hdparm">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.linhost.info/static/wd250gb.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-linux-how-to-find-a-hard-drive-serial-number" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux: How to Find a Hard Drive Serial Number
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://cdn.linhost.info/static/wd250gb.jpg">Like many other times I had to retrieve the serial number of a faulty SATA drive on a Linux box. You should retrieve and compare the serial number before replacing to reduce the chance of replacing a working drive instead of a faulty drive. Hdparm is a utility that allows for the retrieval of the serial number, if I remember correctly hdparm is included by default on <a target="_blank" rel="noopener" href="http://ubuntu.com/">Ubuntu</a>, <a target="_blank" rel="noopener" href="https://www.scientificlinux.org/">Scientific Linux</a> users can install hdparm from the repositories by using <strong>yum install hdparm</strong>. <strong>Note:</strong> hdparm requires access to the root account or similar.</p>
+<h2 id="Retrieve-The-Info"><a href="#Retrieve-The-Info" class="headerlink" title="Retrieve The Info"></a>Retrieve The Info</h2><p>The hdparm output will be rather long, but all you need to look for is <strong>Serial Number: xx-xxxxxxxxx</strong>, this is where the serial number for the drive is contained.</p>
+<p># hdparm -I /dev/sdf</p>
+<p>/dev/sda:</p>
+<p>ATA device, with non-removable media<br>    Model Number:       WDC WD5001AALS-00L3B2<br>    Serial Number:      WD-WMASZ0044725<br>    Firmware Revision:  01.03B01<br>    Transport:          Serial, SATA 1.0a, SATA II Extensions, SATA Rev 2.5<br>Standards:<br>    Supported: 8 7 6 5<br>    Likely used: 8</p>
+<p>Now you can physically verify whether the drive label matches the serial number you just obtained with the help of hdparm. Check twice you wouldn’t want to pull a working drive instead.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/09/linux-how-to-find-a-hard-drive-serial-number/" data-id="ckj2hnjpr00fry6fx1ezf5h6i" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hdparm/" rel="tag">hdparm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/09/vmware-taking-ownership-of-this-virtual-machine-failed/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          VMware: Taking Ownership of this Virtual Machine Failed
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/09/wipe-multiple-drives-simultaneously/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Wipe Multiple Drives Simultaneously</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

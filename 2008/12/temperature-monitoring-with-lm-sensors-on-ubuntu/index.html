@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Temperature monitoring with Lm-sensors on Ubuntu | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I tend to do a lot of video encoding which stresses my workstation a bit, also not long ago I changed motherboards. Well that meant I had to remove the CPU and add a new layer of thermal compound. I d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Temperature monitoring with Lm-sensors on Ubuntu">
+<meta property="og:url" content="http://linhost.info/2008/12/temperature-monitoring-with-lm-sensors-on-ubuntu/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I tend to do a lot of video encoding which stresses my workstation a bit, also not long ago I changed motherboards. Well that meant I had to remove the CPU and add a new layer of thermal compound. I d">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SVRcPYAQI4I/AAAAAAAAASY/WylDHJXcYPM/s800/sensor%2520applet.jpg">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/SVRg_C44d2I/AAAAAAAAAS4/NqZsjpocKpM/s800/panel%2520applet.jpg">
+<meta property="article:published_time" content="2008-12-26T05:20:08.000Z">
+<meta property="article:modified_time" content="2020-08-21T22:00:23.781Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="lm-sensors">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SVRcPYAQI4I/AAAAAAAAASY/WylDHJXcYPM/s800/sensor%2520applet.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-temperature-monitoring-with-lm-sensors-on-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Temperature monitoring with Lm-sensors on Ubuntu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I tend to do a lot of video encoding which stresses my workstation a bit, also not long ago I changed motherboards. Well that meant I had to remove the CPU and add a new layer of thermal compound. I did measure the temperature with built-in BIOS utility but I still had question regarding the actual CPU temperature while under normal use. Essentially all I had to do was install <strong>lm-sensors</strong> and the <strong>GNOME sensor applet</strong>. Keep in mind for this article I used a DG31GL Intel Motherboard and a Q6600 Intel processor, all sensors were detected without a problem. Results may vary depending on the hardware.</p>
+<h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><p>First we need to install the vital lm-sensors and the GNOME applets that will later present the information on the desktop.</p>
+<p>sudo apt-get install lm-sensors sensors-applet hddtemp</p>
+<p>Next we do a sensor detection (results will vary based on hardware support).</p>
+<p>sudo sensors-detect</p>
+<p>After the sensor detection is done you will have to answer a series of questions, accept the defaults by pressing <strong>Enter</strong>, except on the last question you have to type <strong>yes</strong> to automatically add the output to <strong>/etc/modules</strong>. Output.</p>
+<p>#—-cut here—-</p>
+<h1 id="Chip-drivers"><a href="#Chip-drivers" class="headerlink" title="Chip drivers"></a>Chip drivers</h1><p>w83627ehf<br>coretemp<br>#—-cut here—-</p>
+<p>Do you want to add these lines automatically? (yes/NO)yes</p>
+<h3 id="Add-the-GNOME-applet"><a href="#Add-the-GNOME-applet" class="headerlink" title="Add the GNOME applet"></a>Add the GNOME applet</h3><p>To add the applet responsible for displaying the data go to. Right click on the top panel &gt; click on <strong>Add to Panel.</strong> Search for <strong>Hardware Sensors Monitor</strong> &gt; click on <strong>Add.</strong> The applet will display the temperature data on the system, processor, hard drive and AUX Temp. Not all of the data is necessary or useful, if you like to change what’s displayed. Right click on the applet and select <strong>Preferences</strong>. Move on to the <strong>Sensors tab</strong> and check or unchecked what you don’t like. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SVRcPYAQI4I/AAAAAAAAASY/WylDHJXcYPM/s800/sensor%2520applet.jpg"> The end result. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SVRg_C44d2I/AAAAAAAAAS4/NqZsjpocKpM/s800/panel%2520applet.jpg"></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://sensors-applet.sourceforge.net/index.php?content=screenshots">http://sensors-applet.sourceforge.net</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.lm-sensors.org/">http://www.lm-sensors.org/</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/12/temperature-monitoring-with-lm-sensors-on-ubuntu/" data-id="ckj2hnjsl00ojy6fx6shncflz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lm-sensors/" rel="tag">lm-sensors</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/12/test-network-speeds-with-iperf/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Measure network speeds with Iperf
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/12/how-to-create-a-virtual-machine-with-vmware-player/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">How to create a virtual machine with VMWare Player</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

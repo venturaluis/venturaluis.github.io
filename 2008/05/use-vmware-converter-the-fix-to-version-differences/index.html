@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>VMware Converter Reconfiguration | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="When it comes to desktop virtualization my first options is always VMware but using it is a like a roller coaster ride due to broken or unsupported changes, but the amount of features and tools availa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VMware Converter Reconfiguration">
+<meta property="og:url" content="http://linhost.info/2008/05/use-vmware-converter-the-fix-to-version-differences/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="When it comes to desktop virtualization my first options is always VMware but using it is a like a roller coaster ride due to broken or unsupported changes, but the amount of features and tools availa">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-05-30T13:09:12.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.199Z">
+<meta property="article:tag" content="converter">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-use-vmware-converter-the-fix-to-version-differences" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VMware Converter Reconfiguration
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When it comes to desktop virtualization my first options is always VMware but using it is a like a roller coaster ride due to broken or unsupported changes, but the amount of features and tools available make the ride worth it. <em>“The best solution is not always the friendly one or in the form of open source”</em> Previously I was a user of VMware Player because it only had one function which is to play virtual machines, but after a while I noticed some limitations which prompted the change to VMware Server 1.0.6. The changed created some issues with some of the previously created virtual machines on VMware Workstation, under VMware Player no virtual machine ever refused run VMware Server was a different story and return the following error.</p>
+<blockquote>
+<p>Unable to add virtual machine “/home/ls354/VM/xp/Clone of Windows XP Home Edition.VMX” to the inventory: Configuration file was created by a VMware product with more features than this version.</p>
+</blockquote>
+<p>Basically VMware Server has a problem with the configuration file created by VMware Workstation, after searching around one of the proposed solutions proposed was to make manual changes to the configuration file except that I had mixed results and not enough good results to justify the changes. Then I remember that VMware offers a little know option called VMware Converter at no cost which among many things has the capabilities to convert a machine from bare metal to virtual, change the amount of NIC’s, and most important of all reconfigure virtual machines for specific VMware product like ESX or VMware Server. I will guarantee you that VMware Converter solves the “Unable to add virtual machine” problem, however there is one catch the software is only available for Windows and the bare metal transition only works for Windows lucky me I dual boot into Windows XP which happens to be my secondary operating system.</p>
+<h4 id="Reconfiguring-an-existing-virtual-machine"><a href="#Reconfiguring-an-existing-virtual-machine" class="headerlink" title="Reconfiguring an existing virtual machine"></a>Reconfiguring an existing virtual machine</h4><p>Requirements</p>
+<ul>
+<li>A Windows box.</li>
+<li>Enough storage for the end result modified vm.</li>
+</ul>
+<h4 id="Convertion"><a href="#Convertion" class="headerlink" title="Convertion"></a>Convertion</h4><ul>
+<li>Start VMware Converter and click on “Import Machine”.</li>
+<li>Click Next and select “Standalone virtual machine, backup or disk image”.</li>
+<li>Browse and find your previously created machine.</li>
+<li>Select “Import all disks and maintain size”.</li>
+<li>Now choose “VMware standalone virtual machine”, did you notice that “VMware Server” is an option.</li>
+<li>Give your virtual machine a name and location for the end result, the options below will determined the version because I work with VMware Server 1.0.6 I picked the option in the middle “Workstation 5.x, VMware Server 1.x, Player 1.x”.</li>
+<li>Now we want to select on “Create a full clone” otherwise changes made in the original virtual machine may render the new machine unusable, the “Disk Space Allocation” option is up to you.</li>
+<li>I said you could make changes to the machine, if you want to now is your chance I choose not to. Last warning before the process starts.</li>
+<li>VMware Converter will start to import and make the appropriate changes, my virtual machine is only 15GB in size which took 15 minutes to convert.</li>
+</ul>
+<p>Now just open your brand new re-configured virtual machine with VMware Server. The whole conversion process is very easy and straight forward, if you chose the correct setting like the version of VMware Server you use errors like “<strong>unable to add virtual machine</strong>“ problem will disappear.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/05/use-vmware-converter-the-fix-to-version-differences/" data-id="ckj2hnjtg00r7y6fxfnzx24cm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/converter/" rel="tag">converter</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/05/ubuntu-locales-warning-fix/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Ubuntu Locales Warning Fix
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/05/keep-up-to-date-your-linux-server-with-cron/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Keep Up To Date Your Linux Server With Cron</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

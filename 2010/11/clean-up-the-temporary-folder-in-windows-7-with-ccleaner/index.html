@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Clean-up The Temporary Folder In Windows 7 With CCleaner | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Temporary folder in your windows machine is not something that comes to mind very often. While the Temporary folder is used by various programs to create temporary files if left unchecked the fold">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clean-up The Temporary Folder In Windows 7 With CCleaner">
+<meta property="og:url" content="http://linhost.info/2010/11/clean-up-the-temporary-folder-in-windows-7-with-ccleaner/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="The Temporary folder in your windows machine is not something that comes to mind very often. While the Temporary folder is used by various programs to create temporary files if left unchecked the fold">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TM5V63yDCfI/AAAAAAAACkI/Vsm4QJYof1I/s400/temp-0.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7GEdOZI/AAAAAAAACkM/1xqepQ0e_cc/s800/temp-1.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7BZ1xTI/AAAAAAAACkQ/vy2s_1zxo3s/s400/temp-2.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7az0gBI/AAAAAAAACkU/wrZfHAnSU7Q/s800/temp-2-a.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/TM5V7e3qruI/AAAAAAAACkY/oRSbY2IldL0/s800/temp-3.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/TM5WCc5WPhI/AAAAAAAACkc/bwTLMi_XLtg/s400/temp-4.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TM5WCflEoDI/AAAAAAAACkg/FpSqJ_9QNWs/s800/temp-5.png">
+<meta property="article:published_time" content="2010-11-04T02:41:31.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.723Z">
+<meta property="article:tag" content="ccleaner">
+<meta property="article:tag" content="windows 7">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TM5V63yDCfI/AAAAAAAACkI/Vsm4QJYof1I/s400/temp-0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-clean-up-the-temporary-folder-in-windows-7-with-ccleaner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clean-up The Temporary Folder In Windows 7 With CCleaner
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Temporary folder in your windows machine is not something that comes to mind very often. While the Temporary folder is used by various programs to create temporary files if left unchecked the folder could grow to occupy a considerable amount of space.</p>
+<blockquote>
+<p>The Temporary folder size is only limited by the amount of available disk space.</p>
+</blockquote>
+<p>To remove or flush the Temporary folder you can make use of two options:</p>
+<ol>
+<li>Disk Cleanup - tool built in to Windows.</li>
+<li>CCleaner - Freeware and optimization and cleaning tools</li>
+</ol>
+<h3 id="WHERE-IS-THE-TEMPORARY-FOLDER"><a href="#WHERE-IS-THE-TEMPORARY-FOLDER" class="headerlink" title="WHERE IS THE TEMPORARY FOLDER ?"></a>WHERE IS THE TEMPORARY FOLDER ?</h3><p>For this tutorial I am using Windows 7 and the Temporary folder for my user is located at <strong>C:/Users/username/AppData/Local/Temp</strong>. You can use a free Windows tool called <a target="_blank" rel="noopener" href="http://www.jam-software.com/freeware/index.shtml">TreeSize Free</a> to find out the exact size of of the Temporary folder. In my case the Temporary folder has grown to occupy a total of 25.6GB. <a target="_blank" rel="noopener" href="http://lh5.ggpht.com/_fF0LO28FGYY/TM5V63yDCfI/AAAAAAAACkI/Vsm4QJYof1I/s800/temp-0.png" title="Graphic"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TM5V63yDCfI/AAAAAAAACkI/Vsm4QJYof1I/s400/temp-0.png"></a> <em>Click on image to enlarge</em> <a target="_blank" rel="noopener" href="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7GEdOZI/AAAAAAAACkM/1xqepQ0e_cc/s800/temp-1.png" title="Graphic"> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7GEdOZI/AAAAAAAACkM/1xqepQ0e_cc/s800/temp-1.png"></a> <em>Click on image to enlarge</em> Before starting the cleaning process I thought it would be a good idea to know that my C drive has a total of 397 GB of free space.</p>
+<h3 id="LET’S-CLEAN-THE-TEMP-FOLDER"><a href="#LET’S-CLEAN-THE-TEMP-FOLDER" class="headerlink" title="LET’S CLEAN THE TEMP FOLDER"></a>LET’S CLEAN THE TEMP FOLDER</h3><p>My first tool of choice is a free third party tool called CCleaner which among the many things it can do is clean all temporary files found around your Windows installation. You can download CCleaner at the following address free of charge <a target="_blank" rel="noopener" href="http://www.piriform.com/ccleaner/download">http://piriform.com/ccleaner/download</a>. After the download is complete, install, and start the application. <a target="_blank" rel="noopener" href="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7BZ1xTI/AAAAAAAACkQ/vy2s_1zxo3s/s800/temp-2.png" title="Graphic"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7BZ1xTI/AAAAAAAACkQ/vy2s_1zxo3s/s400/temp-2.png"></a> <em>Click on image to enlarge</em> By default the application assumes you want to use the <strong>Cleaner</strong> which removes temp files, what you need to do is click on the <strong>Analyze</strong> button located at the bottom of the window. Any discovery will be reported back along with the total size of the files used by the temporary files. <a target="_blank" rel="noopener" href="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7az0gBI/AAAAAAAACkU/wrZfHAnSU7Q/s800/temp-2-a.png" title="Graphic"> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TM5V7az0gBI/AAAAAAAACkU/wrZfHAnSU7Q/s800/temp-2-a.png"></a> <em>Click on image to enlarge</em> If you wish to proceed and erase the files click on the <strong>Run Cleaner</strong> button. <a target="_blank" rel="noopener" href="http://lh6.ggpht.com/_fF0LO28FGYY/TM5V7e3qruI/AAAAAAAACkY/oRSbY2IldL0/s800/temp-3.png" title="Graphic"> <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TM5V7e3qruI/AAAAAAAACkY/oRSbY2IldL0/s800/temp-3.png"></a> <em>Click on image to enlarge</em> You will be asked for permission before erasing the Temporary files. <a target="_blank" rel="noopener" href="http://lh6.ggpht.com/_fF0LO28FGYY/TM5WCc5WPhI/AAAAAAAACkc/bwTLMi_XLtg/s800/temp-4.png" title="Graphic"> <img src="http://lh6.ggpht.com/_fF0LO28FGYY/TM5WCc5WPhI/AAAAAAAACkc/bwTLMi_XLtg/s400/temp-4.png"></a> <em>Click on image to enlarge</em> Depending on the size of the files to be erased, CCleaner may take anywhere from a few seconds to minutes. After the application is done close it and check your drive to see how much space you have gained. <a target="_blank" rel="noopener" href="http://lh4.ggpht.com/_fF0LO28FGYY/TM5WCflEoDI/AAAAAAAACkg/FpSqJ_9QNWs/s800/temp-5.png" title="Graphic"> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TM5WCflEoDI/AAAAAAAACkg/FpSqJ_9QNWs/s800/temp-5.png"></a> <em>Click on image to enlarge</em></p>
+<h3 id="CONCLUSION"><a href="#CONCLUSION" class="headerlink" title="CONCLUSION"></a>CONCLUSION</h3><p>Previously, the available disk space was 397GB after running CCleaner the number increased to 423GB. While it takes time for the Temporary folder to grow, it would not hurt to clean it every few months. While hard drives in the Terabytes of storage are now common, SSD’s are still expensive and come in smaller sizes so wasting space in temporary files is out of question.</p>
+<hr>
+<p>Software: <a target="_blank" rel="noopener" href="http://www.piriform.com/ccleaner/download">CCleaner</a> Software: <a target="_blank" rel="noopener" href="http://www.jam-software.com/freeware/index.shtml">TreeSize Free</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/11/clean-up-the-temporary-folder-in-windows-7-with-ccleaner/" data-id="ckj2hnjmg0054y6fxczjkcq6g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ccleaner/" rel="tag">ccleaner</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-7/" rel="tag">windows 7</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/11/review-bytecc-bt-db925-usb-to-serial/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Review: BYTECC BT-DB925 - USB To Serial
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/10/disable-windows-error-reporting-in-windows-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Disable Windows Error Reporting In Windows 7</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

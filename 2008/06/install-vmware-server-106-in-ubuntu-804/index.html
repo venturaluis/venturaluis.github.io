@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Install VMware Server 1.0.6 On Ubuntu 8.04 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Update - If your version of VMWare server fails to start after a regular kernel upgrade you have to re-run the vmware-config.pl. VMware Server 1.0.6 will not work out of the box with Ubuntu 8.04, in t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install VMware Server 1.0.6 On Ubuntu 8.04">
+<meta property="og:url" content="http://linhost.info/2008/06/install-vmware-server-106-in-ubuntu-804/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Update - If your version of VMWare server fails to start after a regular kernel upgrade you have to re-run the vmware-config.pl. VMware Server 1.0.6 will not work out of the box with Ubuntu 8.04, in t">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-06-06T02:37:25.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.202Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="vmware">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-install-vmware-server-106-in-ubuntu-804" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Install VMware Server 1.0.6 On Ubuntu 8.04
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Update - If your version of VMWare server fails to start after a regular kernel upgrade you have to re-run the <a href="http://linhost.info/?p=124">vmware-config.pl.</a></strong> VMware Server 1.0.6 will not work out of the box with Ubuntu 8.04, in this how-to I will use the normal installation procedure but with a few tweaks at the end to make it work with Ubuntu 8.04. Download <a target="_blank" rel="noopener" href="http://www.vmware.com/products/server/">VMware server</a>, I prefer to download the tar.gz for Linux or you can use wget.</p>
+<blockquote>
+<p>wget -c <a target="_blank" rel="noopener" href="http://download3.vmware.com/software/vmserver/VMware-server-1.0.6-91891.tar.gz">http://download3.vmware.com/software/vmserver/VMware-server-1.0.6-91891.tar.gz</a></p>
+</blockquote>
+<p>Then request your serial number by completing the form, the serial number is required during the installation.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://register.vmware.com/content/registration.html">http://register.vmware.com/content/registration.html</a></p>
+</blockquote>
+<p>Install the development tools needed to complete the installation.</p>
+<blockquote>
+<p>sudo aptitude install build-essential linux-kernel-devel linux-headers-generic xinetd</p>
+</blockquote>
+<p>Untar the archive, the version may vary.</p>
+<blockquote>
+<p>tar xf VMware-server-1.0.6-91891.tar.gz</p>
+</blockquote>
+<p>Move in to the recently created directory named “vmware-server-distrib”.</p>
+<blockquote>
+<p>cd vmware-server-distrib</p>
+</blockquote>
+<p>Use sudo to invoke the installer and complete the installation like always.</p>
+<blockquote>
+<p>sudo ./vmware-install.pl</p>
+</blockquote>
+<p>Now if you try to run VMware Server it will either give you error messages or not start all, the solution is to bring in the cairo libraries and gcc redirect by means of a simlink.</p>
+<blockquote>
+<p>sudo ln -sf /usr/lib/gcc/i486-linux-gnu/4.2.3/libgcc_s.so /usr/lib/vmware/lib/libgcc_s.so.1/libgcc_s.so.1</p>
+</blockquote>
+<blockquote>
+<p>sudo ln -sf /usr/lib/libpng12.so.0 /usr/lib/vmware/lib/libpng12.so.0/libpng12.so.0</p>
+</blockquote>
+<p>Now VMware Server should be able to start without a problem, if it helps you let me know. <strong>Note*</strong> After moving from VMware Player to VMware Server I noticed the following error when trying to run some of my virtual machines. <em>Unable to add virtual machine “/home/ls354/VM/xp/Clone of Windows XP Home Edition.VMX” to the inventory: Configuration file was created by a VMware product with more features than this version</em> I will have a fix in my next post, which is <a href="http://linhost.info/?p=92">http://linhost.info/?p=92</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/06/install-vmware-server-106-in-ubuntu-804/" data-id="ckj2hnjp500duy6fxaezxh14h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vmware/" rel="tag">vmware</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/06/major-retail-chains-fail-to-implement-proper-physical-and-basic-network-security/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Major Retail Chains Failure To Implement Proper Physical And Basic Network Security Is Something Normal
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/05/ubuntu-locales-warning-fix/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Ubuntu Locales Warning Fix</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

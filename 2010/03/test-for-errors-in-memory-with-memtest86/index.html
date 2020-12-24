@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Test for errors in memory with Memtest86+ | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Memtest86+ is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstabl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test for errors in memory with Memtest86+">
+<meta property="og:url" content="http://linhost.info/2010/03/test-for-errors-in-memory-with-memtest86/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Memtest86+ is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstabl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S49TRFq0yqI/AAAAAAAACAE/ervimIJBAUk/s800/memtest86%2B-4.00.iso-2010-03-03_23.05.20.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S49TRjTIDfI/AAAAAAAACAI/P6WylEoxrAY/s800/Windows_Disc_Image_Burner-2010-03-03_23.05.45.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S49TRmBR0VI/AAAAAAAACAM/W9e9ibhPzNU/s800/memtest86%2B-4.00.iso-2010-03-03_23.08.28.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/S49TR0ZuxgI/AAAAAAAACAQ/8aNMo4FxKrk/s800/ImgBurn-2010-03-03_23.08.44.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S49Tzii2PaI/AAAAAAAACAU/YqiGtDxYCTg/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.17.47.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/S49Tznb7PXI/AAAAAAAACAY/r6dR5AHSI_g/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.15.30.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S49Tzz0sseI/AAAAAAAACAc/05An0-X4BMo/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.18.13.png">
+<meta property="article:published_time" content="2010-03-05T06:54:26.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.599Z">
+<meta property="article:tag" content="diagnosis">
+<meta property="article:tag" content="memtest86+">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S49TRFq0yqI/AAAAAAAACAE/ervimIJBAUk/s800/memtest86%2B-4.00.iso-2010-03-03_23.05.20.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-test-for-errors-in-memory-with-memtest86" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Test for errors in memory with Memtest86+
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="http://www.memtest.org/">Memtest86+</a> is a easy to use memory diagnostics tool design to test and stress the systems Random Access Memory for errors and report any findings to the user. Faulty memory can render a system unstable, incapable of booting at all, or even worse in possible data corruption. That’s why it’s good practice to use Memtest86+ or other tools with the same purpose every time new memory is acquired, better to spend a few minutes checking for errors than encounter errors at a later time. Fortunately, Memtest86+ is an easy to use tool and the whole process happens automatically.</p>
+<h4 id="How-do-we-use-it"><a href="#How-do-we-use-it" class="headerlink" title="How do we use it ?"></a>How do we use it ?</h4><p>First of all you will need to visit the Memtest86+ home page and download the pre-compiled bootable ISO file. My preference is for the .zip ISO. <a target="_blank" rel="noopener" href="http://www.memtest.org/#downiso">http://www.memtest.org</a></p>
+<blockquote>
+<p>Note: I expect Nix* users to already have the knowledge of how to burn an ISO, meaning this tutorial will mainly focus on burning the ISO from Windows.</p>
+</blockquote>
+<p>After the ISO is completely downloaded you will need to burn it to either a CD or DVD. Windows 7 has the capability to burn ISOs, if you have Windows XP I recommend you download <a target="_blank" rel="noopener" href="http://www.imgburn.com/">ImgBurn</a> which is a free burning application.</p>
+<blockquote>
+<p>Note: older machines may not have a DVD drive.</p>
+</blockquote>
+<h4 id="How-to-burn-an-ISO-on-Windows-7"><a href="#How-to-burn-an-ISO-on-Windows-7" class="headerlink" title="How to burn an ISO on Windows 7"></a>How to burn an ISO on Windows 7</h4><p>Open the directory where Memtest86+ resides and right click on the ISO application, now click on <strong>Burn disc image</strong> this will start a new window. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/aX_ynmOotYnegGeYi4Ne4A?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S49TRFq0yqI/AAAAAAAACAE/ervimIJBAUk/s800/memtest86%2B-4.00.iso-2010-03-03_23.05.20.png"></a> You can see in this window both the ISO and optical media are ready. Click on <strong>Burn</strong> to start the burning process. After it’s done the CD/DVD will be ejected. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/dEgdQPWvSiRoMcqCYHZ2BA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S49TRjTIDfI/AAAAAAAACAI/P6WylEoxrAY/s800/Windows_Disc_Image_Burner-2010-03-03_23.05.45.png"></a></p>
+<h4 id="How-to-Burn-an-ISO-on-Windows-XP"><a href="#How-to-Burn-an-ISO-on-Windows-XP" class="headerlink" title="How to Burn an ISO on Windows XP"></a>How to Burn an ISO on Windows XP</h4><p>After you are done downloading and installing <a target="_blank" rel="noopener" href="http://www.imgburn.com/">ImgBurn</a> you can start burning the ISO. Since ImgBurn will integrate in to Windows you can just <strong>right click</strong> on the ISO and select <strong>Burn using ImgBurn</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/X51iovEnLZY73RrfFEzU-A?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S49TRmBR0VI/AAAAAAAACAM/W9e9ibhPzNU/s800/memtest86%2B-4.00.iso-2010-03-03_23.08.28.png"></a> A new window will automatically open, this window will prepare both the ISO and CD/DVD all you have to is click on the Write button which is located at the bottom of the window. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/0s6xonUEeG11Y9Jb3o-B1g?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S49TR0ZuxgI/AAAAAAAACAQ/8aNMo4FxKrk/s800/ImgBurn-2010-03-03_23.08.44.png"></a></p>
+<h4 id="How-do-we-start-Memtest86"><a href="#How-do-we-start-Memtest86" class="headerlink" title="How do we start Memtest86+ ?"></a>How do we start Memtest86+ ?</h4><p>Once the ISO has been burned in to the media you will need to restart the computer and access the BIOS to set it to boot from CD/DVD media. The steps may change depending on the manufacturer, in some you may need to press <strong>F2</strong>, <strong>F10</strong>,or <strong>F12</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UKgE5VZw3L05-tr9SbrFDw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S49Tzii2PaI/AAAAAAAACAU/YqiGtDxYCTg/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.17.47.png"></a> After you access the BIOS head over to the Boot configuration and set it to boot from <strong>CD-ROM/DVD-ROM Drive</strong>. Save the changes to the BIOS and exit, which will cause the system to restart. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/nIdpIpbfTN3Mpam4P_aDZg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S49Tznb7PXI/AAAAAAAACAY/r6dR5AHSI_g/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.15.30.png"></a> Instead of booting from the hard drive the system will start from the CD/DVD Drive, since our CD/DVD containing Memtest86+ is inside the drive it will be automatically booted from. Here is the beauty of Memtest86+, you have to do nothing else just let the diagnosis tool run. Any errors will be reported on <strong>Errors</strong> column located in the middle of the screen. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/rOQBu3RzYjYbWK4mdNQ4lw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S49Tzz0sseI/AAAAAAAACAc/05An0-X4BMo/s800/Ubuntu_Memetest86%2B_-_VMware_Player-2010-03-03_23.18.13.png"></a> Memtest86+ is simple tool you should keep around it may come in handy at a later time or whenever you buy new memory. <a target="_blank" rel="noopener" href="http://www.memtest.org/">Memtest86+ Home Page</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/03/test-for-errors-in-memory-with-memtest86/" data-id="ckj2hnjsn00opy6fxh6ti2r68" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/diagnosis/" rel="tag">diagnosis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memtest86/" rel="tag">memtest86+</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/03/free-namebench-dns-benchmarking-tool/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Free: Namebench DNS Benchmarking Tool
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/02/checksum-a-directory-with-md5deep/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Hash a directory with md5deep - Part 1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

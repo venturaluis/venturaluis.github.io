@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Configure Ubuntu To Serve As An iSCSI Target | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This tutorial will cover the required steps to configure a basic iSCSI Target on Ubuntu. The installation for this tutorial was performed on an Ubuntu 12.04 64-bit system, but the same configuration a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure Ubuntu To Serve As An iSCSI Target">
+<meta property="og:url" content="http://linhost.info/2012/05/configure-ubuntu-to-serve-as-an-iscsi-target/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="This tutorial will cover the required steps to configure a basic iSCSI Target on Ubuntu. The installation for this tutorial was performed on an Ubuntu 12.04 64-bit system, but the same configuration a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png">
+<meta property="og:image" content="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png">
+<meta property="og:image" content="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png">
+<meta property="article:published_time" content="2012-05-10T03:16:11.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.824Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="iscsi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-configure-ubuntu-to-serve-as-an-iscsi-target" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Configure Ubuntu To Serve As An iSCSI Target
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This tutorial will cover the required steps to configure a basic iSCSI Target on Ubuntu. The installation for this tutorial was performed on an Ubuntu 12.04 64-bit system, but the same configuration applies to Ubuntu 12.04-32bit.</p>
+<h3 id="Before-We-Install"><a href="#Before-We-Install" class="headerlink" title="Before We Install"></a>Before We Install</h3><p>Before the target can be installed check to see of the system you are planning to run the target from is up to date.</p>
+<p>sudo apt-get update<br>sudo apt-get upgrade</p>
+<h3 id="Target-Installation-Minimal-Changes"><a href="#Target-Installation-Minimal-Changes" class="headerlink" title="Target Installation, Minimal Changes"></a>Target Installation, Minimal Changes</h3><p>Proceed to install the iSCSI target(<em>iscsitarget</em>) along with <em>iscsitarget-source</em> and <em>iscsitarget-dkms</em>.</p>
+<p>sudo apt-get install iscsitarget iscsitarget-source iscsitarget-dkms</p>
+<p>If you don’t install the extra two packages you will be greeted with the following error every time you attempt to restart the target.</p>
+<p>user@ubuntu:~$ sudo service iscsitarget restart<br> * Removing iSCSI enterprise target devices:           [ OK ]<br> * Starting iSCSI enterprise target service            FATAL: Module iscsi_trgt not found.</p>
+<p>Next edit <em>/etc/default/iscsitarget</em>. Change the default value of <em>ISCSITARGET_ENABLE=false</em> over to <em>ISCSITARGET_ENABLE=true</em>. Not doing so will not allow the target to start.</p>
+<p>sudo nano /etc/default/iscsitarget</p>
+<p>ISCSITARGET_ENABLE=true</p>
+<h3 id="Storage-Creation"><a href="#Storage-Creation" class="headerlink" title="Storage Creation"></a>Storage Creation</h3><p>When working with iSCSI you have to also think of LUN’s. This when you decide whether you want to use files or partitions when offering the targets storage to the iSCSI clients. For the tutorial I will be using files. To create a file we can use dd to create and empty file that will grow once the users start storing file in it. The file weights 50GB.</p>
+<p>dd if=/dev/zero of=/media/volume0/storlun0.bin count=0 obs=1 seek=50G</p>
+<p>I want to store the resulting files in a different path than my home directory which is why I specified that the file be deposited at /media/volume0.</p>
+<h3 id="Target-Creation"><a href="#Target-Creation" class="headerlink" title="Target Creation"></a>Target Creation</h3><p>Configurations and targets we create can be found in the <em>/etc/iet/ietd.conf</em> configuration file.</p>
+<p>sudo nano /etc/iet/ietd.conf</p>
+<p>Scroll to the bottom of the configuration file and add:</p>
+<p>Target iqn.2012-05.local.mynet:storage.sys0<br>        Lun 0 Path=/media/volume0/storlun0.bin,Type=fileio,ScsiId=lun0,ScsiSN=lun0</p>
+<p>If you don’t want to use files you can also use partitions, just use <strong>Lun 0 Path=/dev/sdb1,Type=fileio</strong> instead. The first line can be changed, but the second line specifies where the LUN actually is. If you want, you could create a second LUN using <strong>LUN 1 Path=/XXXX XXXX XXXX</strong> and expose a second iSCSI drive withing the same target, this assumes you have created a second storage file.</p>
+<h3 id="Restart-Target"><a href="#Restart-Target" class="headerlink" title="Restart Target"></a>Restart Target</h3><p>All that is left to do is restart the target with our changes.</p>
+<p>sudo service iscsitarget restart</p>
+<h3 id="Test-The-Target"><a href="#Test-The-Target" class="headerlink" title="Test The Target"></a>Test The Target</h3><p>To test the target I will be using built-in Windows 7 iSCSI client(initiator) <img src="https://lh6.googleusercontent.com/-2nAchg79JU8/T6sp7_vLozI/AAAAAAAADZ0/msx_I_Oqou8/s512/widows_7_iscsi_initiator.png"> Enter the IP address of the Ubuntu server and click on <strong>Quick Connect…</strong> <img src="https://lh5.googleusercontent.com/-ZnHn_n5bc1s/T6sqzzhW6qI/AAAAAAAADZ8/rrDWNox9T6Y/s512/widows_7_iscsi_initiator_enter_ip.png"> You are now connected, click on <strong>Done</strong>. <img src="https://lh3.googleusercontent.com/-WLXoxSNf1ew/T6svKnFFOjI/AAAAAAAADag/x26n-Zx1rLE/s512/heyhey1.png"> Go over to <strong>Administrative Tools &gt; Computer Management</strong>. <img src="https://lh5.googleusercontent.com/-NR9KtPV31fc/T6sskYmoxHI/AAAAAAAADaI/zfd-VUKhvr4/s512/windows_computer_management.png"> On the left sidebar you should notice the <strong>Disk Management</strong> option. <img src="https://lh3.googleusercontent.com/-gQwRFWlgpXI/T6stsBcPXRI/AAAAAAAADaQ/EjmbU4Y2He4/s294/disk_management.png"> Look for the iSCSI drive, for this tutorial we made a 50GB drive which is listed at the bottom. Here you can choose to format the drive if you like. <img src="https://lh6.googleusercontent.com/-x7gNbrsLN0M/T6stsMH6xCI/AAAAAAAADaU/N3gmABnQ-fY/s579/disk_management_list_drives.png"></p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>As you can see configuring an iSCSI target in Ubuntu doesn’t have to be complex. Keep in mind the above was just a basic installation, deploying iSCSI also brings other variables in to consideration such as security since the above configuration will allow just about any one to connect to the target. Perhaps I should make another post about iSCSI best practices, thank you for reading. If you have any questions or comments use the form below.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/05/configure-ubuntu-to-serve-as-an-iscsi-target/" data-id="ckj2hnjmo005wy6fxfmsjgj4a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iscsi/" rel="tag">iscsi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/05/cloning-a-drive-with-easeus-disc-copy-simple-cloning-utility/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Cloning A Drive With EaseUS Disc Copy - Simple Cloning Utility
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/05/configure-a-software-raid1-array-in-linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Configure Software RAID1 Array In Linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

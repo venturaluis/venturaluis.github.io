@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Install Windows Defender on Server 2008 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Ask the admin: How do I install Windows Defender on Windows Server 2008 If you try to install Windows Defender by downloading a separate file as you would on XP, you will receive an error preventing y">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Windows Defender on Server 2008">
+<meta property="og:url" content="http://linhost.info/2009/05/ask-the-admin-how-do-i-install-windows-defender-on-windows-server-2008/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Ask the admin: How do I install Windows Defender on Windows Server 2008 If you try to install Windows Defender by downloading a separate file as you would on XP, you will receive an error preventing y">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SiC9wMqR09I/AAAAAAAABC8/9apWMRct_mA/s800/greenshot_2009-05-29_16-36-30.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9wTgVtnI/AAAAAAAABDA/d20OSkduC7A/s800/greenshot_2009-05-29_16-44-11.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/SiC9wbCmlTI/AAAAAAAABDE/uAK0YD_HzvI/s800/greenshot_2009-05-29_16-46-55.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/SiDOPdCqltI/AAAAAAAABDc/3xh6dQ_reJg/s800/greenshot_2009-05-29_17-02-51.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9zqYIdDI/AAAAAAAABDQ/hH-Y6Bs6Fg8/s800/greenshot_2009-05-29_17-04-40.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SiDP0sSg9rI/AAAAAAAABDk/uydl9zd_wYc/s800/greenshot_2009-05-29_19-10-48.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SiDdKPXpcUI/AAAAAAAABDo/r8Ist7cNAaA/s800/greenshot_2009-05-30_00-13-38.png">
+<meta property="article:published_time" content="2009-05-31T06:11:32.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.482Z">
+<meta property="article:tag" content="windows defender">
+<meta property="article:tag" content="windows server 2008">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SiC9wMqR09I/AAAAAAAABC8/9apWMRct_mA/s800/greenshot_2009-05-29_16-36-30.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-ask-the-admin-how-do-i-install-windows-defender-on-windows-server-2008" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Install Windows Defender on Server 2008
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Ask the admin: How do I install Windows Defender on Windows Server 2008</strong> If you try to install Windows Defender by downloading a separate file as you would on XP, you will receive an error preventing you from installing. Vista and Windows Server 2008 have no need to download a separate file in order to install <strong>Windows Defender</strong>. To install Windows Defender on Server 2008 you first need to install the <strong>Desktop Experience</strong> which includes <strong>Windows Defender</strong>. <strong>Desktop Experience</strong> is available as a <strong>Feature</strong> from the <strong>Server Manager</strong>.</p>
+<h2 id="How-To"><a href="#How-To" class="headerlink" title="How To"></a>How To</h2><p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SiC9wMqR09I/AAAAAAAABC8/9apWMRct_mA/s800/greenshot_2009-05-29_16-36-30.png" alt="server_manager"> <strong>1.</strong> Open the <strong>Server Manager</strong>, from the <strong>Features Summary</strong> click on <strong>Add Features</strong>. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9wTgVtnI/AAAAAAAABDA/d20OSkduC7A/s800/greenshot_2009-05-29_16-44-11.png" alt="windows_defender"> <strong>2.</strong> From the <strong>Add Features Wizard</strong> select <strong>Desktop Experience</strong> and click one <strong>Next</strong>. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SiC9wbCmlTI/AAAAAAAABDE/uAK0YD_HzvI/s800/greenshot_2009-05-29_16-46-55.png" alt="defender_002"> <strong>3.</strong> Now confirm the selection by clicking on <strong>Install</strong>. The installation may take some time. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SiDOPdCqltI/AAAAAAAABDc/3xh6dQ_reJg/s800/greenshot_2009-05-29_17-02-51.png" alt="defender_003"> <strong>4.</strong> For the new feature (Windows Defender) to take effect you must restart the server. Click on <strong>Close</strong> and you will be prompted to restart the server. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiC9zqYIdDI/AAAAAAAABDQ/hH-Y6Bs6Fg8/s800/greenshot_2009-05-29_17-04-40.png" alt="defender_004"> <strong>5.</strong> After the server starts allow for some time to complete the installation and configuration. If everything is OK you should see a message confirming the installation. Then click on <strong>Close</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SiDP0sSg9rI/AAAAAAAABDk/uydl9zd_wYc/s800/greenshot_2009-05-29_19-10-48.png" alt="defender_004"> <strong>6.</strong> To start <strong>Windows Defender</strong> go to <strong>Start &gt; All Programs &gt; Windows Defender</strong> <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SiDdKPXpcUI/AAAAAAAABDo/r8Ist7cNAaA/s800/greenshot_2009-05-30_00-13-38.png" alt="windows_defender_front_end"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/05/ask-the-admin-how-do-i-install-windows-defender-on-windows-server-2008/" data-id="ckj2hnjln002qy6fxd7bt6l1e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-defender/" rel="tag">windows defender</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server-2008/" rel="tag">windows server 2008</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/06/detail-the-configuration-registry-database-is-corrupt/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Detail - The configuration registry database is corrupt
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/05/directx-attack-on-xp-ws-2003-wave-consolidates-core-online-features-no-windows-7-starter-3-app-limit-intel-wants-linux-on-netbooks-ciscos-crs-1-five-year-milestone-sp2-for-vista-and-ws-2008/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">IT links for 2009/05/31</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

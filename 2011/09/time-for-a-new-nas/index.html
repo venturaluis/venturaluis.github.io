@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Time For A New NAS | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I thought I wouldn’t have to say this for years to come, but I’ve reached the conclusion that after 3 years of service the time to replace my current NAS has come, for sake of reference here is what I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Time For A New NAS">
+<meta property="og:url" content="http://linhost.info/2011/09/time-for-a-new-nas/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I thought I wouldn’t have to say this for years to come, but I’ve reached the conclusion that after 3 years of service the time to replace my current NAS has come, for sake of reference here is what I">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s288/VIAC3Board.png">
+<meta property="article:published_time" content="2011-09-26T04:05:48.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.800Z">
+<meta property="article:tag" content="windows server">
+<meta property="article:tag" content="NAS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s288/VIAC3Board.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-time-for-a-new-nas" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Time For A New NAS
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I thought I wouldn’t have to say this for years to come, but I’ve reached the conclusion that after 3 years of service the time to replace my current NAS has come, for sake of reference here is what I currently have:</p>
+<ul>
+<li>Via C3</li>
+<li>Windows Server 2003</li>
+<li>512MB of RAM</li>
+<li>2TB Storage / 1TB Usable</li>
+</ul>
+<p>It’s not the hardware that I find to be the problem, but the lack of expansion that’s holding me back. If you look at the picture below you can see the board currently in my NAS. For starters I am limited to a single 10/100 onboard NIC, there is no option to upgrade to SATA only IDE, while there is one PCI slot available its currently occupied by a PCI SATA controller meaning its not possible to upgrade to gigabit speeds. <a target="_blank" rel="noopener" href="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s800/VIAC3Board.png"><img src="https://lh3.googleusercontent.com/-7evBXMzgLE4/Tn_4x_S0YhI/AAAAAAAADN8/rgO9KNlJ-ac/s288/VIAC3Board.png" title="VIA C3 Board"></a></p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU:"></a>CPU:</h3><p>While the onboard VIA C3 CPU is no monster its certainly capable of handling most tasks: File server, web server. But there is one service I don’t even want to try and run with the current limitations, SCSI Target. Since I would not be making of a TOE NIC for the iSCSI traffic, all calculations would have to be performed in CPU which would take a toll on performance and nothing good would come out of it. Although I thought about running software RAID I opted not to because of the possible added load on the CPU.</p>
+<h3 id="STORAGE"><a href="#STORAGE" class="headerlink" title="STORAGE:"></a>STORAGE:</h3><p>Another serious limitation is storage capacity, because of its age the board lacks SATA ports leaving me with IDE as the default option, good luck trying to find a 1TB IDE hard drive. The only possible expansion came from the PCI slot in which I installed a PCI SATA controller and connected two 1TB SATA drives, only 1TB is usable because the second drive contains a copy of the first.</p>
+<h3 id="RAM"><a href="#RAM" class="headerlink" title="RAM:"></a>RAM:</h3><p>Currently running with 512MB, but can be upgraded to 1GB. I don’t see the point of upgrading.</p>
+<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking:"></a>Networking:</h3><p>The board comes with a 10/100 NIC, the only expansion port is being used by the PCI SATA controller. Its either a 10/100/1000 NIC or a PCI SATA controller. I thought of using an external USB drives or an eSATA enclosure but that would have been a temporary measure. Instead I’ve started to look for a replacement solution something that is capable, with the possibility for future expansion and with enough resources to run iSCSI, SMB, RAID, SSH for tunneling, and expansion slots.</p>
+<ul>
+<li>Either an Intel or AMD CPU</li>
+<li>At least 1GB of RAM</li>
+<li>At least 4 drives</li>
+<li>Gigabit NIC</li>
+<li>PCI-E would be nice</li>
+</ul>
+<p>At the moment there are two front runners one is a semi-complete solution: QNAP TS-410 ($450.00) and the HP Micro Server ($350.00) which would require me to once again provide the OS among other things. I like the convenience of QNAP and the favorable reviews on what appears to be a solid product that comes with many useful features like iSCSI, HTTP server, SMB. But the nerd in me calls out for the HP Micro Server.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2011/09/time-for-a-new-nas/" data-id="ckj2hnjsu00pby6fx9k9dhgy3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/" rel="tag">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/10/work-with-the-right-tools/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Work With The Right Tools
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/09/how-to-backup-and-restore-the-mbr/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">How To Backup And Restore The MBR</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Q&amp;A: DMZ In Consumer Routers | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="My Linksys router has the option to set up a DMZ, is there any thing I should know before making use of it? Excerpt from Wikipedia  The purpose of a DMZ is to add an additional layer of security to an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Q&amp;A: DMZ In Consumer Routers">
+<meta property="og:url" content="http://linhost.info/2010/06/qa-dmz-in-consumer-routers/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="My Linksys router has the option to set up a DMZ, is there any thing I should know before making use of it? Excerpt from Wikipedia  The purpose of a DMZ is to add an additional layer of security to an">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TCAdC8H5J3I/AAAAAAAACXo/zXT-ajNA010/s800/wrt54gl_s2.png">
+<meta property="article:published_time" content="2010-06-22T09:59:57.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.655Z">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="dmz">
+<meta property="article:tag" content="linksys">
+<meta property="article:tag" content="nat">
+<meta property="article:tag" content="port forward">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TCAdC8H5J3I/AAAAAAAACXo/zXT-ajNA010/s800/wrt54gl_s2.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-qa-dmz-in-consumer-routers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Q&amp;A: DMZ In Consumer Routers
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>My Linksys router has the option to set up a DMZ, is there any thing I should know before making use of it?</strong> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/DMZ_(computing)">Excerpt from Wikipedia</a></p>
+<blockquote>
+<p>The purpose of a DMZ is to add an additional layer of security to an organization’s Local Area Network (LAN); an external attacker only has access to equipment in the DMZ, rather than any other part of the network.</p>
+</blockquote>
+<p>A DMZ is commonly used to offer Internet facing services like HTTP and FTP, while at the same time isolating the exposed host from the Local Area Network. Although some consumers routers advertise the capability to offer a DMZ what they call a DMZ is far from the truth. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCAdC8H5J3I/AAAAAAAACXo/zXT-ajNA010/s800/wrt54gl_s2.png" alt="WRT54 GL">The use of the word DMZ is not accurate, it’s not a DMZ at all. Enabling the DMZ feature on a Linksys device actually decreases the security of the LAN by creating a large security hole. This is because consumer routers misuse the word DMZ for what is acutally known as One to One NAT(1:1), meaning all ports will be forwarded from the WAN to a specific IP inside the LAN. Unlinke port forwarding which only forwards a specific port from the WAN, 1:1 NAT forwards all ports into the specified IP address while doing nothing to isolate the exposed host from the rest of the LAN. Port forwarding is a safer option than One to One NAT by reducing the attack surface to the specified ports. If you still want a DMZ then consider a better solution such as pfSense or the Cisco ASA series.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/06/qa-dmz-in-consumer-routers/" data-id="ckj2hnjrp00liy6fxf7fu1i5t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dmz/" rel="tag">dmz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linksys/" rel="tag">linksys</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nat/" rel="tag">nat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/port-forward/" rel="tag">port forward</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/06/how-to-create-a-parted-magic-bootable-usb-flash-drive/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          How To Create A Parted Magic Bootable USB Flash Drive
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/06/install-munin-in-five-minutes-on-ubuntu-10-04/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Install Munin In Five Minutes On Ubuntu 10.04</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

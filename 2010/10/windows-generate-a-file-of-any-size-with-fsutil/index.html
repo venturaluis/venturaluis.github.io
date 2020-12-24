@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Windows: Generate a File of any Size with Fsutil | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Inevitably, there will come a time when you will need files of various sizes to test application performance or to conduct a simple test on a new drive. Rather than hunt around for a file that fits yo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows: Generate a File of any Size with Fsutil">
+<meta property="og:url" content="http://linhost.info/2010/10/windows-generate-a-file-of-any-size-with-fsutil/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Inevitably, there will come a time when you will need files of various sizes to test application performance or to conduct a simple test on a new drive. Rather than hunt around for a file that fits yo">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-10-08T07:35:21.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.718Z">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="fsutil">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-windows-generate-a-file-of-any-size-with-fsutil" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows: Generate a File of any Size with Fsutil
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Inevitably, there will come a time when you will need files of various sizes to test application performance or to conduct a simple test on a new drive. Rather than hunt around for a file that fits your needs you can make use of the Fsutil command in Windows to create a file of any size, I would say the limit to how big of file you can create depends on the amount of free space available. Like I said before, in Windows you can use Fsutil to generate the file, the correct command would go like this.</p>
+<p>fsutil file createnew </p>
+<p>In the real world the command would actually look like this:</p>
+<p>fsutil file createnew f:/web/speedtest/1gb.bin 1073741824</p>
+<p>What this command did was create a 1GB file in a directory located in another drive and it only took seconds for the file to be generated.</p>
+<h2 id="Command-Explained"><a href="#Command-Explained" class="headerlink" title="Command Explained:"></a>Command Explained:</h2><p>Fsutil is easy to understand, in the example above I want to create a 1GB file inside an existing directory located in a separate drive. If you want to keep the file in the local drive all you would have to change would be the drive letter from F: to C:. Equally important is the fact that you have to specify the size of the resulting file in bytes.</p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h2><p><a target="_blank" rel="noopener" href="http://technet.microsoft.com/en-us/library/cc788058(WS.10).aspx">Fsutil @ Technet</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/10/windows-generate-a-file-of-any-size-with-fsutil/" data-id="ckj2hnju500tfy6fx8vvee8w4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fsutil/" rel="tag">fsutil</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/10/windows-memory-diagnostics-a-free-memory-diagnostic-tool-for-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Windows Memory Diagnostics - A Free Memory Diagnostic Tool For Windows
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Clone a Hard Drive over the Network with DD</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

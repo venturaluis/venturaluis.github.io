@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Mount exFAT Formatted Drives In Ubuntu | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ExFAT is an abbreviation for Extended File Allocation Table a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT&#x2F;FAT32 file system is that it can store a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mount exFAT Formatted Drives In Ubuntu">
+<meta property="og:url" content="http://linhost.info/2012/04/mount-exfat-formatted-drives-in-ubuntu/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="ExFAT is an abbreviation for Extended File Allocation Table a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT&#x2F;FAT32 file system is that it can store a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG">
+<meta property="article:published_time" content="2012-04-30T08:43:39.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.817Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="fat">
+<meta property="article:tag" content="exfat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-mount-exfat-formatted-drives-in-ubuntu" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mount exFAT Formatted Drives In Ubuntu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="http://msdn.microsoft.com/en-us/library/aa914353.aspx">ExFAT</a> is an abbreviation for <strong>Extended File Allocation Table</strong> a file system intended for use in flash drives, exFAT main advantage over the more traditional FAT/FAT32 file system is that it can store a file larger than 4GB. With the increase in flash drive capacity FAT/FAT32 can be limiting. While exFAT sounds like the right solution it comes with inherit problems for users of Free Software such as Linux, you see exFAT is a file system created and patented by Microsoft meaning due to patents support for exFAT in Free Software is bound to be flaky. ExFAT adoption is not a problem for the Windows platform: by Windows XP (SP2), Vista, and 7 are already support exFAT. While not the best solution it is possible to mount exFAT formatted drives by using <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Filesystem_in_Userspace">FUSE</a> which is also an abbreviation for <strong>File system in Userspace</strong>, :( . <img src="http://lh4.ggpht.com/_fF0LO28FGYY/TUj-W3hg3aI/AAAAAAAAC58/gN1FInARFL0/s800/Rally-DataTraveler.JPG"></p>
+<h3 id="Installation-and-Configuration"><a href="#Installation-and-Configuration" class="headerlink" title="Installation and Configuration"></a>Installation and Configuration</h3><p>Before you can make use of <strong>Fuse-exFAT</strong> you need to first install <strong>python-software-properties</strong> which includes <strong>add-apt-repository</strong>.</p>
+<ul>
+<li>This is required of you wish to continue with this tutorial, this package includes the tool needed to add the repository.</li>
+</ul>
+<p>sudo apt-get install python-software-properties</p>
+<ul>
+<li>Add the new PPA (<a target="_blank" rel="noopener" href="http://pre.google.com/p/exfat/">http://pre.google.com/p/exfat/</a>).</li>
+</ul>
+<p>sudo add-apt-repository ppa:relan/exfat</p>
+<ul>
+<li>Update the system.</li>
+</ul>
+<p>sudo apt-get update</p>
+<ul>
+<li>Install Fuse-exFAT</li>
+</ul>
+<p>sudo apt-get install fuse-exfat</p>
+<ul>
+<li>Create a directory where we can mount the drive.</li>
+</ul>
+<p>sudo mkdir /media/exfat</p>
+<ul>
+<li>Mount the drive and specify the file system used by the flash drive.</li>
+</ul>
+<p>mount -t exfat /dev/sdb1 /media/exfat</p>
+<ul>
+<li>Display the newly mounted exFAT drive.</li>
+</ul>
+<p>user@ubuntu:~$ df -H<br>Filesystem      Size  Used Avail Use% Mounted on<br>/dev/sda1        54G  1.8G   49G   4% /<br>udev            186M  4.1k  186M   1% /dev<br>tmpfs            78M  279k   78M   1% /run<br>none            5.3M     0  5.3M   0% /run/lock<br>none            194M     0  194M   0% /run/shm<br>/dev/sdb1        2.1G  525k  2.1G   1% /media/exfat</p>
+<p>There you have it, it might not be pretty but it works.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/04/mount-exfat-formatted-drives-in-ubuntu/" data-id="ckj2hnjqf00hzy6fxeznwhmi4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/exfat/" rel="tag">exfat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/fat/" rel="tag">fat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/05/site-update-domain-migration/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Site Update: Domain Migration
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/04/new-virtual-machines-available-ubuntu-12-04-32-bit-and-64-bit/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">New Virtual Machines Available: Ubuntu 12.04 32-bit and 64-bit</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

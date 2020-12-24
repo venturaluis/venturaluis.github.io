@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="site, site">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Linhost.info">
+<meta property="og:url" content="http://linhost.info/page/16/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="site, site">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-pfsense-remote-logging-to-kiwi-syslog-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/pfsense-remote-logging-to-kiwi-syslog-server/">pfSense Remote Logging To Kiwi Syslog Server</a>
+    </h1>
+  
+
+        <a href="/2010/07/pfsense-remote-logging-to-kiwi-syslog-server/" class="article-date">
+  <time datetime="2010-07-14T10:59:18.000Z" itemprop="datePublished">2010-07-14</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Recently, I had to enable logging for several firewall rules on a pfSense box, of course this was going to result in an increase in the number of logs and possibly fill the 4GB compact flash card pfSense is installed on. Fortunately pfSense makes it very easy to send logs over to a remote syslog server, in my case the remote syslog server is a Windows system running Kiwi Syslog Server as a service.</p>
+<blockquote>
+<p>Note: pfSense outputs all logs in the syslog standard.</p>
+</blockquote>
+<p>Asides from preventing the logs from using all the available space in the firewall, its good practice to centralize all logs into a single system. Its easier than having to access each network device to view the logs the contain.</p>
+<h3 id="Install-and-configure-the-Syslog-server"><a href="#Install-and-configure-the-Syslog-server" class="headerlink" title="Install and configure the Syslog server"></a>Install and configure the Syslog server</h3><p>First you need to download Kiwi Syslog Server from its home page at <a target="_blank" rel="noopener" href="http://www.kiwisyslog.com/kiwi-syslog-server-overview/">Kiwisyslog.com</a>, you can choose between the paid version (only $245 USD) or the Free version. Registration is necessary in order to access either version. The paid version comes with a web interface for anywhere access, to name just a few advantages of the paid version. Once the download is complete you will notice two .msi files and one .exe only install <strong>Kiwi_Syslog_Server_9.1.0.setup</strong> this is the file we want to start the syslog server installation. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/PfzRnb1KXaZclXXy_N4kvA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TD1tDSPf7yI/AAAAAAAACbI/xotF40r9sn0/s800/2-2.png"></a> Agree with the <strong>END USER LICENSE AGREEMENT</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/kS9gX71u0AA9jqlNeI8yqg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TD1tDYJjjyI/AAAAAAAACbM/2t8P55yhja8/s800/2-3.png"></a> Now you get to decide whether the Syslog server should run as a Service or an Application. If the Syslog server is supposed to run 24/7 then you want to choose <strong>Install Kiwi Syslog Server a Service</strong> , otherwise <strong>Install Kiwi Syslog as an Application</strong> will be dependent on the user login in. Click on <strong>Next</strong> when done. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/Cyths4X6Jp3quMQiF3nHEw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TD1tDXyl7BI/AAAAAAAACbQ/L3rOfad6hg8/s800/2-4.png"></a> You need to be an Administrator in order to install the service. My account is part of the administrator group, so I am using <strong>The LocalSystem Account</strong>. Click on <strong>Next</strong> when done. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ipenHDAafwpH3Evy9LpwdQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TD1tDh2ecvI/AAAAAAAACbU/aoffZPjMX_0/s800/2-5.png"></a> If you are installing the paid version of Kiwi Syslog Server then by all mean install the web GUI, free versions do not come the web access. I choose not to install. Click on <strong>Next</strong> when done. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/gFEHQxjPei-KlhEkHpfSRg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TD1tD07hphI/AAAAAAAACbY/0vT4Ir-bnjk/s800/2-6.png"></a> This window provides mainly optional components to install. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/V_3HOybe2662pFWTNISrbg?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TD1tQSqwC-I/AAAAAAAACbg/CUmw9d63RlE/s800/2-7.png"></a> Go with the defaults on this one. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/NtQjWx5zlgBTeD2qTYIsDA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TD1tQkg3f3I/AAAAAAAACbk/qeY7dT7mNQc/s800/2-8.png"></a> Click on <strong>Finish</strong> and wait for Kiwi Syslog to be launched. However, because we haven’t configure pfSense to Syslog to a remote server Kiwi Server will display nothing. You might not want to launch at all. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/BP2j-t4OZbE-LJkV7chxKw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TD1tQ6TCWPI/AAAAAAAACbs/K7dG1w8oiOo/s800/2-10.png"></a> Let’s move over to the pfSense side.</p>
+<h3 id="Configure-pfSense"><a href="#Configure-pfSense" class="headerlink" title="Configure pfSense"></a>Configure pfSense</h3><p>Log on to the <strong>pfSense administration page</strong> and on the menu bar at the top of the page hover the mouse over <strong>Status</strong> and from the drop down menu click on <strong>System logs</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/xJRypJgorvGZF-4cp_aogw?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TD1iQOEjW5I/AAAAAAAACa4/OdBxq4F__GQ/s800/1.png"></a> Once you are in the <strong>System logs</strong> page click on the <strong>Settings</strong> tab. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/4WxNfSYh4VSbJVgtSiQoKg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TD1iQZo_PWI/AAAAAAAACa8/CIIW5OeUzvo/s800/2.png"></a> On this section of the page you want to check the box belonging to <strong>Enable syslog’ing to remote syslog server</strong>. Enter the IP address of the remote server, also decide what information will be sent to the server by checking the necessary boxes according to your needs. I only need the “Firewall events” to be sent. Click on <strong>Save</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/0gTLoS1W5F4iFLW-K_1wGg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TD1iQ5os-lI/AAAAAAAACbA/LnweESOTCgk/s800/3.png"></a></p>
+<h3 id="Now-Syslog"><a href="#Now-Syslog" class="headerlink" title="Now Syslog"></a>Now Syslog</h3><p>To start viewing the logs start the console by going to <strong>Start &gt; All Programs &gt; SolarWinds Kiwi Syslog Server &gt; Kiwi Syslog Server Console</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/5Yf6R7rk8pHZLrVDfRSVkw?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TD18gnbdDjI/AAAAAAAACb8/OL_Zt420ACo/s800/2-14.png"></a> You should see the output from pfSense almost immediately. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/Wh9Zvc5YygHiExlcOE0QFQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TD1tcK6G-HI/AAAAAAAACb0/qj92E4VpK68/s800/2-12.png"></a> As you can see the set-up was straight forward and simple to implement. On a future post I will cover Kiwi Syslog Server in depth. Thanks for reading.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://www.pfsense.com/">pfSense</a> <a target="_blank" rel="noopener" href="http://www.kiwisyslog.com/kiwi-syslog-server-overview/">Kiwi Syslog Server</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/pfsense-remote-logging-to-kiwi-syslog-server/" data-id="ckj2hnjrh00kry6fx2i2vbjgh" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kiwi/" rel="tag">kiwi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pfsense/" rel="tag">pfsense</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/syslog/" rel="tag">syslog</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-qa-ntfs-compression" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/qa-ntfs-compression/">Q&amp;A: NTFS Compression</a>
+    </h1>
+  
+
+        <a href="/2010/07/qa-ntfs-compression/" class="article-date">
+  <time datetime="2010-07-13T09:59:45.000Z" itemprop="datePublished">2010-07-13</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><strong>NTFS compression is available for NTFS volumes and I would like to make use of it. What should I expect from NTFS compression ?</strong> I find it impressive that all it takes is a few clicks to compress an entire NTFS volume. NTFS compression will be seamless from the end user perspective, meaning all directories and files are automatically compressed at the time of creation. Whenever a file is requested it will be automatically decompressed and compressed once the file is closed.</p>
+<h3 id="When-not-to-compress"><a href="#When-not-to-compress" class="headerlink" title="When not to compress"></a>When not to compress</h3><p>The basic rule when using NTFS compression is not to compressed the System Volume, compressing the System Volume will result in a noticeable performance drop due to the operating system having to decompress the system files every time they are needed. <strong>My Take:</strong> With the drop in storage costs, NTFS compression should be considered a solution of last resort. While the prospect of gaining storage space by compressing the volume may seem enticing, some performance problems may appear down the road.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/NTFS">Wikipedia NTFS</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/qa-ntfs-compression/" data-id="ckj2hnjrq00lly6fx938wa0z1" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/compress/" rel="tag">compress</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ntfs/" rel="tag">ntfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-eraser-secure-data-removal-tool-for-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/eraser-secure-data-removal-tool-for-windows/">Eraser - Secure data removal tool for Windows</a>
+    </h1>
+  
+
+        <a href="/2010/07/eraser-secure-data-removal-tool-for-windows/" class="article-date">
+  <time datetime="2010-07-08T09:59:22.000Z" itemprop="datePublished">2010-07-08</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Whether we like it or not hard drives and USB flash drives contain more personal information than we would like. Thats why its essential to properly erase any information they contain before disposing of them. We already know that formatting is not the way to, the only way of ensuring the permanent removal of data is by overwriting it. Meet <a target="_blank" rel="noopener" href="http://eraser.heidi.ie/">Eraser</a> a security tool available for the Windows platform that can securely and permanently erase sensitive data from a drive by overwriting it with one of the many available patterns. Eraser integrates seamlessly with Windows Explorer and includes a scheduler called <strong>Erase Schedule</strong> where the user can schedule tasks to erase certain files, unused disk space or the Recycle Bin.</p>
+<blockquote>
+<p>Eraser is licensed under a GNU General Public License.</p>
+</blockquote>
+<h3 id="Windows-Explorer-Integration"><a href="#Windows-Explorer-Integration" class="headerlink" title="Windows Explorer Integration"></a>Windows Explorer Integration</h3><p>After Eraser is installed it will automatically integrate with Windows Explorer if the user needs erase a drive all it has to is <strong>Right click on the drive</strong>, select <strong>Erase</strong>, and decided whether to <strong>Erase</strong> now or on <strong>Erase on Restart</strong>. It cant get any easier than this. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/cdKP7TRfOt8tedCvgnJhLA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TDLZpLuKKNI/AAAAAAAACaU/fu0N2aKI0IA/s800/eraser_1.png"></a></p>
+<h3 id="Erase-Schedule"><a href="#Erase-Schedule" class="headerlink" title="Erase Schedule"></a>Erase Schedule</h3><p>You can even automate Eraser to erase certain files, unused disk space, a specified disk, or the Recycle Bin. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/doVT0EfuJLfOw_K7k0qUcA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TDLZpHW7SqI/AAAAAAAACaY/qbzf8-r6vXc/s800/eraser_3.png"></a></p>
+<h3 id="Erasure-methods-supported-by-Eraser"><a href="#Erasure-methods-supported-by-Eraser" class="headerlink" title="Erasure methods supported by Eraser"></a>Erasure methods supported by Eraser</h3><p>You can even choose the levels of paranoia.</p>
+<ol>
+<li>Gutmann (35 passes)</li>
+<li>Gutmann (Lite10 passes)</li>
+<li>US DoD 5220.22-M (8-306./E, C &amp; E) (7 passes)</li>
+<li>RCMP TSSIT OPS-II (7 passes)</li>
+<li>Schneier 7 pass (7 passes)</li>
+<li>German VSITR (7 passes)</li>
+<li>US DoD 5220.00-M (8-306./E) (3 passes)</li>
+<li>British HMGIS5 (Enhanced) (3 passes)</li>
+<li>US Air Force 5020 (3 passes)</li>
+<li>US Army AR380-19 (3 passes)</li>
+<li>Russian GOST P50739-95 (2 passes)</li>
+<li>British HMG IS5 (Baseline) (1 pass)</li>
+<li>Pseudorandom Data (1 pass)</li>
+<li>First/last 16KB Erasure</li>
+</ol>
+<p>Why run the risk of having your erased data recovered by a stranger when the tool need to erase the data permanently is accessible.</p>
+<h4 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h4><p><a target="_blank" rel="noopener" href="http://eraser.heidi.ie/">Eraser Home Page</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/eraser-secure-data-removal-tool-for-windows/" data-id="ckj2hnjnj008vy6fxdl4fh616" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eraser/" rel="tag">eraser</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/open-source/" rel="tag">open source</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ubuntu-minimal-cd" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/ubuntu-minimal-cd/">Ubuntu Minimal CD</a>
+    </h1>
+  
+
+        <a href="/2010/07/ubuntu-minimal-cd/" class="article-date">
+  <time datetime="2010-07-06T09:59:53.000Z" itemprop="datePublished">2010-07-06</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Not everyone needs to download the full 670MB to 700MB Ubuntu ISO, thats why you can also install Ubuntu from a <a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Installation/MinimalCD">minimal ISO</a>. The 14MB ISO is intended to boot the system far enough to fetch the remaining packages from the Ubuntu repositories and install the desired version. The ISO can install either Ubuntu Server, Desktop, Edubuntu, to name just a few..</p>
+<blockquote>
+<p>X86, AMD 64 and PowerPC architectures are separated into two their own ISOs.</p>
+</blockquote>
+<p>I have several 256MB USB flash drives that by todays standards are outdated, small size ISOs a perfect fit for them.</p>
+<h3 id="Using-the-minimal-ISO-has-its-advantages-like"><a href="#Using-the-minimal-ISO-has-its-advantages-like" class="headerlink" title="Using the minimal ISO has its advantages like:"></a>Using the minimal ISO has its advantages like:</h3><ol>
+<li>You can install either desktop or server versions of Ubuntu.</li>
+<li>Only the current packages are downloaded, meaning you wont have to upgrade after the installation is done.</li>
+<li>Due to the small size ISO it can fit inside space limited USB flash drives.</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/47w4d2k3RO2-ngPT7MijAw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TDLKcUDzChI/AAAAAAAACZ8/MKLreSQVi6E/s800/Windows%207%20Test-Bed-2010-07-05-23-40-13.png"></a></p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Installation/MinimalCD">Ubuntu Minimal ISO</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/ubuntu-minimal-cd/" data-id="ckj2hnjt600qcy6fx94avhg7c" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-the-week-vp8-xx-approved-invalid-ssl-certificates-3tb-hard-drives" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/the-week-vp8-xx-approved-invalid-ssl-certificates-3tb-hard-drives/">The Week: - VP8, .xx approved, Invalid SSL certificates, 3TB hard drives</a>
+    </h1>
+  
+
+        <a href="/2010/07/the-week-vp8-xx-approved-invalid-ssl-certificates-3tb-hard-drives/" class="article-date">
+  <time datetime="2010-07-02T09:59:00.000Z" itemprop="datePublished">2010-07-02</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Perhaps VP8 has a future. ICANN approved .XXX like expected. SSL certificates victims of miss-configuration. DELL suffers a blow to its reputation over allegations stating it sold faulty equipment. Cisco wants a tablet. Adobe releases a patch to address 17 vulnerabilities. Mozilla Firefox 4.0 Beta 1 Build available for download. 3TB hard drive bought to you by Seagate. XP machines being targeted by O day vulnerability, around 10,000. Its not all happy moments in HTML5 land, perhaps it was premature of some people to assume HTML5 would be a solution to Flash from day 1, it takes time.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://blogs.gnome.org/rbultje/2010/06/27/googles-vp8-video-codec/">Google’s VP8 video codec</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.telegraph.co.uk/technology/internet/7854705/Sex-domain-.xxx-approved-by-regulators.html">Sex domain .xxx approved by regulators</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.esecurityplanet.com/features/article.php/3890171/SSL-Certificates-In-Use-Today-Arent-All-Valid.htm">SSL Certificates In Use Today Aren’t All Valid</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.nytimes.com/2010/06/29/technology/29dell.html?_r=1">Suit Over Faulty Computers Highlights Dell’s Decline</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.infoworld.com/d/mobilize/cisco-plans-android-based-business-tablet-755">Cisco plans an Android-based business tablet</a></li>
+<li><a target="_blank" rel="noopener" href="http://threatpost.com/en_us/blogs/critical-pdf-reader-patch-fixes-launch-command-attack-vector-062910">Critical PDF Reader Patch Fixes ‘/Launch’ Command Attack Vector</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.conceivablytech.com/1572/products/mozilla-posts-firefox-4-0-beta-1/">Update: Mozilla Posts Firefox 4.0 Beta 1 Build</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.engadget.com/2010/06/29/seagate-busts-out-3tb-external-hard-drive-for-250/">Seagate busts out 3TB external hard drive for $250</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.net-security.org/secworld.php?id=9515">10,000 XP machines attacked through 0-day flaw</a></li>
+<li><a target="_blank" rel="noopener" href="http://apiblog.youtube.com/2010/06/flash-and-html5-tag.html">Flash and the HTML5 tag</a></li>
+</ul>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/the-week-vp8-xx-approved-invalid-ssl-certificates-3tb-hard-drives/" data-id="ckj2hnjst00p8y6fxafymf8yf" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-qa-to-auto-negotiate-or-not" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/07/qa-to-auto-negotiate-or-not/">Q&amp;A: To Auto Negotiate Or Not</a>
+    </h1>
+  
+
+        <a href="/2010/07/qa-to-auto-negotiate-or-not/" class="article-date">
+  <time datetime="2010-07-01T09:59:51.000Z" itemprop="datePublished">2010-07-01</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><strong>It seems that IT professionals have different views on auto-negotiation, some recommend using it others prefer to not use it at all. What’s the reason behind this variation ?</strong> The whole stigma around auto-negotiation is the result of open interpretation, at the time(90s) vendors agreed that auto-negotiation was a neat idea, but like always each vendor had its own interpretation of auto-negotiation. This lead to auto-negotiation being unable to work between vendor A and vendor B. Rather than have a malfunctioning link the solution at the time was to manually set the speed and duplex, this meant that adapters and switches from different vendors would be able to work with each other. Despite the improvements and ratifications over the years auto-negotiation still enjoys a not so favorable reputation in the IT community, To summarize, the problem was that auto-negotiation back then was not the same standard we have today.</p>
+<h3 id="In-the-early-years…"><a href="#In-the-early-years…" class="headerlink" title="In the early years…"></a>In the early years…</h3><ol>
+<li>1995 IEEE802.3u released.</li>
+<li>1998 Open / different interpretations of IEEE802.3 were ended after being ratified that year.</li>
+<li>1999 IEEE802.3ab brought gigabit Ethernet and mandated auto-negotiation on 1000BASE-T aka gigabit Ethernet over copper.</li>
+</ol>
+<p>As you can see with every sequential release auto-negotiation went from being loosely mandated to required on gigabit Ethernet.</p>
+<blockquote>
+<p>All 1000BASE-T PHYs shall provide support for Auto-Negotiation (Clause 28) and shall be capable of operating as MASTER or SLAVE. Auto-Negotiation is performed as part of the initial set-up of the link, and allows the PHYs at each end to advertise their capabilities (speed, PHY type, half or full duplex) and to automatically select the operating mode for communication on the link. Auto-negotiation signaling is used for the following two primary purposes for 1000BASE-T: To negotiate that the PHY is capable of supporting 1000BASE-T half duplex or full duplex transmission. To determine the MASTER-SLAVE relationship between the PHYs at each end of the link. 1000BASE-T MASTER PHY is c from a local source. The SLAVE PHY uses loop timing where the clock is recovered from the received data stream.</p>
+</blockquote>
+<p><em>Clause 40.5.1 IEEE 802.3 standard.</em> The rule of thumb should be to let auto-negotiation happen unless for some reason you still have legacy equipment in the network.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://standards.ieee.org/reading/ieee/interp/IEEE802.3af-2003interp-6.pdf">http://standards.ieee.org/reading/ieee/interp/IEEE802.3af-2003interp-6.pdf</a> <a target="_blank" rel="noopener" href="http://www.sun.com/blueprints/0704/817-7526.pdf">http://www.sun.com/blueprints/0704/817-7526.pdf</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/07/qa-to-auto-negotiate-or-not/" data-id="ckj2hnjrs00lsy6fxbo1k84iw" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ethernet/" rel="tag">ethernet</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ieee/" rel="tag">ieee</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-parted-magic-erase-a-hard-drive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/06/parted-magic-erase-a-hard-drive/">Parted Magic: Erase A Hard Drive</a>
+    </h1>
+  
+
+        <a href="/2010/06/parted-magic-erase-a-hard-drive/" class="article-date">
+  <time datetime="2010-06-30T09:59:57.000Z" itemprop="datePublished">2010-06-30</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>I have blogged several times before about <a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic</a> the open source live distribution that can do pretty much anything(<em>test, backup, partition</em>) when dealing with drives. This time I will focus on a specific tool found on Parted Magic meant to provide a method for the secure wipe or deletion of data from a hard drive by overwriting with generated data. <strong>Erase Disk</strong> is simple to use tool thanks to its easy to understand interface, you can choose the method with which the data will be erased. Keep in mind that we are overwriting the drive, any attempt to recover data after an accidental overwrite will not be possible. Thanks to Parted Magic you now have an operating system independent tool for erasing disks.</p>
+<blockquote>
+<p>Its recommended you disconnect all drives except the one you wish to overwrite.</p>
+</blockquote>
+<h3 id="Let’s-Start…"><a href="#Let’s-Start…" class="headerlink" title="Let’s Start…"></a>Let’s Start…</h3><ol>
+<li>First download Parted Magic from the <a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic website</a> and burn the ISO to a CD/DVD or <a href="http://linhost.info/2010/06/how-to-create-a-parted-magic-bootable-usb-flash-drive/">create a bootable USB flash drive</a>.</li>
+<li>Remember to set the BIOS to boot from removable media, may vary depending on the BIOS, and boot in to Parted Magic.</li>
+</ol>
+<h3 id="Let’s-Erase"><a href="#Let’s-Erase" class="headerlink" title="Let’s Erase"></a>Let’s Erase</h3><p>Once you are presented with the Parted Magic desktop <strong>go to the left bottom corner of the screen</strong> and <strong>click</strong> on the <strong>Parted Magic icon</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/mMldcL5AHPfdoORksPFv9w?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCFOtJC9K1I/AAAAAAAACY4/6CAC_QsKVBM/s800/partedmagic.png"></a> Go to <strong>Parted Magic</strong> &gt; <strong>System Tools</strong> &gt; and click on <strong>Erase Disk</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/mMldcL5AHPfdoORksPFv9w?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TCm4aljsS5I/AAAAAAAACZo/fR2g_dnZHIg/s800/Screenshot.png"></a> A new window will open, this window contains the options available for erasing the drive. Which are:</p>
+<ul>
+<li>External (dd disk): Employs ‘dd’ to write zeroes to the selected drive.</li>
+<li>External (dd part): Zeroes out (with ‘dd’) the selected partition.</li>
+<li>External (shred disk): Uses ‘shred’ (versus ‘dd’) to write zeroes.</li>
+<li>Internal: Secure Erase command writes zeroes to entire data area.</li>
+</ul>
+<p>The first option should be enough to completely overwrite the drive. Choose the option you are comfortable with and click on <strong>Continue…</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/_4KYVxK_9a_C-g-pc1QwgA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TCm3veLlh3I/AAAAAAAACZQ/vI8zxq3Pvu4/s800/Screenshot-1.png"></a> Remember to choose the correct drive, otherwise you will not be able to recover the data from an accidental wipe. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/NcW5G-AplnoylzizgPaqYA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TCm3vjD68II/AAAAAAAACZU/Mn_uXmXEe9c/s800/Screenshot-2.png"></a> Click on <strong>OK</strong> to confirm and start the process. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/_NHRN6g6XbF-L8dip6AYlw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCm3vwN-qVI/AAAAAAAACZY/khR0siI91Cs/s800/Screenshot-3.png"></a> You can actually see the command used to erase the data <em>dc3dd log=/tmp/dd_log.sdb status=noxfer sizeprobe=on of=/dev/sdb bs=4096 count=104857600</em>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/SdVsFlb8xZw6_Tfd09WZ6g?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCm3wFJhvxI/AAAAAAAACZc/G4k8xLlzEZA/s800/Screenshot-4.png"></a> Success, remember that it may take a considerable amount of time anywhere from minutes to hours depending on the size of the drive and data. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/zQTyFPf-E5S0p0R88l-5xg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TCm3zODU8hI/AAAAAAAACZg/B_g0itbuyUA/s800/Screenshot-5.png"></a> Overwriting a drive will not cost you anything since the tools needed are available free of cost. Formating a drive will only leave you vulnerable to recovery software.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic Site</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/06/parted-magic-erase-a-hard-drive/" data-id="ckj2hnjr900kcy6fx4lf5ckj5" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ISO/" rel="tag">ISO</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/live-cd/" rel="tag">live-cd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/parted-magic/" rel="tag">parted magic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-the-week-pci-bus-ieee-802-ba-xxx-on-the-way-dnssec-and-org" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/06/the-week-pci-bus-ieee-802-ba-xxx-on-the-way-dnssec-and-org/">The Week: - PCI bus, IEEE 802.ba, .xxx on the way, DNSSEC and .ORG</a>
+    </h1>
+  
+
+        <a href="/2010/06/the-week-pci-bus-ieee-802-ba-xxx-on-the-way-dnssec-and-org/" class="article-date">
+  <time datetime="2010-06-25T09:59:06.000Z" itemprop="datePublished">2010-06-25</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Intel is moving on, time to say good bye to PCI Local Bus not because it doesn’t work but instead technology is moving faster than the 1993 Bus can support. IEEE ratifies 802.3ba aka 40Gb/s and 100Gb/s ethernet, a sing of increases in throughput to come. .XXX may become a reality, ICANN will make the announcement on its decision on Friday. Controversial cybersecurity bill approved by US senate panel, will the government be granted a kill switch?. Domain Name System Security Extensions or DNSSEC is now responsible for securing the .ORG TLD. Hopefully, domain registrars will follow.</p>
+<h3 id="This-week-IT-news"><a href="#This-week-IT-news" class="headerlink" title="This week IT news"></a>This week IT news</h3><ul>
+<li><a target="_blank" rel="noopener" href="http://kingofgng.com/eng/2010/06/22/intel-says-farewell-to-pci-bus/">Intel says farewell to PCI bus</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.net-security.org/secworld.php?id=9448">IEEE 802.3ba standard released</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ibtimes.com/articles/30626/20100624/internet-bosses-set-to-approve-xxx-for-porn-sites.htm">Internet Bosses Set to Approve .xxx for Porn Sites</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.pcworld.com/article/199809/google_remotely_removes_android_apps.html?tk=hp_new">Google Remotely Removes Android Apps</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.itworld.com/security/112096/senate-panel-approves-controversial-cybersecurity-bill">Senate panel approves controversial cybersecurity bill</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.esecurityplanet.com/features/article.php/3889356/Org-Signed-for-DNSSEC.htm">.Org Signed for DNSSEC</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.esecurityplanet.com/features/article.php/3889581/Twitter-Settles-Security-Complaint-With-FTC.htm">Twitter Settles Security Complaint With FTC</a></li>
+<li><a target="_blank" rel="noopener" href="http://windowsteamblog.com/windows_live/b/windowslive/archive/2010/06/23/announcing-the-new-windows-live-essentials-beta.aspx">Announcing the new Windows Live Essentials beta!</a></li>
+</ul>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/06/the-week-pci-bus-ieee-802-ba-xxx-on-the-way-dnssec-and-org/" data-id="ckj2hnjss00p5y6fx76ou16pi" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-how-to-create-a-parted-magic-bootable-usb-flash-drive" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/06/how-to-create-a-parted-magic-bootable-usb-flash-drive/">How To Create A Parted Magic Bootable USB Flash Drive</a>
+    </h1>
+  
+
+        <a href="/2010/06/how-to-create-a-parted-magic-bootable-usb-flash-drive/" class="article-date">
+  <time datetime="2010-06-23T09:59:17.000Z" itemprop="datePublished">2010-06-23</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p>Parted Magic is one of the best live toolbox oriented distributions available, don’t let the name fool you in the 80MB download you will find an extensive collection of tools intended for: disk cloning, partitioning, data recovery, and hardware testing to name just a few. This time I wanted to install Parted Magic on an extra and by now outdated 256MB USB flash drive I had laying around. While the Parted Magic website does a good job providing instructions on how to perform a USB install I knew there had to be a tool that automated the process(easier). Luckily, I found two options. One came built into the Parted Magic Live CD called <strong>Make Parted Magic USB</strong> which can create a bootable USB drive using the same image from the live CD. The second solution is called <strong>UNetbootin</strong> a tool that allows for the creation of bootable USB drives it comes with a list of distributions to choose from or the user can provide the ISO. In the end both tools do what I want. <strong>About Parted Magic</strong></p>
+<blockquote>
+<p>The Parted Magic OS employs core programs of GParted and Parted to handle partitioning tasks with ease, while featuring other useful programs (e.g. Partimage, TestDisk, Truecrypt, G4L, SuperGrubDisk, ddrescue, etc…) and an excellent set ofdocumentation to benefit the user. An extensive collection of file system tools are also included, as Parted Magic supports the following: ext2, ext3, ext4, fat16, fat32, hfs, hfs+, jfs, linux-swap, ntfs, reiserfs, reiser4, and xfs.</p>
+</blockquote>
+<h3 id="First-Method-UNetbootin"><a href="#First-Method-UNetbootin" class="headerlink" title="First Method: UNetbootin"></a>First Method: UNetbootin</h3><p>First you need to visit the <a target="_blank" rel="noopener" href="http://unetbootin.sourceforge.net/">UNetbootin home page</a> at SourceForge and download the executable usually named <strong>unetbootin-windows-XXX.exe</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/Rl5cMydjWCI7X4zMsGaSIg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCFON6lQRqI/AAAAAAAACX8/Ftz3mZNTjbQ/s800/0.png"></a> Double click on the UNetbootin executable. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/_H7HRIomS3BKEuLXISe3UQ?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCFOOKFf7CI/AAAAAAAACYA/DGhVxhQiYXA/s800/1.png"></a> Once Unetbootin starts on the top click on <strong>Distribution</strong> and from the drop down menu proceed to search for <strong>Parted Magic</strong> and optionally you can go with the <strong>Latest_Live</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ZGpIOinauKquQhPaawT8UQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCFOOaGUZvI/AAAAAAAACYE/txK2gsbfOM4/s800/2.png"></a> At the bottom on <strong>Type</strong> you will have to specify the USB drive where Parted Magic will be installed to. My USB drive was assign the letter <strong>E</strong> by Windows. And click on <strong>OK</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/PJSWBUvSnaO-PN65y4W6rA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCFOOQWQwsI/AAAAAAAACYI/837nrs0uY-o/s800/3.png"></a> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/yYpn339EIWEauU9HXzLtcw?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCFOOrj5niI/AAAAAAAACYM/0-8TsW0fiiM/s800/4.png"></a> UNetbootin will now download , extract and install Parted Magic in to the USB flash drive. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/tovNYYp1iBqSsewH-0sC5Q?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCFOXCsPvzI/AAAAAAAACYQ/GLVoTGNbnY4/s800/5.png"></a> After the process is completed you can either <strong>Reboot Now</strong> or <strong>Exit</strong> UNetbootin. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/9D5MTJz3W7AYNpz7ra6ebg?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TCFOXHLmXCI/AAAAAAAACYU/qJ-wtjdxXM8/s800/6.png"></a> If you reboot the system remember to set the BIOS to boot from removable media. Congratulations you now have a bootable flash drive.</p>
+<h3 id="Second-Method-Make-Parted-Magic-USB"><a href="#Second-Method-Make-Parted-Magic-USB" class="headerlink" title="Second Method: Make Parted Magic USB"></a>Second Method: Make Parted Magic USB</h3><p>If you have a bootable Parted Magic CD/DVD you can use it to create a bootable USB drive thanks to the <strong>Make Parted Magic USB</strong> tool it includes. Of course you first need to boot from the CD/DVD to use the tool. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/dLoX76mcpxIlmtWvSrLKYw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCFOtJC9K1I/AAAAAAAACY4/6CAC_QsKVBM/s800/partedmagic.png"></a> First Mount the USB flash drive by using <strong>Mount-gtk</strong> which can be found on the desktop. You can identify the USB flash drive by looking at the size of the drive and model. And mount it by clicking on the <strong>Mount</strong> button. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/7xEsDpUYje-c0dikTzmtbA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCFOX-gEoJI/AAAAAAAACYc/Tn1kL5gxZM8/s800/a2.png"></a> Go back to the Desktop and click on the <strong>Parted Magic</strong> button located at the left bottom corner and click on <strong>System Tools</strong> and <strong>Make Parted Magic USB</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/pVJRALL_kFNIaAqtcRwwqA?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TCFOYJs9-hI/AAAAAAAACYg/tclUgMG3k5w/s800/a3.png"></a> Since only one drive was mounted you will only be presented with the mounted drive. Click on <strong>OK</strong> to select it. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/UF4xt_K9Z4POuTLTid7eMw?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TCFOkm2GCoI/AAAAAAAACYk/sdytecNxJA8/s800/a4.png"></a> The process starts. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/qWHU1sSrBVEPTj1_vw9GbQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TCFOkvjCdFI/AAAAAAAACYo/QZxCw5mTW8k/s800/a5.png"></a> Click on <strong>OK</strong> to acknowledge the creation of the USB flash drive. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/9RVIjYQtM3IN5nHLSTtrhg?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TCFOkydDQjI/AAAAAAAACYs/CWjIQc-n7hc/s800/a6.png"></a> Go back to the Parted Magic button and right click on it, then select <strong>Logout</strong> and <strong>Reboot</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/GVqDhrNuemEMMS5hqd0Tkg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TCFOk301SSI/AAAAAAAACYw/LnYwcPK6X5Y/s800/a7.png"></a> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/886gbHieCPd_KrEsgNc2RA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/TCFOlGFasII/AAAAAAAACY0/8dVrLezzrM0/s800/a8.png"></a> Both methods are easy to use and will result in a bootable USB flash drive.</p>
+<h3 id="Links"><a href="#Links" class="headerlink" title="Links"></a>Links</h3><p><a target="_blank" rel="noopener" href="http://unetbootin.sourceforge.net/">UNetbootin at SourceForge</a> <a target="_blank" rel="noopener" href="http://partedmagic.com/">Parted Magic Home Page</a></p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/06/how-to-create-a-parted-magic-bootable-usb-flash-drive/" data-id="ckj2hnjod00bgy6fxbp0vhmre" class="article-share-link">Share</a>-->
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-qa-dmz-in-consumer-routers" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2010/06/qa-dmz-in-consumer-routers/">Q&amp;A: DMZ In Consumer Routers</a>
+    </h1>
+  
+
+        <a href="/2010/06/qa-dmz-in-consumer-routers/" class="article-date">
+  <time datetime="2010-06-22T09:59:57.000Z" itemprop="datePublished">2010-06-22</time>
+</a>
+      </header>
+    
+    <div class="article-entry-abstract" itemprop="articleBody">
+      
+        <!--<p><strong>My Linksys router has the option to set up a DMZ, is there any thing I should know before making use of it?</strong> <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/DMZ_(computing)">Excerpt from Wikipedia</a></p>
+<blockquote>
+<p>The purpose of a DMZ is to add an additional layer of security to an organization’s Local Area Network (LAN); an external attacker only has access to equipment in the DMZ, rather than any other part of the network.</p>
+</blockquote>
+<p>A DMZ is commonly used to offer Internet facing services like HTTP and FTP, while at the same time isolating the exposed host from the Local Area Network. Although some consumers routers advertise the capability to offer a DMZ what they call a DMZ is far from the truth. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/TCAdC8H5J3I/AAAAAAAACXo/zXT-ajNA010/s800/wrt54gl_s2.png" alt="WRT54 GL">The use of the word DMZ is not accurate, it’s not a DMZ at all. Enabling the DMZ feature on a Linksys device actually decreases the security of the LAN by creating a large security hole. This is because consumer routers misuse the word DMZ for what is acutally known as One to One NAT(1:1), meaning all ports will be forwarded from the WAN to a specific IP inside the LAN. Unlinke port forwarding which only forwards a specific port from the WAN, 1:1 NAT forwards all ports into the specified IP address while doing nothing to isolate the exposed host from the rest of the LAN. Port forwarding is a safer option than One to One NAT by reducing the attack surface to the specified ports. If you still want a DMZ then consider a better solution such as pfSense or the Cisco ASA series.</p>
+-->
+      
+    </div>
+    <footer class="article-footer">
+      <!--<a data-url="http://linhost.info/2010/06/qa-dmz-in-consumer-routers/" data-id="ckj2hnjrp00liy6fxf7fu1i5t" class="article-share-link">Share</a>-->
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dmz/" rel="tag">dmz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linksys/" rel="tag">linksys</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nat/" rel="tag">nat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/port-forward/" rel="tag">port forward</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/15/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/36/">36</a><a class="extend next" rel="next" href="/page/17/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

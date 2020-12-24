@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>My advice on building a virtualization LAB on the cheap | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="But wait there’s more. In a perfect world every virtualization lab would be done on server grade hardware. Reality is different for personal purposes some of us use desktop hardware which is cheaper b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My advice on building a virtualization LAB on the cheap">
+<meta property="og:url" content="http://linhost.info/2009/11/my-advice-on-building-a-virtualization-lab-on-the-cheap/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="But wait there’s more. In a perfect world every virtualization lab would be done on server grade hardware. Reality is different for personal purposes some of us use desktop hardware which is cheaper b">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2009-11-11T23:24:34.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.569Z">
+<meta property="article:tag" content="lab">
+<meta property="article:tag" content="virtualisation">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-my-advice-on-building-a-virtualization-lab-on-the-cheap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      My advice on building a virtualization LAB on the cheap
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>But wait there’s more. In a perfect world every virtualization lab would be done on server grade hardware. Reality is different for personal purposes some of us use desktop hardware which is cheaper but also limited in some ways. Consider this post to be simple advice from a simple man, ahoy!.</p>
+<h4 id="Dual-core-and-above"><a href="#Dual-core-and-above" class="headerlink" title="Dual core and above"></a>Dual core and above</h4><p>Dual core is the standard by now, so why not try to go for a tree or four core CPU if you can. Anyway two cores will work in most situations.</p>
+<h4 id="AMD-cost-less"><a href="#AMD-cost-less" class="headerlink" title="AMD cost less"></a>AMD cost less</h4><p>Along with others I believe Intel has segmented part of the CPU market by not making some of the cheaper CPUs VT capable. AMD offers a capable and affordable line of two, three, and four core CPUs, time to go cherry picking. <em>Note:</em> I don’t dislike Intel, it’s just that I wanted to save some money.</p>
+<h4 id="Start-with-4GB-of-memory-on-the-host"><a href="#Start-with-4GB-of-memory-on-the-host" class="headerlink" title="Start with 4GB of memory on the host"></a>Start with 4GB of memory on the host</h4><p>32bit guest will run on limited memory. Try to do the same with multiple 64bit guests and you will have a different story. RAM is cheap.</p>
+<h4 id="Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines"><a href="#Install-the-Host-OS-in-a-separate-drive-from-the-virtual-machines" class="headerlink" title="Install the Host OS in a separate drive from the virtual machines"></a>Install the Host OS in a separate drive from the virtual machines</h4><p>In a perfect world the system would make use of a RAID controller capable of RAID10, due to high cost that’s not the case. That’s why it’s recommended you separate the host OS from the virtual machines, the load may become unbearable on a single disk that has to do the job of two.</p>
+<h4 id="64bit-OS"><a href="#64bit-OS" class="headerlink" title="64bit OS"></a>64bit OS</h4><p>This may depend on whether you are planning to run a desktop OS or server OS, remember if you go with 32bit OS you will find your self limited to 4 GB of physical memory. With that in mind if want to run multiple 64bit virtual machines you will find your self limited. Anyway 64bit is the future, get use to it.</p>
+<h4 id="Choose-your-motherboard-wisely"><a href="#Choose-your-motherboard-wisely" class="headerlink" title="Choose your motherboard wisely"></a>Choose your motherboard wisely</h4><p>The correct motherboard means: 4 memory slots and above. Buying 4 x 2GB memory modules is cheaper than buying 2 x 4GB memory modules. Multiple SATA ports means more hard drives to store virtual machines or store backups.</p>
+<h4 id="Don’t-assign-more-resources-than-you-really-have"><a href="#Don’t-assign-more-resources-than-you-really-have" class="headerlink" title="Don’t assign more resources than you really have"></a>Don’t assign more resources than you really have</h4><p>It’s a good idea to know or guess the expected load each virtual machine will bring to the system. All too often people assign as much as they can to a virtual machine without realising it might impact the host. Don’t assign multiple CPUs just because you can and go crazy with storage you might need it later. Feel free to provide more recommendations.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/11/my-advice-on-building-a-virtualization-lab-on-the-cheap/" data-id="ckj2hnjqi00idy6fx090dgh64" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lab/" rel="tag">lab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/virtualisation/" rel="tag">virtualisation</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/11/mouse-is-not-working-in-vmware-vm/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          VMware - Mouse problem when using a live cd
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/11/links-for-11112009/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Links for 11/11/2009</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

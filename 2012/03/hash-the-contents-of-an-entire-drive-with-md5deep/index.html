@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Hash The Contents Of An Entire Drive With md5deep | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Previously I wrote about Hashing a directory with md5deep since that post was written I’ve received a few comments asking how to accomplish the same but with an entire drive which is why I’ve decided">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hash The Contents Of An Entire Drive With md5deep">
+<meta property="og:url" content="http://linhost.info/2012/03/hash-the-contents-of-an-entire-drive-with-md5deep/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Previously I wrote about Hashing a directory with md5deep since that post was written I’ve received a few comments asking how to accomplish the same but with an entire drive which is why I’ve decided">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-03-13T02:15:15.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.808Z">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="security">
+<meta property="article:tag" content="md5deep">
+<meta property="article:tag" content="hash">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-hash-the-contents-of-an-entire-drive-with-md5deep" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hash The Contents Of An Entire Drive With md5deep
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Previously I wrote about <a href="http://linhost.info/2010/02/checksum-a-directory-with-md5deep/">Hashing a directory with md5deep</a> since that post was written I’ve received a few comments asking how to accomplish the same but with an entire drive which is why I’ve decided to write this post. The actual command to hash an entire drive with md5deep is quite easy to understand and execute just like before. Normally if all you want it to do is hash a single directory you would use the exact command below.</p>
+<p>md5deep -rel E:Encoder_Output &gt; Encoder_Output.md5</p>
+<p>The command to hash the contents of an entire drive is similar to the one above, but instead of using the directory path we only need to use the drive letter.</p>
+<p>md5deep -rel E: &gt; E_Results.md5</p>
+<p>Command Explanation</p>
+<ul>
+<li>r = recursive operation</li>
+<li>e = compute estimated time remaining for file name</li>
+<li>l = print relative paths for file name</li>
+<li>E: = Drive you need to hash</li>
+<li>&gt; E_Results.md5 = output file</li>
+</ul>
+<p>Once you have the resulting hashes from the operation in a text file you can refer to my second post on how to <a href="http://linhost.info/2010/05/compare-hashes-with-md5deep-part-2/">Compare Hashes With md5deep</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/03/hash-the-contents-of-an-entire-drive-with-md5deep/" data-id="ckj2hnjoa00b1y6fxepdvabsw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hash/" rel="tag">hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md5deep/" rel="tag">md5deep</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/" rel="tag">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/03/securely-erase-a-entire-drive-with-shred/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Securely Erase A Drive With Shred
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/02/openmediavault-virtual-machine-is-now-available/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">OpenMediaVault Virtual Machine Is Now Available</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

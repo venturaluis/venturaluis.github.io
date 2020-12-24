@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Mount ISOs on Linux with GMount ISO | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="GMount ISO is a simple tool for Linux that facilitates mounting ISO images as a virtual drive. GMount ISO is a frontend to the mount command and is written using PyGTK and Glade. Virtual disc access r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mount ISOs on Linux with GMount ISO">
+<meta property="og:url" content="http://linhost.info/2009/05/mount-isos-on-linux-with-gmount-iso/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="GMount ISO is a simple tool for Linux that facilitates mounting ISO images as a virtual drive. GMount ISO is a frontend to the mount command and is written using PyGTK and Glade. Virtual disc access r">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SfvQN9EA1uI/AAAAAAAAAxs/JzTRM1ysmKo/s800/Screenshot-Gmount-iso.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/SfvbkgNDvLI/AAAAAAAAAyM/DZo3L1UcFLE/s800/44Screenshot.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/SfvNQru2IeI/AAAAAAAAAxk/yajU1v7XNFw/s800/Screenshot-Synaptic%20Package%20Manager%20.png">
+<meta property="article:published_time" content="2009-05-02T06:30:38.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.472Z">
+<meta property="article:tag" content="gmount iso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SfvQN9EA1uI/AAAAAAAAAxs/JzTRM1ysmKo/s800/Screenshot-Gmount-iso.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-mount-isos-on-linux-with-gmount-iso" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mount ISOs on Linux with GMount ISO
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>GMount ISO</strong> is a simple tool for Linux that facilitates mounting ISO images as a virtual drive. GMount ISO is a frontend to the <strong>mount command</strong> and is written using PyGTK and Glade. Virtual disc access rate is about 200 times faster than that of a physical disc. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SfvQN9EA1uI/AAAAAAAAAxs/JzTRM1ysmKo/s800/Screenshot-Gmount-iso.png"> The system will not know the difference. <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfvbkgNDvLI/AAAAAAAAAyM/DZo3L1UcFLE/s800/44Screenshot.png"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>GMount ISO is available in the Ubuntu repositories. You can install the tool using the command line.</p>
+<p>sudo apt-get install gmountiso</p>
+<p>Or Synaptic by typing <strong>gmountiso</strong> on the search box.. <img src="http://lh4.ggpht.com/_fF0LO28FGYY/SfvNQru2IeI/AAAAAAAAAxk/yajU1v7XNFw/s800/Screenshot-Synaptic%20Package%20Manager%20.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/05/mount-isos-on-linux-with-gmount-iso/" data-id="ckj2hnjqf00i2y6fx3uyg4unm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gmount-iso/" rel="tag">gmount iso</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/05/7-useful-linux-live-cds/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          7 useful Linux Live CDs
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/04/volume-activation-error-0xc004c020/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Volume activation error 0xC004C020</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
