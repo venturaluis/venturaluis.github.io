@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Major Retail Chains Failure To Implement Proper Physical And Basic Network Security Is Something Normal | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Let’s come clean most of the major retail chains fail miserably to implement proper physical and basic network security. TJX is the shiny example and sometime ago it was confirmed thanks to an article">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Major Retail Chains Failure To Implement Proper Physical And Basic Network Security Is Something Normal">
+<meta property="og:url" content="http://linhost.info/2008/06/major-retail-chains-fail-to-implement-proper-physical-and-basic-network-security/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Let’s come clean most of the major retail chains fail miserably to implement proper physical and basic network security. TJX is the shiny example and sometime ago it was confirmed thanks to an article">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-06-06T03:49:01.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.204Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-major-retail-chains-fail-to-implement-proper-physical-and-basic-network-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Major Retail Chains Failure To Implement Proper Physical And Basic Network Security Is Something Normal
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Let’s come clean most of the major retail chains fail miserably to implement proper physical and basic network security. TJX is the shiny example and sometime ago it was confirmed thanks to an article from theregister.co.uk, the article highlights some of the obvious failures major retail chains face like leaving the servers running under administrative mode, no real physical segregation, and placing post-it notes with the passwords and user names in obvious places like under the monitor located next to the server. The following articles explains in better deal the same flaws I witness while working for JC Penny. <a target="_blank" rel="noopener" href="http://www.theregister.co.uk/2008/05/23/tjx_fires_whistleblower/">http://www.theregister.co.uk/2008/05/23/tjx_fires_whistleblower/</a></p>
+<blockquote>
+<p>Security was so lax at the TJ Maxx outlet located in Lawrence, Kansas, that employees were able to log onto company servers using blank passwords, the fired employee, Nick Benson, told The Register. This policy was in effect as recently as May 8, more than 18 months after company officials learned a massive network breach had leaked the details of more than 94 million customer credit cards.</p>
+</blockquote>
+<p>I speak out of my own experience when I say that I witness the same thing while working for JC Penny (not for IT), the store has three servers running Windows 2003 under administrative privileges and one Cisco 1800 router. All the equipment was located in one room which happen to be the same room where the barcode scanners were located meaning a lot of people had access. Apparently the administrator account with no password was used in all server because the assistant store manager was expected to reboot the servers or perform some basic trouble shooting when calling technical support. If a determined person wanted to pull some data of the servers the best time was after 7 AM that’s when most on the employees had the remaining bar code scanners in their hands and had no reason to return to the room. It’s been over two years but I remember the primary function for two of the servers.</p>
+<ul>
+<li>POS (this one always called my attention)</li>
+<li>File server</li>
+<li>CRM or SCM (can’t remember)</li>
+</ul>
+<p>Back then I was shocked after witnessing the lack of security, my teacher always pointed out that security involved more than just configuring a firewall but also physical and keeping the equipment away from the water lines at any cost. Maybe I was a kid flooded with curiosity meaning.</p>
+<ul>
+<li>Wireshark and Nmap just for fun</li>
+<li>Scanned for all network devices and ports in use</li>
+<li>Maybe the internal network was exposed</li>
+<li>Maybe the filtering rules used on the routers were exposed and maybe I found those rules to be weaker than the ones I created when taking my first CCNA class</li>
+<li>Maybe the possibilities for installing keyloggers in the kiosk and servers existed</li>
+</ul>
+<p>I am no in a position to judge Nick Benson decision to post what he knew but I used to be in the same position he was, the only difference is that I was never part of IT for the company. My job was to be a simple replenisher for the merchandise and a minor at the time. The information he posted provides no concrete way for a cracker to cause further damage all he did was to exposed the already weak procedures in place. Let me say that in the end no lesson will be learned and your personal data will remain vulnerable because of the stupid decisions made by a few uninformed executives. The company was safe with me because I never had the intention of causing trouble instead I learned from their mistake which I hope to prevent in the future. <em>Who needs to bypass a corporate firewall or create elaborate social engineering tricks when all it takes is getting a job at a company that pays 8.20 an hour and work from the inside.</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/06/major-retail-chains-fail-to-implement-proper-physical-and-basic-network-security/" data-id="ckj2hf3ze00g6tlfxcalocfsi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/06/little-brother/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Little Brother By Cory Doctorow
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/06/install-vmware-server-106-in-ubuntu-804/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Install VMware Server 1.0.6 On Ubuntu 8.04</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

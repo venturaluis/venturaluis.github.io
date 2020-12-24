@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>10 Useful Cisco IOS Commands - Part 1 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This is not a complete list of all the commands found in the Cisco IOS, instead I intend this page to be a simple reference of the commands I frequently come across when working with Cisco products. A">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10 Useful Cisco IOS Commands - Part 1">
+<meta property="og:url" content="http://linhost.info/2010/11/10-useful-cisco-ios-commands-part-1/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="This is not a complete list of all the commands found in the Cisco IOS, instead I intend this page to be a simple reference of the commands I frequently come across when working with Cisco products. A">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-11-09T10:03:59.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.727Z">
+<meta property="article:tag" content="cisco">
+<meta property="article:tag" content="ios">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-10-useful-cisco-ios-commands-part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      10 Useful Cisco IOS Commands - Part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is not a complete list of all the commands found in the Cisco IOS, instead I intend this page to be a simple reference of the commands I frequently come across when working with Cisco products. Although, I tried to write a description for most of the commands found below some of them are self explanatory. <strong>Schedule Router to Reload in X amount of minutes:</strong> You can schedule a Cisco device to reload at a predetermined amount of time. The example below will reload a router in 25 minutes.</p>
+<p>Router# reload in 25</p>
+<p>System configuration has been modified. Save? [yes/no]: yes<br>Building configuration…<br>[OK]<br>Reload scheduled in 25 minutes by console<br>Reload reason: Reload Command<br>Proceed with reload? [confirm]</p>
+<p><strong>To cancel the reload just issue:</strong></p>
+<p>Router# reload cancel</p>
+<p>Router#</p>
+<p>***<br>*** — SHUTDOWN ABORTED —<br>***</p>
+<p><strong>Display CPU load:</strong></p>
+<p>Router# show proc cpu</p>
+<p>CPU utilization for five seconds: 0%/0%; one minute: 0%; five minutes: 0%<br> PID Runtime(ms)   Invoked      uSecs   5Sec   1Min   5Min TTY Process<br>   1           0         2          0  0.00%  0.00%  0.00%   0 Chunk Manager<br>   2           4       192         20  0.00%  0.00%  0.00%   0 Load Meter<br>   3           0         1          0  0.00%  0.00%  0.00%   0 chkpt message ha<br>   4           0         1          0  0.00%  0.00%  0.00%   0 EDDRI_MAIN</p>
+<p><strong>Display available memory:</strong></p>
+<p>Router# show proc mem</p>
+<p>Processor Pool Total:  162187652 Used:   20502480 Free:  141685172<br>      I/O Pool Total:   16777216 Used:    2831648 Free:   13945568<br>Transient Pool Total:   16777216 Used:      16584 Free:   16760632</p>
+<p> PID TTY  Allocated      Freed    Holding    Getbufs    Retbufs Process<br>   0   0   28163076    6754612   19372876        351         84 *Init*<br>   0   0      12052      79384      12052          0          0 *Sched*</p>
+<p><strong>Clear interface configuration:</strong> Clear a specific interface of all configuration and return to a default state.</p>
+<p>Router(config)# default interface fastEthernet 0/0</p>
+<p>Building configuration…</p>
+<p>Interface FastEthernet0/0 set to default configuration</p>
+<p><strong>Change hostname:</strong></p>
+<p>Router(config)# hostname R12BNY</p>
+<p><strong>Disable host to IP translation:</strong> While harmless frequent “<em>Translating…. domain server (255.255.255.255)</em>“ messages can result in waste of valuable time. The logical solution is to disable Host to IP Address Translation. After disabling the message will no longer appear.</p>
+<p>Router(config)# no ip domain-lookup</p>
+<p><strong>Test network throughput with TTCP:</strong> TTCP is hidden IOS command designed to measure network throughput. In order to use TTCP you need to configure a sender and a receiver. Keep in mind this will result in increased Router load.</p>
+<p>R2# ttcp transmit 192.168.1.1</p>
+<p>ttcp-t: buflen=8192, nbuf=2048, align=16384/0, port=5001  tcp  -&gt; 192.168.1.1<br>ttcp-t: connect (mss 1460, sndwnd 4128, rcvwnd 4128)<br>ttcp-t: 16777216 bytes in 75696 ms (75.696 real seconds) (~215 kB/s) +++<br>ttcp-t: 2048 I/O calls<br>ttcp-t: 0 sleeps (0 ms total) (0 ms average)</p>
+<p>R1# ttcp receive</p>
+<p>ttcp-r: buflen=8192, align=16384/0, port=5001<br>rcvwndsize=0, delayedack=yes  tcp<br>ttcp-r: accept from 192.168.1.2 (mss 1460, sndwnd 4128, rcvwnd 2668)<br>ttcp-r: 16777216 bytes in 75696 ms (75.696 real seconds) (~215 kB/s) +++<br>ttcp-r: 8330 I/O calls<br>ttcp-r: 0 sleeps (0 ms total) (0 ms average)</p>
+<p><strong>Banner MOTD:</strong> Change the message with which users will be greeted when logging in.</p>
+<p>Router(config)# banner motd #</p>
+<p>Enter TEXT message.  End with the character ‘#’.<br>You are entering the vicinity of an area adjacent to a location. The kind of place where there might be a monster,<br>or some kind of weird mirror. These are just examples; it could also be something much better.<br>Prepare to enter: The Scary Door.<br>#</p>
+<p><strong>Display IOS version:</strong></p>
+<p>Router# show version</p>
+<p>Cisco IOS Software, 7200 Software (C7200-JK9S-M), Version 12.4(13b), RELEASE SOFTWARE (fc3)<br>Technical Support: <a target="_blank" rel="noopener" href="http://www.cisco.com/techsupport">http://www.cisco.com/techsupport</a><br>Copyright (c) 1986-2007 by Cisco Systems, Inc.<br>Compiled Wed 25-Apr-07 03:18 by prod_rel_team</p>
+<p>ROM: ROMMON Emulation Microcode<br>BOOTLDR: 7200 Software (C7200-JK9S-M), Version 12.4(13b), RELEASE SOFTWARE (fc3)</p>
+<p><strong>Disable Cisco Discovery Protocol (CDP):</strong> CDP allows a Cisco device to see an adjacent Cisco device along with the protocols and IP addresses it uses. While useful CDP is considered by some to be a risk because it provides information to potential attackers.</p>
+<p>Router(config)# no cdp run</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/11/10-useful-cisco-ios-commands-part-1/" data-id="ckj2hf3u8000ztlfx8hwz80k6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cisco/" rel="tag">cisco</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/" rel="tag">ios</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/11/disable-nvidia-nvprofile-annoying-shortcut/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Disable NVIDIA nvProfile Annoying Shortcut
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/11/review-bytecc-bt-db925-usb-to-serial/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Review: BYTECC BT-DB925 - USB To Serial</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

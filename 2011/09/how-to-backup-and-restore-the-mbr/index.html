@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>How To Backup And Restore The MBR | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How To Backup And Restore The MBR">
+<meta property="og:url" content="http://linhost.info/2011/09/how-to-backup-and-restore-the-mbr/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in g">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2011-09-19T09:36:26.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.798Z">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="dd">
+<meta property="article:tag" content="mbr">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-how-to-backup-and-restore-the-mbr" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How To Backup And Restore The MBR
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>You are a geek therefore you can’t trust your self to not render a system unbootable. Specially if you are about to boot from more than one operating system which is done incorrectly could result in getting a blank screen. BTW: The MBR holds partition data and Operating System boot essential data. Therefore, it’s essential to know how to backup the MBR, fortunately we can backup with a few simple steps and only using free tools.</p>
+<blockquote>
+<p>MBR = Master Boot Record</p>
+</blockquote>
+<p>This tutorial uses a Live CD which includes the utility know as <strong>dd</strong> with can be used to copy entire drives or just sections of it. First of all you should boot in to your Linux environment and mount a second drive where we can store the MBR backup.</p>
+<blockquote>
+<p>Do not save the backup file in the same drive from which you are making the backup.</p>
+</blockquote>
+<p>Create a directory.</p>
+<p>mkdir mountusb</p>
+<p>Use the <strong>ls</strong> command to identify the second drive. In my case I have a SATA drive and a USB drive, the SATA drive is always assigned the first letter of the alphabet in this case it’s named <strong>sda</strong> and the USB drive was assigned the name <strong>sdb</strong>.</p>
+<p>root@PartedMagic:~# ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sdb  /dev/sdb1</p>
+<p>You can’t mount the drive itself, instead you have to mount partitions. In this case I will be mounting a USB drive which is where I will be storing the MBR backup, <em>remember to mount the partition not the drive</em>.</p>
+<p>mount /dev/sdb1 mountusb</p>
+<p>And now we back up the <strong>MBR</strong> aka the first 512 bytes.</p>
+<p>dd if=/dev/sda count=1 bs=512 &gt; mountusb/sda.mbr</p>
+<ul>
+<li><strong>mountusb -</strong> Is the previously created directory</li>
+<li><strong>sda.mbr -</strong> Represents the actual backup</li>
+</ul>
+<p>Restoring the <strong>MBR</strong> follows similar steps, you first need to mount the drive where the MBR was backup to and use the <strong>dd</strong> command to restore the backup to the desired drive.</p>
+<p>dd if=mountusb/sda.mbr of=/dev/sda</p>
+<p>Now that you know how to backup the MBR go ahead and start playing with multiple operating system, if at a latter time you decided to remove them you can always revert to the original MBR with a single command. Thanks for reading.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2011/09/how-to-backup-and-restore-the-mbr/" data-id="ckj2hf3xw00bctlfx25yu5hjj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mbr/" rel="tag">mbr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/09/time-for-a-new-nas/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Time For A New NAS
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/09/download-the-windows-8-developer-preview/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Download The Windows 8 Developer Preview</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

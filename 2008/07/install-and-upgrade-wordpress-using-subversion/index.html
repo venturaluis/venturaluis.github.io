@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Install And Upgrade Wordpress With Subversion | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In this tutorial I will walk you through the installation of Subversion on Ubuntu, if you have never used Subversion before then you will find this tutorial easy to follow. Perhaps you should read the">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install And Upgrade Wordpress With Subversion">
+<meta property="og:url" content="http://linhost.info/2008/07/install-and-upgrade-wordpress-using-subversion/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="In this tutorial I will walk you through the installation of Subversion on Ubuntu, if you have never used Subversion before then you will find this tutorial easy to follow. Perhaps you should read the">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-07-15T11:50:33.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.221Z">
+<meta property="article:tag" content="svn">
+<meta property="article:tag" content="wordpress">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-install-and-upgrade-wordpress-using-subversion" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Install And Upgrade Wordpress With Subversion
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In this tutorial I will walk you through the installation of Subversion on Ubuntu, if you have never used Subversion before then you will find this tutorial easy to follow. Perhaps you should read the <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Subversion_(software)">Subversion entry at Wikipedia</a> to find out more. Like any good system administrator our first priority should be to update and upgrade before installing SVN.</p>
+<blockquote>
+<p>sudo apt-get update sudo apt-get upgrade</p>
+</blockquote>
+<p>Let’s start by installing the Subversion package:</p>
+<blockquote>
+<p>sudo apt-get install subversion</p>
+</blockquote>
+<p>We need to create a central repository where our files will be stored. I chose /home/svn, Let’s use the svnadmin tool to create a path and set up the repository:</p>
+<blockquote>
+<p>sudo svnadmin create /home/svn</p>
+</blockquote>
+<p>Now create a group in order to enable access to the Subversion repository. Create a group named using the following command:</p>
+<blockquote>
+<p>sudo addgroup svn</p>
+</blockquote>
+<p>Now you add yourself to the newly group:</p>
+<blockquote>
+<p>sudo adduser user_name svn</p>
+</blockquote>
+<p>This step needs to be repeated when giving access to a new user to the repository. After you have added yourself to the group, log out and log in to verify that you are an active member of the group. Now we need to enable access to the svn group and set the premissions to the repository.</p>
+<blockquote>
+<p>sudo chgrp -R svn /home/svn sudo chmod -R g+rws /home/svn</p>
+</blockquote>
+<p>If you want to display information about the repository use the following command svn info file:///home/svn Well done, the reposity can be located at. <strong>file:///home/svn</strong> and <strong>file://localhost/home/svn</strong> For this tutorial all I need is local access.</p>
+<h3 id="Install-Wordpress-via-SVN"><a href="#Install-Wordpress-via-SVN" class="headerlink" title="Install Wordpress via SVN"></a>Install Wordpress via SVN</h3><p>I find that installing Wordpress via SVN is far easier in the long run, this becomes evident when upgrading the installation at a later time. <strong>Overview of what we want to accomplish with SVN</strong> We want to install the current version for WordPress, create a directory “blog” for your blog install and then check out (Subversion command “co”), or extract from the repository, the version of WordPress you have requested. Here are the commands. First create a directory named “blog”.</p>
+<blockquote>
+<p>mkdir blog</p>
+</blockquote>
+<p>Move to the new directory.</p>
+<blockquote>
+<p>cd blog</p>
+</blockquote>
+<p>Have SVN get the current Wordpress release and create the installation directories.</p>
+<blockquote>
+<p>$ svn co <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1">http://svn.automattic.com/wordpress/tags/2.5.1</a> .</p>
+</blockquote>
+<p>Do not forget the period at the end of the SVN command it makes sure the downloaded files end in the current directory, not including the dot will result in a new installation directory. After the download is complete, edit the wp-config.php with the required changes to complete the installation.</p>
+<h3 id="Update-to-a-new-release-version"><a href="#Update-to-a-new-release-version" class="headerlink" title="Update to a new release version"></a>Update to a new release version</h3><p>When the Wordpress team releases a new version an upgrade will be required. Because we now use SVN all we need to do is log in to the server and use the “Switch” command to switch to the new version.</p>
+<blockquote>
+<p>cd blog svn sw <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags/2.5.1/">http://svn.automattic.com/wordpress/tags/2.5.1/</a></p>
+</blockquote>
+<p>The beautiful part of this process is that all custom and privately owned files will be left intact (example themes, plugins). Run the usual wp-admin/upgrade.php to finish the upgrade.</p>
+<h3 id="TIP"><a href="#TIP" class="headerlink" title="TIP"></a>TIP</h3><p>Browse <a target="_blank" rel="noopener" href="http://svn.automattic.com/wordpress/tags">http://svn.automattic.com/wordpress/tags</a> , to find all the versions of WordPress. Issuing two commands in order to set the automated upgrade process cuts down the amount of time and effort put into maintaining Wordpress. I hope you find SVN to be efficient and easy for Wordpress installations and upgrades than downloading, extracting, and uploading.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/07/install-and-upgrade-wordpress-using-subversion/" data-id="ckj2hf3yj00dhtlfx7ojn474s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/" rel="tag">svn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wordpress/" rel="tag">wordpress</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/07/enable-the-hidden-compiz-settings-in-ubuntu-804/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Enable The Hidden Compiz Settings In Ubuntu 8.04
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/07/microsoft-dreamspark-means-free-software-for-students/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Free software from Microsoft</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

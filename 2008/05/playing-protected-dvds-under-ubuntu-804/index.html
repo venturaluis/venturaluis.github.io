@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Play encrypted DVDs on Ubuntu | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="This is fool proof How-To for playing protected DVD’s under Ubuntu, thanks to Medibuntu repository your Ubuntu Linux system can play the popular media formats. Support for audio and video formats will">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Play encrypted DVDs on Ubuntu">
+<meta property="og:url" content="http://linhost.info/2008/05/playing-protected-dvds-under-ubuntu-804/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="This is fool proof How-To for playing protected DVD’s under Ubuntu, thanks to Medibuntu repository your Ubuntu Linux system can play the popular media formats. Support for audio and video formats will">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-05-07T10:39:18.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.189Z">
+<meta property="article:tag" content="ubuntu">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-playing-protected-dvds-under-ubuntu-804" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Play encrypted DVDs on Ubuntu
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is fool proof How-To for playing protected DVD’s under Ubuntu, thanks to Medibuntu repository your Ubuntu Linux system can play the popular media formats. Support for audio and video formats will be added. Medibuntu offers a different repository for each version of Ubuntu, make sure to pick the repository that matches your Ubuntu version. Lucky you this How-To is mostly about copy and paste.</p>
+<h4 id="Repositories"><a href="#Repositories" class="headerlink" title="Repositories"></a>Repositories</h4><p>First add the Medibuntu repository to the sources list using Wget. Choose the repository that matches your version of Ubuntu. Open a terminal window and type. For <strong>Ubuntu 8.04</strong> use the following repository.</p>
+<p>sudo wget <a target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/hardy.list">http://www.medibuntu.org/sources.list.d/hardy.list</a> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
+<p>For <strong>Ubuntu 8.10</strong> use the following repository.</p>
+<p>sudo wget <a target="_blank" rel="noopener" href="http://www.medibuntu.org/sources.list.d/intrepid.list">http://www.medibuntu.org/sources.list.d/intrepid.list</a> –output-document=/etc/apt/sources.list.d/medibuntu.list</p>
+<h4 id="After-the-repository-is-added"><a href="#After-the-repository-is-added" class="headerlink" title="After the repository is added"></a>After the repository is added</h4><p>Add the GPG Key. When asked answer <strong>Yes</strong> to accept the package.</p>
+<p>sudo apt-get update &amp;&amp; sudo apt-get install medibuntu-keyring &amp;&amp; sudo apt-get update</p>
+<p>After the repository is added we can add <strong>support for encrypted</strong> DVD’s (movies) using APT.</p>
+<p>sudo apt-get install libdvdcss2</p>
+<p>Add support for other media formats like Windows media, Apple Quicktime among many other formats.</p>
+<p>sudo apt-get install w32codecs</p>
+<p>Just to make sure all the changes go into effect restart the system, by the way my player is Totem Movie player.</p>
+<h3 id="Food-for-thought"><a href="#Food-for-thought" class="headerlink" title="Food for thought"></a>Food for thought</h3><p><em>Multimedia, Entertainment &amp; Distractions In Ubuntu (Medibuntu) Software in the free component are not distributed in the Ubuntu repositories because of legal issues with that software in certain countries. Some software such as Amarok and Kaffeine are distributed through the main Ubuntu repositories but with certain functionalities taken away, again because of legal issues. Medibuntu distributes these kind of packages with those functionalities in place. Software in the non-free component are not distributed in the main Ubuntu repositories because of the licenses that these software are distributed with restricts how they can be distributed. The software in the non-free component are usually not needed for general use as there are alternatives or implementations in other open source licensed software. Some software, such as Google Earth and Adobe Acrobat Reader, are available directly from the company’s website that owns the rights to them.</em> For other versions of Ubuntu go to <a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/Medibuntu">https://help.ubuntu.com/community/Medibuntu</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/05/playing-protected-dvds-under-ubuntu-804/" data-id="ckj2hf41100l2tlfxgj7p1wb3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/05/convert-ogg-to-another-format/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Convert Ogg
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/05/pink-glow-around-the-windows-on-ubuntu-804/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Pink Glow Around The Windows On Ubuntu 8.04</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

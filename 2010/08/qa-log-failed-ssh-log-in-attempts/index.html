@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Q&amp;A: Log Failed SSH Log-In Attempts | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Q&amp;A: Log Failed SSH Log-In Attempts">
+<meta property="og:url" content="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What fi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-08-11T07:48:37.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.700Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="openssh">
+<meta property="article:tag" content="log">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-qa-log-failed-ssh-log-in-attempts" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Q&amp;A: Log Failed SSH Log-In Attempts
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>Q) I have a brand new Ubuntu Server installation with port 22(SSH) facing the Internet, while looking at the logs I noticed that no information such as failed log-in attempts are being logged. What file and parameter do I need to change in order to start logging failed attempts?.</strong> <strong>A)</strong> by default OpenSSH on Ubuntu is not set to log failed log-in attempts, I guess the logic behind this decision is to reduce the amount of logs being generated. The risk associated with not logging failed attempts is that you will never know if your server is being targeted by the bad guys, pretty much anything exposed to the Internet is bound to be a target of some sort.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>In order to start logging failed attempts you need root, a text editor, and access to the <em>sshd_config</em> file. Open the file <em>/etc/ssh/sshd_config</em> with your favorite editor.</p>
+<p>nano /etc/ssh/sshd_config</p>
+<p>And look for the line starting with <em>#Logging</em> and change the parameter from <em>LogLevel INFO</em> to <em>LogLevel VERBOSE</em>.</p>
+<p># Logging<br>SyslogFacility AUTH<br>LogLevel INFO</p>
+<p>The new configuration should look like this:</p>
+<p># Logging<br>SyslogFacility AUTH<br>LogLevel VERBOSE</p>
+<p>From now on the system will log all failed attempts to <em>/var/log/auth.log</em>. Just don’t be surprised about your popularity with the bad guys!.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/08/qa-log-failed-ssh-log-in-attempts/" data-id="ckj2hf41700litlfxa9g7488s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/log/" rel="tag">log</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/08/opensolaris-cancelled-self-wiping-drive-browsers-private-mode-is-sas-dead/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          OpenSolaris Cancelled, Self-Wiping drive, Browsers Private Mode, Is SAS Dead?
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/08/azure-test-drive-bye-google-wave-hotmail-face-lift-softlayer-the-planet-merger/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Azure Test Drive, Bye Google Wave, Hotmail Face Lift, Softlayer / The Planet Merger</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Enable ping on Windows Server 2008 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="By default Microsoft disables Ping on the Windows platform, probably as an added security measure. However Ping maybe needed for testing or monitoring purposes. The process to allow Windows Server to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enable ping on Windows Server 2008">
+<meta property="og:url" content="http://linhost.info/2010/02/enable-ping-on-windows-server-2008/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="By default Microsoft disables Ping on the Windows platform, probably as an added security measure. However Ping maybe needed for testing or monitoring purposes. The process to allow Windows Server to">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S3T-kKwux1I/AAAAAAAAB8k/ZWWQsZXFbVM/s800/start-controlpanel.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S3T-E_VUzvI/AAAAAAAAB8Y/kRy6RJf11ek/s800/enable-rule.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S3T9UoU8PTI/AAAAAAAAB8I/U2_57VuzdYQ/s800/rules-enabled.png">
+<meta property="article:published_time" content="2010-02-12T07:31:24.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.592Z">
+<meta property="article:tag" content="windows server">
+<meta property="article:tag" content="networking">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S3T-kKwux1I/AAAAAAAAB8k/ZWWQsZXFbVM/s800/start-controlpanel.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-enable-ping-on-windows-server-2008" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Enable ping on Windows Server 2008
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>By default Microsoft disables Ping on the Windows platform, probably as an added security measure. However Ping maybe needed for testing or monitoring purposes. The process to allow Windows Server to respond to Pings is minimal, requiring few changes to the Windows firewall. Go to <strong>Start</strong> &gt; <strong>Administrative Tools</strong> &gt; <strong>Windows Firewall with Added Security</strong> <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T-kKwux1I/AAAAAAAAB8k/ZWWQsZXFbVM/s800/start-controlpanel.png" alt="start-control-panel"> On the sidebar look for <strong>Inbound Rules</strong> &gt; <strong>File and Print Sharing (Echo Request - ICMPv4-IN)</strong> &gt; right click on <strong>Enable Rule</strong> <img src="http://lh4.ggpht.com/_fF0LO28FGYY/S3T-E_VUzvI/AAAAAAAAB8Y/kRy6RJf11ek/s800/enable-rule.png" alt="enable-rule"> The rule has now been enabled and the server will respond to Pings. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/S3T9UoU8PTI/AAAAAAAAB8I/U2_57VuzdYQ/s800/rules-enabled.png" alt="rules-enabled"> If you wish to later disable ping all you have to do is right click on the rule and select &gt; <strong>Disable Rule</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/02/enable-ping-on-windows-server-2008/" data-id="ckj2hf3x0008ftlfxc6v41y1e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/networking/" rel="tag">networking</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server/" rel="tag">windows server</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/02/iperf-on-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Iperf on Windows
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/02/free-microsoft-web-platform-installer/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Free: Microsoft Web Platform Installer</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

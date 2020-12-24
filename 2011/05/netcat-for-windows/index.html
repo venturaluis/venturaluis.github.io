@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Netcat for Windows | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Running Netcat in Windows is easier than I tough, the entire process consists of downloading a single .zip file named nc111nt.zip from here or from the local mirror here. Wikipedia has a nice entry wi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netcat for Windows">
+<meta property="og:url" content="http://linhost.info/2011/05/netcat-for-windows/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Running Netcat in Windows is easier than I tough, the entire process consists of downloading a single .zip file named nc111nt.zip from here or from the local mirror here. Wikipedia has a nice entry wi">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh5.googleusercontent.com/_fF0LO28FGYY/TdCTuHIYI6I/AAAAAAAADF4/zpO4EkduvgI/s800/netcat-overview.png">
+<meta property="article:published_time" content="2011-05-16T03:15:15.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.773Z">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="network">
+<meta property="article:tag" content="netcat">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh5.googleusercontent.com/_fF0LO28FGYY/TdCTuHIYI6I/AAAAAAAADF4/zpO4EkduvgI/s800/netcat-overview.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-netcat-for-windows" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Netcat for Windows
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Running Netcat in Windows is easier than I tough, the entire process consists of downloading a single .zip file named <strong>nc111nt.zip</strong> from <a target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip">here</a> or from the local mirror <a href="http://linhost.info/downloads/apps/nc111nt.zip">here</a>. Wikipedia has a nice entry with examples on <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat">Netcat</a>.</p>
+<h2 id="How-To"><a href="#How-To" class="headerlink" title="How To"></a>How To</h2><p>Unzip the file and move the resulting folder to a location where you can access it, for example.</p>
+<p>C:Windowsnc111nt</p>
+<p>Open a command line window and move to the location where <strong>nc111nt</strong> is located by using the command <strong>cd</strong>.</p>
+<p>cd C:Windowsnc111nt</p>
+<p>To run Netcat you need to type.</p>
+<p>C:Windowsnc111ntnc.exe [parameter]</p>
+<p>To view a list of available parameters type.</p>
+<p>C:UsersLuisDownloadsnc111nt&gt;nc.exe -help<br>[v1.11 NT <a target="_blank" rel="noopener" href="http://www.vulnwatch.org/netcat//]">www.vulnwatch.org/netcat/\]</a><br>connect to somewhere:   nc [-options] hostname port[s] [ports] …<br>listen for inbound:     nc -l -p port [options] [hostname] [port]<br>options:<br>        -d              detach from console, background mode</p>
+<pre><code>    -e prog         inbound program to exec \[dangerous!!\]
+    -g gateway      source-routing hop point\[s\], up to 8
+    -G num          source-routing pointer: 4, 8, 12, ...
+    -h              this cruft
+    -i secs         delay interval for lines sent, ports scanned
+    -l              listen mode, for inbound connects
+    -L              listen harder, re-listen on socket close
+    -n              numeric-only IP addresses, no DNS
+    -o file         hex dump of traffic
+    -p port         local port number
+    -r              randomize local and remote ports
+    -s addr         local source address
+    -t              answer TELNET negotiation
+    -u              UDP mode
+    -v              verbose \[use twice to be more verbose\]
+    -w secs         timeout for connects and final net reads
+    -z              zero-I/O mode \[used for scanning\]</code></pre>
+<p>port numbers can be individual or ranges: m-n [inclusive]</p>
+<h2 id="Real-Worl-Example"><a href="#Real-Worl-Example" class="headerlink" title="Real Worl Example:"></a>Real Worl Example:</h2><p><img src="https://lh5.googleusercontent.com/_fF0LO28FGYY/TdCTuHIYI6I/AAAAAAAADF4/zpO4EkduvgI/s800/netcat-overview.png" title="Netcat Overview"> Netcat is possible of many things, but my favorite use is to transfer disk images created with dd over the network. As an example I am going to image a 4GB CF card over a gigabit network(no compression). The concept of sender and receiver will be used. System where the image will be stored:</p>
+<p>nc –l –p 7000 | dd of=/dev/hda</p>
+<p>Source system:</p>
+<p>dd if=/dev/hda | nc 192.168.1.10 4000</p>
+<p>Not many things are this easy to run and use, but the nice thing about Netcat is that it works regardless of the operating system being used. Like said I mostly use it to transfer the images I create with the help of dd (Parted Magic) over to my Windows server.</p>
+<h2 id="Links"><a href="#Links" class="headerlink" title="Links:"></a>Links:</h2><ul>
+<li>Wikipedia entry <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Netcat">Netcat</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.hackosis.com/wp-content/uploads/2007/12/nc111nt.zip">Download from hackosis.com</a></li>
+<li><a href="http://linhost.info/downloads/apps/nc111nt.zip">Download from local mirror</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2011/05/netcat-for-windows/" data-id="ckj2hf40c00iqtlfx90nzaceg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/netcat/" rel="tag">netcat</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/" rel="tag">network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/05/10-portable-applications-to-consider-part-3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          10 Portable Applications To Consider - Part 3
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/04/meetmy-home-firewall/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Meet My Home Firewall</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

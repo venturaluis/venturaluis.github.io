@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Mikrotik - RouterOS SSH Public Key Authentication | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one unable to load key file (incorrect passphrase?) !. If">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mikrotik - RouterOS SSH Public Key Authentication">
+<meta property="og:url" content="http://linhost.info/2016/04/mikrotik-routeros-ssh-public-key-authentication/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one unable to load key file (incorrect passphrase?) !. If">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png">
+<meta property="article:published_time" content="2016-04-03T05:54:24.000Z">
+<meta property="article:modified_time" content="2020-08-12T03:09:21.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-mikrotik-routeros-ssh-public-key-authentication" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mikrotik - RouterOS SSH Public Key Authentication
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you intent to make use of a RSA key make sure you are running RouterOS 6.31 version or above, otherwise you may receive an error like this one <strong>unable to load key file (incorrect passphrase?) !</strong>. If the installation needs to be update then refer to this post on <a href="https://linhost.info/2016/03/upgrade-routeros-from-the-command-line/">How to Upgrade RouterOS from the Command Line</a>. NOte: you need access to a Linux system to generate the private and public key pair.</p>
+<h3 id="Key-Generation"><a href="#Key-Generation" class="headerlink" title="Key Generation"></a>Key Generation</h3><p>Use the <strong>ssh-keygen</strong> command to generate an RSA key pair. This step is almost automated for you just wait.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+
+<p>You can view the key pair in their respective directory. Remember: <strong>id_rsa.pub</strong> is meant to be public and will be the file we upload to the remote system.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls ~&#x2F;.ssh</span><br><span class="line"></span><br><span class="line">authorized\_keys  id\_rsa  id\_rsa.pub  known\_hosts</span><br></pre></td></tr></table></figure>
+
+<p>The key pair will reside in the <strong>~/.ssh</strong> found in the users home directory. Use <strong>SCP</strong> to copy the public key pair from the Linux system over to the Mikrotik RouterOS system just change the IP address to that of your router.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp ~&#x2F;.ssh&#x2F;id\_rsa.pub admin@192.168.100.1:id\_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>Now log-in to RouterOS and import <strong>id_rsa.pub</strong> key we just uploaded. I’m importing a key for the user <strong>admin</strong> you can change this to the of any other user.</p>
+<h3 id="RouterOS-Key-Import"><a href="#RouterOS-Key-Import" class="headerlink" title="RouterOS Key Import"></a>RouterOS Key Import</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;user ssh-keys import public-key-file&#x3D;id\_rsa.pub user&#x3D;admin</span><br></pre></td></tr></table></figure>
+
+<p>Let’s view the user new SSH key.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;user ssh-keys print</span><br><span class="line">Flags: R - RSA, D - DSA</span><br><span class="line"> #   USER                       BITS KEY-OWNER</span><br><span class="line"> 0 R admin                      2048</span><br></pre></td></tr></table></figure>
+
+<h3 id="New-Key-Test"><a href="#New-Key-Test" class="headerlink" title="New Key Test"></a>New Key Test</h3><p>Using an SSH client with the new private SSH key attempt to log-in to RouterOS, if successful you shouldn’t be prompted for a password. <a href="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png"><img src="https://linhost.info/wp-content/uploads/2016/04/ssh-login.png" alt="ssh-login"></a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2016/04/mikrotik-routeros-ssh-public-key-authentication/" data-id="ckj2hf3zx00h7tlfx2u1m5on9" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/mikrotik-routeros-disable-fasttrack-to-limit-bandwidth/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Mikrotik - RouterOS Disable FastTrack To Limit Bandwidth
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/upgrade-routeros-from-the-command-line/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Mikrotik - Upgrade RouterOS from the Command Line</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

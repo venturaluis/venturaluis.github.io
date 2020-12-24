@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Change the Keyboard Layout for CentOS / Scientific Linux | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Yes, for some reason one of my VMs was configured with a different keyboard layout: [root@system7]# cat &#x2F;etc&#x2F;sysconfig&#x2F;keyboard KEYTABLE&#x3D;”it”MODEL&#x3D;”pc105”LAYOUT&#x3D;”it”KEYBOARDTYPE&#x3D;”pc” The solution is q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Change the Keyboard Layout for CentOS &#x2F; Scientific Linux">
+<meta property="og:url" content="http://linhost.info/2012/09/change-the-keyboard-layout-for-centos-scientific-linux/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Yes, for some reason one of my VMs was configured with a different keyboard layout: [root@system7]# cat &#x2F;etc&#x2F;sysconfig&#x2F;keyboard KEYTABLE&#x3D;”it”MODEL&#x3D;”pc105”LAYOUT&#x3D;”it”KEYBOARDTYPE&#x3D;”pc” The solution is q">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-09-27T04:54:16.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.892Z">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-change-the-keyboard-layout-for-centos-scientific-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Change the Keyboard Layout for CentOS / Scientific Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Yes, for some reason one of my VMs was configured with a different keyboard layout:</p>
+<p>[root@system7]# cat /etc/sysconfig/keyboard</p>
+<p>KEYTABLE=”it”<br>MODEL=”pc105”<br>LAYOUT=”it”<br>KEYBOARDTYPE=”pc”</p>
+<p>The solution is quite simple all you have to do is edit <strong>/etc/sysconfig/keyboard</strong> with your favorite editor to make the keyboard layout US friendly. I am using <strong>VI</strong> as an example you can use whatever text editor you prefer.</p>
+<p>[root@system7]# vi /etc/sysconfig/keyboard</p>
+<p>KEYTABLE=”us”<br>MODEL=”pc105+inet”<br>LAYOUT=”us”<br>KEYBOARDTYPE=”pc”</p>
+<p><strong>Save and Exit</strong> the text editor. Restart the system so the changes can take effect, now you should have a keyboard layout that you are familiar with.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/09/change-the-keyboard-layout-for-centos-scientific-linux/" data-id="ckj2hf3vk004gtlfx7c63flwl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/09/error-opening-tftp/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Cisco: %Error opening tftp://255.255.255.255
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/09/vmware-taking-ownership-of-this-virtual-machine-failed/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">VMware: Taking Ownership of this Virtual Machine Failed</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>DD the Swiss army knife for Linux | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Windows world has Norton Ghost, Linux has dd which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards usi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DD the Swiss army knife for Linux">
+<meta property="og:url" content="http://linhost.info/2008/12/useful-dd-commands/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="The Windows world has Norton Ghost, Linux has dd which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards usi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2008-12-12T03:47:14.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.276Z">
+<meta property="article:tag" content="dd">
+<meta property="article:tag" content="file recovery">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-useful-dd-commands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      DD the Swiss army knife for Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Windows world has Norton Ghost, Linux has <strong>dd</strong> which can take on multiple tasks from cloning a drive to creating an image for storage. Keep in mind this post takes a very narrow approach towards using dd, you can always do more research. This is a list of the common ways I use <strong>dd</strong>.</p>
+<h3 id="Disk-cloning"><a href="#Disk-cloning" class="headerlink" title="Disk cloning"></a>Disk cloning</h3><p>Clone a hard disk, move all the data located in sda to sdb.</p>
+<p>dd if=/dev/sda of=/dev/sdb</p>
+<p>If duplication of the disk is not needed we can instead create an image file for storage.</p>
+<p>dd if=/dev/sda of=~/disk1.img</p>
+<p>Restore the image file.</p>
+<p>dd if=disk1.img of=/dev/sda</p>
+<h3 id="Copy-CD-DVD-in-to-ISO"><a href="#Copy-CD-DVD-in-to-ISO" class="headerlink" title="Copy CD/DVD in to ISO"></a>Copy CD/DVD in to ISO</h3><p>Create a ISO out of a CD or DVD</p>
+<p>dd if=/dev/cdrom of=/home/user/cd.iso bs=2048 conv=notrunc</p>
+<p>Erase the data from the drive by overwriting it with random data. Keep in mind this solution does not comply with any kind of standard.</p>
+<p>dd if=/dev/urandom of=/dev/hda</p>
+<p>If you wish to use a solution that securely erases the data in hard drives use <a target="_blank" rel="noopener" href="http://www.dban.org/">Darik’s Boot and Nuke (DBAN)</a>.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2008/12/useful-dd-commands/" data-id="ckj2hf43700rctlfxgd1d2i3v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/file-recovery/" rel="tag">file recovery</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2008/12/how-to-install-webmin-on-ubuntu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          How To Install Webmin On Ubuntu
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2008/12/ddclient-set-up-for-ubuntu/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">How To Install DDclient On Ubuntu</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

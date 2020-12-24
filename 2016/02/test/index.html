@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Adding a Serial Port to the Raspberry Pi Zero | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Adding a Serial Port to the Raspberry Pi Zero">
+<meta property="og:url" content="http://linhost.info/2016/02/test/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/02/PUTTY-115200.jpg">
+<meta property="og:image" content="https://linhost.info/wp-content/uploads/2016/02/COMMANDLINE-1.jpg">
+<meta property="article:published_time" content="2016-02-22T21:12:22.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:54.005Z">
+<meta property="article:tag" content="raspberry pi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-test" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/unknown/">unknown</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Adding a Serial Port to the Raspberry Pi Zero
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The Raspberry Pi Zero lacks a USB hub and only comes with a single Micro USB port which means you have to be careful with the limited available port. Adding a USB to serial converter is a good way of accessing the Pi Zero without having to plug a keyboard and HDMI connector and it frees the Micro USB port. There are many flavors of USB to RS232 adapters and one of them is <a target="_blank" rel="noopener" href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2047675.m570.l1312.R1.TR0.TRC2.A0.H0.TRS5&_nkw=ch340&_sacat=0">CH340 eBay</a> which is affordable. Another adapter I like is the CP2102 you can find them on eBay. This are just recommendations in the end it’s your choice as to the one you choose.</p>
+<h3 id="How-I-wire-my-Pi-Zero"><a href="#How-I-wire-my-Pi-Zero" class="headerlink" title="How I wire my Pi Zero"></a>How I wire my Pi Zero</h3><ul>
+<li>The Raspberry Pi can be powered from the same 5V pin coming from the USB to RS232 adapter, I rather have the Zero use a dedicated PSU for stable power.</li>
+</ul>
+<h3 id="Wiring-the-Pi-Zero"><a href="#Wiring-the-Pi-Zero" class="headerlink" title="Wiring the Pi Zero"></a>Wiring the Pi Zero</h3><p><a target="_blank" rel="noopener" href="https://pinout.xyz/">https://pinout.xyz/</a> Use the MicroSD slot as a reference point. On the Pi Zero you will make use of the following pins:</p>
+<ul>
+<li><strong>pin 6</strong> is ground(GND)</li>
+<li><strong>pin 8</strong> is transmit(TXD)</li>
+<li><strong>pin 10</strong> is receive(RXD)</li>
+</ul>
+<p><a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175762341.jpg" alt="image" title="wp-1456175762341"></a></p>
+<h3 id="Wiring-the-USB-to-RS232"><a href="#Wiring-the-USB-to-RS232" class="headerlink" title="Wiring the USB to RS232"></a>Wiring the USB to RS232</h3><p>There might be a slight difference with your USB to RS232 adapter but I am certain it will be the same as below. Make sure to match wiring with those of the Pi Zero. <a href="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg"><img src="https://linhost.info/wp-content/uploads/2016/02/wp-1456175769127.jpg" alt="image" title="wp-1456175769127"></a> On the terminal client of your choice use the COM port assigned to the USB adapter and baud rate of <strong>115200</strong>. <img src="https://linhost.info/wp-content/uploads/2016/02/PUTTY-115200.jpg"></p>
+<h3 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h3><p>If you don’t see any output in the console make sure the TXD and RXD pins are in the correct position, otherwise swap them. <img src="https://linhost.info/wp-content/uploads/2016/02/COMMANDLINE-1.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2016/02/test/" data-id="ckj2hf42a00oxtlfx9zvy8c7d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-pi/" rel="tag">raspberry pi</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/xiaomi-usb-type-c-adapter-convert-micro-usb-to-type-c/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Xiaomi USB Type C Adapter - Convert Micro USB to Type-C
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/update-the-firmware-on-a-raspberry-pi/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Update the Firmware on a Raspberry Pi</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

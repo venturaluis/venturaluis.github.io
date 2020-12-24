@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Volume activation error 0xC004C020 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="When I try to activate my Windows Server 2008 installation I receive the following: Error Code 0xC004C020, this prevents me from using the online activation to validate the installation. 0xC004C020 Th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Volume activation error 0xC004C020">
+<meta property="og:url" content="http://linhost.info/2009/04/volume-activation-error-0xc004c020/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="When I try to activate my Windows Server 2008 installation I receive the following: Error Code 0xC004C020, this prevents me from using the online activation to validate the installation. 0xC004C020 Th">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/SfOMtyOawNI/AAAAAAAAAqg/vuO_o8TztX8/s800/greenshot_2009-04-25_14-41-50.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SfOOn47_CBI/AAAAAAAAArQ/mWlcMI78xBE/s800/greenshot_2009-04-25_15-20-00.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/SnNoUZN7ZFI/AAAAAAAABYE/esM28rWqEkY/s800/slui_05.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SfOTByS_DLI/AAAAAAAAAro/Z-MwZ-LvoLE/s800/greenshot_2009-04-25_15-43-16.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/SfOWVFnF3nI/AAAAAAAAAr0/aozHNyCcQk8/s800/greenshot_2009-04-25_15-45-02.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SfQOJA4CA8I/AAAAAAAAAs4/e3CuiVzALw8/s800/004w.png">
+<meta property="article:published_time" content="2009-04-27T07:05:25.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.470Z">
+<meta property="article:tag" content="windows server 2008">
+<meta property="article:tag" content="0xC004C020">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/SfOMtyOawNI/AAAAAAAAAqg/vuO_o8TztX8/s800/greenshot_2009-04-25_14-41-50.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-volume-activation-error-0xc004c020" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Volume activation error 0xC004C020
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>When I try to activate my Windows Server 2008 installation I receive the following: <strong>Error Code 0xC004C020</strong>, this prevents me from using the online activation to validate the installation.</p>
+<p>0xC004C020 The activation server reported that the Multiple Activation Key has exceeded its limit.</p>
+<p>When a <strong>Multiple Activation Key</strong> is used during an installation it checks with Microsoft and reduces the license pool by one, the size of the license pool is determined by the type of agreement. The user cannot reset the pool, this is why you have to call Microsoft once the limit has been reached. <strong>MAK</strong> - <em>Multiple Activation Key</em> <strong>KMS</strong> - <em>Key Management Service</em></p>
+<h2 id="SOLUTION"><a href="#SOLUTION" class="headerlink" title="SOLUTION"></a>SOLUTION</h2><p>For this tutorial to work first attempt to validate the installation online.</p>
+<ul>
+<li>Go to <strong>Start &gt; Control Panel &gt; System</strong></li>
+<li>At the bottom of the window search for and click on <strong>Change product Key</strong></li>
+<li>Enter the license key</li>
+</ul>
+<p><img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfOMtyOawNI/AAAAAAAAAqg/vuO_o8TztX8/s800/greenshot_2009-04-25_14-41-50.png"> If you receive an error like the one below preventing you from validating the installation then it will be necessary to call the Microsoft automated activation line. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SfOOn47_CBI/AAAAAAAAArQ/mWlcMI78xBE/s800/greenshot_2009-04-25_15-20-00.png"></p>
+<h2 id="OVER-THE-PHONE-ACTIVATION"><a href="#OVER-THE-PHONE-ACTIVATION" class="headerlink" title="OVER THE PHONE ACTIVATION"></a>OVER THE PHONE ACTIVATION</h2><ul>
+<li>Go to <strong>Start</strong></li>
+<li>Click on <strong>Run</strong></li>
+<li>And type <strong>SLUI 05</strong></li>
+</ul>
+<p><img src="http://lh4.ggpht.com/_fF0LO28FGYY/SnNoUZN7ZFI/AAAAAAAABYE/esM28rWqEkY/s800/slui_05.png"> From the drop down list select the name of the country you live in. This is important because depending on the country you select you will be assigned a number to call.</p>
+<ul>
+<li><strong>Click the nearest location &gt; United States</strong></li>
+<li>Click on <strong>Next</strong></li>
+</ul>
+<p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SfOTByS_DLI/AAAAAAAAAro/Z-MwZ-LvoLE/s800/greenshot_2009-04-25_15-43-16.png"> This window contains all the information you will need. <strong>Step 1</strong> contains the number you need to call. <strong>Step 2</strong> contains a series of unique numbers, you will need to provide the series of numbers to the operator (do not make mistakes). <strong>Step 3</strong> If everything is Ok the operator will provide you with a confirmation ID, you will need to enter the numbers in the boxes located in <strong>Step 3</strong> and press Enter. <em>The activation over the phone process is a simple one, try to use common sense when answering.</em> <img src="http://lh5.ggpht.com/_fF0LO28FGYY/SfOWVFnF3nI/AAAAAAAAAr0/aozHNyCcQk8/s800/greenshot_2009-04-25_15-45-02.png"> If the correct confirmation ID was provided you should be greeted with a new window confirming a genuine installation. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SfQOJA4CA8I/AAAAAAAAAs4/e3CuiVzALw8/s800/004w.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/04/volume-activation-error-0xc004c020/" data-id="ckj2hf43k00s9tlfxfzt26nl3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0xC004C020/" rel="tag">0xC004C020</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server-2008/" rel="tag">windows server 2008</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/05/mount-isos-on-linux-with-gmount-iso/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Mount ISOs on Linux with GMount ISO
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/04/anvir-task-manager-free/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">AnVir Task Manager Free</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Wine missing Tahoma font | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I wanted to play a couple of Windows games on my Ubuntu 9.04 system. Both of the games required the Steam client. Steam had no problem downloading or installing the games under Wine. Except once a gam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wine missing Tahoma font">
+<meta property="og:url" content="http://linhost.info/2009/06/wine-missing-tahoma-font/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I wanted to play a couple of Windows games on my Ubuntu 9.04 system. Both of the games required the Steam client. Steam had no problem downloading or installing the games under Wine. Except once a gam">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SkmRYkyTNDI/AAAAAAAABMA/6wOsDPWCcDk/s800/steam_client_unreadable.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SkmRYg865QI/AAAAAAAABME/qFUlG08v0Pw/s800/steam_client_readable.png">
+<meta property="article:published_time" content="2009-06-30T04:20:10.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.495Z">
+<meta property="article:tag" content="wine">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SkmRYkyTNDI/AAAAAAAABMA/6wOsDPWCcDk/s800/steam_client_unreadable.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-wine-missing-tahoma-font" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Wine missing Tahoma font
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I wanted to play a couple of Windows games on my Ubuntu 9.04 system. Both of the games required the Steam client. Steam had no problem downloading or installing the games under Wine. Except once a game was started the game menus were unreadable, this made play time a pain. <img src="http://lh3.ggpht.com/_fF0LO28FGYY/SkmRYkyTNDI/AAAAAAAABMA/6wOsDPWCcDk/s800/steam_client_unreadable.png" alt="Steam_unreadable"> The text was unreadable because the Tahoma(Microsoft) font is not part of Ubuntu(Linux). The solution is to download the font from the Microsoft website and install the executable.</p>
+<h2 id="Font-installation"><a href="#Font-installation" class="headerlink" title="Font installation"></a>Font installation</h2><p>Download the Tahoma font executable <a target="_blank" rel="noopener" href="http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe">Tahoma32.exe</a>.</p>
+<p>wget <a target="_blank" rel="noopener" href="http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe">http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe</a></p>
+<p>From the command line use Wine to install <strong>tahoma32.exe</strong>.</p>
+<p>wine tahoma32.exe</p>
+<p>You will have to agree to the license agreement by clicking on <strong>Yes</strong>. If everything installs without a problem you should see a new windows informing you that <strong>Tahoma Regular and Bold are now installed!</strong>. Restart Steam for the changes to take effect. <img src="http://lh6.ggpht.com/_fF0LO28FGYY/SkmRYg865QI/AAAAAAAABME/qFUlG08v0Pw/s800/steam_client_readable.png" alt="Steam_readable"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/06/wine-missing-tahoma-font/" data-id="ckj2hf44700u8tlfx0t8me26u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wine/" rel="tag">wine</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/07/google-apps-out-of-beta-vmware-safe-passage-winxp-will-not-go-away-critical-ie-bug-hidden-windows-7-prime-time-samsung-subsidizing-dram-operations-vlc-1-0-phorm-is-out/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          IT Links /07/07/2009
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/06/starwind-converter-free-v2v-converter/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">StarWind Converter - free V2V converter</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

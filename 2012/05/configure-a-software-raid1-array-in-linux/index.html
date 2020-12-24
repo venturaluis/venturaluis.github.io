@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Configure Software RAID1 Array In Linux | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below will be performed with Root privileges or similar.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Configure Software RAID1 Array In Linux">
+<meta property="og:url" content="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below will be performed with Root privileges or similar.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2012-05-07T09:00:29.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.813Z">
+<meta property="article:tag" content="centos">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="mdadm">
+<meta property="article:tag" content="raid 1">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-configure-a-software-raid1-array-in-linux" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Configure Software RAID1 Array In Linux
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Before we start you should know this tutorial assumes two things:</p>
+<ul>
+<li>First - System were MDADM will be running is up to date</li>
+<li>Second - Every step below will be performed with Root privileges or similar.</li>
+</ul>
+<h3 id="How-Many-Drives-Are-Available"><a href="#How-Many-Drives-Are-Available" class="headerlink" title="How Many Drives Are Available ?"></a>How Many Drives Are Available ?</h3><p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
+<p>ls /dev/sd*</p>
+<p>user@ubuntu:~$ ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdc  /dev/sdd</p>
+<p>Listed are five drives, <strong>/sda /1 /2</strong> contain the Operating System, <strong>/sdb</strong> and <strong>/sdc</strong> are empty and will be used to create the RAID1 array, <strong>/sdd</strong> can be left alone or used as a hot-spare.</p>
+<h3 id="Drive-Prepartions"><a href="#Drive-Prepartions" class="headerlink" title="Drive Prepartions"></a>Drive Prepartions</h3><p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
+<p>root@ubuntu:~# fdisk /dev/sdb</p>
+<p>Command (m for help): n<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): p<br>Partition number (1-4, default 1): 1<br>First sector (2048-251658239, default 2048):<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-251658239, default 251658239):<br>Using default value 251658239</p>
+<p>Command (m for help): t<br>Selected partition 1<br>Hex code (type L to list codes): fd<br>Changed system type of partition 1 to fd (Linux raid autodetect)</p>
+<p>Command (m for help): w<br>The partition table has been altered!</p>
+<p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
+<p><em>If you prefer a graphical interface, GParted is a good alternative to fdisk.</em></p>
+<h3 id="Is-MDADM-Installed-In-The-System"><a href="#Is-MDADM-Installed-In-The-System" class="headerlink" title="Is MDADM Installed In The System?"></a>Is MDADM Installed In The System?</h3><p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
+<p>yum install mdadm</p>
+<p>Debian and derivatives you can use.</p>
+<p>apt-get install mdadm</p>
+<h3 id="Array-Creation"><a href="#Array-Creation" class="headerlink" title="Array Creation"></a>Array Creation</h3><p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
+<p>mdadm –create /dev/md0 –level=1 –raid-devices=2 /dev/sdb1 /dev/sdc1</p>
+<ul>
+<li><p>/dev/md0</p>
+<p>- is the name of our array</p>
+</li>
+<li><p>--level=1</p>
+<p>- equals RAID1 or mirror</p>
+</li>
+<li><p>--raid-devices=2</p>
+<p>- means the amount of required drives</p>
+</li>
+</ul>
+<p>You’ll be asked <em>Continue creating array?</em>, the answer is <strong>Yes</strong>. Now we add the new array to the systems mdadm configuration file <strong>mdadm.conf</strong>.</p>
+<p>mdadm –detail –-scan &gt;&gt; /etc/mdadm.conf</p>
+<p>Monitor the creation or rebuilt process of the designated array.</p>
+<p>root@ubuntu:~# mdadm –detail /dev/md0<br>/dev/md0:<br>        Version : 1.2<br>  Creation Time : Sun May  6 20:32:39 2012<br>     Raid Level : raid1<br>     Array Size : 125827000 (120.00 GiB 128.85 GB)<br>  Used Dev Size : 125827000 (120.00 GiB 128.85 GB)<br>   Raid Devices : 2<br>  Total Devices : 2<br>    Persistence : Superblock is persistent</p>
+<pre><code>Update Time : Sun May  6 20:33:10 2012
+      State : active, resyncing</code></pre>
+<p> Active Devices : 2<br>Working Devices : 2<br> Failed Devices : 0<br>  Spare Devices : 0</p>
+<p>  Resync Status : 1% complete</p>
+<pre><code>       Name : ubuntu:0  (local to host ubuntu)
+       UUID : 91f3904c:e3580ae7:a2b1cf77:b1be9efa
+     Events : 1
+
+Number   Major   Minor   RaidDevice State
+   0       8       17        0      active sync   /dev/sdb1
+   1       8       33        1      active sync   /dev/sdc1</code></pre>
+<p>If you look at <em>Resync Status : 4% complete</em> is the status of our array, You can also monitor all arrays within the system. I consider this to be a more elegant display.</p>
+<p>root@ubuntu:~# cat /proc/mdstat<br>Personalities : [raid1]<br>md0 : active raid1 sdc1[1] sdb1[0]<br>      125827000 blocks super 1.2 [2/2] [UU]<br>      [&gt;………………..]  resync =  3.8% (4838272/125827000) finish=30.7min speed=65591K/sec</p>
+<p>unused devices: </p>
+<p>Grab a cup of coffee or a beer it might take a while before the operation completes.</p>
+<h3 id="Format-The-Array"><a href="#Format-The-Array" class="headerlink" title="Format The Array"></a>Format The Array</h3><p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
+<p>mkfs -t ext3 /dev/md0</p>
+<h3 id="Mount-The-New-Array"><a href="#Mount-The-New-Array" class="headerlink" title="Mount The New Array"></a>Mount The New Array</h3><p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
+<p>mkdir /media/volume0</p>
+<p>Now provide the path to the array and path to the directory we create in the previous step.</p>
+<p>mount /dev/md0 /media/volume0</p>
+<p>Make sure our user can access the partition, by giving ownership of the partition to our regular user. Otherwise you will have to be root to create anything. <strong>user:user</strong> will changing according to your system.</p>
+<p>chown user:user /media/volume0/</p>
+<p>Thanks to the df command we can see our RAID protected volume, check the bottom of the output.</p>
+<p>user@ubuntu:~$ df -H<br>Filesystem      Size  Used Avail Use% Mounted on<br>/dev/sda1        54G  2.0G   49G   4% /<br>udev            186M  4.1k  186M   1% /dev<br>tmpfs            78M  308k   78M   1% /run<br>none            5.3M     0  5.3M   0% /run/lock<br>none            194M     0  194M   0% /run/shm<br>/dev/md0        127G  197M  121G   1% /media/volume0</p>
+<p>However, if you want the volume to to survive a reboot you need to add the volume to the <strong>/etc/fstab</strong> configuration file. You can easily add the new array by making use of the <strong>echo</strong> command.</p>
+<p>echo ‘/dev/md0 /media/volume0 ext3 noatime,rw 0 0’ &gt;&gt; /etc/fstab</p>
+<p>Let’s see if our new entry is in the <strong>/etc/fstab</strong> file.</p>
+<p>[root@iou ~]# cat /etc/fstab<br>#</p>
+<h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="headerlink" title="Created by anaconda on Thu Mar 22 20:41:14 2012"></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1><p>#</p>
+<h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"><a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="headerlink" title="Accessible filesystems, by reference, are maintained under ‘/dev/disk’"></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1><h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="headerlink" title="See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info"></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1><p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
+<p>/dev/md0 /media/volume0 ext3 noatime,rw 0 0</p>
+<p>There it is, now our array should be mount it every time we start the system. If you have questions or suggestion on how this tutorial could be improved leave a comment below, thank you.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/" data-id="ckj2hf3vu005ftlfx5waad7sw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/" rel="tag">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mdadm/" rel="tag">mdadm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raid-1/" rel="tag">raid 1</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2012/05/configure-ubuntu-to-serve-as-an-iscsi-target/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Configure Ubuntu To Serve As An iSCSI Target
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2012/05/site-update-domain-migration/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Site Update: Domain Migration</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Note To Self: Copy Files Between Two Systems with Rsync | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I needed to copy a couple hundred GBs of data as a precaution from a VPS to another location for temporary storage since I was about to mess with the file system. After reading the man pages and other">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note To Self: Copy Files Between Two Systems with Rsync">
+<meta property="og:url" content="http://linhost.info/2013/04/note-to-self-copy-files-between-two-systems-with-rsync/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I needed to copy a couple hundred GBs of data as a precaution from a VPS to another location for temporary storage since I was about to mess with the file system. After reading the man pages and other">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2013-04-27T05:27:41.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.927Z">
+<meta property="article:tag" content="backup">
+<meta property="article:tag" content="rsync">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-note-to-self-copy-files-between-two-systems-with-rsync" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Note To Self: Copy Files Between Two Systems with Rsync
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I needed to copy a couple hundred GBs of data as a precaution from a VPS to another location for temporary storage since I was about to mess with the file system. After reading the man pages and other blogs I guess this was the best I could come up with.</p>
+<p>rsync -arz -e ssh /local_path/ remote_user@ip_address:/remote_path/</p>
+<p><code>-a</code></p>
+<p>archive mode</p>
+<p><code>-r</code></p>
+<p>recurse into directories</p>
+<p><code>-z</code></p>
+<p>compress file during the transfer</p>
+<p><code>-e ssh</code></p>
+<p>remote shell SSH</p>
+<p>Other parmeters to add:</p>
+<p><code>--partial</code></p>
+<p>keep partially transferred files</p>
+<p><code>--delete</code></p>
+<p>delete extraneous files from destination dirs</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2013/04/note-to-self-copy-files-between-two-systems-with-rsync/" data-id="ckj2hf40m00jktlfxc9gi4953" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backup/" rel="tag">backup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rsync/" rel="tag">rsync</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/05/wheres-my-traceroute-in-ubuntu/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Where&#39;s My Traceroute in Ubuntu
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/03/monitor-mdadm-rebuild-progress/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Monitor MDADM Rebuild Progress</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

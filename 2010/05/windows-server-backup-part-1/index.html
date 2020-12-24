@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Windows Server Backup - Part 1 | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Windows Server 2008 features a native backup solution called Windows Server Backup. Has expected Windows Server backup is a simple backup solution, by simple I mean the administrator has few backup op">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows Server Backup - Part 1">
+<meta property="og:url" content="http://linhost.info/2010/05/windows-server-backup-part-1/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="Windows Server 2008 features a native backup solution called Windows Server Backup. Has expected Windows Server backup is a simple backup solution, by simple I mean the administrator has few backup op">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S9p7TsUu7RI/AAAAAAAACKs/Yx3GNqmriN8/s800/-1.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/S9p7T1CDNbI/AAAAAAAACKw/CikpYVPFJIM/s800/-2.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qEWwYYX9I/AAAAAAAACK8/bH2-dFP7ZpM/s800/1.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S9qFlg93HqI/AAAAAAAACLI/hIFCu8kX3Is/s800/2.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S9qG2ZC0LsI/AAAAAAAACLM/Br-GqqPNXhk/s800/3.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qIU29A2QI/AAAAAAAACLQ/3I_QEFAikAY/s800/4.png">
+<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S9qIVCcAcyI/AAAAAAAACLU/E6fcR-0QfyY/s800/5.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S9qIVE9JnyI/AAAAAAAACLY/trbVV9M-zTg/s800/6.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qKKJSHXzI/AAAAAAAACLc/ra_wzgVD134/s800/7.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qKKbnaoxI/AAAAAAAACLg/bpIsuNCkcRA/s800/8.png">
+<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/S9qKKZ4hCwI/AAAAAAAACLk/r_wdP_961I4/s800/9.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qMQWTCytI/AAAAAAAACLo/2HUcLRj9sLI/s800/10.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qNEmlpNcI/AAAAAAAACLs/Gi0PbW7ftPY/s800/11.png">
+<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/S9qN9lNFRgI/AAAAAAAACLw/oot7aaIAIME/s800/12.png">
+<meta property="og:image" content="http://lh4.ggpht.com/_fF0LO28FGYY/S9qQX71CZ7I/AAAAAAAACL0/TfjPYiYsw44/s800/13.png">
+<meta property="article:published_time" content="2010-05-04T05:04:31.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.608Z">
+<meta property="article:tag" content="backup">
+<meta property="article:tag" content="windows server 2008">
+<meta property="article:tag" content="windows server backup">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/S9p7TsUu7RI/AAAAAAAACKs/Yx3GNqmriN8/s800/-1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-windows-server-backup-part-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Windows Server Backup - Part 1
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Windows Server 2008 features a native backup solution called Windows Server Backup. Has expected Windows Server backup is a simple backup solution, by simple I mean the administrator has few backup options. If you are on a tight budget Windows Server Backup might be the solution.</p>
+<h4 id="Windows-Server-Backup-limitations"><a href="#Windows-Server-Backup-limitations" class="headerlink" title="Windows Server Backup limitations:"></a>Windows Server Backup limitations:</h4><ul>
+<li>It can only backup entire volumes, backing up a specific directory is not an option</li>
+<li>Only two types of backups are supported: full and incremental</li>
+<li>Windows Server Backup lacks the ability to backup to Tape</li>
+</ul>
+<h4 id="Windows-Server-Backup-benefits"><a href="#Windows-Server-Backup-benefits" class="headerlink" title="Windows Server Backup benefits:"></a>Windows Server Backup benefits:</h4><ul>
+<li>No cost solution</li>
+<li>Simple to implement and administer</li>
+<li>Makes use of VSS</li>
+</ul>
+<h4 id="Install-Windows-Server-Backup"><a href="#Install-Windows-Server-Backup" class="headerlink" title="Install Windows Server Backup"></a>Install Windows Server Backup</h4><p>Go to <strong>Start &gt; Server Manager &gt; Features Summary &gt; Add Features</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/sO4OemweVJaujBPtDEnoMw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S9p7TsUu7RI/AAAAAAAACKs/Yx3GNqmriN8/s800/-1.png"></a> Search for <strong>Windows Server Backup Features</strong> and check the box to install this feature &gt; Click on <strong>Next</strong> &gt; Click on <strong>Install</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/yptm8mx2uUjx9-uCAvPGxA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S9p7T1CDNbI/AAAAAAAACKw/CikpYVPFJIM/s800/-2.png"></a></p>
+<h4 id="First-Time-Configuration"><a href="#First-Time-Configuration" class="headerlink" title="First Time Configuration"></a>First Time Configuration</h4><p>To begin the backup process for the first time go to <strong>Start &gt; Administrative Tools &gt; Windows Server Backup</strong>. To schedule a backup for the first time click on <strong>Backup Schedule</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/2G7ViUH9dz0ngn3a6-3jlQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qEWwYYX9I/AAAAAAAACK8/bH2-dFP7ZpM/s800/1.png"></a> In the <strong>Backup Schedule Wizard</strong> window click on <strong>Next</strong> to continue. This is when you decide which volume or volumes you want to backup, if you wish to remove a volume from the backup schedule select <strong>Custom</strong> otherwise select <strong>Full Server (recommended)</strong> and click on <strong>Next</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/u7kpy_sQ6djFZg7xbfvTSw?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S9qFlg93HqI/AAAAAAAACLI/hIFCu8kX3Is/s800/2.png"></a> Ideally you want to run backups during hours when the load is going to be minimal on the server, running a backup during business hours could cause slow downs. Click on <strong>Next</strong> after you select the time. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/K-PszEwZ0fuLvI9blfxhng?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S9qG2ZC0LsI/AAAAAAAACLM/Br-GqqPNXhk/s800/3.png"></a> Click on <strong>Show All Available Disks…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/cyfei4OWywvbiARnyXTCZQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qIU29A2QI/AAAAAAAACLQ/3I_QEFAikAY/s800/4.png"></a> The disk being displayed is where the backups will be stored to, select carefully. And click on <strong>OK</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/7VnrnjP0A46LHddolb8rjQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/S9qIVCcAcyI/AAAAAAAACLU/E6fcR-0QfyY/s800/5.png"></a> Once again confirm the selected disk by checking the box corresponding to the drive you wish to backup to. And click on <strong>Next</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/21oOk8N-_gx5OLSXMGFbkQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S9qIVE9JnyI/AAAAAAAACLY/trbVV9M-zTg/s800/6.png"></a> Windows Server Backup requires a dedicated drive, the seleted backup drive will be re-formated. This mean all the data in the drive will be removed. Click on <strong>Yes</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/8lVRUQ-Mb-Kgyy9KgsDFaQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qKKJSHXzI/AAAAAAAACLc/ra_wzgVD134/s800/7.png"></a> Take note of the label that was assigned to the backup drive. You might needed later in order to know which backup drive contains the backup volume you wish to recover. Click on <strong>Next</strong> to continue. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/xkP4NZcUQtCHAACOemKQ4A?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qKKbnaoxI/AAAAAAAACLg/bpIsuNCkcRA/s800/8.png"></a> Review this window before clicking on Finish to start the process. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/1KtwWnf7hcLu8s13-Wai_g?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/S9qKKZ4hCwI/AAAAAAAACLk/r_wdP_961I4/s800/9.png"></a> Once you click on Finish the formatting process and backup schedule process will be started. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/BayAaqn3J2QnnjZtr_-8fQ?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qMQWTCytI/AAAAAAAACLo/2HUcLRj9sLI/s800/10.png"></a> You can go one step further by modifying the type of backups you wish to make on the system. Options include Full Backup and Incremental Backup. To change this setting click on <strong>Configure Performance Settings…</strong> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/2ict3_XZQwPpXZrq_vhxpg?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qNEmlpNcI/AAAAAAAACLs/Gi0PbW7ftPY/s800/11.png"></a> Change this setting according to your needs. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/HpXmFYrGKhyO31rk-Z_Jcw?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/S9qN9lNFRgI/AAAAAAAACLw/oot7aaIAIME/s800/12.png"></a> Now that you have configured the backup schedule all you have to is wait for the backup to be executed at the specified time. Congratulations, you have just configured Windows Server Backup on your Windows system. Hopefully the steps outlined in this tutorial made it clear how easy Windows Server backup is to configure and implement as a backup tool. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/ilLI7kKys2_frmSkt8k6IQ?feat=embedwebsite"><img src="http://lh4.ggpht.com/_fF0LO28FGYY/S9qQX71CZ7I/AAAAAAAACL0/TfjPYiYsw44/s800/13.png"></a> <strong>Part 2 - Coming soon………………………</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/05/windows-server-backup-part-1/" data-id="ckj2hf44500u1tlfxfueugvl8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backup/" rel="tag">backup</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server-2008/" rel="tag">windows server 2008</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows-server-backup/" rel="tag">windows server backup</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/05/tune2fs-quick-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Tune2fs Quick Tips
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/04/free-winscp-sftp-ftp-client-for-windows/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Free: WinSCP SFTP / FTP client for Windows</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

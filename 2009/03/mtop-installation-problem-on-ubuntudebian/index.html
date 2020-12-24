@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>mtop installation problem on Ubuntu/Debian | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="If you try to install mtop on Debian or Ubuntu you will be presented with an error preventing you from using the tool in the first place. The solution to the problem has been posted online for quite s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mtop installation problem on Ubuntu&#x2F;Debian">
+<meta property="og:url" content="http://linhost.info/2009/03/mtop-installation-problem-on-ubuntudebian/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="If you try to install mtop on Debian or Ubuntu you will be presented with an error preventing you from using the tool in the first place. The solution to the problem has been posted online for quite s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2009-04-01T01:57:45.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.448Z">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="mtop">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-mtop-installation-problem-on-ubuntudebian" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mtop installation problem on Ubuntu/Debian
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>If you try to install <strong>mtop</strong> on <strong>Debian</strong> or <strong>Ubuntu</strong> you will be presented with an error preventing you from using the tool in the first place. The solution to the problem has been posted online for quite some time. If you want to avoid this problem consider replacing mtop for <a target="_blank" rel="noopener" href="http://www.google.com/url?sa=t&source=web&ct=res&cd=1&url=http://jeremy.zawodny.com/mysql/mytop/&ei=2MbSSaKuJZ2gtgPZ4qiCDA&usg=AFQjCNFGI-VzPOINmJ0NGm30UXcOX_aRUA&sig2=jpFsKD7HpsVYV3kNPGRieg">mytop</a>. Otherwise try this. The problem is that mtop uses an empty password for mysql root and for security reasons Debian/Ubuntu do not use an empty password. The solution comes from <a target="_blank" rel="noopener" href="https://launchpad.net/">Launchpad</a> user  <a target="_blank" rel="noopener" href="https://bugs.launchpad.net/~jibel">Jean-Baptiste Lallement</a>. For those who are facing this issue and until a package dealing with it is released, a workaround is reset MySQL root password during install then re-enable it:</p>
+<p>$ mysql -u root -p</p>
+<p>* Enter the following MySQL command:</p>
+<blockquote>
+<p>SET PASSWORD FOR root@localhost=PASSWORD(‘’);QUIT; </p>
+</blockquote>
+<p>* install mtop<br>apt-get install mtop</p>
+<p>* Set MySQL root password to irs previous value:<br>$ mysql -u root -p</p>
+<blockquote>
+<p>SET PASSWORD FOR root@localhost=PASSWORD(‘YOURROOTPASSWORD’);QUIT; </p>
+</blockquote>
+<p>Again, I recommend you replace mtop for mytop</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p>All credit goes to.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://bugs.launchpad.net/ubuntu/+source/mtop/+bug/77980">https://bugs.launchpad.net/ubuntu/+source/mtop/+bug/77980</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2009/03/mtop-installation-problem-on-ubuntudebian/" data-id="ckj2hf40700i5tlfxhje00ngf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mtop/" rel="tag">mtop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2009/04/top-like-tools-you-should-know-about/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Top like tools you should know about
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2009/03/turn-off-system-beep-on-linux/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Turn off system beep on Linux</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

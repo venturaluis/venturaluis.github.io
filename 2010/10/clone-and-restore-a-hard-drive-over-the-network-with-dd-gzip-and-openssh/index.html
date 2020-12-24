@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Clone a Hard Drive over the Network with DD | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Clone a Hard Drive over the Network with DD">
+<meta property="og:url" content="http://linhost.info/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2010-10-06T07:39:57.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.717Z">
+<meta property="article:tag" content="dd">
+<meta property="article:tag" content="gzip">
+<meta property="article:tag" content="openssh">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Clone a Hard Drive over the Network with DD
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In more than one occasion I’ve been asked to copy or backup an entire drive from one remote system to a second remote remote system, my preferred method for accomplishing this task is by making use of three different tools available in UNIX-like operating systems. Thanks to DD, Gzip, and OpenSSH I am able to make an exact copy of a drive, compress the resulting drive image while sending the resulting data to another remote system. The case for making use of this method is for when you either lack the local space to store the image or want to keep a backup in a remote system. It doesn’t hurt to backup valuable data, accidents happen. Also, it would be wise to compress the resulting image, I rather have the system spend the extra effort compressing the image using Gzip than to thave the uncompressed image taking more space than it should. What is great about this combination is that you can backup and restore the image using the same tools.</p>
+<blockquote>
+<p>Remember to un-mount the drive you wish to clone. Not doing so may result in possible data corruption.</p>
+</blockquote>
+<h2 id="Locate-The-Drive-You-Wish-To-Backup"><a href="#Locate-The-Drive-You-Wish-To-Backup" class="headerlink" title="Locate The Drive You Wish To Backup"></a>Locate The Drive You Wish To Backup</h2><p>You can use the lshw (Hardware Lister) command to discover all available drives.</p>
+<p>[root@system7]# lshw -C disk</p>
+<p>*-cdrom<br>       description: DVD-RAM writer<br>       product: CDDVDW SH-S203N<br>       vendor: TSSTcorp<br>       physical id: 0.0.0<br>       bus info: scsi@1:0.0.0<br>       logical name: /dev/cdrom<br>       logical name: /dev/dvd<br>       logical name: /dev/scd0<br>       logical name: /dev/sr0<br>       version: SB01<br>       serial: NECVMWarVMware IDE CDR101.00<br>       capabilities: removable audio cd-r cd-rw dvd dvd-r dvd-ram<br>       configuration: ansiversion=5 status=nodisc<br>  *-disk<br>       description: SCSI Disk<br>       physical id: 0.0.0<br>       bus info: scsi@2:0.0.0<br>       logical name: /dev/sda<br>       size: 50GiB (53GB)<br>       capabilities: partitioned partitioned:dos<br>       configuration: signature=000e4a4e</p>
+<h2 id="Backup-To-Remote-Server"><a href="#Backup-To-Remote-Server" class="headerlink" title="Backup To Remote Server"></a>Backup To Remote Server</h2><p>This command will copy, compress and send the image to the remote server.</p>
+<p>dd if=/dev/sdb | gzip -c –fast | ssh user@ip ‘dd of=/home/user/sdb.img.gz’</p>
+<p>Explanation: DD has been instructed to copy the drive /dev/sdb. Gzip will be used for compression, <strong>- c</strong> means Write on standard output, keep original files unchanged, <strong>- -fast</strong> mean Compress faster at the expense of high compression ration. The image will then be transferred via OpenSSH using the provided user credentials to the user directory <em>/home/user</em>. Note: the backup image makes use of the <strong>.gz</strong> extension to indicate compression is being used.</p>
+<h2 id="Restore-From-Remote-Server"><a href="#Restore-From-Remote-Server" class="headerlink" title="Restore From Remote Server"></a>Restore From Remote Server</h2><p>Restoring the image is not that different from the command used to backup the image.</p>
+<p>ssh user@ip ‘dd if=/home/user/sdb.img.gz’ | gunzip -1 - | dd of=/dev/sdb</p>
+<p>Explanation: Using OpenSSH log in to the remote system where the image is stored and with DD pull the image. <strong>Gunzip</strong> will be used to decompress the image crated by Gzip. Once again DD will be in charged of writing the image to /dev/sdb.</p>
+<h2 id="Keep-In-Mind"><a href="#Keep-In-Mind" class="headerlink" title="Keep In Mind"></a>Keep In Mind</h2><p>Remember that using OpenSSH or any other encrypted protocol for the transfer will slow down the progress and specifically impact CPU load during the cloning. But, because I am moving data across the Internet the security provided by OpenSSH is worth it. In a not so scientific test done between a white box server(sender) and a HP Quad Core server(receiver) it took 40.6 minutes to compress 80GB of data in to a 21GB image and transfer the result at a rate of 8.4MB/s(over a Gigabit network). The white box server uses an Intel E3200 CPU which during the test stayed at around 87% utilization, a faster CPU should provide better throughput.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2010/10/clone-and-restore-a-hard-drive-over-the-network-with-dd-gzip-and-openssh/" data-id="ckj2hf3vr0056tlfxa6kf4mw2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dd/" rel="tag">dd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gzip/" rel="tag">gzip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openssh/" rel="tag">openssh</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2010/10/windows-generate-a-file-of-any-size-with-fsutil/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Windows: Generate a File of any Size with Fsutil
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2010/10/bookmarks-steady-state-windows-7-ubuntu-10-10-google-url-shortner-playbook/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Bookmarks: Steady State Windows 7 - Ubuntu 10.10 - Google URL Shortner - Playbook</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

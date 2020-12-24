@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-3282416-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Change The Default Text Editor In WinSCP | Linhost.info</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I consider WinSCP to be the best free SFTP, SCP and FTP client for Windows but like other similar clients the bundled text editor is not what I would consider to be the best or adequate for the type o">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Change The Default Text Editor In WinSCP">
+<meta property="og:url" content="http://linhost.info/2011/09/change-the-default-text-editor-in-winscp-2/index.html">
+<meta property="og:site_name" content="Linhost.info">
+<meta property="og:description" content="I consider WinSCP to be the best free SFTP, SCP and FTP client for Windows but like other similar clients the bundled text editor is not what I would consider to be the best or adequate for the type o">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s400/winscp-0.png">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s400/winscp-1.png">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s400/winscp-2.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s400/winscp-3.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s400/winscp-4.png">
+<meta property="og:image" content="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s400/winscp-5.png">
+<meta property="og:image" content="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s400/winscp-6.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s400/winscp-7.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s400/winscp-8.png">
+<meta property="og:image" content="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s400/winscp-9.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s400/WinSCP-Intype.jpg">
+<meta property="article:published_time" content="2011-09-06T01:28:42.000Z">
+<meta property="article:modified_time" content="2020-08-09T09:07:53.796Z">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="winscp">
+<meta property="article:tag" content="editor">
+<meta property="article:tag" content="intype">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s400/winscp-0.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <!--<div id="banner"></div>-->
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-change-the-default-text-editor-in-winscp-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Article/">Article</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Change The Default Text Editor In WinSCP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I consider WinSCP to be the best free SFTP, SCP and FTP client for Windows but like other similar clients the bundled text editor is not what I would consider to be the best or adequate for the type of work I do. In this post I will describe the necessary steps to replace the default text editor WinSCP uses whenever a file is opened, instead of executing the default text editor the replacement editor will be executed. Although this tutorial uses Intype as the third party text editor of choice you can substitute for the text editor of your choice. Start WinSCP and make sure the <strong>Advanced options</strong> check box is checked. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s800/winscp-0.png"><img src="https://lh6.googleusercontent.com/-9o9qS8h1ZN0/TmSVrR04lVI/AAAAAAAADMc/k9sWrWZf8BE/s400/winscp-0.png" title="WinSCP 0"></a> Click on <strong>Preferences</strong>. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s800/winscp-1.png"><img src="https://lh4.googleusercontent.com/-a6kGtsSkMFY/TmSVt7YgPTI/AAAAAAAADMg/qQ30IHfJEgA/s400/winscp-1.png" title="WinSCP 1"></a> Once again click on the <strong>Preferences…</strong> box. <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s800/winscp-2.png"><img src="https://lh4.googleusercontent.com/-W0V8YQsQpAA/TmSVvLHPNkI/AAAAAAAADMk/IcmefU6jvVU/s400/winscp-2.png" title="WinSCP 2"></a> Click on <strong>Editors</strong>. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s800/winscp-3.png"><img src="https://lh6.googleusercontent.com/-YCHfyBugIRA/TmSVwpHzQ0I/AAAAAAAADMo/yviagTUn_fQ/s400/winscp-3.png" title="WinSCP 3"></a> Click on the <strong>Add …</strong> box. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s800/winscp-4.png"><img src="https://lh6.googleusercontent.com/-SSRusK_IfrQ/TmSV3RgUtbI/AAAAAAAADMs/ua7wRBDAxbU/s400/winscp-4.png" title="WinSCP 4"></a> Select <strong>External editor:</strong> and <strong>Browse…</strong> to the path where the replecement text editor resides in the case of Intype the path is <strong>C:Program Files (x86)Intypeintype.exe</strong>. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s800/winscp-5.png"><img src="https://lh5.googleusercontent.com/-1Ex1ERKY9Lg/TmSV4TYjH1I/AAAAAAAADMw/swu1E0BFO7s/s400/winscp-5.png" title="WinSCP 5"></a> <a target="_blank" rel="noopener" href="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s800/winscp-6.png"><img src="https://lh4.googleusercontent.com/-9l9DaQUHNug/TmSV53swWUI/AAAAAAAADM0/Xu4DhnWxHQg/s400/winscp-6.png" title="WinSCP"></a> WinSCP will format the path for you!. Click on <strong>OK</strong> to save the changes. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s800/winscp-7.png"><img src="https://lh6.googleusercontent.com/-_2AQZvX2z6o/TmSV7YnIR3I/AAAAAAAADM4/5JkSucZQjsc/s400/winscp-7.png" title="WinSCP 7"></a> In my case the text editor was recognized as <strong>Intype</strong>, click on it to highlight it. Click on the <strong>Up</strong> button till the new text editor is at the top making it the default choice. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s800/winscp-8.png"><img src="https://lh6.googleusercontent.com/-x7QHsDqMC2M/TmSV8UX8MYI/AAAAAAAADM8/FD13Fl1zWTQ/s400/winscp-8.png" title="WinSCP 8"></a> Click on the <strong>OK</strong> button to save. <a target="_blank" rel="noopener" href="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s800/winscp-9.png"><img src="https://lh5.googleusercontent.com/-eqZe-qGTPyw/TmSV-wA5UcI/AAAAAAAADNA/9NeqR0KHNoQ/s400/winscp-9.png" title="WinSCP"></a> From now on whenever you edit a file WinSCP will execute the replacement text editor instead of the bundled one. <a target="_blank" rel="noopener" href="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s800/WinSCP-Intype.jpg"><img src="https://lh6.googleusercontent.com/-3ke4D-sFJlw/TmSZrDVVpPI/AAAAAAAADNg/HR5D4ZHnrFg/s400/WinSCP-Intype.jpg" title="WinSCP and Intype"></a> Feel free to leave comments below.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://linhost.info/2011/09/change-the-default-text-editor-in-winscp-2/" data-id="ckj2hf3vi004dtlfx0k2jgmcf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/editor/" rel="tag">editor</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/intype/" rel="tag">intype</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winscp/" rel="tag">winscp</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2011/09/download-the-windows-8-developer-preview/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Newer</span>
+      <div class="article-nav-title">
+        
+          Download The Windows 8 Developer Preview
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2011/08/windows-7-network-share-trust/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-caption">Older</span>
+      <div class="article-nav-title">Windows 7 Network Share Trust</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Linhost.info<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
+      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
