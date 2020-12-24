@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Minima -->
+  <!-- Hexo theme created by @adisaktijrs -->
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+
+  
+  <title>Configure Software RAID1 Array In Linux</title>
+  
+  <link rel="sitemap" href="http://linhost.infositemap.xml" />
+  
+  <link rel="canonical" href="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/">
+  
+  <meta name="description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below w">
+  
+  
+  <meta name="author" content="">
+  
+  <meta property="og:image" content="http://linhost.infoundefined">
+  
+  <meta property="og:site_name" content="Linhost.info" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Configure Software RAID1 Array In Linux" />
+  
+  <meta property="og:description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below w">
+  
+  <meta property="og:url" content="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Configure Software RAID1 Array In Linux">
+  
+  <meta name="twitter:description" content="Before we start you should know this tutorial assumes two things:  First - System were MDADM will be running is up to date Second - Every step below w">
+  
+  
+  <meta name="twitter:image" content="http://linhost.infoundefined">
+  
+  <meta name="twitter:url" content="http://linhost.info/2012/05/configure-a-software-raid1-array-in-linux/" />
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload fonts
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="preload" href="../fonts/dm-serif-display-v4-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter-v2-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+<link rel="stylesheet" href="/css/normalize.css">
+
+  
+<link rel="stylesheet" href="/css/skeleton.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+<link rel="stylesheet" href="/css/prism-dark.css">
+
+  
+<link rel="stylesheet" href="/css/prism-line-numbers.css">
+
+  <!-- User css -->
+  
+  
+<link rel="stylesheet" href="/css/user.css">
+
+  
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+  <!-- Custom Theme Color Style
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <style>
+  a:not(.icon) {
+    text-decoration-color: #0FA0CE;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 50%,
+      #0FA0CE 50%
+    );
+  }
+  blockquote {
+    border-left: 8px solid #0FA0CE;
+  }
+  .nanobar .bar {
+    background: #0FA0CE;
+  }
+  .button.button-primary:hover,
+  button.button-primary:hover,
+  input[type="submit"].button-primary:hover,
+  input[type="reset"].button-primary:hover,
+  input[type="button"].button-primary:hover,
+  .button.button-primary:focus,
+  button.button-primary:focus,
+  input[type="submit"].button-primary:focus,
+  input[type="reset"].button-primary:focus,
+  input[type="button"].button-primary:focus {
+    background-color: #0FA0CE;
+    border-color: #0FA0CE;
+  }
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  input[type="search"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus,
+  input[type="url"]:focus,
+  input[type="password"]:focus,
+  textarea:focus,
+  select:focus {
+    border: 1px solid #0FA0CE;
+  }
+</style>
+
+  <!-- Google Analytics (With Privacy Settings On)
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    /* Prepare GA Session, disable cookies to protect privacy */
+    ga("create", "UA-3282416-1", {storage: "none",});
+    /* Privacy settings - not tracking anything personal */
+    ga("set", "allowAdFeatures", false);
+    ga("set", "anonymizeIp", true);
+    ga("set", "forceSSL", true);
+    /* Send simple anonymized pageview */
+    ga("send", "pageview");
+  </script>
+
+
+<meta name="generator" content="Hexo 5.0.0"><link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div>
+
+        <div class="row">
+  <div class="two columns" style="max-width: 50px">
+    <h1 class="mt-2 mode">
+      <div onclick=setDarkMode(true) id="darkBtn">🌑</div>
+      <div onclick=setDarkMode(false) id="lightBtn" class=hidden>☀️</div>
+      <script >
+        if (localStorage.getItem('preferredTheme') == 'dark') {
+          setDarkMode(true)
+        }
+        function setDarkMode(isDark) {
+          var darkBtn = document.getElementById('darkBtn')
+          var lightBtn = document.getElementById('lightBtn')
+          if (isDark) {
+            lightBtn.style.display = "block"
+            darkBtn.style.display = "none"
+            localStorage.setItem('preferredTheme', 'dark');
+          } else {
+            lightBtn.style.display = "none"
+            darkBtn.style.display = "block"
+            localStorage.removeItem('preferredTheme');
+          }
+          document.body.classList.toggle("darkmode");
+        }
+      </script>
+    </h1>
+  </div>
+
+  <div class="six columns ml-1">
+    <h1 class="mt-2">
+      Hi Folks.
+    </h1>
+  </div>
+
+  <div class="twelve columns">
+    <div class="row">
+      <div class="nine columns left">
+        <a href="/">Home</a>
+        
+        
+          
+            <a href="mailto:test@test.test" target="_blank" class="ml">Email</a>
+          
+        
+      </div>
+    </div>
+    <hr style="margin-bottom: 2.6rem">
+  </div>
+</div>
+
+        <div class="trans">
+            <h2>Configure Software RAID1 Array In Linux</h2>
+
+  <p>Before we start you should know this tutorial assumes two things:</p>
+<ul>
+<li>First - System were MDADM will be running is up to date</li>
+<li>Second - Every step below will be performed with Root privileges or similar.</li>
+</ul>
+<h3 id="How-Many-Drives-Are-Available"><a href="#How-Many-Drives-Are-Available" class="headerlink" title="How Many Drives Are Available ?"></a>How Many Drives Are Available ?</h3><p>We need to list the available drives in the system we wish to create the array, this task can be accomplished with the <strong>ls</strong> command:</p>
+<p>ls /dev/sd*</p>
+<p>user@ubuntu:~$ ls /dev/sd*<br>/dev/sda  /dev/sda1  /dev/sda2  /dev/sda5  /dev/sdb  /dev/sdc  /dev/sdd</p>
+<p>Listed are five drives, <strong>/sda /1 /2</strong> contain the Operating System, <strong>/sdb</strong> and <strong>/sdc</strong> are empty and will be used to create the RAID1 array, <strong>/sdd</strong> can be left alone or used as a hot-spare.</p>
+<h3 id="Drive-Prepartions"><a href="#Drive-Prepartions" class="headerlink" title="Drive Prepartions"></a>Drive Prepartions</h3><p>First of all we should prepared the drives we want to include in the array, by preparing I am referring to partitioning each drive. For the purpose of partitioning we will be using a well known utility called fdisk. Repeat fdisk in every drive that will be part of the array, remember you will need to run the exact command and parameters. I’ll do my best to guide you through the required steps to format a drive with fdisk.</p>
+<p>root@ubuntu:~# fdisk /dev/sdb</p>
+<p>Command (m for help): n<br>Partition type:<br>   p   primary (0 primary, 0 extended, 4 free)<br>   e   extended<br>Select (default p): p<br>Partition number (1-4, default 1): 1<br>First sector (2048-251658239, default 2048):<br>Using default value 2048<br>Last sector, +sectors or +size{K,M,G} (2048-251658239, default 251658239):<br>Using default value 251658239</p>
+<p>Command (m for help): t<br>Selected partition 1<br>Hex code (type L to list codes): fd<br>Changed system type of partition 1 to fd (Linux raid autodetect)</p>
+<p>Command (m for help): w<br>The partition table has been altered!</p>
+<p>Calling ioctl() to re-read partition table.<br>Syncing disks.</p>
+<p><em>If you prefer a graphical interface, GParted is a good alternative to fdisk.</em></p>
+<h3 id="Is-MDADM-Installed-In-The-System"><a href="#Is-MDADM-Installed-In-The-System" class="headerlink" title="Is MDADM Installed In The System?"></a>Is MDADM Installed In The System?</h3><p>The answer is probably no!, if this is your case then I would recommend installing MDADM via the designated package manager for your Linux distribution. For Red Hat and derivatives you can use yum.</p>
+<p>yum install mdadm</p>
+<p>Debian and derivatives you can use.</p>
+<p>apt-get install mdadm</p>
+<h3 id="Array-Creation"><a href="#Array-Creation" class="headerlink" title="Array Creation"></a>Array Creation</h3><p>If you carefully look at the command below you can see the creation of the array, RAID level selected, and the devices to be included in the array.</p>
+<p>mdadm –create /dev/md0 –level=1 –raid-devices=2 /dev/sdb1 /dev/sdc1</p>
+<ul>
+<li><p>/dev/md0</p>
+<p>- is the name of our array</p>
+</li>
+<li><p>--level=1</p>
+<p>- equals RAID1 or mirror</p>
+</li>
+<li><p>--raid-devices=2</p>
+<p>- means the amount of required drives</p>
+</li>
+</ul>
+<p>You’ll be asked <em>Continue creating array?</em>, the answer is <strong>Yes</strong>. Now we add the new array to the systems mdadm configuration file <strong>mdadm.conf</strong>.</p>
+<p>mdadm –detail –-scan &gt;&gt; /etc/mdadm.conf</p>
+<p>Monitor the creation or rebuilt process of the designated array.</p>
+<p>root@ubuntu:~# mdadm –detail /dev/md0<br>/dev/md0:<br>        Version : 1.2<br>  Creation Time : Sun May  6 20:32:39 2012<br>     Raid Level : raid1<br>     Array Size : 125827000 (120.00 GiB 128.85 GB)<br>  Used Dev Size : 125827000 (120.00 GiB 128.85 GB)<br>   Raid Devices : 2<br>  Total Devices : 2<br>    Persistence : Superblock is persistent</p>
+<pre><code>Update Time : Sun May  6 20:33:10 2012
+      State : active, resyncing</code></pre>
+<p> Active Devices : 2<br>Working Devices : 2<br> Failed Devices : 0<br>  Spare Devices : 0</p>
+<p>  Resync Status : 1% complete</p>
+<pre><code>       Name : ubuntu:0  (local to host ubuntu)
+       UUID : 91f3904c:e3580ae7:a2b1cf77:b1be9efa
+     Events : 1
+
+Number   Major   Minor   RaidDevice State
+   0       8       17        0      active sync   /dev/sdb1
+   1       8       33        1      active sync   /dev/sdc1</code></pre>
+<p>If you look at <em>Resync Status : 4% complete</em> is the status of our array, You can also monitor all arrays within the system. I consider this to be a more elegant display.</p>
+<p>root@ubuntu:~# cat /proc/mdstat<br>Personalities : [raid1]<br>md0 : active raid1 sdc1[1] sdb1[0]<br>      125827000 blocks super 1.2 [2/2] [UU]<br>      [&gt;………………..]  resync =  3.8% (4838272/125827000) finish=30.7min speed=65591K/sec</p>
+<p>unused devices: </p>
+<p>Grab a cup of coffee or a beer it might take a while before the operation completes.</p>
+<h3 id="Format-The-Array"><a href="#Format-The-Array" class="headerlink" title="Format The Array"></a>Format The Array</h3><p>Now that our array is complete we format the volume. Format like you would format any other drive.</p>
+<p>mkfs -t ext3 /dev/md0</p>
+<h3 id="Mount-The-New-Array"><a href="#Mount-The-New-Array" class="headerlink" title="Mount The New Array"></a>Mount The New Array</h3><p>If you want to make use of your new array which from now on we’ll call <strong>volume</strong> we need to mount it first. Create a directory where we can mount it.</p>
+<p>mkdir /media/volume0</p>
+<p>Now provide the path to the array and path to the directory we create in the previous step.</p>
+<p>mount /dev/md0 /media/volume0</p>
+<p>Make sure our user can access the partition, by giving ownership of the partition to our regular user. Otherwise you will have to be root to create anything. <strong>user:user</strong> will changing according to your system.</p>
+<p>chown user:user /media/volume0/</p>
+<p>Thanks to the df command we can see our RAID protected volume, check the bottom of the output.</p>
+<p>user@ubuntu:~$ df -H<br>Filesystem      Size  Used Avail Use% Mounted on<br>/dev/sda1        54G  2.0G   49G   4% /<br>udev            186M  4.1k  186M   1% /dev<br>tmpfs            78M  308k   78M   1% /run<br>none            5.3M     0  5.3M   0% /run/lock<br>none            194M     0  194M   0% /run/shm<br>/dev/md0        127G  197M  121G   1% /media/volume0</p>
+<p>However, if you want the volume to to survive a reboot you need to add the volume to the <strong>/etc/fstab</strong> configuration file. You can easily add the new array by making use of the <strong>echo</strong> command.</p>
+<p>echo ‘/dev/md0 /media/volume0 ext3 noatime,rw 0 0’ &gt;&gt; /etc/fstab</p>
+<p>Let’s see if our new entry is in the <strong>/etc/fstab</strong> file.</p>
+<p>[root@iou ~]# cat /etc/fstab<br>#</p>
+<h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><h1 id="Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012"><a href="#Created-by-anaconda-on-Thu-Mar-22-20-41-14-2012" class="headerlink" title="Created by anaconda on Thu Mar 22 20:41:14 2012"></a>Created by anaconda on Thu Mar 22 20:41:14 2012</h1><p>#</p>
+<h1 id="Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’"><a href="#Accessible-filesystems-by-reference-are-maintained-under-‘-dev-disk’" class="headerlink" title="Accessible filesystems, by reference, are maintained under ‘/dev/disk’"></a>Accessible filesystems, by reference, are maintained under ‘/dev/disk’</h1><h1 id="See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info"><a href="#See-man-pages-fstab-5-findfs-8-mount-8-and-or-blkid-8-for-more-info" class="headerlink" title="See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info"></a>See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info</h1><p>#<br>/dev/mapper/VolGroup-lv_root /                       ext4    defaults        1 1<br>UUID=489ea666-1374-41ba-b4ef-725c04693437 /boot                   ext4    defaults        1 2<br>/dev/mapper/VolGroup-lv_swap swap                    swap    defaults        0 0<br>tmpfs                   /dev/shm                tmpfs   defaults        0 0<br>devpts                  /dev/pts                devpts  gid=5,mode=620  0 0<br>sysfs                   /sys                    sysfs   defaults        0 0<br>proc                    /proc                   proc    defaults        0 0</p>
+<p>/dev/md0 /media/volume0 ext3 noatime,rw 0 0</p>
+<p>There it is, now our array should be mount it every time we start the system. If you have questions or suggestion on how this tutorial could be improved leave a comment below, thank you.</p>
+
+  <p><a class="classtest-link" href="/tags/centos/" rel="tag">centos</a>, <a class="classtest-link" href="/tags/linux/" rel="tag">linux</a>, <a class="classtest-link" href="/tags/mdadm/" rel="tag">mdadm</a>, <a class="classtest-link" href="/tags/raid-1/" rel="tag">raid 1</a> — May 7, 2012</p>
+  
+
+
+          <div class="row mt-2">
+  
+    <div class="eight columns">
+      <p id="madewith">Made with ❤ and
+        <a class="footer-link icon" href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer" aria-label="Hexo.io">
+        <svg class="hexo svg-hov" width="14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+        </a>
+        
+        at <a href="https://en.wikipedia.org/wiki/Earth" target="_blank" rel="noreferrer">Earth</a>.</p>
+        
+    </div>
+
+    <!-- Sepcial thanks to https://simpleicons.org/ for the icons -->
+    <div class="four columns mb-3 posisi" >
+      
+      <a class="ml-0 footer-link icon" href="https://github.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="GitHub">
+        <svg class="github svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://linkedin.com/in/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="LinkedIn">
+        <svg class="linkedin svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://twitter.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Twitter">
+        <svg class="twitter svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+      </a>
+      
+
+      
+      <a class="ml-0 footer-link icon" href="https://instagram.com/adisaktijrs" target="_blank" style="text-decoration: none" rel="noreferrer" aria-label="Instagram">
+        <svg class="instagram svg-hov" width="18" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+      </a>
+      
+
+    </div>
+  
+</div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <script src="/js/nanobar.min.js"></script>
+  <script>
+    var options = {
+      classname: 'nanobar',
+      id: 'myNanobar'
+    };
+    var nanobar = new Nanobar(options);
+    nanobar.go(30);
+    nanobar.go(76);
+    nanobar.go(100);
+  </script>
+
+</body>
+
+</html>
