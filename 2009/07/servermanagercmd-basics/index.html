@@ -3,96 +3,90 @@
 <head>
   <meta charset="utf-8">
   
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-3282416-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-  
   <title>ServerManagerCmd basics | Linhost.info</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart ServermManagerCmd.exe. The command line orie">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ServerManagerCmd basics">
-<meta property="og:url" content="http://linhost.info/2009/07/servermanagercmd-basics/index.html">
-<meta property="og:site_name" content="Linhost.info">
-<meta property="og:description" content="While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart ServermManagerCmd.exe. The command line orie">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SnDbzUeVgNI/AAAAAAAABWA/BCHUVAOdwcc/s800/servermanagercmd.png">
-<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1Mh9DlZI/AAAAAAAABWE/RvrqJ5DzysM/s800/servermanager_install.png">
-<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1M1GO6HI/AAAAAAAABWI/yh34JeSBCmY/s800/servermanafer_remove.png">
-<meta property="article:published_time" content="2009-07-31T04:18:03.000Z">
-<meta property="article:modified_time" content="2020-08-09T09:07:53.514Z">
-<meta property="article:tag" content="Windows Server 2003">
-<meta property="article:tag" content="cmd">
-<meta property="article:tag" content="server 2008">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/SnDbzUeVgNI/AAAAAAAABWA/BCHUVAOdwcc/s800/servermanagercmd.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+  <meta name="description" content="site, site">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="generator" content="Hexo 2.6.0"/>
 
-<meta name="generator" content="Hexo 5.0.0"></head>
+  <meta property="og:title" content="ServerManagerCmd basics"/>
+  <meta property="og:site_name" content="Linhost.info"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="shortcut icon">
+
+  
+    <link rel="stylesheet" href="/css/highlightjs/github.css">
+  
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+
+  <link href="/css/site.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.caption.min.js"></script>
+  <link href="/css/captionjs.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="/js/ewal.js"></script>
+
+  
+  
+
+
+
+
+</head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <!--<div id="banner"></div>-->
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+  
+
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="text-primary">Linhost.info</span></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
         
-      </nav>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+      
+      
+      
+      
+      </ul>
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-servermanagercmd-basics" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div class="container">
+    <div class="row">
+      <div><article class="post">
   
-    <h1 class="article-title" itemprop="name">
-      ServerManagerCmd basics
-    </h1>
+    
+  
+    <h1 class="title">ServerManagerCmd basics</h1>
   
 
-      </header>
+    <div class="post-date">
+      <time datetime="2009-07-31T04:18:03.000Z">2009-07-30</time>
+    </div>
+  
+  <div class="post-content">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart <strong>ServermManagerCmd.exe</strong>. The command line oriented tool can be used to determine/install/uninstall roles, role services, and features.</p>
+      <p>While Microsoft server provides a great wizard to manipulate roles and features, you may be also interested in learning about it’s command-line counterpart <strong>ServermManagerCmd.exe</strong>. The command line oriented tool can be used to determine/install/uninstall roles, role services, and features.</p>
 <blockquote>
 <p>ServerManagerCmd requires an elevated command prompt</p>
 </blockquote>
@@ -116,75 +110,82 @@ ga('send', 'pageview');
 </ul>
 <p><img src="http://lh6.ggpht.com/_fF0LO28FGYY/SnD1M1GO6HI/AAAAAAAABWI/yh34JeSBCmY/s800/servermanafer_remove.png" alt="servermanager_remove"></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://linhost.info/2009/07/servermanagercmd-basics/" data-id="ckj2hnjs800ndy6fxegbrda00" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows-Server-2003/" rel="tag">Windows Server 2003</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/" rel="tag">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server-2008/" rel="tag">server 2008</a></li></ul>
-
-    </footer>
+    
   </div>
   
     
-<nav id="article-nav">
   
-    <a href="/2009/07/delay-boot-time-on-a-vmware-virtual-machine/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-caption">Newer</span>
-      <div class="article-nav-title">
-        
-          Delay boot time on a VMware virtual machine
-        
-      </div>
-    </a>
+  <div class="categories">
+    <a href="/categories/Article/">Article</a>
+  </div>
+
+
+    
   
-  
-    <a href="/2009/07/truecrypt-encryption-cracked-windows-7-activation-hack-iphone-vulnerable-to-attacks-microsoft-declares-windows-7-rtm-yahoo-tosses-in-the-search-towel-firefox-to-hit-1-billion-downloads-frida/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-caption">Older</span>
-      <div class="article-nav-title">IT News 07/30/2009</div>
-    </a>
-  
-</nav>
+  <div class="tags">
+    <a href="/tags/Windows-Server-2003/">Windows Server 2003</a>, <a href="/tags/cmd/">cmd</a>, <a href="/tags/server-2008/">server 2008</a>
+  </div>
 
   
+  <div class="addthis_toolbox addthis_default_style 
+addthis_32x32_style" data-addthis-url="http://linhost.info/2009/07/servermanagercmd-basics/" data-addthis-title="ServerManagerCmd basics">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+  
+    <ul class="next_prev">
+      
+        <li class="prev">
+        <a class="btn btn-success" role="button" href="/2009/07/truecrypt-encryption-cracked-windows-7-activation-hack-iphone-vulnerable-to-attacks-microsoft-declares-windows-7-rtm-yahoo-tosses-in-the-search-towel-firefox-to-hit-1-billion-downloads-frida/">
+          Previous
+        </a></li>
+      
+      
+        <li class="next">
+        <a class="btn btn-success" role="button" href="/2009/07/delay-boot-time-on-a-vmware-virtual-machine/">
+          Next
+        </a></li>
+      
+    </ul>
+  
+  
+
 </article>
-
-</section>
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Linhost.info<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
-      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+</div>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
+  <div id="push"></div>
+  <div class="navbar navbar-footer">
+  <div class="container">
+    <p class="navbar-center navbar-text">
+      
+      &copy; 2020 Linhost.info
+      
+    </p>
   </div>
+</div>
+  <script src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3282416-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
 </body>
 </html>

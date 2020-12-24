@@ -3,174 +3,171 @@
 <head>
   <meta charset="utf-8">
   
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-3282416-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
-  
   <title>Change The Default Text Editor In WinSCP | Linhost.info</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="WinSCP is a Free SFTP and FTP client for Windows with a simple and efficient interface I cannot say the same for other clients. When I have to edit files on a remote server I commonly use WinSCP, whil">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Change The Default Text Editor In WinSCP">
-<meta property="og:url" content="http://linhost.info/2010/12/change-the-default-text-editor-in-winscp/index.html">
-<meta property="og:site_name" content="Linhost.info">
-<meta property="og:description" content="WinSCP is a Free SFTP and FTP client for Windows with a simple and efficient interface I cannot say the same for other clients. When I have to edit files on a remote server I commonly use WinSCP, whil">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TQScRiIqu1I/AAAAAAAACxU/EosVpdyFb9E/s800/winscp-3.png">
-<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRrXIOEI/AAAAAAAACxY/zMQNIrktjlc/s800/winscp-4.png">
-<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRZRBzsI/AAAAAAAACxM/jNYIWDGsKe4/s800/winscp-1.png">
-<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRTFpa0I/AAAAAAAACxQ/nAlpQu-Y7Ss/s800/winscp-2.png">
-<meta property="og:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TQScR68FmvI/AAAAAAAACxc/KnB_4vA3loY/s800/winscp-5.png">
-<meta property="og:image" content="http://lh6.ggpht.com/_fF0LO28FGYY/TQScV5GmZuI/AAAAAAAACxg/I0xVykbdOTk/s800/winscp-6.png">
-<meta property="og:image" content="http://lh3.ggpht.com/_fF0LO28FGYY/TQScWA-2imI/AAAAAAAACxk/Dp1WltfnEWM/s800/winscp-7.png">
-<meta property="article:published_time" content="2010-12-13T04:31:08.000Z">
-<meta property="article:modified_time" content="2020-08-09T09:07:53.745Z">
-<meta property="article:tag" content="windows">
-<meta property="article:tag" content="winscp">
-<meta property="article:tag" content="notepad">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lh5.ggpht.com/_fF0LO28FGYY/TQScRiIqu1I/AAAAAAAACxU/EosVpdyFb9E/s800/winscp-3.png">
-  
-    <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+  <meta name="description" content="site, site">
   
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,700&amp;subset=korean" rel="stylesheet">
-  
-<link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="generator" content="Hexo 2.6.0"/>
 
-<meta name="generator" content="Hexo 5.0.0"></head>
+  <meta property="og:title" content="Change The Default Text Editor In WinSCP"/>
+  <meta property="og:site_name" content="Linhost.info"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link href="/favicon.png" rel="shortcut icon">
+
+  
+    <link rel="stylesheet" href="/css/highlightjs/github.css">
+  
+  <script src="/js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link rel="alternate" href="/atom.xml" title="Linhost.info" type="application/atom+xml">
+
+  <link href="/css/site.css" rel="stylesheet">
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.caption.min.js"></script>
+  <link href="/css/captionjs.min.css" rel="stylesheet"/>
+  <script type="text/javascript" src="/js/ewal.js"></script>
+
+  
+  
+
+
+
+
+</head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <!--<div id="banner"></div>-->
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        <a href="/" id="main-nav-title" class="main-nav-link">Linhost.info</a>
+  
+
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><span class="text-primary">Linhost.info</span></a>
+    </div>
+    <div class="collapse navbar-collapse navbar-right">
+      <ul class="nav navbar-nav">
         
-      </nav>
+      </ul>
+      <ul class="nav navbar-nav pull-right">
+      
+      
+      
+      
+      </ul>
     </div>
   </div>
-</header>
+</div>
 
-      <div class="outer">
-        <section id="main"><article id="post-change-the-default-text-editor-in-winscp" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Article/">Article</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  <div class="container">
+    <div class="row">
+      <div><article class="post">
   
-    <h1 class="article-title" itemprop="name">
-      Change The Default Text Editor In WinSCP
-    </h1>
+    
+  
+    <h1 class="title">Change The Default Text Editor In WinSCP</h1>
   
 
-      </header>
+    <div class="post-date">
+      <time datetime="2010-12-13T04:31:08.000Z">2010-12-12</time>
+    </div>
+  
+  <div class="post-content">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>WinSCP is a Free SFTP and FTP client for Windows with a simple and efficient interface I cannot say the same for other clients. When I have to edit files on a remote server I commonly use WinSCP, while a simple text editor is bundle with WinSCP I like to do more complex things and this is when the default text editor shows its limitations. The good news is that changing the default text editor in WinSCP only takes a few minutes.</p>
+      <p>WinSCP is a Free SFTP and FTP client for Windows with a simple and efficient interface I cannot say the same for other clients. When I have to edit files on a remote server I commonly use WinSCP, while a simple text editor is bundle with WinSCP I like to do more complex things and this is when the default text editor shows its limitations. The good news is that changing the default text editor in WinSCP only takes a few minutes.</p>
 <h2 id="First-things-first"><a href="#First-things-first" class="headerlink" title="First things first!"></a>First things first!</h2><p>The easiest way to find the text editor path is to right click on the text editor shortcut and then on Properties. With the Properties window open search for the <em>Target:</em> box and copy the entire path. Notepad++ in my Windows 7 system has the following path:</p>
 <p>C:Program Files (x86)Notepad++notepad++.exe</p>
 <p>Copy the path, you will need it later. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/SZ1a3O2ApJnhBws5VKX4oA?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TQScRiIqu1I/AAAAAAAACxU/EosVpdyFb9E/s800/winscp-3.png"></a> <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/RwmSkjsYOa3kAROXAK_2Mw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRrXIOEI/AAAAAAAACxY/zMQNIrktjlc/s800/winscp-4.png"></a></p>
 <h2 id="Configure-WinSCP"><a href="#Configure-WinSCP" class="headerlink" title="Configure WinSCP"></a>Configure WinSCP</h2><p>Star WinSCP and on the left you will find the sidebar, in the sidebar search for <strong>Preferences</strong> and click on it. You will notice a button also named <strong>Preferences</strong> click on it. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/RARn2HU2zyzENwQakjP8_g?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRZRBzsI/AAAAAAAACxM/jNYIWDGsKe4/s800/winscp-1.png"></a> A new window will open, go to the left sidebar and click on <strong>Editors</strong> and the on the <strong>Add</strong> button. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/j5xL-f-34FHKZXqu0ynA9w?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TQScRTFpa0I/AAAAAAAACxQ/nAlpQu-Y7Ss/s800/winscp-2.png"></a> This where you will provide WinSCP with the path to the text editor you wish to use, hopefully you followed the instruction and copied the path. Select <strong>External editor:</strong> and paste the path. You can also browse to the location where the text editor resides. Click on <strong>OK</strong> to confirm. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/uT0y4UEwXuHUbeVwz3BYlg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_fF0LO28FGYY/TQScR68FmvI/AAAAAAAACxc/KnB_4vA3loY/s800/winscp-5.png"></a> The peculiar thing about WinSCP is that our new text editor will not be made automatically the default editor, if you open a file the previous editor will still be used. To change this behavior you need to select the text editor of your choice and the click on the <strong>Up</strong> button till the desired text editor is at the top, top editor becomes the default editor. And click on <strong>OK</strong>. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/NYKnkTTfHBato_VBL2cy7Q?feat=embedwebsite"><img src="http://lh6.ggpht.com/_fF0LO28FGYY/TQScV5GmZuI/AAAAAAAACxg/I0xVykbdOTk/s800/winscp-6.png"></a> And click on <strong>Close</strong>. From now on when ever you open a file while using WinSCP the new text editor will be used. <a target="_blank" rel="noopener" href="http://picasaweb.google.com/lh/photo/jK_4XtHPukN48a_nKP18EQ?feat=embedwebsite"><img src="http://lh3.ggpht.com/_fF0LO28FGYY/TQScWA-2imI/AAAAAAAACxk/Dp1WltfnEWM/s800/winscp-7.png"></a> You don’t have to limit your self to Notepadd++, any text editor can be use and made the default. Thank you for reading this tutorial.</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://linhost.info/2010/12/change-the-default-text-editor-in-winscp/" data-id="ckj2hnjm7004hy6fx4mzv3a92" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notepad/" rel="tag">notepad</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/winscp/" rel="tag">winscp</a></li></ul>
-
-    </footer>
+    
   </div>
   
     
-<nav id="article-nav">
   
-    <a href="/2010/12/avg-rescue-cd-free-bootable-antivirus-solution/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-caption">Newer</span>
-      <div class="article-nav-title">
-        
-          AVG Rescue CD - Free Bootable Antivirus Solution
-        
-      </div>
-    </a>
+  <div class="categories">
+    <a href="/categories/Article/">Article</a>
+  </div>
+
+
+    
   
-  
-    <a href="/2010/12/cisco-portable-product-sheets-product-reference/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-caption">Older</span>
-      <div class="article-nav-title">Cisco Portable Product Sheets - Product Reference</div>
-    </a>
-  
-</nav>
+  <div class="tags">
+    <a href="/tags/windows/">windows</a>, <a href="/tags/notepad/">notepad</a>, <a href="/tags/winscp/">winscp</a>
+  </div>
 
   
+  <div class="addthis_toolbox addthis_default_style 
+addthis_32x32_style" data-addthis-url="http://linhost.info/2010/12/change-the-default-text-editor-in-winscp/" data-addthis-title="Change The Default Text Editor In WinSCP">
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+<a class="addthis_button_compact"></a>
+<a class="addthis_counter addthis_bubble_style"></a>
+</div>
+  
+    <ul class="next_prev">
+      
+        <li class="prev">
+        <a class="btn btn-success" role="button" href="/2010/12/cisco-portable-product-sheets-product-reference/">
+          Previous
+        </a></li>
+      
+      
+        <li class="next">
+        <a class="btn btn-success" role="button" href="/2010/12/avg-rescue-cd-free-bootable-antivirus-solution/">
+          Next
+        </a></li>
+      
+    </ul>
+  
+  
+
 </article>
-
-</section>
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 Linhost.info<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> with 
-      theme_by <a href="http://hexo.io/" target="_blank">mango</a>
+</div>
     </div>
   </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
+  <div id="push"></div>
+  <div class="navbar navbar-footer">
+  <div class="container">
+    <p class="navbar-center navbar-text">
+      
+      &copy; 2020 Linhost.info
+      
+    </p>
   </div>
+</div>
+  <script src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3282416-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+
+
 </body>
 </html>
